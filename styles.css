@@ -15,6 +15,8 @@ body {
     max-width: 1200px;
     margin: 0 auto;
     padding: 0 20px;
+    border-left: 2px solid #000000;
+    border-right: 2px solid #000000;
 }
 
 /* Header Styles */
@@ -23,6 +25,7 @@ header {
     color: white;
     padding: 2rem 0;
     box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+    border-bottom: 3px solid #000000;
 }
 
 header h1 {
@@ -48,12 +51,16 @@ main {
     background: white;
     border-radius: 8px;
     box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    border: 2px solid #000000;
 }
 
 .intro h2 {
     color: #BF1F3C;
     margin-bottom: 1rem;
     font-size: 2rem;
+    padding-bottom: 0.75rem;
+    border-bottom: 2px solid #000000;
+    display: inline-block;
 }
 
 .year-levels h2 {
@@ -77,8 +84,9 @@ main {
     border-radius: 12px;
     text-decoration: none;
     color: #404040;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    transition: transform 0.3s ease, box-shadow 0.3s ease, border 0.3s ease;
     box-shadow: 0 2px 12px rgba(0,0,0,0.08);
+    border: 1px solid #000000;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -88,6 +96,7 @@ main {
 .year-card:hover {
     transform: translateY(-5px);
     box-shadow: 0 8px 24px rgba(191,31,60,0.2);
+    border: 2px solid #000000;
 }
 
 .year-card.junior {
@@ -102,6 +111,9 @@ main {
     font-size: 2rem;
     margin-bottom: 0.5rem;
     color: #BF1F3C;
+    padding-bottom: 0.5rem;
+    border-bottom: 2px solid #000000;
+    width: 100%;
 }
 
 .year-card p {
@@ -118,6 +130,7 @@ main {
     font-size: 0.85rem;
     font-weight: 600;
     text-transform: uppercase;
+    border: 1px solid #000000;
 }
 
 .year-card.junior .level-type {
@@ -136,6 +149,8 @@ main {
     grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
     gap: 1.5rem;
     margin-bottom: 2rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid #000000;
 }
 
 .strand-card, .standard-card {
@@ -143,18 +158,22 @@ main {
     padding: 1.5rem;
     border-radius: 10px;
     box-shadow: 0 2px 10px rgba(0,0,0,0.08);
-    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    border: 1px solid #000000;
+    transition: transform 0.2s ease, box-shadow 0.2s ease, border 0.2s ease;
 }
 
 .strand-card:hover, .standard-card:hover {
     transform: translateY(-3px);
     box-shadow: 0 6px 18px rgba(191,31,60,0.15);
+    border: 2px solid #000000;
 }
 
 .strand-card h3, .standard-card h3 {
     color: #BF1F3C;
-    margin-bottom: 0.5rem;
+    margin-bottom: 0.75rem;
+    padding-bottom: 0.5rem;
     font-size: 1.3rem;
+    border-bottom: 1px solid #000000;
 }
 
 .strand-card p, .standard-card p {
@@ -174,6 +193,7 @@ main {
     margin-bottom: 0.5rem;
     color: #BF1F3C;
     font-weight: 600;
+    border: 1px solid #000000;
 }
 
 /* Navigation */
@@ -185,12 +205,14 @@ main {
     color: white;
     text-decoration: none;
     border-radius: 6px;
+    border: 2px solid #000000;
     transition: background-color 0.3s ease, transform 0.2s ease;
 }
 
 .nav-back:hover {
     background-color: #BF344D;
     transform: translateY(-2px);
+    border: 2px solid #000000;
 }
 
 /* Footer */
@@ -200,10 +222,39 @@ footer {
     text-align: center;
     padding: 1.5rem 0;
     margin-top: 3rem;
+    border-top: 3px solid #000000;
+}
+
+/* Section Dividers */
+.year-levels {
+    padding-top: 2rem;
+    border-top: 2px solid #000000;
+    margin-top: 2rem;
+}
+
+.year-levels h2 {
+    position: relative;
+    padding-bottom: 1rem;
+}
+
+.year-levels h2::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100px;
+    height: 3px;
+    background-color: #000000;
 }
 
 /* Responsive Design */
 @media (max-width: 768px) {
+    .container {
+        border-left: none;
+        border-right: none;
+    }
+    
     header h1 {
         font-size: 2rem;
     }
