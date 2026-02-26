@@ -7,8 +7,8 @@
 body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     line-height: 1.6;
-    color: #333;
-    background-color: #f4f4f4;
+    color: #404040;
+    background-color: #F2F2F2;
 }
 
 .container {
@@ -19,10 +19,10 @@ body {
 
 /* Header Styles */
 header {
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    background: linear-gradient(135deg, #BF1F3C 0%, #BF344D 100%);
     color: white;
     padding: 2rem 0;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    box-shadow: 0 2px 8px rgba(0,0,0,0.15);
 }
 
 header h1 {
@@ -51,7 +51,7 @@ main {
 }
 
 .intro h2 {
-    color: #667eea;
+    color: #BF1F3C;
     margin-bottom: 1rem;
     font-size: 2rem;
 }
@@ -59,7 +59,7 @@ main {
 .year-levels h2 {
     text-align: center;
     margin-bottom: 2rem;
-    color: #333;
+    color: #404040;
     font-size: 1.8rem;
 }
 
@@ -74,11 +74,11 @@ main {
 .year-card {
     background: white;
     padding: 2rem;
-    border-radius: 10px;
+    border-radius: 12px;
     text-decoration: none;
-    color: #333;
+    color: #404040;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
-    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    box-shadow: 0 2px 12px rgba(0,0,0,0.08);
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -87,27 +87,28 @@ main {
 
 .year-card:hover {
     transform: translateY(-5px);
-    box-shadow: 0 5px 20px rgba(0,0,0,0.2);
+    box-shadow: 0 8px 24px rgba(191,31,60,0.2);
 }
 
 .year-card.junior {
-    border-top: 4px solid #4CAF50;
+    border-top: 4px solid #BF344D;
 }
 
 .year-card.senior {
-    border-top: 4px solid #2196F3;
+    border-top: 4px solid #BF1F3C;
 }
 
 .year-card h3 {
     font-size: 2rem;
     margin-bottom: 0.5rem;
-    color: #667eea;
+    color: #BF1F3C;
 }
 
 .year-card p {
     font-size: 1.1rem;
     margin-bottom: 1rem;
-    color: #666;
+    color: #404040;
+    opacity: 0.85;
 }
 
 .level-type {
@@ -120,13 +121,13 @@ main {
 }
 
 .year-card.junior .level-type {
-    background-color: #e8f5e9;
-    color: #2e7d32;
+    background-color: #fce4e8;
+    color: #BF344D;
 }
 
 .year-card.senior .level-type {
-    background-color: #e3f2fd;
-    color: #1565c0;
+    background-color: #f5e0e4;
+    color: #BF1F3C;
 }
 
 /* Strand/Standard Cards */
@@ -140,37 +141,38 @@ main {
 .strand-card, .standard-card {
     background: white;
     padding: 1.5rem;
-    border-radius: 8px;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-    transition: transform 0.2s ease;
+    border-radius: 10px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
 .strand-card:hover, .standard-card:hover {
     transform: translateY(-3px);
-    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+    box-shadow: 0 6px 18px rgba(191,31,60,0.15);
 }
 
 .strand-card h3, .standard-card h3 {
-    color: #667eea;
+    color: #BF1F3C;
     margin-bottom: 0.5rem;
     font-size: 1.3rem;
 }
 
 .strand-card p, .standard-card p {
-    color: #666;
+    color: #404040;
+    opacity: 0.85;
     font-size: 0.95rem;
     line-height: 1.5;
 }
 
 .standard-code {
     display: inline-block;
-    background-color: #f0f0f0;
+    background-color: #F2F2F2;
     padding: 0.2rem 0.6rem;
     border-radius: 4px;
     font-family: 'Courier New', monospace;
     font-size: 0.9rem;
     margin-bottom: 0.5rem;
-    color: #764ba2;
+    color: #BF1F3C;
     font-weight: 600;
 }
 
@@ -179,20 +181,21 @@ main {
     display: inline-block;
     margin-bottom: 2rem;
     padding: 0.8rem 1.5rem;
-    background-color: #667eea;
+    background-color: #BF1F3C;
     color: white;
     text-decoration: none;
-    border-radius: 5px;
-    transition: background-color 0.3s ease;
+    border-radius: 6px;
+    transition: background-color 0.3s ease, transform 0.2s ease;
 }
 
 .nav-back:hover {
-    background-color: #764ba2;
+    background-color: #BF344D;
+    transform: translateY(-2px);
 }
 
 /* Footer */
 footer {
-    background-color: #333;
+    background-color: #404040;
     color: white;
     text-align: center;
     padding: 1.5rem 0;
