@@ -21,46 +21,68 @@ body {
 
 /* Header Styles */
 header {
-    background-color: #BF1F3C;
+    background-color: #000000;
     color: white;
-    padding: 3rem 0;
+    padding: 0;
     position: relative;
     overflow: hidden;
+    min-height: 200px;
 }
 
-/* Geometric pattern using pseudo-elements */
+/* Large geometric shapes */
 header::before {
     content: '';
     position: absolute;
     top: 0;
     left: 0;
-    width: 100%;
+    width: 40%;
     height: 100%;
-    background-image:
-        linear-gradient(45deg, #000000 25%, transparent 25%),
-        linear-gradient(-45deg, #000000 25%, transparent 25%),
-        linear-gradient(45deg, transparent 75%, #404040 75%),
-        linear-gradient(-45deg, transparent 75%, #404040 75%);
-    background-size: 60px 60px;
-    background-position: 0 0, 0 30px, 30px -30px, -30px 0px;
-    opacity: 0.15;
+    background-color: #BF1F3C;
+    clip-path: polygon(0 0, 100% 0, 85% 100%, 0 100%);
     z-index: 0;
 }
 
 header::after {
     content: '';
     position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    height: 20px;
-    background-color: #000000;
-    clip-path: polygon(0 0, 5% 100%, 10% 0, 15% 100%, 20% 0, 25% 100%, 30% 0, 35% 100%, 40% 0, 45% 100%, 50% 0, 55% 100%, 60% 0, 65% 100%, 70% 0, 75% 100%, 80% 0, 85% 100%, 90% 0, 95% 100%, 100% 0, 100% 100%, 0 100%);
+    top: 0;
+    right: 0;
+    width: 35%;
+    height: 100%;
+    background-color: #404040;
+    clip-path: polygon(15% 0, 100% 0, 100% 100%, 0 100%);
+    z-index: 0;
 }
 
 header .container {
     position: relative;
-    z-index: 1;
+    z-index: 2;
+    padding: 3rem 20px;
+}
+
+/* Additional geometric shapes */
+header .container::before {
+    content: '';
+    position: absolute;
+    top: 20%;
+    left: 30%;
+    width: 200px;
+    height: 200px;
+    background-color: #BF344D;
+    clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%);
+    z-index: -1;
+}
+
+header .container::after {
+    content: '';
+    position: absolute;
+    bottom: 10%;
+    right: 25%;
+    width: 150px;
+    height: 150px;
+    background-color: #8C1629;
+    clip-path: polygon(0 0, 100% 0, 100% 100%);
+    z-index: -1;
 }
 
 header h1 {
@@ -68,6 +90,19 @@ header h1 {
     margin-bottom: 0.5rem;
     text-shadow: 3px 3px 0 #000000;
     letter-spacing: 2px;
+    position: relative;
+}
+
+header h1::after {
+    content: '';
+    position: absolute;
+    top: -20px;
+    right: -40px;
+    width: 80px;
+    height: 80px;
+    background-color: #737373;
+    clip-path: polygon(50% 0, 100% 100%, 0 100%);
+    z-index: -1;
 }
 
 .tagline {
