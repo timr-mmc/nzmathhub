@@ -325,7 +325,23 @@ main {
     margin-bottom: 0.75rem;
     padding-bottom: 0.5rem;
     font-size: 1.3rem;
-    border-bottom: 1px solid #000000;
+    border-bottom: 2px solid #000000;
+    position: relative;
+}\n
+.strand-card h3::before, .standard-card h3::before {
+    content: '\u25a0';\n    color: #404040;
+    margin-right: 0.5rem;
+    font-size: 0.8rem;
+}
+
+.strand-card h3::after, .standard-card h3::after {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    width: 30%;
+    height: 2px;
+    background: linear-gradient(90deg, #BF344D, transparent);
 }
 
 .strand-card p, .standard-card p {
@@ -369,35 +385,78 @@ main {
 
 /* Footer */
 footer {
-    background-color: #404040;
+    background: 
+        repeating-linear-gradient(
+            90deg,
+            #404040 0px,
+            #404040 50px,
+            #BF1F3C 50px,
+            #BF1F3C 100px,
+            #000000 100px,
+            #000000 150px
+        );
     color: white;
     text-align: center;
     padding: 1.5rem 0;
     margin-top: 3rem;
-    border-top: 3px solid #000000;
+    border-top: 8px solid #000000;
+    position: relative;
+}
+
+footer::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: repeating-linear-gradient(
+        45deg,
+        #F2F2F2,
+        #F2F2F2 10px,
+        #BF344D 10px,
+        #BF344D 20px
+    );
 }
 
 /* Section Dividers */
 .year-levels {
     padding-top: 2rem;
-    border-top: 2px solid #000000;
     margin-top: 2rem;
-}
-
-.year-levels h2 {
     position: relative;
-    padding-bottom: 1rem;
 }
 
-.year-levels h2::after {
+.year-levels::before {
     content: '';
     position: absolute;
-    bottom: 0;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 100px;
-    height: 3px;
-    background-color: #000000;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 8px;
+    background: linear-gradient(
+        90deg,
+        transparent 0%,
+        #BF1F3C 20%,
+        #404040 50%,
+        #BF344D 80%,
+        transparent 100%
+    );
+}
+
+.year-levels::after {
+    content: '';
+    position: absolute;
+    top: 8px;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background: repeating-linear-gradient(
+        90deg,
+        #000000 0px,
+        #000000 10px,
+        transparent 10px,
+        transparent 20px
+    );
 }
 
 /* Responsive Design */
