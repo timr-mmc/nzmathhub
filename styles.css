@@ -21,21 +21,80 @@ body {
 
 /* Header Styles */
 header {
-    background: linear-gradient(135deg, #BF1F3C 0%, #BF344D 100%);
+    background: 
+        repeating-linear-gradient(
+            90deg,
+            #BF1F3C 0px,
+            #BF1F3C 40px,
+            #BF344D 40px,
+            #BF344D 80px,
+            #404040 80px,
+            #404040 120px
+        ),
+        linear-gradient(135deg, #BF1F3C 0%, #000000 100%);
+    background-size: 120px 8px, 100% 100%;
+    background-position: 0 0, 0 0;
+    background-repeat: repeat-x, no-repeat;
     color: white;
-    padding: 2rem 0;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.15);
-    border-bottom: 3px solid #000000;
+    padding: 3rem 0 2rem 0;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+    border-bottom: 4px solid #000000;
+    border-top: 8px solid #404040;
+    position: relative;
+    overflow: hidden;
+}
+
+header::before {
+    content: '';
+    position: absolute;
+    top: 8px;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: repeating-linear-gradient(
+        45deg,
+        #BF1F3C,
+        #BF1F3C 10px,
+        #F2F2F2 10px,
+        #F2F2F2 20px,
+        #404040 20px,
+        #404040 30px
+    );
+}
+
+header::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 12px;
+    background: 
+        linear-gradient(90deg, 
+            #000000 0%, #000000 25%,
+            #BF344D 25%, #BF344D 50%,
+            #404040 50%, #404040 75%,
+            #BF1F3C 75%, #BF1F3C 100%
+        );
+    background-size: 80px 100%;
 }
 
 header h1 {
     font-size: 2.5rem;
     margin-bottom: 0.5rem;
+    text-shadow: 
+        2px 2px 0 #000000,
+        -1px -1px 0 #404040;
+    position: relative;
+    z-index: 1;
 }
 
 .tagline {
     font-size: 1.1rem;
-    opacity: 0.9;
+    opacity: 0.95;
+    text-shadow: 1px 1px 2px #000000;
+    position: relative;
+    z-index: 1;
 }
 
 /* Main Content */
@@ -52,6 +111,43 @@ main {
     border-radius: 8px;
     box-shadow: 0 2px 10px rgba(0,0,0,0.1);
     border: 2px solid #000000;
+    border-top: 8px solid #BF1F3C;
+    border-bottom: 8px solid #404040;
+    position: relative;
+}
+
+.intro::before {
+    content: '';
+    position: absolute;
+    top: 8px;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: repeating-linear-gradient(
+        90deg,
+        #BF344D 0px,
+        #BF344D 15px,
+        #F2F2F2 15px,
+        #F2F2F2 30px,
+        #000000 30px,
+        #000000 45px
+    );
+}
+
+.intro::after {
+    content: '';
+    position: absolute;
+    bottom: 8px;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: repeating-linear-gradient(
+        90deg,
+        #404040 0px,
+        #404040 20px,
+        #BF1F3C 20px,
+        #BF1F3C 40px
+    );
 }
 
 .intro h2 {
@@ -59,15 +155,71 @@ main {
     margin-bottom: 1rem;
     font-size: 2rem;
     padding-bottom: 0.75rem;
-    border-bottom: 2px solid #000000;
+    border-bottom: 3px solid #000000;
     display: inline-block;
+    position: relative;
+    text-shadow: 1px 1px 0 #F2F2F2;
+}
+
+.intro h2::before {
+    content: '◆';
+    position: absolute;
+    left: -2rem;
+    color: #BF344D;
+    font-size: 1.5rem;
+}
+
+.intro h2::after {
+    content: '◆';
+    position: absolute;
+    right: -2rem;
+    color: #BF344D;
+    font-size: 1.5rem;
 }
 
 .year-levels h2 {
     text-align: center;
     margin-bottom: 2rem;
-    color: #404040;
+    color: #F2F2F2;
     font-size: 1.8rem;
+    padding: 1rem 2rem;
+    background: linear-gradient(90deg, #BF1F3C 0%, #404040 50%, #BF344D 100%);
+    border-radius: 8px;
+    border: 2px solid #000000;
+    box-shadow: 0 4px 8px rgba(191,31,60,0.3);
+    position: relative;
+}
+
+.year-levels h2::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: repeating-linear-gradient(
+        45deg,
+        #000000,
+        #000000 8px,
+        #F2F2F2 8px,
+        #F2F2F2 16px
+    );
+}
+
+.year-levels h2::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: repeating-linear-gradient(
+        -45deg,
+        #000000,
+        #000000 8px,
+        #F2F2F2 8px,
+        #F2F2F2 16px
+    );
 }
 
 /* Year Grid */
