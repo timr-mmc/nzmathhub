@@ -7,54 +7,122 @@
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <header>
-        <div class="container">
-            <h1>NZ Math Hub</h1>
-        </div>
+    
+    <!-- Main Page Header - Scrolls away -->
+    <header class="page-header">
+        <h1>NZ Math Hub</h1>
+        <p class="subtitle">Mathematics Resources for Secondary Students</p>
     </header>
-
-    <main class="container">
-        <section class="intro">
-            <h2>Welcome to NZ Math Hub</h2>
-            <p>Select your Year Level to access mathematics resources tailored to your learning needs.</p>
-        </section>
-
-        <section class="year-levels">
-            <h2>Choose Your Year Level</h2>
-            <div class="year-grid">
-                <a href="year9.html" class="year-card junior">
-                    <h3>Year 9</h3>
-                    <p>Mathematics Strands</p>
-                    <span class="level-type">Junior Level</span>
-                </a>
-                <a href="year10.html" class="year-card junior">
-                    <h3>Year 10</h3>
-                    <p>Mathematics Strands</p>
-                    <span class="level-type">Junior Level</span>
-                </a>
-                <a href="year11.html" class="year-card senior">
-                    <h3>Year 11</h3>
-                    <p>NCEA Level 1</p>
-                    <span class="level-type">Senior Level</span>
-                </a>
-                <a href="year12.html" class="year-card senior">
-                    <h3>Year 12</h3>
-                    <p>NCEA Level 2</p>
-                    <span class="level-type">Senior Level</span>
-                </a>
-                <a href="year13.html" class="year-card senior">
-                    <h3>Year 13</h3>
-                    <p>NCEA Level 3</p>
-                    <span class="level-type">Senior Level</span>
-                </a>
+    
+    <!-- Breadcrumb Navigation -->
+    <nav class="breadcrumb">
+        <div class="breadcrumb-container">
+            <strong>Home</strong>
+        </div>
+    </nav>
+    
+    <!-- Sticky Navigation Bar - Stays visible -->
+    <nav class="main-nav">
+        <div class="nav-container">
+            <ul class="nav-links">
+                <li><a href="index.html" class="active">Home</a></li>
+                <li><a href="year9.html">Year 9</a></li>
+                <li><a href="year10.html">Year 10</a></li>
+                <li><a href="year11.html">Year 11</a></li>
+                <li><a href="year12.html">Year 12</a></li>
+                <li><a href="year13.html">Year 13</a></li>
+            </ul>
+            
+            <!-- Quick section navigation -->
+            <div class="section-nav">
+                <a href="#welcome">Welcome</a>
+                <a href="#year-levels">Year Levels</a>
+            </div>
+        </div>
+    </nav>
+    
+    <!-- Main Content Area -->
+    <main>
+        
+        <!-- Section 1: Welcome -->
+        <section id="welcome" class="content-section section-light">
+            <div class="section-container">
+                <div class="section-header">
+                    <span class="section-number">1</span>
+                    <h2>Welcome to NZ Math Hub</h2>
+                    <a href="#welcome" class="anchor-link" title="Link to this section">#</a>
+                </div>
+                
+                <p>Select your Year Level to access mathematics resources tailored to your learning needs.</p>
+                
+                <div class="info-callout">
+                    <strong>📘 About This Hub:</strong> NZ Math Hub provides comprehensive mathematics resources for New Zealand secondary students. Navigate through year levels to find lessons, practice problems, and assessments aligned with the New Zealand Curriculum and NCEA standards.
+                </div>
             </div>
         </section>
+        
+        <!-- Section 2: Year Levels -->
+        <section id="year-levels" class="content-section section-medium">
+            <div class="section-container">
+                <div class="section-header">
+                    <span class="section-number">2</span>
+                    <h2>Choose Your Year Level</h2>
+                    <a href="#year-levels" class="anchor-link" title="Link to this section">#</a>
+                </div>
+                
+                <div class="year-grid">
+                    <a href="year9.html" class="year-card junior">
+                        <h3>Year 9</h3>
+                        <p>Mathematics Strands</p>
+                        <span class="level-type">Junior Level</span>
+                    </a>
+                    <a href="year10.html" class="year-card junior">
+                        <h3>Year 10</h3>
+                        <p>Mathematics Strands</p>
+                        <span class="level-type">Junior Level</span>
+                    </a>
+                    <a href="year11.html" class="year-card senior">
+                        <h3>Year 11</h3>
+                        <p>NCEA Level 1</p>
+                        <span class="level-type">Senior Level</span>
+                    </a>
+                    <a href="year12.html" class="year-card senior">
+                        <h3>Year 12</h3>
+                        <p>NCEA Level 2</p>
+                        <span class="level-type">Senior Level</span>
+                    </a>
+                    <a href="year13.html" class="year-card senior">
+                        <h3>Year 13</h3>
+                        <p>NCEA Level 3</p>
+                        <span class="level-type">Senior Level</span>
+                    </a>
+                </div>
+            </div>
+        </section>
+        
     </main>
-
-    <footer>
-        <div class="container">
-            <p>&copy; 2026 NZ Math Hub. Supporting mathematics education in New Zealand.</p>
-        </div>
+    
+    <!-- Footer -->
+    <footer class="page-footer">
+        <p>&copy; 2026 NZ Math Hub. Supporting mathematics education in New Zealand.</p>
     </footer>
+    
+    <!-- Optional: Add smooth scroll behavior enhancement -->
+    <script>
+        // This script ensures smooth scrolling works on all browsers
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+    </script>
+    
 </body>
 </html>
