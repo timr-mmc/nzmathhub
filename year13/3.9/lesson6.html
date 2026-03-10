@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lesson 6: Outliers and Unusual Features - NZ Math Hub</title>
+    <link rel="stylesheet" href="../../styles.css">
+</head>
+<body>
+    
+    <!-- Main Page Header -->
+    <header class="page-header">
+        <h1>Outliers and Unusual Features</h1>
+        <p class="subtitle">Lesson 6 - Identifying and Analyzing Unusual Data</p>
+    </header>
+    
+    <!-- Breadcrumb Navigation -->
+    <nav class="breadcrumb">
+        <div class="breadcrumb-container">
+            <a href="../../index.html">Home</a>
+            <span>&gt;</span>
+            <a href="../../year13.html">Year 13</a>
+            <span>&gt;</span>
+            <a href="index.html">3.9 Bivariate</a>
+            <span>&gt;</span>
+            <strong>Lesson 6</strong>
+        </div>
+    </nav>
+    
+    <!-- Sticky Navigation -->
+    <nav class="main-nav">
+        <div class="nav-container">
+            <ul class="nav-links">
+                <li><a href="index.html">Overview</a></li>
+                <li><a href="lesson1.html">Lesson 1</a></li>
+                <li><a href="lesson2.html">Lesson 2</a></li>
+                <li><a href="lesson3.html">Lesson 3</a></li>
+                <li><a href="lesson4.html">Lesson 4</a></li>
+                <li><a href="lesson5.html">Lesson 5</a></li>
+                <li><a href="lesson6.html" class="active">Lesson 6</a></li>
+                <li><a href="interactive.html">Interactive</a></li>
+                <li><a href="practice.html">Practice</a></li>
+            </ul>
+            <div class="section-nav">
+                <a href="#outliers">Outliers</a>
+                <a href="#influential">Influential</a>
+                <a href="#features">Other Features</a>
+            </div>
+        </div>
+    </nav>
+    
+    <!-- Main Content -->
+    <main>
+        
+        <!-- Section 1: Understanding Outliers -->
+        <section id="outliers" class="content-section section-light">
+            <div class="section-container">
+                <div class="section-header">
+                    <span class="section-number">1</span>
+                    <h2>What are Outliers?</h2>
+                    <a href="#outliers" class="anchor-link">#</a>
+                </div>
+                
+                <div class="info-callout">
+                    <strong>Definition:</strong> An outlier is a data point that doesn't fit the general pattern of the relationship. It lies far from the line of best fit or from the cluster of other points.
+                </div>
+                
+                <h3>Identifying Outliers</h3>
+                <p>Look for points that:</p>
+                <ul>
+                    <li>Are far from the line of best fit (large residual)</li>
+                    <li>Are separated from the main cluster of points</li>
+                    <li>Don't follow the general trend</li>
+                    <li>Have unusual x or y values compared to other data</li>
+                </ul>
+                
+                <h3>Why Do Outliers Occur?</h3>
+                <ol>
+                    <li><strong>Measurement Error:</strong> Incorrect recording or equipment malfunction</li>
+                    <li><strong>Data Entry Error:</strong> Typing mistakes when entering data</li>
+                    <li><strong>Genuine Unusual Cases:</strong> Legitimate but rare occurrences</li>
+                    <li><strong>Different Population:</strong> Data from a different group mixed in</li>
+                </ol>
+                
+                <h3>Example: Study Time vs Test Score</h3>
+                <p>Most students show a positive relationship between study time and scores.</p>
+                <p><strong>Outlier Example:</strong> A student who studied 10 hours but scored only 40%</p>
+                
+                <p><strong>Possible Explanations:</strong></p>
+                <ul>
+                    <li>Student was unwell during the test</li>
+                    <li>Studied the wrong material</li>
+                    <li>Data recording error</li>
+                    <li>Has learning difficulties not captured by study time alone</li>
+                </ul>
+                
+                <div class="tip-callout">
+                    <strong>💡 Important:</strong> Never just delete outliers! Always investigate and explain them in context.
+                </div>
+            </div>
+        </section>
+        
+        <!-- Section 2: Influential Points -->
+        <section id="influential" class="content-section section-medium">
+            <div class="section-container">
+                <div class="section-header">
+                    <span class="section-number">2</span>
+                    <h2>Influential Points</h2>
+                    <a href="#influential" class="anchor-link">#</a>
+                </div>
+                
+                <div class="info-callout">
+                    <strong>Definition:</strong> An influential point is one that, if removed, would significantly change the regression line (slope, intercept, or both).
+                </div>
+                
+                <h3>Characteristics of Influential Points</h3>
+                <ul>
+                    <li>Often have extreme x-values (far from other points horizontally)</li>
+                    <li>Can be outliers, but not all outliers are influential</li>
+                    <li>Have large effect on the correlation coefficient</li>
+                    <li>Dramatically affect predictions</li>
+                </ul>
+                
+                <h3>Effects of Influential Points</h3>
+                
+                <h4>1. Increasing Correlation</h4>
+                <p>An influential point aligned with the trend can make the correlation appear stronger than it really is.</p>
+                <p><em>Example:</em> Most data shows weak correlation (r = 0.3), but one point far from others aligned with a positive trend increases r to 0.7.</p>
+                
+                <h4>2. Decreasing Correlation</h4>
+                <p>An influential point not aligned with the trend can mask a real relationship.</p>
+                <p><em>Example:</em> Strong positive trend (r = 0.9), but one outlier point reduces overall r to 0.5.</p>
+                
+                <h4>3. Changing the Slope</h4>
+                <p>An influential point can make the line steeper or flatter.</p>
+                
+                <h3>What to Do About Influential Points</h3>
+                <ol>
+                    <li><strong>Identify:</strong> Use scatter plots and calculate r with and without the point</li>
+                    <li><strong>Investigate:</strong> Look for reasons why the point is unusual</li>
+                    <li><strong>Report:</strong> Describe the point and its effect on the analysis</li>
+                    <li><strong>Consider:</strong> Should it be kept or removed? Depends on context</li>
+                </ol>
+                
+                <div class="tip-callout">
+                    <strong>📊 Best Practice:</strong> Report analyses both with and without influential points, explaining the difference in your interpretation.
+                </div>
+                
+                <h3>Example Analysis Statement</h3>
+                <div class="info-callout">
+                    "The scatter plot shows a strong positive relationship (r = 0.87) between advertising spend and sales. However, one point (spend = $50,000, sales = $200,000) is much higher than others and appears influential. Removing this point reduces the correlation to r = 0.62, suggesting a more moderate relationship for typical advertising levels. This point may represent a special campaign or different product and should be analyzed separately."
+                </div>
+            </div>
+        </section>
+        
+        <!-- Section 3: Other Unusual Features -->
+        <section id="features" class="content-section section-light">
+            <div class="section-container">
+                <div class="section-header">
+                    <span class="section-number">3</span>
+                    <h2>Other Unusual Features</h2>
+                    <a href="#features" class="anchor-link">#</a>
+                </div>
+                
+                <h3>1. Clusters</h3>
+                <p><strong>Definition:</strong> Distinct groups of points separated from each other.</p>
+                
+                <p><strong>Example:</strong> Height vs weight data showing two clusters - one for children, one for adults.</p>
+                
+                <p><strong>What to do:</strong> Consider analyzing clusters separately as they may represent different sub-populations with different relationships.</p>
+                
+                <h3>2. Gaps</h3>
+                <p><strong>Definition:</strong> Ranges of x-values where no data points exist.</p>
+                
+                <p><strong>Example:</strong> Car age vs value data missing ages 5-10 years.</p>
+                
+                <p><strong>Impact:</strong> Makes predictions in the gap range unreliable. The relationship might change in that range.</p>
+                
+                <h3>3. Non-linearity</h3>
+                <p><strong>Definition:</strong> The relationship curves rather than following a straight line.</p>
+                
+                <p><strong>Example:</strong> Year vs world record time shows diminishing returns (curved).</p>
+                
+                <p><strong>What to do:</strong> Linear regression is inappropriate for strongly curved relationships. At Level 3, acknowledge the non-linearity and discuss limitations.</p>
+                
+                <h3>4. Changing Variability</h3>
+                <p><strong>Definition:</strong> The scatter around the line increases or decreases across the x-range.</p>
+                
+                <p><strong>Example:</strong> Income vs savings - higher incomes show more variability in savings patterns.</p>
+                
+                <p><strong>Impact:</strong> Violates regression assumptions. Predictions may be less reliable, especially at ends of range.</p>
+                
+                <h3>Comprehensive Analysis Framework</h3>
+                
+                <div class="info-callout">
+                    <strong>When Describing Bivariate Data, Always Mention:</strong>
+                    <ol>
+                        <li><strong>Direction:</strong> Positive, negative, or no relationship</li>
+                        <li><strong>Form:</strong> Linear or non-linear</li>
+                        <li><strong>Strength:</strong> Strong, moderate, or weak (with r value)</li>
+                        <li><strong>Unusual Features:</strong> Outliers, influential points, clusters, gaps</li>
+                        <li><strong>Context:</strong> Explain findings in relation to the variables</li>
+                        <li><strong>Limitations:</strong> Discuss any issues with the model or data</li>
+                    </ol>
+                </div>
+                
+                <h3>Example Student Answer</h3>
+                <p style="background-color: #f9f9f9; padding: 15px; border-left: 4px solid var(--secondary-accent);">
+                    "The scatter plot shows a strong positive linear relationship between hours studied and test scores, with r = 0.85. This suggests that students who study more tend to achieve higher scores. However, there is one outlier: a student who studied 9 hours but scored only 45%. This point may represent a student who was unwell or studied ineffectively. Without this outlier, the correlation increases to r = 0.92, showing an even stronger relationship. The regression model explains 72% of the variation in test scores (R² = 0.72), indicating that study time is an important but not the only factor affecting test performance. Predictions are reliable within the observed range of 2-10 hours but should not be extrapolated beyond this range."
+                </p>
+                
+                <div class="text-center mt-lg">
+                    <a href="lesson5.html" class="btn">← Previous: Making Predictions</a>
+                    <a href="interactive.html" class="btn">Next: Interactive Tool →</a>
+                </div>
+            </div>
+        </section>
+        
+    </main>
+    
+    <!-- Footer -->
+    <footer class="page-footer">
+        <p>&copy; 2026 NZ Math Hub. Supporting mathematics education in New Zealand.</p>
+    </footer>
+    
+</body>
+</html>

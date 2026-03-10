@@ -123,6 +123,7 @@ body {
     align-items: center;
     padding: 0 var(--spacing-md);
     height: var(--nav-height);
+    gap: var(--spacing-md);
 }
 
 .nav-links {
@@ -132,11 +133,38 @@ body {
     align-items: center;
     margin: 0;
     padding: 0;
+    overflow-x: auto;
+    overflow-y: hidden;
+    flex: 1;
+    /* Smooth scrolling */
+    scroll-behavior: smooth;
+    /* Hide scrollbar but keep functionality */
+    scrollbar-width: thin;
+    scrollbar-color: var(--primary-accent) transparent;
+}
+
+/* Webkit browsers scrollbar styling */
+.nav-links::-webkit-scrollbar {
+    height: 4px;
+}
+
+.nav-links::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+.nav-links::-webkit-scrollbar-thumb {
+    background: var(--primary-accent);
+    border-radius: 2px;
+}
+
+.nav-links::-webkit-scrollbar-thumb:hover {
+    background: var(--secondary-accent);
 }
 
 .nav-links li {
     margin: 0;
     padding: 0;
+    flex-shrink: 0; /* Prevent items from shrinking */
 }
 
 .nav-links a {
@@ -147,6 +175,7 @@ body {
     border-radius: 4px;
     transition: all 0.3s ease;
     display: inline-block;
+    white-space: nowrap; /* Prevent text wrapping */
 }
 
 .nav-links a:hover {
@@ -165,6 +194,7 @@ body {
     gap: var(--spacing-sm);
     font-size: 0.9rem;
     align-items: center;
+    flex-shrink: 0; /* Prevent section nav from shrinking */
 }
 
 .section-nav a {

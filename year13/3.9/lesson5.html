@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lesson 5: Making Predictions - NZ Math Hub</title>
+    <link rel="stylesheet" href="../../styles.css">
+</head>
+<body>
+    
+    <!-- Main Page Header -->
+    <header class="page-header">
+        <h1>Making Predictions</h1>
+        <p class="subtitle">Lesson 5 - Interpolation and Extrapolation</p>
+    </header>
+    
+    <!-- Breadcrumb Navigation -->
+    <nav class="breadcrumb">
+        <div class="breadcrumb-container">
+            <a href="../../index.html">Home</a>
+            <span>&gt;</span>
+            <a href="../../year13.html">Year 13</a>
+            <span>&gt;</span>
+            <a href="index.html">3.9 Bivariate</a>
+            <span>&gt;</span>
+            <strong>Lesson 5</strong>
+        </div>
+    </nav>
+    
+    <!-- Sticky Navigation -->
+    <nav class="main-nav">
+        <div class="nav-container">
+            <ul class="nav-links">
+                <li><a href="index.html">Overview</a></li>
+                <li><a href="lesson1.html">Lesson 1</a></li>
+                <li><a href="lesson2.html">Lesson 2</a></li>
+                <li><a href="lesson3.html">Lesson 3</a></li>
+                <li><a href="lesson4.html">Lesson 4</a></li>
+                <li><a href="lesson5.html" class="active">Lesson 5</a></li>
+                <li><a href="lesson6.html">Lesson 6</a></li>
+                <li><a href="interactive.html">Interactive</a></li>
+                <li><a href="practice.html">Practice</a></li>
+            </ul>
+            <div class="section-nav">
+                <a href="#using">Using Equations</a>
+                <a href="#interpolation">Interpolation</a>
+                <a href="#extrapolation">Extrapolation</a>
+            </div>
+        </div>
+    </nav>
+    
+    <!-- Main Content -->
+    <main>
+        
+        <!-- Section 1: Using the Regression Equation -->
+        <section id="using" class="content-section section-light">
+            <div class="section-container">
+                <div class="section-header">
+                    <span class="section-number">1</span>
+                    <h2>Using the Regression Equation</h2>
+                    <a href="#using" class="anchor-link">#</a>
+                </div>
+                
+                <p>Once we have the regression equation, we can use it to make predictions. The equation $y = a + bx$ allows us to:</p>
+                <ul>
+                    <li>Predict y for a given value of x</li>
+                    <li>Estimate x for a given value of y (by rearranging)</li>
+                    <li>Understand how changes in x affect y</li>
+                </ul>
+                
+                <h3>Example: Study Time and Test Scores</h3>
+                <p>Regression equation: $\text{Score} = 45 + 5(\text{Hours})$</p>
+                
+                <h4>Predict the test score for 6 hours of study:</h4>
+                <div style="margin: 20px 0;">
+                    $$\text{Score} = 45 + 5(6) = 45 + 30 = 75\%$$
+                </div>
+                
+                <p><strong>Answer:</strong> We predict a test score of 75% for a student who studies 6 hours.</p>
+                
+                <h4>How many hours needed for a score of 80%?</h4>
+                <div style="margin: 20px 0;">
+                    $$80 = 45 + 5(\text{Hours})$$
+                    $$35 = 5(\text{Hours})$$
+                    $$\text{Hours} = 7$$
+                </div>
+                
+                <p><strong>Answer:</strong> A student would need to study approximately 7 hours to achieve 80%.</p>
+                
+                <div class="tip-callout">
+                    <strong>💡 Remember:</strong> Always interpret predictions in context and include appropriate units.
+                </div>
+            </div>
+        </section>
+        
+        <!-- Section 2: Interpolation -->
+        <section id="interpolation" class="content-section section-medium">
+            <div class="section-container">
+                <div class="section-header">
+                    <span class="section-number">2</span>
+                    <h2>Interpolation</h2>
+                    <a href="#interpolation" class="anchor-link">#</a>
+                </div>
+                
+                <div class="info-callout">
+                    <strong>Definition:</strong> Interpolation is making predictions within the range of the observed data. These predictions are generally reliable if the linear model fits well.
+                </div>
+                
+                <h3>When to Use Interpolation</h3>
+                <ul>
+                    <li>The x-value is within the range of observed data</li>
+                    <li>The relationship appears linear in that range</li>
+                    <li>There are no unusual features (outliers, gaps) near the prediction point</li>
+                </ul>
+                
+                <h3>Example: Temperature and Ice Cream Sales</h3>
+                <p>Data collected for temperatures between 15°C and 35°C.</p>
+                <p>Regression equation: $\text{Sales} = -200 + 15(\text{Temp})$</p>
+                
+                <h4>Predict sales when temperature is 25°C:</h4>
+                <div style="margin: 20px 0;">
+                    $$\text{Sales} = -200 + 15(25) = -200 + 375 = \$175$$
+                </div>
+                
+                <p><strong>Why This is Interpolation:</strong> 25°C is within the observed range (15°C to 35°C), so this prediction is reasonably reliable.</p>
+                
+                <div class="tip-callout">
+                    <strong>✓ Interpolation is Generally Reliable:</strong> We're predicting within known conditions, so the linear pattern is likely to hold.
+                </div>
+                
+                <h3>Reliability of Interpolation</h3>
+                <p>Interpolated predictions are more reliable when:</p>
+                <ul>
+                    <li>The correlation is strong (|r| close to 1)</li>
+                    <li>R² is high (close to 1)</li>
+                    <li>The scatter plot shows a clear linear pattern</li>
+                    <li>There are no outliers near the prediction point</li>
+                    <li>The sample size is reasonable</li>
+                </ul>
+            </div>
+        </section>
+        
+        <!-- Section 3: Extrapolation -->
+        <section id="extrapolation" class="content-section section-light">
+            <div class="section-container">
+                <div class="section-header">
+                    <span class="section-number">3</span>
+                    <h2>Extrapolation</h2>
+                    <a href="#extrapolation" class="anchor-link">#</a>
+                </div>
+                
+                <div class="info-callout">
+                    <strong>Definition:</strong> Extrapolation is making predictions outside the range of observed data. These predictions are less reliable and should be made with caution.
+                </div>
+                
+                <h3>Dangers of Extrapolation</h3>
+                <ul>
+                    <li>The linear relationship might not continue outside the observed range</li>
+                    <li>Other factors might become important at extreme values</li>
+                    <li>The model may break down completely</li>
+                    <li>Predictions can be wildly inaccurate</li>
+                </ul>
+                
+                <h3>Example: Temperature and Ice Cream Sales (Continued)</h3>
+                <p>Using the same equation: $\text{Sales} = -200 + 15(\text{Temp})$</p>
+                
+                <h4>Predict sales when temperature is 50°C:</h4>
+                <div style="margin: 20px 0;">
+                    $$\text{Sales} = -200 + 15(50) = -200 + 750 = \$550$$
+                </div>
+                
+                <p><strong>Why This is Problematic:</strong></p>
+                <ol>
+                    <li>50°C is well outside the observed range (15°C - 35°C)</li>
+                    <li>At 50°C, other factors might matter (people staying indoors, health warnings)</li>
+                    <li>The linear relationship might not hold at extreme temperatures</li>
+                    <li>This prediction should be treated with skepticism</li>
+                </ol>
+                
+                <div class="tip-callout">
+                    <strong>⚠️ Warning:</strong> Always state when you're extrapolating and acknowledge the increased uncertainty!
+                </div>
+                
+                <h3>Another Example: Age and Height</h3>
+                <p>Data on children aged 5-15 years: $\text{Height} = 80 + 6(\text{Age})$</p>
+                
+                <h4>Predicting height at age 40:</h4>
+                <div style="margin: 20px 0;">
+                    $$\text{Height} = 80 + 6(40) = 320 \text{ cm}$$
+                </div>
+                
+                <p><strong>This is Absurd!</strong> 320 cm is over 10 feet tall. This shows why extrapolation can fail - people stop growing, so the linear model breaks down outside the age range where it was developed.</p>
+                
+                <h3>When Extrapolation Might Be Acceptable</h3>
+                <p>Extrapolation can be cautiously used when:</p>
+                <ul>
+                    <li>Extrapolating only slightly beyond the data range</li>
+                    <li>There's strong theoretical reason to believe the relationship continues</li>
+                    <li>The correlation is very strong</li>
+                    <li>You clearly state the prediction's limitations</li>
+                </ul>
+                
+                <h3>Writing About Predictions</h3>
+                
+                <div class="info-callout">
+                    <strong>Good Practice:</strong><br><br>
+                    <strong>Interpolation:</strong> "Based on the regression model, we predict [predicted value] for [x value]. This prediction is reasonably reliable as it falls within the range of observed data and the model shows a [strong/moderate] fit with R² = [value]."<br><br>
+                    <strong>Extrapolation:</strong> "Based on the regression model, we predict [predicted value] for [x value]. However, this is an extrapolation beyond the observed data range, so this prediction should be treated with caution as the linear relationship may not hold outside the observed range."
+                </div>
+                
+                <div class="text-center mt-lg">
+                    <a href="lesson4.html" class="btn">← Previous: Regression Line</a>
+                    <a href="lesson6.html" class="btn">Next: Outliers →</a>
+                </div>
+            </div>
+        </section>
+        
+    </main>
+    
+    <!-- Footer -->
+    <footer class="page-footer">
+        <p>&copy; 2026 NZ Math Hub. Supporting mathematics education in New Zealand.</p>
+    </footer>
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.15.3/katex.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.15.3/katex.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.15.3/contrib/auto-render.min.js"></script>
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            renderMathInElement(document.body, {
+                delimiters: [
+                    {left: "$$", right: "$$", display: true},
+                    {left: "$", right: "$", display: false}
+                ]
+            });
+        });
+    </script>
+    
+</body>
+</html>

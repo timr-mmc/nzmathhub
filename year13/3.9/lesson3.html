@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lesson 3: Correlation Coefficient - NZ Math Hub</title>
+    <link rel="stylesheet" href="../../styles.css">
+</head>
+<body>
+    
+    <!-- Main Page Header -->
+    <header class="page-header">
+        <h1>Correlation Coefficient</h1>
+        <p class="subtitle">Lesson 3 - Measuring Relationship Strength</p>
+    </header>
+    
+    <!-- Breadcrumb Navigation -->
+    <nav class="breadcrumb">
+        <div class="breadcrumb-container">
+            <a href="../../index.html">Home</a>
+            <span>&gt;</span>
+            <a href="../../year13.html">Year 13</a>
+            <span>&gt;</span>
+            <a href="index.html">3.9 Bivariate</a>
+            <span>&gt;</span>
+            <strong>Lesson 3</strong>
+        </div>
+    </nav>
+    
+    <!-- Sticky Navigation -->
+    <nav class="main-nav">
+        <div class="nav-container">
+            <ul class="nav-links">
+                <li><a href="index.html">Overview</a></li>
+                <li><a href="lesson1.html">Lesson 1</a></li>
+                <li><a href="lesson2.html">Lesson 2</a></li>
+                <li><a href="lesson3.html" class="active">Lesson 3</a></li>
+                <li><a href="lesson4.html">Lesson 4</a></li>
+                <li><a href="lesson5.html">Lesson 5</a></li>
+                <li><a href="lesson6.html">Lesson 6</a></li>
+                <li><a href="interactive.html">Interactive</a></li>
+                <li><a href="practice.html">Practice</a></li>
+            </ul>
+            <div class="section-nav">
+                <a href="#understanding">Understanding r</a>
+                <a href="#calculating">Calculating</a>
+                <a href="#interpreting">Interpreting</a>
+            </div>
+        </div>
+    </nav>
+    
+    <!-- Main Content -->
+    <main>
+        
+        <!-- Section 1: Understanding the Correlation Coefficient -->
+        <section id="understanding" class="content-section section-light">
+            <div class="section-container">
+                <div class="section-header">
+                    <span class="section-number">1</span>
+                    <h2>Understanding the Correlation Coefficient (r)</h2>
+                    <a href="#understanding" class="anchor-link">#</a>
+                </div>
+                
+                <div class="info-callout">
+                    <strong>Definition:</strong> The correlation coefficient (r) is a numerical measure of the strength and direction of a linear relationship between two variables.
+                </div>
+                
+                <h3>Key Properties of r</h3>
+                <ul>
+                    <li>Range: $-1 \leq r \leq 1$</li>
+                    <li>Unitless: r has no units (unlike the variables themselves)</li>
+                    <li>Symmetric: swapping x and y doesn't change r</li>
+                    <li>Measures only linear relationships</li>
+                </ul>
+                
+                <h3>Interpreting r Values</h3>
+                <table style="margin: 20px auto; border-collapse: collapse; width: 90%;">
+                    <tr style="background-color: var(--primary-accent); color: white;">
+                        <th style="padding: 10px; border: 1px solid #ddd;">r Value</th>
+                        <th style="padding: 10px; border: 1px solid #ddd;">Interpretation</th>
+                    </tr>
+                    <tr>
+                        <td style="padding: 10px; border: 1px solid #ddd; text-align: center;">$r = 1$</td>
+                        <td style="padding: 10px; border: 1px solid #ddd;">Perfect positive linear relationship</td>
+                    </tr>
+                    <tr style="background-color: #f9f9f9;">
+                        <td style="padding: 10px; border: 1px solid #ddd; text-align: center;">$0.7 < r < 1$</td>
+                        <td style="padding: 10px; border: 1px solid #ddd;">Strong positive linear relationship</td>
+                    </tr>
+                    <tr>
+                        <td style="padding: 10px; border: 1px solid #ddd; text-align: center;">$0.3 < r < 0.7$</td>
+                        <td style="padding: 10px; border: 1px solid #ddd;">Moderate positive linear relationship</td>
+                    </tr>
+                    <tr style="background-color: #f9f9f9;">
+                        <td style="padding: 10px; border: 1px solid #ddd; text-align: center;">$0 < r < 0.3$</td>
+                        <td style="padding: 10px; border: 1px solid #ddd;">Weak positive linear relationship</td>
+                    </tr>
+                    <tr>
+                        <td style="padding: 10px; border: 1px solid #ddd; text-align: center;">$r = 0$</td>
+                        <td style="padding: 10px; border: 1px solid #ddd;">No linear relationship</td>
+                    </tr>
+                    <tr style="background-color: #f9f9f9;">
+                        <td style="padding: 10px; border: 1px solid #ddd; text-align: center;">$-0.3 < r < 0$</td>
+                        <td style="padding: 10px; border: 1px solid #ddd;">Weak negative linear relationship</td>
+                    </tr>
+                    <tr>
+                        <td style="padding: 10px; border: 1px solid #ddd; text-align: center;">$-0.7 < r < -0.3$</td>
+                        <td style="padding: 10px; border: 1px solid #ddd;">Moderate negative linear relationship</td>
+                    </tr>
+                    <tr style="background-color: #f9f9f9;">
+                        <td style="padding: 10px; border: 1px solid #ddd; text-align: center;">$-1 < r < -0.7$</td>
+                        <td style="padding: 10px; border: 1px solid #ddd;">Strong negative linear relationship</td>
+                    </tr>
+                    <tr>
+                        <td style="padding: 10px; border: 1px solid #ddd; text-align: center;">$r = -1$</td>
+                        <td style="padding: 10px; border: 1px solid #ddd;">Perfect negative linear relationship</td>
+                    </tr>
+                </table>
+                
+                <div class="tip-callout">
+                    <strong>💡 Remember:</strong> The sign tells us direction (+ or -), the magnitude tells us strength (closer to 1 or -1 means stronger).
+                </div>
+            </div>
+        </section>
+        
+        <!-- Section 2: Calculating r -->
+        <section id="calculating" class="content-section section-medium">
+            <div class="section-container">
+                <div class="section-header">
+                    <span class="section-number">2</span>
+                    <h2>Calculating the Correlation Coefficient</h2>
+                    <a href="#calculating" class="anchor-link">#</a>
+                </div>
+                
+                <h3>The Formula</h3>
+                <div style="background-color: #f5f5f5; padding: 20px; border-left: 4px solid var(--primary-accent); margin: 20px 0;">
+                    $$r = \frac{n\sum xy - \sum x \sum y}{\sqrt{[n\sum x^2 - (\sum x)^2][n\sum y^2 - (\sum y)^2]}}$$
+                </div>
+                
+                <p>Where:</p>
+                <ul>
+                    <li>$n$ = number of data pairs</li>
+                    <li>$\sum xy$ = sum of products of paired x and y values</li>
+                    <li>$\sum x$ = sum of all x values</li>
+                    <li>$\sum y$ = sum of all y values</li>
+                    <li>$\sum x^2$ = sum of squared x values</li>
+                    <li>$\sum y^2$ = sum of squared y values</li>
+                </ul>
+                
+                <h3>Step-by-Step Example</h3>
+                <p>Calculate r for this data:</p>
+                
+                <table style="margin: 20px auto; border-collapse: collapse; text-align: center;">
+                    <tr style="background-color: var(--primary-accent); color: white;">
+                        <th style="padding: 10px; border: 1px solid #ddd;">x</th>
+                        <th style="padding: 10px; border: 1px solid #ddd;">y</th>
+                        <th style="padding: 10px; border: 1px solid #ddd;">$x^2$</th>
+                        <th style="padding: 10px; border: 1px solid #ddd;">$y^2$</th>
+                        <th style="padding: 10px; border: 1px solid #ddd;">$xy$</th>
+                    </tr>
+                    <tr>
+                        <td style="padding: 10px; border: 1px solid #ddd;">2</td>
+                        <td style="padding: 10px; border: 1px solid #ddd;">5</td>
+                        <td style="padding: 10px; border: 1px solid #ddd;">4</td>
+                        <td style="padding: 10px; border: 1px solid #ddd;">25</td>
+                        <td style="padding: 10px; border: 1px solid #ddd;">10</td>
+                    </tr>
+                    <tr style="background-color: #f9f9f9;">
+                        <td style="padding: 10px; border: 1px solid #ddd;">4</td>
+                        <td style="padding: 10px; border: 1px solid #ddd;">8</td>
+                        <td style="padding: 10px; border: 1px solid #ddd;">16</td>
+                        <td style="padding: 10px; border: 1px solid #ddd;">64</td>
+                        <td style="padding: 10px; border: 1px solid #ddd;">32</td>
+                    </tr>
+                    <tr>
+                        <td style="padding: 10px; border: 1px solid #ddd;">6</td>
+                        <td style="padding: 10px; border: 1px solid #ddd;">11</td>
+                        <td style="padding: 10px; border: 1px solid #ddd;">36</td>
+                        <td style="padding: 10px; border: 1px solid #ddd;">121</td>
+                        <td style="padding: 10px; border: 1px solid #ddd;">66</td>
+                    </tr>
+                    <tr style="background-color: #f9f9f9;">
+                        <td style="padding: 10px; border: 1px solid #ddd;">8</td>
+                        <td style="padding: 10px; border: 1px solid #ddd;">13</td>
+                        <td style="padding: 10px; border: 1px solid #ddd;">64</td>
+                        <td style="padding: 10px; border: 1px solid #ddd;">169</td>
+                        <td style="padding: 10px; border: 1px solid #ddd;">104</td>
+                    </tr>
+                    <tr style="background-color: var(--background-light); font-weight: bold;">
+                        <td style="padding: 10px; border: 1px solid #ddd;">Σ = 20</td>
+                        <td style="padding: 10px; border: 1px solid #ddd;">Σ = 37</td>
+                        <td style="padding: 10px; border: 1px solid #ddd;">Σ = 120</td>
+                        <td style="padding: 10px; border: 1px solid #ddd;">Σ = 379</td>
+                        <td style="padding: 10px; border: 1px solid #ddd;">Σ = 212</td>
+                    </tr>
+                </table>
+                
+                <h4>Calculation:</h4>
+                <p>$n = 4$, $\sum x = 20$, $\sum y = 37$, $\sum x^2 = 120$, $\sum y^2 = 379$, $\sum xy = 212$</p>
+                
+                <div style="margin: 20px 0;">
+                    $$r = \frac{4(212) - (20)(37)}{\sqrt{[4(120) - 20^2][4(379) - 37^2]}}$$
+                    $$r = \frac{848 - 740}{\sqrt{[480 - 400][1516 - 1369]}}$$
+                    $$r = \frac{108}{\sqrt{80 \times 147}}$$
+                    $$r = \frac{108}{\sqrt{11760}}$$
+                    $$r = \frac{108}{108.44} \approx 0.996$$
+                </div>
+                
+                <p><strong>Interpretation:</strong> $r \approx 0.996$ indicates a very strong positive linear relationship.</p>
+                
+                <div class="tip-callout">
+                    <strong>💡 In Exams:</strong> You'll typically use a calculator's statistical functions to find r, but understanding the formula helps you interpret what r means.
+                </div>
+            </div>
+        </section>
+        
+        <!-- Section 3: Interpreting in Context -->
+        <section id="interpreting" class="content-section section-light">
+            <div class="section-container">
+                <div class="section-header">
+                    <span class="section-number">3</span>
+                    <h2>Interpreting r in Context</h2>
+                    <a href="#interpreting" class="anchor-link">#</a>
+                </div>
+                
+                <h3>Important Points</h3>
+                
+                <h4>1. Correlation Does Not Imply Causation</h4>
+                <p>A strong correlation doesn't mean one variable causes the other.</p>
+                <p><em>Example:</em> Shark attacks and ice cream sales are correlated (both increase in summer), but one doesn't cause the other.</p>
+                
+                <h4>2. r Only Measures Linear Relationships</h4>
+                <p>Non-linear relationships may have $r \approx 0$ even if a strong curved relationship exists.</p>
+                
+                <h4>3. Outliers Affect r</h4>
+                <p>A single outlier can dramatically change the correlation coefficient.</p>
+                
+                <h4>4. Sample Size Matters</h4>
+                <p>With small samples, r can be misleading. Larger samples give more reliable correlations.</p>
+                
+                <div class="info-callout">
+                    <strong>Writing a Statistical Statement:</strong><br><br>
+                    "There is a <strong>[strong/moderate/weak]</strong> <strong>[positive/negative]</strong> linear relationship between <strong>[x variable]</strong> and <strong>[y variable]</strong>, with a correlation coefficient of $r =$ <strong>[value]</strong>. This suggests that as <strong>[x variable increases/decreases]</strong>, <strong>[y variable]</strong> tends to <strong>[increase/decrease]</strong>."
+                </div>
+                
+                <h3>Practice Example</h3>
+                <p>For temperature (°C) and hot drink sales ($), we find $r = -0.85$.</p>
+                
+                <p><strong>Statistical Statement:</strong></p>
+                <p>"There is a strong negative linear relationship between temperature and hot drink sales, with a correlation coefficient of $r = -0.85$. This suggests that as temperature increases, hot drink sales tend to decrease significantly."</p>
+                
+                <div class="text-center mt-lg">
+                    <a href="lesson2.html" class="btn">← Previous: Scatter Plots</a>
+                    <a href="lesson4.html" class="btn">Next: Regression Lines →</a>
+                </div>
+            </div>
+        </section>
+        
+    </main>
+    
+    <!-- Footer -->
+    <footer class="page-footer">
+        <p>&copy; 2026 NZ Math Hub. Supporting mathematics education in New Zealand.</p>
+    </footer>
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.15.3/katex.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.15.3/katex.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.15.3/contrib/auto-render.min.js"></script>
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            renderMathInElement(document.body, {
+                delimiters: [
+                    {left: "$$", right: "$$", display: true},
+                    {left: "$", right: "$", display: false}
+                ]
+            });
+        });
+    </script>
+    
+</body>
+</html>

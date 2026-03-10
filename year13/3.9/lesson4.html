@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lesson 4: Line of Best Fit - NZ Math Hub</title>
+    <link rel="stylesheet" href="../../styles.css">
+</head>
+<body>
+    
+    <!-- Main Page Header -->
+    <header class="page-header">
+        <h1>Line of Best Fit</h1>
+        <p class="subtitle">Lesson 4 - Linear Regression</p>
+    </header>
+    
+    <!-- Breadcrumb Navigation -->
+    <nav class="breadcrumb">
+        <div class="breadcrumb-container">
+            <a href="../../index.html">Home</a>
+            <span>&gt;</span>
+            <a href="../../year13.html">Year 13</a>
+            <span>&gt;</span>
+            <a href="index.html">3.9 Bivariate</a>
+            <span>&gt;</span>
+            <strong>Lesson 4</strong>
+        </div>
+    </nav>
+    
+    <!-- Sticky Navigation -->
+    <nav class="main-nav">
+        <div class="nav-container">
+            <ul class="nav-links">
+                <li><a href="index.html">Overview</a></li>
+                <li><a href="lesson1.html">Lesson 1</a></li>
+                <li><a href="lesson2.html">Lesson 2</a></li>
+                <li><a href="lesson3.html">Lesson 3</a></li>
+                <li><a href="lesson4.html" class="active">Lesson 4</a></li>
+                <li><a href="lesson5.html">Lesson 5</a></li>
+                <li><a href="lesson6.html">Lesson 6</a></li>
+                <li><a href="interactive.html">Interactive</a></li>
+                <li><a href="practice.html">Practice</a></li>
+            </ul>
+            <div class="section-nav">
+                <a href="#regression">Regression</a>
+                <a href="#equation">Equation</a>
+                <a href="#rsquared">R²</a>
+            </div>
+        </div>
+    </nav>
+    
+    <!-- Main Content -->
+    <main>
+        
+        <!-- Section 1: Understanding Regression -->
+        <section id="regression" class="content-section section-light">
+            <div class="section-container">
+                <div class="section-header">
+                    <span class="section-number">1</span>
+                    <h2>Linear Regression</h2>
+                    <a href="#regression" class="anchor-link">#</a>
+                </div>
+                
+                <div class="info-callout">
+                    <strong>Definition:</strong> Linear regression finds the "line of best fit" that best represents the relationship between two variables. This line minimizes the sum of squared vertical distances from data points to the line.
+                </div>
+                
+                <h3>Why Use a Line of Best Fit?</h3>
+                <ul>
+                    <li>Summarize the relationship between variables</li>
+                    <li>Make predictions for new values</li>
+                    <li>Quantify the relationship mathematically</li>
+                    <li>Compare different datasets</li>
+                </ul>
+                
+                <h3>Least Squares Method</h3>
+                <p>The line of best fit is found using the <strong>least squares method</strong>, which minimizes the sum of squared residuals (vertical distances from points to the line).</p>
+                
+                <div class="tip-callout">
+                    <strong>💡 Key Point:</strong> The line always passes through the point $(\bar{x}, \bar{y})$ (the means of x and y).
+                </div>
+                
+                <h3>Assumptions for Linear Regression</h3>
+                <ol>
+                    <li>The relationship between variables is approximately linear</li>
+                    <li>Points show relatively constant scatter around the line</li>
+                    <li>No influential outliers severely affecting the line</li>
+                </ol>
+            </div>
+        </section>
+        
+        <!-- Section 2: The Regression Equation -->
+        <section id="equation" class="content-section section-medium">
+            <div class="section-container">
+                <div class="section-header">
+                    <span class="section-number">2</span>
+                    <h2>The Regression Equation</h2>
+                    <a href="#equation" class="anchor-link">#</a>
+                </div>
+                
+                <h3>General Form</h3>
+                <div style="background-color: #f5f5f5; padding: 20px; border-left: 4px solid var(--primary-accent); margin: 20px 0;">
+                    $$y = a + bx$$
+                </div>
+                
+                <p>Where:</p>
+                <ul>
+                    <li>$y$ = predicted value of response variable</li>
+                    <li>$x$ = value of explanatory variable</li>
+                    <li>$a$ = y-intercept (value of y when x = 0)</li>
+                    <li>$b$ = slope (change in y for each unit increase in x)</li>
+                </ul>
+                
+                <h3>Finding the Slope (b)</h3>
+                <div style="background-color: #f5f5f5; padding: 20px; border-left: 4px solid var(--primary-accent); margin: 20px 0;">
+                    $$b = \frac{n\sum xy - \sum x \sum y}{n\sum x^2 - (\sum x)^2}$$
+                </div>
+                
+                <h3>Finding the y-intercept (a)</h3>
+                <div style="background-color: #f5f5f5; padding: 20px; border-left: 4px solid var(--primary-accent); margin: 20px 0;">
+                    $$a = \bar{y} - b\bar{x}$$
+                </div>
+                
+                <p>Where $\bar{x}$ and $\bar{y}$ are the means of x and y respectively.</p>
+                
+                <h3>Worked Example</h3>
+                <p>Using the data from Lesson 3:</p>
+                
+                <table style="margin: 20px auto; border-collapse: collapse; text-align: center; width: 60%;">
+                    <tr style="background-color: var(--primary-accent); color: white;">
+                        <th style="padding: 10px; border: 1px solid #ddd;">x</th>
+                        <th style="padding: 10px; border: 1px solid #ddd;">y</th>
+                    </tr>
+                    <tr><td style="padding: 10px; border: 1px solid #ddd;">2</td><td style="padding: 10px; border: 1px solid #ddd;">5</td></tr>
+                    <tr style="background-color: #f9f9f9;"><td style="padding: 10px; border: 1px solid #ddd;">4</td><td style="padding: 10px; border: 1px solid #ddd;">8</td></tr>
+                    <tr><td style="padding: 10px; border: 1px solid #ddd;">6</td><td style="padding: 10px; border: 1px solid #ddd;">11</td></tr>
+                    <tr style="background-color: #f9f9f9;"><td style="padding: 10px; border: 1px solid #ddd;">8</td><td style="padding: 10px; border: 1px solid #ddd;">13</td></tr>
+                </table>
+                
+                <p>We found: $n = 4$, $\sum x = 20$, $\sum y = 37$, $\sum x^2 = 120$, $\sum xy = 212$</p>
+                
+                <h4>Step 1: Calculate the slope (b)</h4>
+                <div style="margin: 20px 0;">
+                    $$b = \frac{4(212) - (20)(37)}{4(120) - 20^2} = \frac{848 - 740}{480 - 400} = \frac{108}{80} = 1.35$$
+                </div>
+                
+                <h4>Step 2: Calculate means</h4>
+                <p>$\bar{x} = \frac{20}{4} = 5$ and $\bar{y} = \frac{37}{4} = 9.25$</p>
+                
+                <h4>Step 3: Calculate y-intercept (a)</h4>
+                <div style="margin: 20px 0;">
+                    $$a = 9.25 - 1.35(5) = 9.25 - 6.75 = 2.5$$
+                </div>
+                
+                <h4>Final Equation</h4>
+                <div style="background-color: #e8f5e9; padding: 20px; border-left: 4px solid #4caf50; margin: 20px 0;">
+                    $$y = 2.5 + 1.35x$$
+                </div>
+                
+                <p><strong>Interpretation:</strong> For every 1-unit increase in x, y increases by 1.35 units on average. When x = 0, we predict y = 2.5.</p>
+            </section>
+        
+        <!-- Section 3: Coefficient of Determination (R²) -->
+        <section id="rsquared" class="content-section section-light">
+            <div class="section-container">
+                <div class="section-header">
+                    <span class="section-number">3</span>
+                    <h2>Coefficient of Determination (R²)</h2>
+                    <a href="#rsquared" class="anchor-link">#</a>
+                </div>
+                
+                <div class="info-callout">
+                    <strong>Definition:</strong> R² (R-squared) measures the proportion of variation in y that is explained by the linear relationship with x.
+                </div>
+                
+                <h3>Understanding R²</h3>
+                <div style="background-color: #f5f5f5; padding: 20px; border-left: 4px solid var(--primary-accent); margin: 20px 0;">
+                    $$R^2 = r^2$$
+                </div>
+                
+                <p>R² is simply the square of the correlation coefficient.</p>
+                
+                <h3>Interpreting R²</h3>
+                <ul>
+                    <li>Range: $0 \leq R^2 \leq 1$ (or 0% to 100%)</li>
+                    <li>$R^2 = 0$: The line explains none of the variation in y</li>
+                    <li>$R^2 = 1$: The line explains all of the variation in y</li>
+                    <li>Expressed as a percentage: multiply by 100</li>
+                </ul>
+                
+                <h3>Example</h3>
+                <p>If $r = 0.9$, then $R^2 = 0.9^2 = 0.81$ or 81%</p>
+                
+                <p><strong>Interpretation:</strong> "81% of the variation in y can be explained by the linear relationship with x. The remaining 19% is due to other factors or random variation."</p>
+                
+                <div class="tip-callout">
+                    <strong>💡 Remember:</strong> Higher R² means the line fits the data better and predictions will be more accurate.
+                </div>
+                
+                <h3>What R² Tells Us</h3>
+                <table style="margin: 20px auto; border-collapse: collapse; width: 80%;">
+                    <tr style="background-color: var(--primary-accent); color: white;">
+                        <th style="padding: 10px; border: 1px solid #ddd;">R² Value</th>
+                        <th style="padding: 10px; border: 1px solid #ddd;">Interpretation</th>
+                    </tr>
+                    <tr>
+                        <td style="padding: 10px; border: 1px solid #ddd; text-align: center;">$R^2 > 0.8$</td>
+                        <td style="padding: 10px; border: 1px solid #ddd;">Strong model - line fits data well</td>
+                    </tr>
+                    <tr style="background-color: #f9f9f9;">
+                        <td style="padding: 10px; border: 1px solid #ddd; text-align: center;">$0.5 < R^2 < 0.8$</td>
+                        <td style="padding: 10px; border: 1px solid #ddd;">Moderate model - some predictive power</td>
+                    </tr>
+                    <tr>
+                        <td style="padding: 10px; border: 1px solid #ddd; text-align: center;">$R^2 < 0.5$</td>
+                        <td style="padding: 10px; border: 1px solid #ddd;">Weak model - limited predictive power</td>
+                    </tr>
+                </table>
+                
+                <div class="text-center mt-lg">
+                    <a href="lesson3.html" class="btn">← Previous: Correlation</a>
+                    <a href="lesson5.html" class="btn">Next: Making Predictions →</a>
+                </div>
+            </div>
+        </section>
+        
+    </main>
+    
+    <!-- Footer -->
+    <footer class="page-footer">
+        <p>&copy; 2026 NZ Math Hub. Supporting mathematics education in New Zealand.</p>
+    </footer>
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.15.3/katex.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.15.3/katex.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.15.3/contrib/auto-render.min.js"></script>
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            renderMathInElement(document.body, {
+                delimiters: [
+                    {left: "$$", right: "$$", display: true},
+                    {left: "$", right: "$", display: false}
+                ]
+            });
+        });
+    </script>
+    
+</body>
+</html>

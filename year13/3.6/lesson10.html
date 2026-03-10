@@ -1,0 +1,529 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lesson 10: Advanced Applications - NZ Math Hub</title>
+    <link rel="stylesheet" href="../../styles.css">
+    <style>
+        .rule-box {
+            background: linear-gradient(135deg, var(--primary-accent), var(--secondary-accent));
+            color: white;
+            padding: 25px;
+            border-radius: 10px;
+            margin: 25px 0;
+        }
+
+        .worked-example {
+            background: white;
+            border: 2px solid var(--border-color);
+            padding: 20px;
+            margin: 15px 0;
+            border-radius: 8px;
+        }
+
+        .step {
+            margin: 12px 0;
+            padding-left: 20px;
+        }
+
+        .step-number {
+            display: inline-block;
+            background: var(--primary-accent);
+            color: white;
+            width: 25px;
+            height: 25px;
+            border-radius: 50%;
+            text-align: center;
+            line-height: 25px;
+            margin-right: 10px;
+            font-weight: bold;
+        }
+
+        .practice-section {
+            background: #fff9e6;
+            padding: 25px;
+            border-radius: 10px;
+            margin: 25px 0;
+        }
+
+        .problem {
+            background: white;
+            padding: 15px;
+            border-radius: 5px;
+            border: 1px solid #ddd;
+            margin: 15px 0;
+        }
+
+        .problem-label {
+            color: var(--primary-accent);
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
+        .answer-reveal {
+            background: #e6ffe6;
+            padding: 15px;
+            margin-top: 10px;
+            border-radius: 5px;
+            display: none;
+        }
+
+        .show-answer-btn {
+            background: var(--secondary-accent);
+            color: white;
+            border: none;
+            padding: 8px 15px;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-top: 10px;
+        }
+
+        .show-answer-btn:hover {
+            background: var(--primary-accent);
+        }
+
+        .summary-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 15px;
+            margin: 20px 0;
+        }
+
+        .summary-card {
+            background: white;
+            padding: 15px;
+            border-radius: 10px;
+            border: 2px solid var(--border-color);
+        }
+
+        .congrats-box {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 30px;
+            border-radius: 15px;
+            margin: 30px 0;
+            text-align: center;
+        }
+
+        .navigation-buttons {
+            display: flex;
+            justify-content: space-between;
+            margin: 30px 0;
+            padding: 20px 0;
+            border-top: 2px solid var(--border-color);
+        }
+
+        .nav-btn {
+            padding: 12px 25px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: all 0.3s ease;
+        }
+
+        .nav-btn-primary {
+            background: var(--primary-accent);
+            color: white;
+        }
+
+        .nav-btn-secondary {
+            background: var(--background-light);
+            color: var(--text-primary);
+            border: 2px solid var(--border-color);
+        }
+
+        .nav-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+        }
+    </style>
+</head>
+<body>
+    <header class="page-header">
+        <div class="header-content">
+            <h1>📐 NZ Math Hub</h1>
+            <p>Lesson 10: Advanced Applications</p>
+        </div>
+    </header>
+
+    <main class="main-content">
+        <div class="section-container">
+            <nav class="breadcrumb">
+                <a href="../../index.html">Home</a> → 
+                <a href="../../year13.html">Year 13</a> → 
+                <a href="index.html">3.6 Differentiation</a> → 
+                <span>Lesson 10</span>
+            </nav>
+
+            <!-- Introduction -->
+            <section class="content-section">
+                <h2>Bringing It All Together</h2>
+                <p>This lesson combines multiple differentiation techniques to solve complex, real-world problems. You'll need to decide which methods to apply and in what order.</p>
+
+                <!-- Review Box -->
+                <div class="rule-box">
+                    <h3 style="color: white; margin-top: 0;">Techniques You've Mastered</h3>
+                    <div class="summary-grid" style="color: white;">
+                        <div>
+                            <strong>Differentiation Rules:</strong>
+                            <ul style="line-height: 1.8; margin-top: 10px;">
+                                <li>Power Rule</li>
+                                <li>Product Rule</li>
+                                <li>Quotient Rule</li>
+                                <li>Chain Rule</li>
+                            </ul>
+                        </div>
+                        <div>
+                            <strong>Applications:</strong>
+                            <ul style="line-height: 1.8; margin-top: 10px;">
+                                <li>Tangents & Normals</li>
+                                <li>Stationary Points</li>
+                                <li>Related Rates</li>
+                                <li>Optimisation</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Worked Examples -->
+            <section class="content-section section-light">
+                <h2>Complex Worked Examples</h2>
+
+                <div class="worked-example">
+                    <h3>Example 1: Combining Product & Chain Rules with Tangents</h3>
+                    <p><strong>Find the equation of the tangent to $y = x^2(2x + 1)^3$ at $x = 1$</strong></p>
+                    
+                    <div class="step">
+                        <span class="step-number">1</span>
+                        <strong>Find the point:</strong> $y = 1^2(3)^3 = 27$, so point is $(1, 27)$
+                    </div>
+                    
+                    <div class="step">
+                        <span class="step-number">2</span>
+                        <strong>Differentiate (product rule):</strong> $u = x^2, v = (2x + 1)^3$<br>
+                        $u' = 2x$<br>
+                        $v' = 3(2x + 1)^2 \times 2 = 6(2x + 1)^2$ (chain rule)
+                    </div>
+                    
+                    <div class="step">
+                        <span class="step-number">3</span>
+                        <strong>Apply product rule:</strong><br>
+                        $\frac{dy}{dx} = x^2 \cdot 6(2x + 1)^2 + (2x + 1)^3 \cdot 2x$<br>
+                        $= 2x(2x + 1)^2[3x + (2x + 1)]$<br>
+                        $= 2x(2x + 1)^2(5x + 1)$
+                    </div>
+                    
+                    <div class="step">
+                        <span class="step-number">4</span>
+                        <strong>Evaluate at $x = 1$:</strong><br>
+                        $m = 2(1)(3)^2(6) = 108$
+                    </div>
+                    
+                    <div class="step">
+                        <span class="step-number">5</span>
+                        <strong>Tangent equation:</strong> $y - 27 = 108(x - 1)$<br>
+                        $y = 108x - 81$
+                    </div>
+                </div>
+
+                <div class="worked-example">
+                    <h3>Example 2: Optimisation with Multiple Constraints</h3>
+                    <p><strong>A cylindrical can must hold 500 cm³. The top and bottom cost $2/cm², the side costs $1/cm². Find dimensions to minimise cost.</strong></p>
+                    
+                    <div class="step">
+                        <span class="step-number">1</span>
+                        <strong>Variables:</strong> Radius $r$, height $h$. Volume: $\pi r^2 h = 500$
+                    </div>
+                    
+                    <div class="step">
+                        <span class="step-number">2</span>
+                        <strong>Cost function:</strong><br>
+                        Top + Bottom: $2(\pi r^2) \times 2 = 4\pi r^2$<br>
+                        Side: $(2\pi rh) \times 1 = 2\pi rh$<br>
+                        Total: $C = 4\pi r^2 + 2\pi rh$
+                    </div>
+                    
+                    <div class="step">
+                        <span class="step-number">3</span>
+                        <strong>Eliminate h:</strong> $h = \frac{500}{\pi r^2}$<br>
+                        $C = 4\pi r^2 + 2\pi r \cdot \frac{500}{\pi r^2} = 4\pi r^2 + \frac{1000}{r}$
+                    </div>
+                    
+                    <div class="step">
+                        <span class="step-number">4</span>
+                        <strong>Differentiate:</strong> $\frac{dC}{dr} = 8\pi r - \frac{1000}{r^2}$
+                    </div>
+                    
+                    <div class="step">
+                        <span class="step-number">5</span>
+                        <strong>Solve:</strong> $8\pi r - \frac{1000}{r^2} = 0$<br>
+                        $8\pi r^3 = 1000$<br>
+                        $r^3 = \frac{1000}{8\pi} = \frac{125}{\pi}$<br>
+                        $r = \sqrt[3]{\frac{125}{\pi}} \approx 3.41$ cm
+                    </div>
+                    
+                    <div class="step">
+                        <span class="step-number">6</span>
+                        <strong>Find h:</strong> $h = \frac{500}{\pi(3.41)^2} \approx 13.7$ cm
+                    </div>
+                    
+                    <div class="step">
+                        <span class="step-number">7</span>
+                        <strong>Verify minimum:</strong> $\frac{d^2C}{dr^2} = 8\pi + \frac{2000}{r^3} > 0$ ✓
+                    </div>
+                </div>
+
+                <div class="worked-example">
+                    <h3>Example 3: Related Rates with Multiple Variables</h3>
+                    <p><strong>A cone-shaped tank (vertex down) has height 10 m and radius 4 m. Water flows in at 2 m³/min. How fast is the water level rising when depth is 6 m?</strong></p>
+                    
+                    <div class="step">
+                        <span class="step-number">1</span>
+                        <strong>Given:</strong> $\frac{dV}{dt} = 2$ m³/min, find $\frac{dh}{dt}$ when $h = 6$ m
+                    </div>
+                    
+                    <div class="step">
+                        <span class="step-number">2</span>
+                        <strong>Volume formula:</strong> $V = \frac{1}{3}\pi r^2 h$
+                    </div>
+                    
+                    <div class="step">
+                        <span class="step-number">3</span>
+                        <strong>Find relationship between r and h:</strong><br>
+                        By similar triangles: $\frac{r}{h} = \frac{4}{10}$, so $r = \frac{2h}{5}$
+                    </div>
+                    
+                    <div class="step">
+                        <span class="step-number">4</span>
+                        <strong>Substitute:</strong> $V = \frac{1}{3}\pi(\frac{2h}{5})^2h = \frac{4\pi h^3}{75}$
+                    </div>
+                    
+                    <div class="step">
+                        <span class="step-number">5</span>
+                        <strong>Differentiate with respect to time:</strong><br>
+                        $\frac{dV}{dt} = \frac{4\pi}{75} \times 3h^2 \times \frac{dh}{dt} = \frac{4\pi h^2}{25} \times \frac{dh}{dt}$
+                    </div>
+                    
+                    <div class="step">
+                        <span class="step-number">6</span>
+                        <strong>Solve for $\frac{dh}{dt}$:</strong> $2 = \frac{4\pi(36)}{25} \times \frac{dh}{dt}$<br>
+                        $\frac{dh}{dt} = \frac{50}{144\pi} = \frac{25}{72\pi} \approx 0.11$ m/min
+                    </div>
+                </div>
+
+                <div class="worked-example">
+                    <h3>Example 4: Maximum Area with Geometric Constraints</h3>
+                    <p><strong>A Norman window consists of a rectangle topped by a semicircle. The perimeter is 12 m. Find dimensions for maximum light (area).</strong></p>
+                    
+                    <div class="step">
+                        <span class="step-number">1</span>
+                        <strong>Variables:</strong> Width $x$ (diameter of semicircle), height of rectangle $h$
+                    </div>
+                    
+                    <div class="step">
+                        <span class="step-number">2</span>
+                        <strong>Perimeter:</strong> $x + 2h + \pi(\frac{x}{2}) = 12$<br>
+                        $x + 2h + \frac{\pi x}{2} = 12$<br>
+                        $h = \frac{12 - x(1 + \frac{\pi}{2})}{2} = 6 - x(\frac{2 + \pi}{4})$
+                    </div>
+                    
+                    <div class="step">
+                        <span class="step-number">3</span>
+                        <strong>Area:</strong> Rectangle + Semicircle<br>
+                        $A = xh + \frac{\pi}{2}(\frac{x}{2})^2 = xh + \frac{\pi x^2}{8}$
+                    </div>
+                    
+                    <div class="step">
+                        <span class="step-number">4</span>
+                        <strong>Substitute for h:</strong><br>
+                        $A = x[6 - x(\frac{2 + \pi}{4})] + \frac{\pi x^2}{8}$<br>
+                        $= 6x - \frac{x^2(2 + \pi)}{4} + \frac{\pi x^2}{8}$<br>
+                        $= 6x - \frac{2x^2}{4} - \frac{\pi x^2}{4} + \frac{\pi x^2}{8}$<br>
+                        $= 6x - \frac{x^2}{2} - \frac{\pi x^2}{8} = 6x - x^2(\frac{4 + \pi}{8})$
+                    </div>
+                    
+                    <div class="step">
+                        <span class="step-number">5</span>
+                        <strong>Differentiate:</strong> $\frac{dA}{dx} = 6 - x(\frac{4 + \pi}{4})$
+                    </div>
+                    
+                    <div class="step">
+                        <span class="step-number">6</span>
+                        <strong>Solve:</strong> $6 = x(\frac{4 + \pi}{4})$<br>
+                        $x = \frac{24}{4 + \pi} \approx 3.36$ m<br>
+                        $h = 6 - 3.36(\frac{2 + \pi}{4}) \approx 1.68$ m
+                    </div>
+                </div>
+            </section>
+
+            <!-- Challenge Practice -->
+            <section class="content-section">
+                <h2>Challenge Problems</h2>
+                
+                <div class="practice-section">
+                    <h3>Test Your Complete Understanding</h3>
+                    
+                    <div class="problem">
+                        <div class="problem-label">1. A particle moves along the curve $y = x^3 - 12x + 5$. Find where the particle is moving horizontally.</div>
+                        <button class="show-answer-btn" onclick="toggleAnswer(this)">Show Answer</button>
+                        <div class="answer-reveal">
+                            Horizontal movement means $\frac{dy}{dx} = 0$<br>
+                            $\frac{dy}{dx} = 3x^2 - 12 = 0$<br>
+                            $x^2 = 4$, so $x = \pm 2$<br>
+                            At $x = 2$: $y = 8 - 24 + 5 = -11$<br>
+                            At $x = -2$: $y = -8 + 24 + 5 = 21$<br>
+                            Points: $(2, -11)$ and $(-2, 21)$
+                        </div>
+                    </div>
+                    
+                    <div class="problem">
+                        <div class="problem-label">2. Find tangent to $y = \frac{x}{(x + 1)^2}$ at $x = 0$.</div>
+                        <button class="show-answer-btn" onclick="toggleAnswer(this)">Show Answer</button>
+                        <div class="answer-reveal">
+                            Point: $(0, 0)$<br>
+                            Using quotient rule: $u = x, u' = 1; v = (x + 1)^2, v' = 2(x + 1)$<br>
+                            $\frac{dy}{dx} = \frac{(x + 1)^2 \cdot 1 - x \cdot 2(x + 1)}{(x + 1)^4}$<br>
+                            $= \frac{(x + 1)[(x + 1) - 2x]}{(x + 1)^4} = \frac{1 - x}{(x + 1)^3}$<br>
+                            At $x = 0$: $m = 1$<br>
+                            Tangent: $y = x$
+                        </div>
+                    </div>
+                    
+                    <div class="problem">
+                        <div class="problem-label">3. A rectangular poster has area 300 cm². It has margins: 4 cm top/bottom, 2 cm left/right. Maximise printed area.</div>
+                        <button class="show-answer-btn" onclick="toggleAnswer(this)">Show Answer</button>
+                        <div class="answer-reveal">
+                            Poster: width $x$, height $y$. $xy = 300$<br>
+                            Printed area: $A = (x - 4)(y - 8)$<br>
+                            Substitute $y = \frac{300}{x}$:<br>
+                            $A = (x - 4)(\frac{300}{x} - 8) = 300 - 8x - \frac{1200}{x} + 32 = 332 - 8x - \frac{1200}{x}$<br>
+                            $\frac{dA}{dx} = -8 + \frac{1200}{x^2} = 0$<br>
+                            $x^2 = 150$, $x = \sqrt{150} \approx 12.25$ cm<br>
+                            $y = \frac{300}{12.25} \approx 24.5$ cm
+                        </div>
+                    </div>
+                    
+                    <div class="problem">
+                        <div class="problem-label">4. Find stationary points and points of inflection for $y = x^4 - 4x^3$.</div>
+                        <button class="show-answer-btn" onclick="toggleAnswer(this)">Show Answer</button>
+                        <div class="answer-reveal">
+                            $\frac{dy}{dx} = 4x^3 - 12x^2 = 4x^2(x - 3) = 0$<br>
+                            Stationary points: $x = 0, x = 3$<br>
+                            At $x = 0$: $y = 0$; At $x = 3$: $y = 81 - 108 = -27$<br>
+                            $\frac{d^2y}{dx^2} = 12x^2 - 24x = 12x(x - 2)$<br>
+                            At $x = 0$: $\frac{d^2y}{dx^2} = 0$ (test further - horizontal inflection)<br>
+                            At $x = 3$: $\frac{d^2y}{dx^2} = 36 > 0$ → minimum<br>
+                            Inflection: $12x(x - 2) = 0 \Rightarrow x = 0$ or $x = 2$<br>
+                            $(0, 0)$ horizontal inflection, $(2, -16)$ non-horizontal inflection
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Summary -->
+            <section class="content-section section-light">
+                <h2>Complete Differentiation Summary</h2>
+                
+                <div class="summary-grid">
+                    <div class="summary-card">
+                        <h4 style="color: var(--primary-accent);">Rules</h4>
+                        <ul style="line-height: 1.8; font-size: 0.95em;">
+                            <li>Power: $(x^n)' = nx^{n-1}$</li>
+                            <li>Product: $(uv)' = uv' + vu'$</li>
+                            <li>Quotient: $(\frac{u}{v})' = \frac{vu' - uv'}{v^2}$</li>
+                            <li>Chain: $\frac{dy}{dx} = \frac{dy}{du} \cdot \frac{du}{dx}$</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="summary-card">
+                        <h4 style="color: var(--secondary-accent);">Tangents & Normals</h4>
+                        <ul style="line-height: 1.8; font-size: 0.95em;">
+                            <li>Tangent: $m = \frac{dy}{dx}$ at point</li>
+                            <li>Normal: $m = -\frac{1}{\frac{dy}{dx}}$</li>
+                            <li>Equation: $y - y_1 = m(x - x_1)$</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="summary-card">
+                        <h4 style="color: var(--primary-accent);">Stationary Points</h4>
+                        <ul style="line-height: 1.8; font-size: 0.95em;">
+                            <li>Occur where $\frac{dy}{dx} = 0$</li>
+                            <li>Max: $\frac{d^2y}{dx^2} < 0$</li>
+                            <li>Min: $\frac{d^2y}{dx^2} > 0$</li>
+                            <li>Inflection: sign change in $\frac{d^2y}{dx^2}$</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="summary-card">
+                        <h4 style="color: var(--secondary-accent);">Applications</h4>
+                        <ul style="line-height: 1.8; font-size: 0.95em;">
+                            <li>Related rates: Chain rule with time</li>
+                            <li>Optimisation: Find max/min values</li>
+                            <li>Use constraints to reduce variables</li>
+                            <li>Always verify with 2nd derivative</li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Congratulations -->
+            <section class="content-section">
+                <div class="congrats-box">
+                    <h2 style="margin-top: 0; color: white;">🎉 Congratulations!</h2>
+                    <p style="font-size: 1.2em; margin: 20px 0;">You've completed all 10 lessons on differentiation!</p>
+                    <p style="margin-top: 15px;">You now have the skills to tackle any differentiation problem, from basic power rules to complex real-world applications.</p>
+                    <p style="margin-top: 15px; font-weight: bold;">Keep practicing to maintain your mastery!</p>
+                </div>
+            </section>
+
+            <!-- Key Exam Tips -->
+            <section class="content-section section-light">
+                <h2>Final Exam Tips</h2>
+                <div style="background: #f8f9fa; border-left: 4px solid var(--primary-accent); padding: 20px; border-radius: 5px;">
+                    <ul style="line-height: 2;">
+                        <li>✓ <strong>Read carefully:</strong> Identify what's being asked</li>
+                        <li>✓ <strong>Plan your approach:</strong> Which rules do you need?</li>
+                        <li>✓ <strong>Show your working:</strong> Marks for method even if answer is wrong</li>
+                        <li>✓ <strong>Check dimensions:</strong> Do units make sense?</li>
+                        <li>✓ <strong>Verify answers:</strong> Use second derivative for max/min</li>
+                        <li>✓ <strong>Practice mixed problems:</strong> Real exams combine techniques</li>
+                        <li>✓ <strong>Manage time:</strong> Don't get stuck on one problem</li>
+                    </ul>
+                </div>
+            </section>
+
+            <!-- Navigation -->
+            <div class="navigation-buttons">
+                <a href="lesson9.html" class="nav-btn nav-btn-secondary">← Previous: Optimisation</a>
+                <a href="index.html" class="nav-btn nav-btn-primary">Return to Overview →</a>
+            </div>
+        </div>
+    </main>
+
+    <footer class="page-footer">
+        <p>&copy; 2026 NZ Math Hub. Supporting mathematics education in New Zealand.</p>
+    </footer>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+    
+    <script>
+        function toggleAnswer(button) {
+            const answerDiv = button.nextElementSibling;
+            if (answerDiv.style.display === 'none' || answerDiv.style.display === '') {
+                answerDiv.style.display = 'block';
+                button.textContent = 'Hide Answer';
+                button.style.background = '#666';
+                if (typeof MathJax !== 'undefined') {
+                    MathJax.Hub.Queue(["Typeset", MathJax.Hub, answerDiv]);
+                }
+            } else {
+                answerDiv.style.display = 'none';
+                button.textContent = 'Show Answer';
+                button.style.background = '';
+            }
+        }
+    </script>
+</body>
+</html>

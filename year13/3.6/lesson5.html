@@ -1,0 +1,539 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lesson 5: Tangents & Normals - NZ Math Hub</title>
+    <link rel="stylesheet" href="../../styles.css">
+    <style>
+        .rule-box {
+            background: linear-gradient(135deg, var(--primary-accent), var(--secondary-accent));
+            color: white;
+            padding: 25px;
+            border-radius: 10px;
+            margin: 25px 0;
+        }
+
+        .worked-example {
+            background: white;
+            border: 2px solid var(--border-color);
+            padding: 20px;
+            margin: 15px 0;
+            border-radius: 8px;
+        }
+
+        .step {
+            margin: 12px 0;
+            padding-left: 20px;
+        }
+
+        .step-number {
+            display: inline-block;
+            background: var(--primary-accent);
+            color: white;
+            width: 25px;
+            height: 25px;
+            border-radius: 50%;
+            text-align: center;
+            line-height: 25px;
+            margin-right: 10px;
+            font-weight: bold;
+        }
+
+        .practice-section {
+            background: #fff9e6;
+            padding: 25px;
+            border-radius: 10px;
+            margin: 25px 0;
+        }
+
+        .problem {
+            background: white;
+            padding: 15px;
+            border-radius: 5px;
+            border: 1px solid #ddd;
+            margin: 15px 0;
+        }
+
+        .problem-label {
+            color: var(--primary-accent);
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
+        .answer-reveal {
+            background: #e6ffe6;
+            padding: 15px;
+            margin-top: 10px;
+            border-radius: 5px;
+            display: none;
+        }
+
+        .show-answer-btn {
+            background: var(--secondary-accent);
+            color: white;
+            border: none;
+            padding: 8px 15px;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-top: 10px;
+        }
+
+        .show-answer-btn:hover {
+            background: var(--primary-accent);
+        }
+
+        .concept-box {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+            margin: 20px 0;
+        }
+
+        .concept-card {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            border: 2px solid var(--border-color);
+        }
+
+        .formula-highlight {
+            background: #ffe6e6;
+            padding: 15px;
+            border-radius: 8px;
+            margin: 15px 0;
+            border-left: 4px solid var(--primary-accent);
+        }
+
+        .navigation-buttons {
+            display: flex;
+            justify-content: space-between;
+            margin: 30px 0;
+            padding: 20px 0;
+            border-top: 2px solid var(--border-color);
+        }
+
+        .nav-btn {
+            padding: 12px 25px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: all 0.3s ease;
+        }
+
+        .nav-btn-primary {
+            background: var(--primary-accent);
+            color: white;
+        }
+
+        .nav-btn-secondary {
+            background: var(--background-light);
+            color: var(--text-primary);
+            border: 2px solid var(--border-color);
+        }
+
+        .nav-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+        }
+    </style>
+</head>
+<body>
+    <header class="page-header">
+        <div class="header-content">
+            <h1>📐 NZ Math Hub</h1>
+            <p>Lesson 5: Tangents & Normals</p>
+        </div>
+    </header>
+
+    <main class="main-content">
+        <div class="section-container">
+            <nav class="breadcrumb">
+                <a href="../../index.html">Home</a> → 
+                <a href="../../year13.html">Year 13</a> → 
+                <a href="index.html">3.6 Differentiation</a> → 
+                <span>Lesson 5</span>
+            </nav>
+
+            <!-- Introduction -->
+            <section class="content-section">
+                <h2>Equations of Tangent and Normal Lines</h2>
+                <p>The derivative at a point gives us the gradient (slope) of the tangent line at that point. We can use this to find equations of tangents and normals.</p>
+
+                <div class="concept-box">
+                    <div class="concept-card">
+                        <h3 style="color: var(--primary-accent);">Tangent Line</h3>
+                        <ul style="line-height: 2;">
+                            <li>Touches the curve at one point</li>
+                            <li>Has the <strong>same gradient</strong> as the curve</li>
+                            <li>Gradient = $\frac{dy}{dx}$ at that point</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="concept-card">
+                        <h3 style="color: var(--secondary-accent);">Normal Line</h3>
+                        <ul style="line-height: 2;">
+                            <li>Perpendicular to the tangent</li>
+                            <li>Gradient = $\frac{-1}{\text{tangent gradient}}$</li>
+                            <li>Forms a right angle with the curve</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Method -->
+                <div class="rule-box">
+                    <h3 style="color: white; margin-top: 0;">Standard Method</h3>
+                    <ol style="line-height: 2; font-size: 1.1em;">
+                        <li><strong>Find the point:</strong> Substitute $x$ to find $y$-coordinate $(x_1, y_1)$</li>
+                        <li><strong>Find gradient:</strong> Calculate $\frac{dy}{dx}$ and evaluate at $x_1$</li>
+                        <li><strong>For tangent:</strong> Use $m = \frac{dy}{dx}|_{x=x_1}$</li>
+                        <li><strong>For normal:</strong> Use $m = \frac{-1}{\frac{dy}{dx}|_{x=x_1}}$</li>
+                        <li><strong>Line equation:</strong> Use $y - y_1 = m(x - x_1)$</li>
+                    </ol>
+                </div>
+
+                <div class="formula-highlight">
+                    <h4>Key Formula: Point-Gradient Form</h4>
+                    <p style="text-align: center; font-size: 1.2em; margin: 15px 0;">
+                        $$y - y_1 = m(x - x_1)$$
+                    </p>
+                    <p style="text-align: center; margin-top: 10px;">
+                        where $(x_1, y_1)$ is a point on the line and $m$ is the gradient
+                    </p>
+                </div>
+            </section>
+
+            <!-- Worked Examples -->
+            <section class="content-section section-light">
+                <h2>Worked Examples: Tangent Lines</h2>
+
+                <div class="worked-example">
+                    <h3>Example 1: Basic Tangent</h3>
+                    <p><strong>Find the equation of the tangent to $y = x^2$ at $x = 2$</strong></p>
+                    
+                    <div class="step">
+                        <span class="step-number">1</span>
+                        <strong>Find the point:</strong> $y = 2^2 = 4$, so point is $(2, 4)$
+                    </div>
+                    
+                    <div class="step">
+                        <span class="step-number">2</span>
+                        <strong>Find gradient:</strong> $\frac{dy}{dx} = 2x$
+                    </div>
+                    
+                    <div class="step">
+                        <span class="step-number">3</span>
+                        <strong>Evaluate at $x = 2$:</strong> $m = 2(2) = 4$
+                    </div>
+                    
+                    <div class="step">
+                        <span class="step-number">4</span>
+                        <strong>Use point-gradient form:</strong> $y - 4 = 4(x - 2)$
+                    </div>
+                    
+                    <div class="step">
+                        <span class="step-number">5</span>
+                        <strong>Simplify:</strong> $y - 4 = 4x - 8$, so $y = 4x - 4$
+                    </div>
+                </div>
+
+                <div class="worked-example">
+                    <h3>Example 2: Tangent with Product Rule</h3>
+                    <p><strong>Find the tangent to $y = x(x + 1)$ at $x = 1$</strong></p>
+                    
+                    <div class="step">
+                        <span class="step-number">1</span>
+                        <strong>Find point:</strong> $y = 1(1 + 1) = 2$, point is $(1, 2)$
+                    </div>
+                    
+                    <div class="step">
+                        <span class="step-number">2</span>
+                        <strong>Differentiate:</strong> $\frac{dy}{dx} = x \cdot 1 + (x + 1) \cdot 1 = 2x + 1$
+                    </div>
+                    
+                    <div class="step">
+                        <span class="step-number">3</span>
+                        <strong>Evaluate:</strong> $m = 2(1) + 1 = 3$
+                    </div>
+                    
+                    <div class="step">
+                        <span class="step-number">4</span>
+                        <strong>Equation:</strong> $y - 2 = 3(x - 1)$
+                    </div>
+                    
+                    <div class="step">
+                        <span class="step-number">5</span>
+                        <strong>Simplify:</strong> $y = 3x - 1$
+                    </div>
+                </div>
+            </section>
+
+            <section class="content-section">
+                <h2>Worked Examples: Normal Lines</h2>
+
+                <div class="worked-example">
+                    <h3>Example 3: Basic Normal</h3>
+                    <p><strong>Find the normal to $y = x^2$ at $x = 2$</strong></p>
+                    
+                    <div class="step">
+                        <span class="step-number">1</span>
+                        <strong>Find point:</strong> From Example 1, point is $(2, 4)$
+                    </div>
+                    
+                    <div class="step">
+                        <span class="step-number">2</span>
+                        <strong>Tangent gradient:</strong> From Example 1, $m_{\text{tangent}} = 4$
+                    </div>
+                    
+                    <div class="step">
+                        <span class="step-number">3</span>
+                        <strong>Normal gradient:</strong> $m_{\text{normal}} = \frac{-1}{4}$
+                    </div>
+                    
+                    <div class="step">
+                        <span class="step-number">4</span>
+                        <strong>Equation:</strong> $y - 4 = -\frac{1}{4}(x - 2)$
+                    </div>
+                    
+                    <div class="step">
+                        <span class="step-number">5</span>
+                        <strong>Simplify:</strong> $y = -\frac{1}{4}x + \frac{1}{2} + 4 = -\frac{1}{4}x + \frac{9}{2}$
+                    </div>
+                </div>
+
+                <div class="worked-example">
+                    <h3>Example 4: Normal with Chain Rule</h3>
+                    <p><strong>Find the normal to $y = (x + 1)^2$ at $x = 0$</strong></p>
+                    
+                    <div class="step">
+                        <span class="step-number">1</span>
+                        <strong>Find point:</strong> $y = (0 + 1)^2 = 1$, point is $(0, 1)$
+                    </div>
+                    
+                    <div class="step">
+                        <span class="step-number">2</span>
+                        <strong>Differentiate:</strong> $\frac{dy}{dx} = 2(x + 1)$
+                    </div>
+                    
+                    <div class="step">
+                        <span class="step-number">3</span>
+                        <strong>Tangent gradient:</strong> $m_{\text{tangent}} = 2(0 + 1) = 2$
+                    </div>
+                    
+                    <div class="step">
+                        <span class="step-number">4</span>
+                        <strong>Normal gradient:</strong> $m_{\text{normal}} = -\frac{1}{2}$
+                    </div>
+                    
+                    <div class="step">
+                        <span class="step-number">5</span>
+                        <strong>Equation:</strong> $y - 1 = -\frac{1}{2}(x - 0)$, so $y = -\frac{1}{2}x + 1$
+                    </div>
+                </div>
+            </section>
+
+            <!-- Minimal Change Practice -->
+            <section class="content-section section-light">
+                <h2>Practice: Tangent Lines - Minimal Change</h2>
+                
+                <div class="practice-section">
+                    <h3>Set 1: Same curve, different points</h3>
+                    <p><em>Curve: $y = x^2$, find tangent at different $x$-values</em></p>
+                    
+                    <div class="problem">
+                        <div class="problem-label">a) Tangent to $y = x^2$ at $x = 1$</div>
+                        <button class="show-answer-btn" onclick="toggleAnswer(this)">Show Answer</button>
+                        <div class="answer-reveal">
+                            Point: $(1, 1)$<br>
+                            $\frac{dy}{dx} = 2x$, at $x = 1$: $m = 2$<br>
+                            $y - 1 = 2(x - 1)$<br>
+                            $y = 2x - 1$
+                        </div>
+                    </div>
+                    
+                    <div class="problem">
+                        <div class="problem-label">b) Tangent to $y = x^2$ at $x = 3$</div>
+                        <button class="show-answer-btn" onclick="toggleAnswer(this)">Show Answer</button>
+                        <div class="answer-reveal">
+                            Point: $(3, 9)$<br>
+                            $\frac{dy}{dx} = 2x$, at $x = 3$: $m = 6$<br>
+                            $y - 9 = 6(x - 3)$<br>
+                            $y = 6x - 9$
+                        </div>
+                    </div>
+                    
+                    <div class="problem">
+                        <div class="problem-label">c) Tangent to $y = x^2$ at $x = -1$</div>
+                        <button class="show-answer-btn" onclick="toggleAnswer(this)">Show Answer</button>
+                        <div class="answer-reveal">
+                            Point: $(-1, 1)$<br>
+                            $\frac{dy}{dx} = 2x$, at $x = -1$: $m = -2$<br>
+                            $y - 1 = -2(x + 1)$<br>
+                            $y = -2x - 1$
+                        </div>
+                    </div>
+                </div>
+
+                <div class="practice-section">
+                    <h3>Set 2: Varying the power</h3>
+                    <p><em>Similar curves with different powers, all at $x = 2$</em></p>
+                    
+                    <div class="problem">
+                        <div class="problem-label">a) Tangent to $y = x^2$ at $x = 2$</div>
+                        <button class="show-answer-btn" onclick="toggleAnswer(this)">Show Answer</button>
+                        <div class="answer-reveal">
+                            Point: $(2, 4)$<br>
+                            $\frac{dy}{dx} = 2x$, at $x = 2$: $m = 4$<br>
+                            $y = 4x - 4$
+                        </div>
+                    </div>
+                    
+                    <div class="problem">
+                        <div class="problem-label">b) Tangent to $y = x^3$ at $x = 2$</div>
+                        <button class="show-answer-btn" onclick="toggleAnswer(this)">Show Answer</button>
+                        <div class="answer-reveal">
+                            Point: $(2, 8)$<br>
+                            $\frac{dy}{dx} = 3x^2$, at $x = 2$: $m = 12$<br>
+                            $y - 8 = 12(x - 2)$<br>
+                            $y = 12x - 16$
+                        </div>
+                    </div>
+                    
+                    <div class="problem">
+                        <div class="problem-label">c) Tangent to $y = x^4$ at $x = 2$</div>
+                        <button class="show-answer-btn" onclick="toggleAnswer(this)">Show Answer</button>
+                        <div class="answer-reveal">
+                            Point: $(2, 16)$<br>
+                            $\frac{dy}{dx} = 4x^3$, at $x = 2$: $m = 32$<br>
+                            $y - 16 = 32(x - 2)$<br>
+                            $y = 32x - 48$
+                        </div>
+                    </div>
+                </div>
+
+                <h2>Practice: Normal Lines - Minimal Change</h2>
+                
+                <div class="practice-section">
+                    <h3>Set 3: From tangents to normals</h3>
+                    <p><em>We found tangents in Set 1, now find the normals</em></p>
+                    
+                    <div class="problem">
+                        <div class="problem-label">a) Normal to $y = x^2$ at $x = 1$</div>
+                        <button class="show-answer-btn" onclick="toggleAnswer(this)">Show Answer</button>
+                        <div class="answer-reveal">
+                            Point: $(1, 1)$, tangent gradient: $m = 2$<br>
+                            Normal gradient: $m_n = -\frac{1}{2}$<br>
+                            $y - 1 = -\frac{1}{2}(x - 1)$<br>
+                            $y = -\frac{1}{2}x + \frac{3}{2}$
+                        </div>
+                    </div>
+                    
+                    <div class="problem">
+                        <div class="problem-label">b) Normal to $y = x^2$ at $x = 3$</div>
+                        <button class="show-answer-btn" onclick="toggleAnswer(this)">Show Answer</button>
+                        <div class="answer-reveal">
+                            Point: $(3, 9)$, tangent gradient: $m = 6$<br>
+                            Normal gradient: $m_n = -\frac{1}{6}$<br>
+                            $y - 9 = -\frac{1}{6}(x - 3)$<br>
+                            $y = -\frac{1}{6}x + \frac{19}{2}$
+                        </div>
+                    </div>
+                    
+                    <div class="problem">
+                        <div class="problem-label">c) Normal to $y = x^2$ at $x = -1$</div>
+                        <button class="show-answer-btn" onclick="toggleAnswer(this)">Show Answer</button>
+                        <div class="answer-reveal">
+                            Point: $(-1, 1)$, tangent gradient: $m = -2$<br>
+                            Normal gradient: $m_n = \frac{1}{2}$<br>
+                            $y - 1 = \frac{1}{2}(x + 1)$<br>
+                            $y = \frac{1}{2}x + \frac{3}{2}$
+                        </div>
+                    </div>
+                </div>
+
+                <div class="practice-section">
+                    <h3>Set 4: Mixed practice</h3>
+                    
+                    <div class="problem">
+                        <div class="problem-label">a) Tangent to $y = 2x^2 + 3$ at $x = 1$</div>
+                        <button class="show-answer-btn" onclick="toggleAnswer(this)">Show Answer</button>
+                        <div class="answer-reveal">
+                            Point: $(1, 5)$<br>
+                            $\frac{dy}{dx} = 4x$, at $x = 1$: $m = 4$<br>
+                            $y - 5 = 4(x - 1)$<br>
+                            $y = 4x + 1$
+                        </div>
+                    </div>
+                    
+                    <div class="problem">
+                        <div class="problem-label">b) Normal to $y = x^3 - x$ at $x = 2$</div>
+                        <button class="show-answer-btn" onclick="toggleAnswer(this)">Show Answer</button>
+                        <div class="answer-reveal">
+                            Point: $(2, 6)$<br>
+                            $\frac{dy}{dx} = 3x^2 - 1$, at $x = 2$: $m_t = 11$<br>
+                            Normal gradient: $m_n = -\frac{1}{11}$<br>
+                            $y - 6 = -\frac{1}{11}(x - 2)$<br>
+                            $y = -\frac{1}{11}x + \frac{68}{11}$
+                        </div>
+                    </div>
+                    
+                    <div class="problem">
+                        <div class="problem-label">c) Tangent to $y = (x + 2)^2$ at $x = -1$</div>
+                        <button class="show-answer-btn" onclick="toggleAnswer(this)">Show Answer</button>
+                        <div class="answer-reveal">
+                            Point: $(-1, 1)$<br>
+                            $\frac{dy}{dx} = 2(x + 2)$, at $x = -1$: $m = 2$<br>
+                            $y - 1 = 2(x + 1)$<br>
+                            $y = 2x + 3$
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Key Points -->
+            <section class="content-section">
+                <h2>Key Points to Remember</h2>
+                <div style="background: #f8f9fa; border-left: 4px solid var(--primary-accent); padding: 20px; border-radius: 5px;">
+                    <ul style="line-height: 2;">
+                        <li>✓ Always find the <strong>point</strong> first $(x_1, y_1)$</li>
+                        <li>✓ <strong>Tangent gradient</strong> = value of $\frac{dy}{dx}$ at the point</li>
+                        <li>✓ <strong>Normal gradient</strong> = $-\frac{1}{\text{tangent gradient}}$</li>
+                        <li>✓ Use <strong>point-gradient form:</strong> $y - y_1 = m(x - x_1)$</li>
+                        <li>✓ Tangent and normal are <strong>perpendicular</strong>: $m_1 \times m_2 = -1$</li>
+                    </ul>
+                </div>
+            </section>
+
+            <!-- Navigation -->
+            <div class="navigation-buttons">
+                <a href="lesson4.html" class="nav-btn nav-btn-secondary">← Previous: Combined Techniques</a>
+                <a href="lesson6.html" class="nav-btn nav-btn-primary">Next: Stationary Points →</a>
+            </div>
+        </div>
+    </main>
+
+    <footer class="page-footer">
+        <p>&copy; 2026 NZ Math Hub. Supporting mathematics education in New Zealand.</p>
+    </footer>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+    
+    <script>
+        function toggleAnswer(button) {
+            const answerDiv = button.nextElementSibling;
+            if (answerDiv.style.display === 'none' || answerDiv.style.display === '') {
+                answerDiv.style.display = 'block';
+                button.textContent = 'Hide Answer';
+                button.style.background = '#666';
+                if (typeof MathJax !== 'undefined') {
+                    MathJax.Hub.Queue(["Typeset", MathJax.Hub, answerDiv]);
+                }
+            } else {
+                answerDiv.style.display = 'none';
+                button.textContent = 'Show Answer';
+                button.style.background = '';
+            }
+        }
+    </script>
+</body>
+</html>
