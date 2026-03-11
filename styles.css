@@ -4,17 +4,17 @@
    =================================== */
 
 :root {
-    /* Color Palette */
-    --primary-accent: #2c7a7b;      /* Teal - for links and highlights */
-    --secondary-accent: #4299e1;     /* Soft blue - for interactive elements */
+    /* Color Palette - High Contrast for Better Readability */
+    --primary-accent: #006666;      /* Darker teal - for links and highlights */
+    --secondary-accent: #0066cc;     /* Darker blue - for interactive elements */
     --background-white: #ffffff;
     --background-light: #f7fafc;     /* Very light gray */
     --background-medium: #edf2f7;    /* Light gray */
-    --text-primary: #2d3748;         /* Dark gray for main text */
-    --text-secondary: #4a5568;       /* Medium gray for secondary text */
+    --text-primary: #000000;         /* Pure black for main text - maximum contrast */
+    --text-secondary: #1a1a1a;       /* Very dark gray for secondary text - high contrast */
     --border-color: #cbd5e0;         /* Border gray */
-    --success-color: #48bb78;        /* Green for positive feedback */
-    --warning-color: #ed8936;        /* Orange for warnings */
+    --success-color: #006600;        /* Darker green for positive feedback */
+    --warning-color: #cc5500;        /* Darker orange for warnings */
     
     /* Typography */
     --font-main: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;

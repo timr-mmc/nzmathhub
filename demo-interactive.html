@@ -1,0 +1,394 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interactive Features Demo - NZ Math Hub</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="interactive.css">
+    <link rel="stylesheet" href="dark-mode.css">
+    <link rel="stylesheet" href="print.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css" 
+          integrity="sha384-n8MVd4RsNIU0tAv4ct0nTaAbDJwPJzDEaqSD1odI+WdtXRGWt2kTvGFasHpSy3SV" 
+          crossorigin="anonymous">
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js" 
+            integrity="sha384-XjKyOOlGwcjNTAIQHIpgOno0Hl1YQqzUOEleOLALmuqehneUG+vnGctmUb0ZY0l8" 
+            crossorigin="anonymous"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js" 
+            integrity="sha384-+VBxd3r5FzMSyEHQPPCL4YCLEHXc6M+SbWLEBDwD3vFXJJb+WdqBOh0wE7JQcvqO" 
+            crossorigin="anonymous"></script>
+    <script defer src="interactive.js"></script>
+</head>
+<body>
+    <!-- Page Header -->
+    <header class="page-header">
+        <h1>🎮 Interactive Features Demo</h1>
+        <p class="subtitle">Experience all the new interactive learning tools</p>
+    </header>
+
+    <!-- Breadcrumb Navigation -->
+    <nav class="breadcrumb">
+        <a href="index.html">Home</a> &gt; 
+        <span>Interactive Demo</span>
+    </nav>
+
+    <!-- Main Navigation -->
+    <nav class="main-nav">
+        <a href="#matching" class="nav-link">Drag & Drop</a>
+        <a href="#graphing" class="nav-link">Graphing</a>
+        <a href="#quiz" class="nav-link">Quiz</a>
+        <a href="#features" class="nav-link">All Features</a>
+    </nav>
+
+    <!-- Introduction -->
+    <section class="content-section">
+        <h2 class="section-title">Welcome to the Interactive Demo</h2>
+        
+        <p>This page demonstrates all the new interactive features available in NZ Math Hub. Try each activity below!</p>
+
+        <div class="note-box">
+            <h4>🎹 Keyboard Shortcuts Available</h4>
+            <ul>
+                <li><kbd>Ctrl+D</kbd> - Toggle Dark Mode</li>
+                <li><kbd>Space</kbd> - Toggle first answer</li>
+                <li><kbd>←</kbd> / <kbd>→</kbd> - Navigate pages</li>
+            </ul>
+        </div>
+
+        <div class="example-box">
+            <h4>✨ New Features Included</h4>
+            <ul>
+                <li><strong>Drag-and-Drop Matching</strong> - Interactive term matching</li>
+                <li><strong>Multiple Choice Quizzes</strong> - Self-assessment with instant feedback</li>
+                <li><strong>Graphing Tool</strong> - Plot functions and points</li>
+                <li><strong>Dark Mode</strong> - Easy on the eyes (toggle bottom-left)</li>
+                <li><strong>Print Worksheets</strong> - Print-friendly formatting (button top-right)</li>
+                <li><strong>Keyboard Shortcuts</strong> - Navigate efficiently</li>
+            </ul>
+        </div>
+    </section>
+
+    <!-- Drag and Drop Activity -->
+    <section id="matching" class="content-section">
+        <h2 class="section-title">1. Drag-and-Drop Matching</h2>
+        
+        <p>Match each mathematical notation to its name. Drag items from the left column to the correct box on the right.</p>
+
+        <div id="matching-activity"></div>
+    </section>
+
+    <!-- Graphing Tool -->
+    <section id="graphing" class="content-section">
+        <h2 class="section-title">2. Interactive Graphing Tool</h2>
+        
+        <p>Click the buttons below to plot different functions. Watch how the graphs appear!</p>
+
+        <div class="graph-container">
+            <h4>Function Grapher</h4>
+            <canvas id="demo-graph" class="graph-canvas"></canvas>
+            
+            <div class="graph-controls">
+                <button onclick="plotLinear()">Linear: y = 2x + 1</button>
+                <button onclick="plotQuadratic()">Quadratic: y = x²</button>
+                <button onclick="plotCubic()">Cubic: y = x³ - 2x</button>
+                <button onclick="plotSin()">Trigonometric: y = sin(x)</button>
+                <button onclick="clearGraph()">Clear Graph</button>
+            </div>
+        </div>
+
+        <div class="note-box">
+            <h4>Try This</h4>
+            <p>Observe how the shape of the graph changes with different functions!</p>
+            <ul>
+                <li>Linear functions are straight lines</li>
+                <li>Quadratic functions form parabolas</li>
+                <li>Cubic functions have S-shapes</li>
+                <li>Trig functions create waves</li>
+            </ul>
+        </div>
+    </section>
+
+    <!-- Quiz Section -->
+    <section id="quiz" class="content-section">
+        <h2 class="section-title">3. Interactive Quiz</h2>
+        
+        <p>Test your knowledge with this sample mathematics quiz. Choose the correct answer for each question.</p>
+
+        <div id="quiz-container"></div>
+    </section>
+
+    <!-- All Features Overview -->
+    <section id="features" class="content-section">
+        <h2 class="section-title">4. Additional Features</h2>
+
+        <div class="example-box">
+            <h4>🌙 Dark Mode</h4>
+            <p>Click the button in the bottom-left corner (or press <kbd>Ctrl+D</kbd>) to toggle dark mode. Your preference is saved automatically!</p>
+            <p><strong>Benefits:</strong> Reduces eye strain, better for low-light environments, maintains accessibility standards.</p>
+        </div>
+
+        <div class="example-box">
+            <h4>🖨️ Print Worksheets</h4>
+            <p>Click the "Print Worksheet" button in the top-right corner to generate a print-friendly version.</p>
+            <p><strong>Features:</strong> Hides navigation, shows answers by default, professional formatting for A4 paper.</p>
+        </div>
+
+        <div class="example-box">
+            <h4>⌨️ Keyboard Shortcuts</h4>
+            <p>Navigate more efficiently with keyboard shortcuts:</p>
+            <table>
+                <tr>
+                    <td><kbd>←</kbd> Left Arrow</td>
+                    <td>Go to previous page</td>
+                </tr>
+                <tr>
+                    <td><kbd>→</kbd> Right Arrow</td>
+                    <td>Go to next page</td>
+                </tr>
+                <tr>
+                    <td><kbd>Space</kbd></td>
+                    <td>Toggle first answer</td>
+                </tr>
+                <tr>
+                    <td><kbd>Ctrl+D</kbd></td>
+                    <td>Toggle dark mode</td>
+                </tr>
+            </table>
+        </div>
+
+        <div class="example-box">
+            <h4>📝 Lesson Templates</h4>
+            <p>Four ready-to-use templates are available in the <code>/templates/</code> folder:</p>
+            <ul>
+                <li><strong>lesson-template.html</strong> - Standard lesson with examples and practice</li>
+                <li><strong>investigation-template.html</strong> - Student-led inquiry activities</li>
+                <li><strong>interactive-lesson-template.html</strong> - Lessons with interactive components</li>
+                <li><strong>practice-template.html</strong> - Focused practice worksheets</li>
+            </ul>
+        </div>
+    </section>
+
+    <!-- Traditional Practice (to show toggle answers) -->
+    <section class="content-section">
+        <h2 class="section-title">5. Traditional Practice Problems</h2>
+        
+        <p>Click "Show Answer" to reveal solutions. Math renders beautifully with KaTeX!</p>
+
+        <div class="practice-problem">
+            <p class="problem-number"><strong>1.</strong> Solve for $x$: $2x + 5 = 13$</p>
+            <button class="show-answer-btn" onclick="toggleAnswer(this)">Show Answer</button>
+            <div class="answer-section" style="display: none;">
+                <div class="answer-content">
+                    <p><strong>Working:</strong></p>
+                    <p>$$2x + 5 = 13$$</p>
+                    <p>$$2x = 13 - 5$$</p>
+                    <p>$$2x = 8$$</p>
+                    <p>$$x = 4$$</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="practice-problem">
+            <p class="problem-number"><strong>2.</strong> Differentiate $f(x) = x^3 + 2x^2 - 5x + 1$</p>
+            <button class="show-answer-btn" onclick="toggleAnswer(this)">Show Answer</button>
+            <div class="answer-section" style="display: none;">
+                <div class="answer-content">
+                    <p><strong>Using the power rule:</strong></p>
+                    <p>$$f'(x) = 3x^2 + 4x - 5$$</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Getting Started Guide -->
+    <section class="content-section">
+        <h2 class="section-title">Getting Started</h2>
+
+        <div class="definition-box">
+            <h4>How to Use These Features in Your Lessons</h4>
+            
+            <p><strong>Step 1:</strong> Include the required CSS and JavaScript files in your HTML <code>&lt;head&gt;</code>:</p>
+            <pre style="background: #f5f5f5; padding: 1rem; border-radius: 5px; overflow-x: auto;"><code>&lt;link rel="stylesheet" href="../../interactive.css"&gt;
+&lt;link rel="stylesheet" href="../../dark-mode.css"&gt;
+&lt;link rel="stylesheet" href="../../print.css"&gt;
+&lt;script defer src="../../interactive.js"&gt;&lt;/script&gt;</code></pre>
+
+            <p><strong>Step 2:</strong> Choose a template from <code>/templates/</code> folder</p>
+            
+            <p><strong>Step 3:</strong> Add interactive components using the examples in this demo</p>
+            
+            <p><strong>Step 4:</strong> Read <code>FEATURES-GUIDE.md</code> for detailed documentation</p>
+        </div>
+
+        <div class="note-box">
+            <h4>📚 Documentation</h4>
+            <p>Complete guides available:</p>
+            <ul>
+                <li><strong>FEATURES-GUIDE.md</strong> - How to use all new features</li>
+                <li><strong>CLAUDE-README.md</strong> - Development standards and guidelines</li>
+                <li><strong>README.md</strong> - Project overview</li>
+            </ul>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2026 NZ Math Hub. Aligned with the New Zealand Curriculum.</p>
+        <p>Interactive learning for deeper engagement and understanding.</p>
+    </footer>
+
+    <!-- Dark Mode Toggle -->
+    <button class="dark-mode-toggle" onclick="toggleDarkMode()" title="Toggle Dark Mode (Ctrl+D)"></button>
+
+    <!-- Print Button -->
+    <button class="print-button no-print" onclick="window.print()">Print Demo</button>
+
+    <!-- JavaScript -->
+    <script>
+        // Render math on page load
+        document.addEventListener("DOMContentLoaded", function() {
+            // Render KaTeX
+            renderMathInElement(document.body, {
+                delimiters: [
+                    {left: '$$', right: '$$', display: true},
+                    {left: '$', right: '$', display: false}
+                ],
+                throwOnError: false
+            });
+
+            // Initialize interactive components
+            initMatching();
+            initGraph();
+            initQuiz();
+        });
+
+        // ===============================
+        // MATCHING ACTIVITY
+        // ===============================
+        function initMatching() {
+            const matchingItems = [
+                {id: 1, term: "$x^2$", match: "Quadratic term"},
+                {id: 2, term: "$\\frac{dy}{dx}$", match: "Derivative notation"},
+                {id: 3, term: "$\\sum$", match: "Summation symbol"},
+                {id: 4, term: "$\\pi$", match: "Pi (3.14159...)"},
+                {id: 5, term: "$\\sqrt{x}$", match: "Square root"}
+            ];
+
+            new DragDropMatching('matching-activity', matchingItems, () => {
+                console.log('Perfect! All terms matched correctly!');
+            });
+        }
+
+        // ===============================
+        // GRAPHING TOOL
+        // ===============================
+        let grapher;
+
+        function initGraph() {
+            grapher = new SimpleGrapher('demo-graph', {
+                width: 600,
+                height: 400,
+                xMin: -10,
+                xMax: 10,
+                yMin: -10,
+                yMax: 10
+            });
+        }
+
+        function plotLinear() {
+            grapher.clear();
+            grapher.plotFunction((x) => 2*x + 1, '#0066cc');
+        }
+
+        function plotQuadratic() {
+            grapher.clear();
+            grapher.plotFunction((x) => x*x, '#cc0000');
+        }
+
+        function plotCubic() {
+            grapher.clear();
+            grapher.plotFunction((x) => x*x*x - 2*x, '#00cc00');
+        }
+
+        function plotSin() {
+            grapher.clear();
+            grapher.plotFunction((x) => 5*Math.sin(x), '#cc00cc');
+        }
+
+        function clearGraph() {
+            grapher.clear();
+        }
+
+        // ===============================
+        // QUIZ
+        // ===============================
+        function initQuiz() {
+            const questions = [
+                {
+                    question: "What is the derivative of $x^2$?",
+                    options: ["$x$", "$2x$", "$2$", "$x^2$"],
+                    correct: 1,
+                    explanation: "Using the power rule: $\\frac{d}{dx}(x^2) = 2x^{2-1} = 2x$"
+                },
+                {
+                    question: "Which graph represents a linear function?",
+                    options: ["Parabola", "Straight line", "Circle", "Hyperbola"],
+                    correct: 1,
+                    explanation: "Linear functions create straight lines with constant slope."
+                },
+                {
+                    question: "What is $\\sqrt{144}$?",
+                    options: ["10", "11", "12", "13"],
+                    correct: 2,
+                    explanation: "Since $12 \\times 12 = 144$, we have $\\sqrt{144} = 12$"
+                },
+                {
+                    question: "In the equation $y = mx + c$, what does $m$ represent?",
+                    options: ["Y-intercept", "Slope", "X-coordinate", "Constant"],
+                    correct: 1,
+                    explanation: "$m$ is the slope (gradient) of the line, and $c$ is the y-intercept."
+                },
+                {
+                    question: "Which of these is a quadratic equation?",
+                    options: ["$y = 2x + 1$", "$y = x^2 + 3x + 2$", "$y = \\frac{1}{x}$", "$y = x^3$"],
+                    correct: 1,
+                    explanation: "Quadratic equations have $x^2$ as the highest power, like $y = x^2 + 3x + 2$"
+                }
+            ];
+
+            new MultipleChoiceQuiz('quiz-container', questions);
+        }
+
+        // ===============================
+        // STANDARD FUNCTIONS
+        // ===============================
+        function toggleAnswer(button) {
+            const answerSection = button.nextElementSibling;
+            if (answerSection.style.display === 'none') {
+                answerSection.style.display = 'block';
+                button.textContent = 'Hide Answer';
+                renderMathInElement(answerSection, {
+                    delimiters: [
+                        {left: '$$', right: '$$', display: true},
+                        {left: '$', right: '$', display: false}
+                    ],
+                    throwOnError: false
+                });
+            } else {
+                answerSection.style.display = 'none';
+                button.textContent = 'Show Answer';
+            }
+        }
+
+        function toggleDarkMode() {
+            document.body.classList.toggle('dark-mode');
+            localStorage.setItem('darkMode', document.body.classList.contains('dark-mode'));
+        }
+
+        // Remember dark mode preference
+        if (localStorage.getItem('darkMode') === 'true') {
+            document.body.classList.add('dark-mode');
+        }
+    </script>
+</body>
+</html>

@@ -5,6 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Lesson 6: Stationary Points - NZ Math Hub</title>
     <link rel="stylesheet" href="../../styles.css">
+    <link rel="stylesheet" href="../../scroll-reveal.css">
+    <!-- KaTeX CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css" integrity="sha384-n8MVd4RsNIU0tAv4ct0nTaAbDJwPJzDEaqSD1odI+WdtXRGWt2kTvGFasHpSy3SV" crossorigin="anonymous">
     <style>
         .rule-box {
             background: linear-gradient(135deg, var(--primary-accent), var(--secondary-accent));
@@ -99,15 +102,15 @@
         }
 
         .max-card {
-            border-color: #ff6b6b;
+            border-color: #cc0000;
         }
 
         .min-card {
-            border-color: #4dabf7;
+            border-color: #0066cc;
         }
 
         .inflection-card {
-            border-color: #ffd43b;
+            border-color: #cc8800;
         }
 
         .test-box {
@@ -187,19 +190,19 @@
                 <h3>Determining the Nature of Stationary Points</h3>
                 <div class="nature-box">
                     <div class="nature-card max-card">
-                        <h4 style="color: #ff6b6b;">Maximum</h4>
+                        <h4 style="color: #cc0000;">Maximum</h4>
                         <p style="margin: 15px 0;">$\frac{d^2y}{dx^2} < 0$</p>
                         <p style="font-size: 0.9em;">Negative<br>Concave down<br>∩</p>
                     </div>
                     
                     <div class="nature-card min-card">
-                        <h4 style="color: #4dabf7;">Minimum</h4>
+                        <h4 style="color: #0066cc;">Minimum</h4>
                         <p style="margin: 15px 0;">$\frac{d^2y}{dx^2} > 0$</p>
                         <p style="font-size: 0.9em;">Positive<br>Concave up<br>∪</p>
                     </div>
                     
                     <div class="nature-card inflection-card">
-                        <h4 style="color: #ffa94d;">Inflection</h4>
+                        <h4 style="color: #cc8800;">Inflection</h4>
                         <p style="margin: 15px 0;">$\frac{d^2y}{dx^2} = 0$</p>
                         <p style="font-size: 0.9em;">Zero<br>Further testing needed<br>~</p>
                     </div>
@@ -221,96 +224,333 @@
             <section class="content-section section-light">
                 <h2>Worked Examples</h2>
 
-                <div class="worked-example">
+                <div class="accordion-example">
                     <h3>Example 1: Basic Quadratic</h3>
-                    <p><strong>Find and classify the stationary points of $y = x^2 - 4x + 1$</strong></p>
                     
-                    <div class="step">
-                        <span class="step-number">1</span>
-                        <strong>Differentiate:</strong> $\frac{dy}{dx} = 2x - 4$
+                    <div class="example-question">
+                        <strong>Question:</strong>
+                        Find and classify the stationary points of $y = x^2 - 4x + 1$
                     </div>
                     
-                    <div class="step">
-                        <span class="step-number">2</span>
-                        <strong>Set equal to zero:</strong> $2x - 4 = 0$, so $x = 2$
+                    <div class="accordion-step">
+                        <div class="accordion-header" onclick="toggleAccordion(this)">
+                            <span class="step-label">Step 1: Differentiate the function</span>
+                            <span class="accordion-toggle">▼</span>
+                        </div>
+                        <div class="accordion-content">
+                            <div class="step-math">
+                                $$\frac{dy}{dx} = 2x - 4$$
+                            </div>
+                        </div>
                     </div>
                     
-                    <div class="step">
-                        <span class="step-number">3</span>
-                        <strong>Find $y$:</strong> $y = 2^2 - 4(2) + 1 = 4 - 8 + 1 = -3$
+                    <div class="accordion-step">
+                        <div class="accordion-header" onclick="toggleAccordion(this)">
+                            <span class="step-label">Step 2: Set the derivative equal to zero</span>
+                            <span class="accordion-toggle">▼</span>
+                        </div>
+                        <div class="accordion-content">
+                            <div class="step-math">
+                                $$2x - 4 = 0$$
+                            </div>
+                            <div class="step-math">
+                                $$2x = 4$$
+                            </div>
+                            <div class="step-math">
+                                $$x = 2$$
+                            </div>
+                        </div>
                     </div>
                     
-                    <div class="step">
-                        <span class="step-number">4</span>
-                        <strong>Second derivative:</strong> $\frac{d^2y}{dx^2} = 2 > 0$
+                    <div class="accordion-step">
+                        <div class="accordion-header" onclick="toggleAccordion(this)">
+                            <span class="step-label">Step 3: Find the y-coordinate</span>
+                            <span class="accordion-toggle">▼</span>
+                        </div>
+                        <div class="accordion-content">
+                            <div class="step-math">
+                                $$y = (2)^2 - 4(2) + 1$$
+                            </div>
+                            <div class="step-math">
+                                $$y = 4 - 8 + 1$$
+                            </div>
+                            <div class="step-math">
+                                $$y = -3$$
+                            </div>
+                        </div>
                     </div>
                     
-                    <div class="step">
-                        <span class="step-number">5</span>
-                        <strong>Conclusion:</strong> <strong style="color: #4dabf7;">Minimum</strong> at $(2, -3)$
+                    <div class="accordion-step">
+                        <div class="accordion-header" onclick="toggleAccordion(this)">
+                            <span class="step-label">Step 4: Find the second derivative</span>
+                            <span class="accordion-toggle">▼</span>
+                        <div class="accordion-content">
+                            <div class="step-math">
+                                $$\frac{d^2y}{dx^2} = 2$$
+                            </div>
+                            <div class="step-explanation">
+                                Since $\frac{d^2y}{dx^2} = 2 > 0$, the curve is concave up (smiling)
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="accordion-step">
+                        <div class="accordion-header" onclick="toggleAccordion(this)">
+                            <span class="step-label"><strong>✓ Answer</strong></span>
+                            <span class="accordion-toggle">▼</span>
+                        </div>
+                        <div class="accordion-content">
+                            <div class="step-math">
+                                <strong style="color: #0066cc;">Minimum point</strong> at $(2, -3)$
+                            </div>
+                        </div>
                     </div>
                 </div>
 
-                <div class="worked-example">
-                    <h3>Example 2: Cubic Function</h3>
-                    <p><strong>Find stationary points of $y = x^3 - 3x^2 + 4$</strong></p>
+                <div class="accordion-example">
+                    <span class="method-label accordion">🗂️ Method 2: Accordion (Click to Expand)</span>
+                    <h3>Example 2: Cubic Function with Two Stationary Points</h3>
                     
-                    <div class="step">
-                        <span class="step-number">1</span>
-                        <strong>Differentiate:</strong> $\frac{dy}{dx} = 3x^2 - 6x$
+                    <div class="example-question">
+                        <strong>Question:</strong>
+                        Find and classify all stationary points of $y = x^3 - 3x^2 + 4$
                     </div>
                     
-                    <div class="step">
-                        <span class="step-number">2</span>
-                        <strong>Set to zero:</strong> $3x^2 - 6x = 0$<br>
-                        $3x(x - 2) = 0$, so $x = 0$ or $x = 2$
+                    <div class="accordion-step">
+                        <div class="accordion-header" onclick="toggleAccordion(this)">
+                            <span class="step-label">Step 1: Differentiate the function</span>
+                            <span class="accordion-toggle">▼</span>
+                        </div>
+                        <div class="accordion-content">
+                            <div class="step-math">
+                                $$\frac{dy}{dx} = 3x^2 - 6x$$
+                            </div>
+                        </div>
                     </div>
                     
-                    <div class="step">
-                        <span class="step-number">3</span>
-                        <strong>Find $y$-values:</strong><br>
-                        At $x = 0$: $y = 0 - 0 + 4 = 4$<br>
-                        At $x = 2$: $y = 8 - 12 + 4 = 0$
+                    <div class="accordion-step">
+                        <div class="accordion-header" onclick="toggleAccordion(this)">
+                            <span class="step-label">Step 2: Set the derivative equal to zero and solve</span>
+                            <span class="accordion-toggle">▼</span>
+                        </div>
+                        <div class="accordion-content">
+                        <div class="step-math">
+                            $$3x^2 - 6x = 0$$
+                        </div>
+                        <div class="step-math">
+                            $$3x(x - 2) = 0$$
+                        </div>
+                            <div class="step-math">
+                                $$x = 0 \text{ or } x = 2$$
+                            </div>
+                        </div>
                     </div>
                     
-                    <div class="step">
-                        <span class="step-number">4</span>
-                        <strong>Second derivative:</strong> $\frac{d^2y}{dx^2} = 6x - 6$<br>
-                        At $x = 0$: $\frac{d^2y}{dx^2} = -6 < 0$ → <strong style="color: #ff6b6b;">maximum</strong><br>
-                        At $x = 2$: $\frac{d^2y}{dx^2} = 6 > 0$ → <strong style="color: #4dabf7;">minimum</strong>
+                    <div class="accordion-step">
+                        <div class="accordion-header" onclick="toggleAccordion(this)">
+                            <span class="step-label">Step 3: Find y-coordinates for each x-value</span>
+                            <span class="accordion-toggle">▼</span>
+                        </div>
+                        <div class="accordion-content">
+                        <div class="step-math">
+                            <strong>At $x = 0$:</strong>
+                        </div>
+                        <div class="step-math">
+                            $$y = (0)^3 - 3(0)^2 + 4$$
+                        </div>
+                        <div class="step-math">
+                            $$y = 4$$
+                        </div>
+                        <div class="step-math" style="margin-top: 1rem;">
+                            <strong>At $x = 2$:</strong>
+                        </div>
+                        <div class="step-math">
+                            $$y = (2)^3 - 3(2)^2 + 4$$
+                        </div>
+                        <div class="step-math">
+                            $$y = 8 - 12 + 4$$
+                        </div>
+                            <div class="step-math">
+                                $$y = 0$$
+                            </div>
+                        </div>
                     </div>
                     
-                    <div class="step">
-                        <span class="step-number">5</span>
-                        <strong>Answer:</strong> Maximum at $(0, 4)$, minimum at $(2, 0)$
+                    <div class="accordion-step">
+                        <div class="accordion-header" onclick="toggleAccordion(this)">
+                            <span class="step-label">Step 4: Find the second derivative</span>
+                            <span class="accordion-toggle">▼</span>
+                        </div>
+                        <div class="accordion-content">
+                            <div class="step-math">
+                                $$\frac{d^2y}{dx^2} = 6x - 6$$
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="accordion-step">
+                        <div class="accordion-header" onclick="toggleAccordion(this)">
+                            <span class="step-label">Step 5: Test each point using the second derivative</span>
+                            <span class="accordion-toggle">▼</span>
+                        </div>
+                        <div class="accordion-content">
+                        <div class="step-math">
+                            <strong>At $x = 0$:</strong>
+                        </div>
+                        <div class="step-math">
+                            $$\frac{d^2y}{dx^2} = 6(0) - 6 = -6$$
+                        </div>
+                        <div class="step-explanation">
+                            Since $-6 < 0$, this is a <strong style="color: #cc0000;">maximum</strong>
+                        </div>
+                        <div class="step-math" style="margin-top: 1rem;">
+                            <strong>At $x = 2$:</strong>
+                        </div>
+                        <div class="step-math">
+                            $$\frac{d^2y}{dx^2} = 6(2) - 6 = 6$$
+                        </div>
+                            <div class="step-explanation">
+                                Since $6 > 0$, this is a <strong style="color: #0066cc;">minimum</strong>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="accordion-step">
+                        <div class="accordion-header" onclick="toggleAccordion(this)">
+                            <span class="step-label"><strong>✓ Answer</strong></span>
+                            <span class="accordion-toggle">▼</span>
+                        </div>
+                        <div class="accordion-content">
+                            <div class="step-math">
+                                <strong style="color: #cc0000;">Maximum point</strong> at $(0, 4)$
+                            </div>
+                            <div class="step-math">
+                                <strong style="color: #0066cc;">Minimum point</strong> at $(2, 0)$
+                            </div>
+                        </div>
                     </div>
                 </div>
 
-                <div class="worked-example">
-                    <h3>Example 3: Factored Form</h3>
-                    <p><strong>Find stationary points of $y = x(x - 2)(x + 1)$</strong></p>
+                <div class="sequential-example">
+                    <span claccordion-example">
+                    <h3>Example 3: Factored Form (Using Quadratic Formula)</h3>
                     
-                    <div class="step">
-                        <span class="step-number">1</span>
-                        <strong>Expand first:</strong> $y = x(x^2 - x - 2) = x^3 - x^2 - 2x$
+                    <div class="example-question">
+                        <strong>Question:</strong>
+                        Find and classify the stationary points of $y = x(x - 2)(x + 1)$
                     </div>
                     
-                    <div class="step">
-                        <span class="step-number">2</span>
-                        <strong>Differentiate:</strong> $\frac{dy}{dx} = 3x^2 - 2x - 2$
+                    <div class="accordion-step">
+                        <div class="accordion-header" onclick="toggleAccordion(this)">
+                            <span class="step-label">Step 1: Expand the function</span>
+                            <span class="accordion-toggle">▼</span>
+                        </div>
+                        <div class="accordion-content">
+                            <div class="step-math">
+                                $$y = x(x - 2)(x + 1)$$
+                            </div>
+                            <div class="step-math">
+                                $$y = x(x^2 - x - 2)$$
+                            </div>
+                            <div class="step-math">
+                                $$y = x^3 - x^2 - 2x$$
+                            </div>
+                        </div>
                     </div>
                     
-                    <div class="step">
-                        <span class="step-number">3</span>
-                        <strong>Solve:</strong> $3x^2 - 2x - 2 = 0$<br>
-                        Using quadratic formula: $x = \frac{2 \pm \sqrt{4 + 24}}{6} = \frac{2 \pm \sqrt{28}}{6} = \frac{1 \pm \sqrt{7}}{3}$
+                    <div class="accordion-step">
+                        <div class="accordion-header" onclick="toggleAccordion(this)">
+                            <span class="step-label">Step 2: Differentiate the function</span>
+                            <span class="accordion-toggle">▼</span>
+                        </div>
+                        <div class="accordion-content">
+                            <div class="step-math">
+                                $$\frac{dy}{dx} = 3x^2 - 2x - 2$$
+                            </div>
+                        </div>
                     </div>
                     
-                    <div class="step">
-                        <span class="step-number">4</span>
-                        <strong>Second derivative:</strong> $\frac{d^2y}{dx^2} = 6x - 2$<br>
-                        Test at $x = \frac{1 + \sqrt{7}}{3} \approx 1.22$: positive → minimum<br>
-                        Test at $x = \frac{1 - \sqrt{7}}{3} \approx -0.55$: negative → maximum
+                    <div class="accordion-step">
+                        <div class="accordion-header" onclick="toggleAccordion(this)">
+                            <span class="step-label">Step 3: Set equal to zero and use quadratic formula</span>
+                            <span class="accordion-toggle">▼</span>
+                        </div>
+                        <div class="accordion-content">
+                            <div class="step-math">
+                                $$3x^2 - 2x - 2 = 0$$
+                            </div>
+                            <div class="step-math">
+                                $$x = \frac{-b \pm \sqrt{b^2 - 4ac}}{2a}$$
+                            </div>
+                            <div class="step-math">
+                                $$x = \frac{2 \pm \sqrt{(-2)^2 - 4(3)(-2)}}{2(3)}$$
+                            </div>
+                            <div class="step-math">
+                                $$x = \frac{2 \pm \sqrt{4 + 24}}{6}$$
+                            </div>
+                            <div class="step-math">
+                                $$x = \frac{2 \pm \sqrt{28}}{6}$$
+                            </div>
+                            <div class="step-math">
+                                $$x = \frac{2 \pm 2\sqrt{7}}{6}$$
+                            </div>
+                            <div class="step-math">
+                                $$x = \frac{1 \pm \sqrt{7}}{3}$$
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="accordion-step">
+                        <div class="accordion-header" onclick="toggleAccordion(this)">
+                            <span class="step-label">Step 4: Find the second derivative</span>
+                            <span class="accordion-toggle">▼</span>
+                        </div>
+                        <div class="accordion-content">
+                            <div class="step-math">
+                                $$\frac{d^2y}{dx^2} = 6x - 2$$
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="accordion-step">
+                        <div class="accordion-header" onclick="toggleAccordion(this)">
+                            <span class="step-label">Step 5: Test each x-value</span>
+                            <span class="accordion-toggle">▼</span>
+                        </div>
+                        <div class="accordion-content">
+                            <div class="step-math">
+                                <strong>At $x = \frac{1 + \sqrt{7}}{3} \approx 1.22$:</strong>
+                            </div>
+                            <div class="step-math">
+                                $$\frac{d^2y}{dx^2} = 6\left(\frac{1 + \sqrt{7}}{3}\right) - 2 > 0$$
+                            </div>
+                            <div class="step-explanation">
+                                Positive, so this is a <strong style="color: #0066cc;">minimum</strong>
+                            </div>
+                            <div class="step-math" style="margin-top: 1rem;">
+                                <strong>At $x = \frac{1 - \sqrt{7}}{3} \approx -0.55$:</strong>
+                            </div>
+                            <div class="step-math">
+                                $$\frac{d^2y}{dx^2} = 6\left(\frac{1 - \sqrt{7}}{3}\right) - 2 < 0$$
+                            </div>
+                            <div class="step-explanation">
+                                Negative, so this is a <strong style="color: #cc0000;">maximum</strong>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="accordion-step">
+                        <div class="accordion-header" onclick="toggleAccordion(this)">
+                            <span class="step-label"><strong>✓ Answer</strong></span>
+                            <span class="accordion-toggle">▼</span>
+                        </div>
+                        <div class="accordion-content">
+                            <div class="step-math">
+                                <strong style="color: #cc0000;">Maximum</strong> at $x = \frac{1 - \sqrt{7}}{3}$
+                            </div>
+                            <div class="step-math">
+                                <strong style="color: #0066cc;">Minimum</strong> at $x = \frac{1 + \sqrt{7}}{3}$
+                            </div>
                     </div>
                 </div>
             </section>
@@ -480,17 +720,49 @@
         <p>&copy; 2026 NZ Math Hub. Supporting mathematics education in New Zealand.</p>
     </footer>
 
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+    <!-- KaTeX Scripts -->
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js" integrity="sha384-XjKyOOlGwcjNTAIQHIpgOno0Hl1YQqzUOEleOLALmuqehneUG+vnGctmUb0ZY0l8" crossorigin="anonymous"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js" integrity="sha384-+VBxd3r6XgURycqtZ117nYw44OOcIax56Z4dCRWbxyPt0Koah1uHoK0o4+/RRE05" crossorigin="anonymous"
+        onload="renderMathInElement(document.body, {delimiters: [{left: '$$', right: '$$', display: true}, {left: '$', right: '$', display: false}]});"></script>
     
     <script>
+        // =================================
+        // ACCORDION METHOD
+        // =================================
+        function toggleAccordion(header) {
+            const step = header.parentElement;
+            const content = header.nextElementSibling;
+            const isOpen = header.classList.contains('active');
+            
+            // Toggle this accordion
+            header.classList.toggle('active');
+            content.classList.toggle('open');
+            
+            // Mark as completed when opened
+            if (!isOpen) {
+                step.classList.add('completed');
+            }
+            
+            // Re-render math in opened content
+            if (content.classList.contains('open') && typeof renderMathInElement !== 'undefined') {
+                renderMathInElement(content, {
+                    delimiters: [
+                        {left: '$$', right: '$$', display: true},
+                        {left: '$', right: '$', display: false}
+                    ],
+                    throwOnError: false
+                });
+            }
+        }
+        
         function toggleAnswer(button) {
             const answerDiv = button.nextElementSibling;
             if (answerDiv.style.display === 'none' || answerDiv.style.display === '') {
                 answerDiv.style.display = 'block';
                 button.textContent = 'Hide Answer';
-                button.style.background = '#666';
-                if (typeof MathJax !== 'undefined') {
-                    MathJax.Hub.Queue(["Typeset", MathJax.Hub, answerDiv]);
+                button.style.background = '#000';
+                if (typeof renderMathInElement !== 'undefined') {
+                    renderMathInElement(answerDiv, {delimiters: [{left: '$$', right: '$$', display: true}, {left: '$', right: '$', display: false}]});
                 }
             } else {
                 answerDiv.style.display = 'none';

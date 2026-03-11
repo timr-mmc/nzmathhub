@@ -5,6 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Lesson 5: Tangents & Normals - NZ Math Hub</title>
     <link rel="stylesheet" href="../../styles.css">
+    <link rel="stylesheet" href="../../scroll-reveal.css">
+    <!-- KaTeX CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css" integrity="sha384-n8MVd4RsNIU0tAv4ct0nTaAbDJwPJzDEaqSD1odI+WdtXRGWt2kTvGFasHpSy3SV" crossorigin="anonymous">
     <style>
         .rule-box {
             background: linear-gradient(135deg, var(--primary-accent), var(--secondary-accent));
@@ -207,63 +210,119 @@
             <section class="content-section section-light">
                 <h2>Worked Examples: Tangent Lines</h2>
 
-                <div class="worked-example">
+                <div class="accordion-example">
                     <h3>Example 1: Basic Tangent</h3>
-                    <p><strong>Find the equation of the tangent to $y = x^2$ at $x = 2$</strong></p>
                     
-                    <div class="step">
-                        <span class="step-number">1</span>
-                        <strong>Find the point:</strong> $y = 2^2 = 4$, so point is $(2, 4)$
+                    <div class="example-question">
+                        <strong>Question:</strong> Find the equation of the tangent to $y = x^2$ at $x = 2$
                     </div>
                     
-                    <div class="step">
-                        <span class="step-number">2</span>
-                        <strong>Find gradient:</strong> $\frac{dy}{dx} = 2x$
+                    <div class="accordion-step">
+                        <div class="accordion-header" onclick="toggleAccordion(this)">
+                            <span class="step-label">Step 1: Find the point</span>
+                            <span class="accordion-toggle">▼</span>
+                        </div>
+                        <div class="accordion-content">
+                            <div class="step-math">$y = 2^2 = 4$, so point is $(2, 4)$</div>
+                        </div>
                     </div>
                     
-                    <div class="step">
-                        <span class="step-number">3</span>
-                        <strong>Evaluate at $x = 2$:</strong> $m = 2(2) = 4$
+                    <div class="accordion-step">
+                        <div class="accordion-header" onclick="toggleAccordion(this)">
+                            <span class="step-label">Step 2: Find gradient</span>
+                            <span class="accordion-toggle">▼</span>
+                        </div>
+                        <div class="accordion-content">
+                            <div class="step-math">$\frac{dy}{dx} = 2x$</div>
+                        </div>
                     </div>
                     
-                    <div class="step">
-                        <span class="step-number">4</span>
-                        <strong>Use point-gradient form:</strong> $y - 4 = 4(x - 2)$
+                    <div class="accordion-step">
+                        <div class="accordion-header" onclick="toggleAccordion(this)">
+                            <span class="step-label">Step 3: Evaluate at $x = 2$</span>
+                            <span class="accordion-toggle">▼</span>
+                        </div>
+                        <div class="accordion-content">
+                            <div class="step-math">$m = 2(2) = 4$</div>
+                        </div>
                     </div>
                     
-                    <div class="step">
-                        <span class="step-number">5</span>
-                        <strong>Simplify:</strong> $y - 4 = 4x - 8$, so $y = 4x - 4$
+                    <div class="accordion-step">
+                        <div class="accordion-header" onclick="toggleAccordion(this)">
+                            <span class="step-label">Step 4: Use point-gradient form</span>
+                            <span class="accordion-toggle">▼</span>
+                        </div>
+                        <div class="accordion-content">
+                            <div class="step-math">$y - 4 = 4(x - 2)$</div>
+                        </div>
+                    </div>
+                    
+                    <div class="accordion-step">
+                        <div class="accordion-header" onclick="toggleAccordion(this)">
+                            <span class="step-label"><strong>✓ Answer: Simplify</strong></span>
+                            <span class="accordion-toggle">▼</span>
+                        </div>
+                        <div class="accordion-content">
+                            <div class="step-math">$y - 4 = 4x - 8$, so $y = 4x - 4$</div>
+                        </div>
                     </div>
                 </div>
 
-                <div class="worked-example">
+                <div class="accordion-example">
                     <h3>Example 2: Tangent with Product Rule</h3>
-                    <p><strong>Find the tangent to $y = x(x + 1)$ at $x = 1$</strong></p>
                     
-                    <div class="step">
-                        <span class="step-number">1</span>
-                        <strong>Find point:</strong> $y = 1(1 + 1) = 2$, point is $(1, 2)$
+                    <div class="example-question">
+                        <strong>Question:</strong> Find the tangent to $y = x(x + 1)$ at $x = 1$
                     </div>
                     
-                    <div class="step">
-                        <span class="step-number">2</span>
-                        <strong>Differentiate:</strong> $\frac{dy}{dx} = x \cdot 1 + (x + 1) \cdot 1 = 2x + 1$
+                    <div class="accordion-step">
+                        <div class="accordion-header" onclick="toggleAccordion(this)">
+                            <span class="step-label">Step 1: Find point</span>
+                            <span class="accordion-toggle">▼</span>
+                        </div>
+                        <div class="accordion-content">
+                            <div class="step-math">$y = 1(1 + 1) = 2$, point is $(1, 2)$</div>
+                        </div>
                     </div>
                     
-                    <div class="step">
-                        <span class="step-number">3</span>
-                        <strong>Evaluate:</strong> $m = 2(1) + 1 = 3$
+                    <div class="accordion-step">
+                        <div class="accordion-header" onclick="toggleAccordion(this)">
+                            <span class="step-label">Step 2: Differentiate</span>
+                            <span class="accordion-toggle">▼</span>
+                        </div>
+                        <div class="accordion-content">
+                            <div class="step-math">$\frac{dy}{dx} = x \cdot 1 + (x + 1) \cdot 1 = 2x + 1$</div>
+                        </div>
                     </div>
                     
-                    <div class="step">
-                        <span class="step-number">4</span>
-                        <strong>Equation:</strong> $y - 2 = 3(x - 1)$
+                    <div class="accordion-step">
+                        <div class="accordion-header" onclick="toggleAccordion(this)">
+                            <span class="step-label">Step 3: Evaluate</span>
+                            <span class="accordion-toggle">▼</span>
+                        </div>
+                        <div class="accordion-content">
+                            <div class="step-math">$m = 2(1) + 1 = 3$</div>
+                        </div>
                     </div>
                     
-                    <div class="step">
-                        <span class="step-number">5</span>
-                        <strong>Simplify:</strong> $y = 3x - 1$
+                    <div class="accordion-step">
+                        <div class="accordion-header" onclick="toggleAccordion(this)">
+                            <span class="step-label">Step 4: Equation</span>
+                            <span class="accordion-toggle">▼</span>
+                        </div>
+                        <div class="accordion-content">
+                            <div class="step-math">$y - 2 = 3(x - 1)$</div>
+                        </div>
+                    </div>
+                    
+                    <div class="accordion-step">
+                        <div class="accordion-header" onclick="toggleAccordion(this)">
+                            <span class="step-label"><strong>✓ Answer: Simplify</strong></span>
+                            <span class="accordion-toggle">▼</span>
+                        </div>
+                        <div class="accordion-content">
+                            <div class="step-math">$y = 3x - 1$</div>
+                        </div>
                     </div>
                 </div>
             </section>
@@ -271,63 +330,119 @@
             <section class="content-section">
                 <h2>Worked Examples: Normal Lines</h2>
 
-                <div class="worked-example">
+                <div class="accordion-example">
                     <h3>Example 3: Basic Normal</h3>
-                    <p><strong>Find the normal to $y = x^2$ at $x = 2$</strong></p>
                     
-                    <div class="step">
-                        <span class="step-number">1</span>
-                        <strong>Find point:</strong> From Example 1, point is $(2, 4)$
+                    <div class="example-question">
+                        <strong>Question:</strong> Find the normal to $y = x^2$ at $x = 2$
                     </div>
                     
-                    <div class="step">
-                        <span class="step-number">2</span>
-                        <strong>Tangent gradient:</strong> From Example 1, $m_{\text{tangent}} = 4$
+                    <div class="accordion-step">
+                        <div class="accordion-header" onclick="toggleAccordion(this)">
+                            <span class="step-label">Step 1: Find point</span>
+                            <span class="accordion-toggle">▼</span>
+                        </div>
+                        <div class="accordion-content">
+                            <div class="step-explanation">From Example 1, point is $(2, 4)$</div>
+                        </div>
                     </div>
                     
-                    <div class="step">
-                        <span class="step-number">3</span>
-                        <strong>Normal gradient:</strong> $m_{\text{normal}} = \frac{-1}{4}$
+                    <div class="accordion-step">
+                        <div class="accordion-header" onclick="toggleAccordion(this)">
+                            <span class="step-label">Step 2: Tangent gradient</span>
+                            <span class="accordion-toggle">▼</span>
+                        </div>
+                        <div class="accordion-content">
+                            <div class="step-explanation">From Example 1, $m_{\text{tangent}} = 4$</div>
+                        </div>
                     </div>
                     
-                    <div class="step">
-                        <span class="step-number">4</span>
-                        <strong>Equation:</strong> $y - 4 = -\frac{1}{4}(x - 2)$
+                    <div class="accordion-step">
+                        <div class="accordion-header" onclick="toggleAccordion(this)">
+                            <span class="step-label">Step 3: Normal gradient</span>
+                            <span class="accordion-toggle">▼</span>
+                        </div>
+                        <div class="accordion-content">
+                            <div class="step-math">$m_{\text{normal}} = \frac{-1}{4}$</div>
+                        </div>
                     </div>
                     
-                    <div class="step">
-                        <span class="step-number">5</span>
-                        <strong>Simplify:</strong> $y = -\frac{1}{4}x + \frac{1}{2} + 4 = -\frac{1}{4}x + \frac{9}{2}$
+                    <div class="accordion-step">
+                        <div class="accordion-header" onclick="toggleAccordion(this)">
+                            <span class="step-label">Step 4: Equation</span>
+                            <span class="accordion-toggle">▼</span>
+                        </div>
+                        <div class="accordion-content">
+                            <div class="step-math">$y - 4 = -\frac{1}{4}(x - 2)$</div>
+                        </div>
+                    </div>
+                    
+                    <div class="accordion-step">
+                        <div class="accordion-header" onclick="toggleAccordion(this)">
+                            <span class="step-label"><strong>✓ Answer: Simplify</strong></span>
+                            <span class="accordion-toggle">▼</span>
+                        </div>
+                        <div class="accordion-content">
+                            <div class="step-math">$y = -\frac{1}{4}x + \frac{1}{2} + 4 = -\frac{1}{4}x + \frac{9}{2}$</div>
+                        </div>
                     </div>
                 </div>
 
-                <div class="worked-example">
+                <div class="accordion-example">
                     <h3>Example 4: Normal with Chain Rule</h3>
-                    <p><strong>Find the normal to $y = (x + 1)^2$ at $x = 0$</strong></p>
                     
-                    <div class="step">
-                        <span class="step-number">1</span>
-                        <strong>Find point:</strong> $y = (0 + 1)^2 = 1$, point is $(0, 1)$
+                    <div class="example-question">
+                        <strong>Question:</strong> Find the normal to $y = (x + 1)^2$ at $x = 0$
                     </div>
                     
-                    <div class="step">
-                        <span class="step-number">2</span>
-                        <strong>Differentiate:</strong> $\frac{dy}{dx} = 2(x + 1)$
+                    <div class="accordion-step">
+                        <div class="accordion-header" onclick="toggleAccordion(this)">
+                            <span class="step-label">Step 1: Find point</span>
+                            <span class="accordion-toggle">▼</span>
+                        </div>
+                        <div class="accordion-content">
+                            <div class="step-math">$y = (0 + 1)^2 = 1$, point is $(0, 1)$</div>
+                        </div>
                     </div>
                     
-                    <div class="step">
-                        <span class="step-number">3</span>
-                        <strong>Tangent gradient:</strong> $m_{\text{tangent}} = 2(0 + 1) = 2$
+                    <div class="accordion-step">
+                        <div class="accordion-header" onclick="toggleAccordion(this)">
+                            <span class="step-label">Step 2: Differentiate</span>
+                            <span class="accordion-toggle">▼</span>
+                        </div>
+                        <div class="accordion-content">
+                            <div class="step-math">$\frac{dy}{dx} = 2(x + 1)$</div>
+                        </div>
                     </div>
                     
-                    <div class="step">
-                        <span class="step-number">4</span>
-                        <strong>Normal gradient:</strong> $m_{\text{normal}} = -\frac{1}{2}$
+                    <div class="accordion-step">
+                        <div class="accordion-header" onclick="toggleAccordion(this)">
+                            <span class="step-label">Step 3: Tangent gradient</span>
+                            <span class="accordion-toggle">▼</span>
+                        </div>
+                        <div class="accordion-content">
+                            <div class="step-math">$m_{\text{tangent}} = 2(0 + 1) = 2$</div>
+                        </div>
                     </div>
                     
-                    <div class="step">
-                        <span class="step-number">5</span>
-                        <strong>Equation:</strong> $y - 1 = -\frac{1}{2}(x - 0)$, so $y = -\frac{1}{2}x + 1$
+                    <div class="accordion-step">
+                        <div class="accordion-header" onclick="toggleAccordion(this)">
+                            <span class="step-label">Step 4: Normal gradient</span>
+                            <span class="accordion-toggle">▼</span>
+                        </div>
+                        <div class="accordion-content">
+                            <div class="step-math">$m_{\text{normal}} = -\frac{1}{2}$</div>
+                        </div>
+                    </div>
+                    
+                    <div class="accordion-step">
+                        <div class="accordion-header" onclick="toggleAccordion(this)">
+                            <span class="step-label"><strong>✓ Answer: Equation</strong></span>
+                            <span class="accordion-toggle">▼</span>
+                        </div>
+                        <div class="accordion-content">
+                            <div class="step-math">$y - 1 = -\frac{1}{2}(x - 0)$, so $y = -\frac{1}{2}x + 1$</div>
+                        </div>
                     </div>
                 </div>
             </section>
@@ -516,17 +631,46 @@
         <p>&copy; 2026 NZ Math Hub. Supporting mathematics education in New Zealand.</p>
     </footer>
 
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+    <!-- KaTeX Scripts -->
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js" integrity="sha384-XjKyOOlGwcjNTAIQHIpgOno0Hl1YQqzUOEleOLALmuqehneUG+vnGctmUb0ZY0l8" crossorigin="anonymous"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js" integrity="sha384-+VBxd3r6XgURycqtZ117nYw44OOcIax56Z4dCRWbxyPt0Koah1uHoK0o4+/RRE05" crossorigin="anonymous"
+        onload="renderMathInElement(document.body, {delimiters: [{left: '$$', right: '$$', display: true}, {left: '$', right: '$', display: false}]});"></script>
     
     <script>
+        function toggleAccordion(header) {
+            const step = header.parentElement;
+            const content = header.nextElementSibling;
+            const isOpen = header.classList.contains('active');
+            
+            // Toggle this accordion
+            header.classList.toggle('active');
+            content.classList.toggle('open');
+            
+            // Mark as completed when opened
+            if (!isOpen) {
+                step.classList.add('completed');
+            }
+            
+            // Re-render math in opened content
+            if (content.classList.contains('open') && typeof renderMathInElement !== 'undefined') {
+                renderMathInElement(content, {
+                    delimiters: [
+                        {left: '$$', right: '$$', display: true},
+                        {left: '$', right: '$', display: false}
+                    ],
+                    throwOnError: false
+                });
+            }
+        }
+        
         function toggleAnswer(button) {
             const answerDiv = button.nextElementSibling;
             if (answerDiv.style.display === 'none' || answerDiv.style.display === '') {
                 answerDiv.style.display = 'block';
                 button.textContent = 'Hide Answer';
-                button.style.background = '#666';
-                if (typeof MathJax !== 'undefined') {
-                    MathJax.Hub.Queue(["Typeset", MathJax.Hub, answerDiv]);
+                button.style.background = '#000';
+                if (typeof renderMathInElement !== 'undefined') {
+                    renderMathInElement(answerDiv, {delimiters: [{left: '$$', right: '$$', display: true}, {left: '$', right: '$', display: false}]});
                 }
             } else {
                 answerDiv.style.display = 'none';

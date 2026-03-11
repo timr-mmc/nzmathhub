@@ -1,0 +1,311 @@
+/* ===================================
+   Print Stylesheet
+   For printable worksheets
+   =================================== */
+
+@media print {
+    /* Reset to print-friendly colors */
+    * {
+        background: white !important;
+        color: black !important;
+        box-shadow: none !important;
+        text-shadow: none !important;
+    }
+
+    /* Page setup */
+    @page {
+        margin: 2cm;
+        size: A4;
+    }
+
+    body {
+        font-size: 11pt;
+        line-height: 1.4;
+    }
+
+    /* Hide interactive elements */
+    .dark-mode-toggle,
+    .keyboard-hints,
+    .main-nav,
+    .breadcrumb,
+    .navigation-buttons,
+    .show-answer-btn,
+    .graph-controls,
+    button,
+    .quiz-controls,
+    footer,
+    nav,
+    .no-print {
+        display: none !important;
+    }
+
+    /* Header adjustments */
+    .page-header {
+        border-bottom: 2px solid black;
+        padding: 0.5cm 0;
+        margin-bottom: 0.5cm;
+    }
+
+    .page-header h1 {
+        font-size: 18pt;
+        margin: 0;
+    }
+
+    /* Content sections */
+    .content-section {
+        page-break-inside: avoid;
+        margin-bottom: 1cm;
+        border: 1px solid black;
+        padding: 0.5cm;
+    }
+
+    .section-title {
+        font-size: 14pt;
+        border-bottom: 2px solid black;
+        padding-bottom: 0.2cm;
+        margin-bottom: 0.5cm;
+    }
+
+    /* Practice problems */
+    .practice-problem {
+        page-break-inside: avoid;
+        margin-bottom: 0.8cm;
+        border: 1px solid #ccc;
+        padding: 0.3cm;
+    }
+
+    .problem-number {
+        font-weight: bold;
+        font-size: 12pt;
+    }
+
+    /* Show answers by default in print */
+    .answer-section {
+        display: block !important;
+        margin-top: 0.3cm;
+        padding: 0.3cm;
+        border-top: 1px dashed #999;
+    }
+
+    .answer-section::before {
+        content: "Answer: ";
+        font-weight: bold;
+    }
+
+    /* Hide answer toggle button text */
+    .answer-content {
+        display: block !important;
+    }
+
+    /* Example boxes */
+    .example-box,
+    .note-box,
+    .definition-box {
+        page-break-inside: avoid;
+        border: 2px solid black;
+        padding: 0.3cm;
+        margin: 0.5cm 0;
+    }
+
+    .example-box h4,
+    .note-box h4,
+    .definition-box h4 {
+        margin-top: 0;
+        font-size: 12pt;
+    }
+
+    /* Tables */
+    table {
+        page-break-inside: avoid;
+        border-collapse: collapse;
+        width: 100%;
+        margin: 0.5cm 0;
+    }
+
+    th, td {
+        border: 1px solid black;
+        padding: 0.2cm;
+        text-align: left;
+    }
+
+    th {
+        font-weight: bold;
+        background: #f0f0f0 !important;
+    }
+
+    /* Links */
+    a {
+        text-decoration: none;
+        color: black !important;
+    }
+
+    a[href]::after {
+        content: " (" attr(href) ")";
+        font-size: 9pt;
+        color: #666 !important;
+    }
+
+    /* Don't show URLs for internal links */
+    a[href^="#"]::after,
+    a[href^="javascript:"]::after {
+        content: "";
+    }
+
+    /* Math equations */
+    .katex {
+        font-size: 11pt;
+    }
+
+    /* Highlights remain visible */
+    .highlight-change {
+        background: #e0e0e0 !important;
+        font-weight: bold;
+    }
+
+    /* Page breaks */
+    h2, h3 {
+        page-break-after: avoid;
+    }
+
+    /* Print-specific header */
+    body::before {
+        content: "Printed from NZ Math Hub - " attr(data-lesson-title);
+        display: block;
+        text-align: right;
+        font-size: 9pt;
+        color: #666 !important;
+        margin-bottom: 0.5cm;
+        border-bottom: 1px solid #ccc;
+        padding-bottom: 0.2cm;
+    }
+
+    /* Add space for student name */
+    .print-student-info {
+        display: block !important;
+        margin-bottom: 1cm;
+        padding: 0.3cm;
+        border: 1px solid black;
+    }
+
+    .print-student-info::before {
+        content: "Name: ________________________  Date: ______________  Class: __________";
+        display: block;
+        font-weight: bold;
+    }
+
+    /* Interactive components - show content only */
+    .drag-drop-container,
+    .quiz-container {
+        border: 1px solid black;
+        padding: 0.3cm;
+        page-break-inside: avoid;
+    }
+
+    .draggable-item,
+    .quiz-option {
+        display: block;
+        margin: 0.2cm 0;
+        padding: 0.1cm;
+        border: 1px solid #999;
+    }
+
+    .quiz-feedback,
+    .drag-drop-feedback {
+        display: none !important;
+    }
+
+    /* Graph canvases */
+    .graph-canvas {
+        max-width: 100%;
+        border: 1px solid black;
+    }
+
+    /* Ensure all images print */
+    img {
+        max-width: 100% !important;
+        page-break-inside: avoid;
+    }
+
+    /* Orphans and widows */
+    p, li {
+        orphans: 3;
+        widows: 3;
+    }
+}
+
+/* ===================================
+   Print Button Styles (on screen)
+   =================================== */
+
+.print-button {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    padding: 0.75rem 1.5rem;
+    background: var(--primary-accent, #006666);
+    color: white;
+    border: none;
+    border-radius: 6px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+    transition: all 0.3s ease;
+    z-index: 9997;
+}
+
+.print-button:hover {
+    background: #004d4d;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 16px rgba(0,0,0,0.3);
+}
+
+.print-button::before {
+    content: '🖨️ ';
+}
+
+/* Print preview mode */
+body.print-preview {
+    background: #f0f0f0;
+}
+
+body.print-preview .content-section {
+    background: white;
+    max-width: 21cm;
+    margin: 1cm auto;
+    padding: 2cm;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+
+/* Answer visibility toggle for print */
+.print-options {
+    position: fixed;
+    top: 80px;
+    right: 20px;
+    background: white;
+    padding: 1rem;
+    border-radius: 6px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+    z-index: 9997;
+}
+
+.print-options label {
+    display: block;
+    margin: 0.5rem 0;
+    cursor: pointer;
+}
+
+.print-options input[type="checkbox"] {
+    margin-right: 0.5rem;
+}
+
+/* Hide answers option */
+body.hide-answers-print .answer-section {
+    display: none !important;
+}
+
+@media print {
+    body.hide-answers-print .answer-section {
+        display: none !important;
+    }
+}

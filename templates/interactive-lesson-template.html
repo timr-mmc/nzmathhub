@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>[INTERACTIVE LESSON TITLE] - NZ Math Hub</title>
+    <link rel="stylesheet" href="../../styles.css">
+    <link rel="stylesheet" href="../../interactive.css">
+    <link rel="stylesheet" href="../../dark-mode.css">
+    <link rel="stylesheet" href="../../print.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css" 
+          integrity="sha384-n8MVd4RsNIU0tAv4ct0nTaAbDJwPJzDEaqSD1odI+WdtXRGWt2kTvGFasHpSy3SV" 
+          crossorigin="anonymous">
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js" 
+            integrity="sha384-XjKyOOlGwcjNTAIQHIpgOno0Hl1YQqzUOEleOLALmuqehneUG+vnGctmUb0ZY0l8" 
+            crossorigin="anonymous"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js" 
+            integrity="sha384-+VBxd3r5FzMSyEHQPPCL4YCLEHXc6M+SbWLEBDwD3vFXJJb+WdqBOh0wE7JQcvqO" 
+            crossorigin="anonymous"></script>
+    <script defer src="../../interactive.js"></script>
+</head>
+<body>
+    <!-- Page Header -->
+    <header class="page-header">
+        <h1>[INTERACTIVE LESSON TITLE]</h1>
+        <p class="subtitle">Hands-on Learning Activities</p>
+    </header>
+
+    <!-- Breadcrumb Navigation -->
+    <nav class="breadcrumb">
+        <a href="../../index.html">Home</a> &gt; 
+        <a href="../../year[X].html">Year [X]</a> &gt; 
+        <a href="index.html">[Topic Name]</a> &gt; 
+        <span>[Lesson Title]</span>
+    </nav>
+
+    <!-- Main Navigation -->
+    <nav class="main-nav">
+        <a href="#introduction" class="nav-link">Introduction</a>
+        <a href="#activity1" class="nav-link">Matching Activity</a>
+        <a href="#activity2" class="nav-link">Graphing Tool</a>
+        <a href="#quiz" class="nav-link">Quiz</a>
+    </nav>
+
+    <!-- Introduction Section -->
+    <section id="introduction" class="content-section">
+        <h2 class="section-title">Introduction</h2>
+        
+        <p>[Brief introduction to the lesson topic and interactive activities]</p>
+
+        <div class="note-box">
+            <h4>Learning Outcomes</h4>
+            <ul>
+                <li>[Outcome 1]</li>
+                <li>[Outcome 2]</li>
+                <li>[Outcome 3]</li>
+            </ul>
+        </div>
+
+        <div class="definition-box">
+            <h4>Key Concepts</h4>
+            <p>[Important concept or definition to know before activities]</p>
+            <p>Formula: $[key formula]$</p>
+        </div>
+    </section>
+
+    <!-- Activity 1: Drag-and-Drop Matching -->
+    <section id="activity1" class="content-section">
+        <h2 class="section-title">Activity 1: Match the Concepts</h2>
+        
+        <p>Drag each term on the left to match it with the correct description on the right.</p>
+        
+        <!-- Container for drag-drop activity -->
+        <div id="matching-activity"></div>
+    </section>
+
+    <!-- Activity 2: Interactive Graphing -->
+    <section id="activity2" class="content-section">
+        <h2 class="section-title">Activity 2: Explore with Graphs</h2>
+        
+        <p>[Instructions for using the graphing tool]</p>
+
+        <div class="graph-container">
+            <h4>Interactive Graph</h4>
+            <canvas id="graph-canvas" class="graph-canvas"></canvas>
+            
+            <div class="graph-controls">
+                <button onclick="plotExample1()">Example 1</button>
+                <button onclick="plotExample2()">Example 2</button>
+                <button onclick="plotExample3()">Example 3</button>
+                <button onclick="clearGraph()">Clear</button>
+            </div>
+        </div>
+
+        <div class="note-box">
+            <h4>Observations</h4>
+            <p><strong>Question:</strong> What do you notice about [specific feature]?</p>
+            <p><strong>Question:</strong> How does changing [parameter] affect the graph?</p>
+        </div>
+
+        <!-- Practice with graphing -->
+        <div class="example-box">
+            <h4>Your Turn</h4>
+            <p>Try plotting these functions and observe the results:</p>
+            <ol>
+                <li>$[function 1]$</li>
+                <li>$[function 2]$</li>
+                <li>$[function 3]$</li>
+            </ol>
+        </div>
+    </section>
+
+    <!-- Quiz Section -->
+    <section id="quiz" class="content-section">
+        <h2 class="section-title">Check Your Understanding</h2>
+        
+        <p>Test what you've learned with this interactive quiz.</p>
+        
+        <!-- Container for quiz -->
+        <div id="quiz-container"></div>
+    </section>
+
+    <!-- Additional Practice Section -->
+    <section id="practice" class="content-section">
+        <h2 class="section-title">Additional Practice</h2>
+
+        <div class="practice-problem">
+            <p class="problem-number"><strong>1.</strong> [Practice question]</p>
+            <button class="show-answer-btn" onclick="toggleAnswer(this)">Show Answer</button>
+            <div class="answer-section" style="display: none;">
+                <div class="answer-content">
+                    <p><strong>Answer:</strong> $[solution]$</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="practice-problem">
+            <p class="problem-number"><strong>2.</strong> [Practice question]</p>
+            <button class="show-answer-btn" onclick="toggleAnswer(this)">Show Answer</button>
+            <div class="answer-section" style="display: none;">
+                <div class="answer-content">
+                    <p><strong>Answer:</strong> $[solution]$</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Add more practice problems as needed -->
+    </section>
+
+    <!-- Navigation Buttons -->
+    <div class="navigation-buttons">
+        <a href="[previous-lesson].html" class="nav-btn-secondary">← Previous</a>
+        <a href="index.html">Back to Overview</a>
+        <a href="[next-lesson].html" class="nav-btn-primary">Next →</a>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2026 NZ Math Hub. Aligned with the New Zealand Curriculum.</p>
+        <p>Interactive learning for deeper understanding.</p>
+    </footer>
+
+    <!-- Dark Mode Toggle -->
+    <button class="dark-mode-toggle" onclick="toggleDarkMode()" title="Toggle Dark Mode (Ctrl+D)"></button>
+
+    <!-- Print Button -->
+    <button class="print-button no-print" onclick="window.print()">Print Worksheet</button>
+
+    <!-- JavaScript -->
+    <script>
+        // Render math on page load
+        document.addEventListener("DOMContentLoaded", function() {
+            // Render KaTeX
+            renderMathInElement(document.body, {
+                delimiters: [
+                    {left: '$$', right: '$$', display: true},
+                    {left: '$', right: '$', display: false}
+                ],
+                throwOnError: false
+            });
+
+            // Initialize interactive components
+            initMatchingActivity();
+            initGraph();
+            initQuiz();
+        });
+
+        // ===================================
+        // MATCHING ACTIVITY SETUP
+        // ===================================
+        function initMatchingActivity() {
+            const matchingItems = [
+                {id: 1, term: "[Term 1]", match: "[Match 1]"},
+                {id: 2, term: "[Term 2]", match: "[Match 2]"},
+                {id: 3, term: "[Term 3]", match: "[Match 3]"},
+                {id: 4, term: "[Term 4]", match: "[Match 4]"},
+                {id: 5, term: "[Term 5]", match: "[Match 5]"}
+            ];
+
+            new DragDropMatching('matching-activity', matchingItems, () => {
+                console.log('All matched! Great job!');
+            });
+        }
+
+        // ===================================
+        // GRAPHING TOOL SETUP
+        // ===================================
+        let grapher;
+
+        function initGraph() {
+            grapher = new SimpleGrapher('graph-canvas', {
+                width: 600,
+                height: 400,
+                xMin: -10,
+                xMax: 10,
+                yMin: -10,
+                yMax: 10
+            });
+        }
+
+        function plotExample1() {
+            grapher.clear();
+            // Example: plot y = x^2
+            grapher.plotFunction((x) => x * x, '#0066cc');
+        }
+
+        function plotExample2() {
+            grapher.clear();
+            // Example: plot y = 2x + 1
+            grapher.plotFunction((x) => 2 * x + 1, '#cc0000');
+        }
+
+        function plotExample3() {
+            grapher.clear();
+            // Example: plot y = sin(x)
+            grapher.plotFunction((x) => Math.sin(x), '#00cc00');
+        }
+
+        function clearGraph() {
+            grapher.clear();
+        }
+
+        // ===================================
+        // QUIZ SETUP
+        // ===================================
+        function initQuiz() {
+            const questions = [
+                {
+                    question: "[Question 1 text]",
+                    options: ["[Option A]", "[Option B]", "[Option C]", "[Option D]"],
+                    correct: 0, // Index of correct answer (0 = A, 1 = B, etc.)
+                    explanation: "[Explanation of why this answer is correct]"
+                },
+                {
+                    question: "[Question 2 text]",
+                    options: ["[Option A]", "[Option B]", "[Option C]", "[Option D]"],
+                    correct: 1,
+                    explanation: "[Explanation]"
+                },
+                {
+                    question: "[Question 3 text]",
+                    options: ["[Option A]", "[Option B]", "[Option C]", "[Option D]"],
+                    correct: 2,
+                    explanation: "[Explanation]"
+                },
+                {
+                    question: "[Question 4 text]",
+                    options: ["[Option A]", "[Option B]", "[Option C]", "[Option D]"],
+                    correct: 1,
+                    explanation: "[Explanation]"
+                },
+                {
+                    question: "[Question 5 text]",
+                    options: ["[Option A]", "[Option B]", "[Option C]", "[Option D]"],
+                    correct: 3,
+                    explanation: "[Explanation]"
+                }
+            ];
+
+            new MultipleChoiceQuiz('quiz-container', questions);
+        }
+
+        // ===================================
+        // STANDARD FUNCTIONS
+        // ===================================
+        function toggleAnswer(button) {
+            const answerSection = button.nextElementSibling;
+            if (answerSection.style.display === 'none') {
+                answerSection.style.display = 'block';
+                button.textContent = 'Hide Answer';
+                renderMathInElement(answerSection, {
+                    delimiters: [
+                        {left: '$$', right: '$$', display: true},
+                        {left: '$', right: '$', display: false}
+                    ],
+                    throwOnError: false
+                });
+            } else {
+                answerSection.style.display = 'none';
+                button.textContent = 'Show Answer';
+            }
+        }
+
+        function toggleDarkMode() {
+            document.body.classList.toggle('dark-mode');
+            localStorage.setItem('darkMode', document.body.classList.contains('dark-mode'));
+        }
+
+        if (localStorage.getItem('darkMode') === 'true') {
+            document.body.classList.add('dark-mode');
+        }
+    </script>
+</body>
+</html>

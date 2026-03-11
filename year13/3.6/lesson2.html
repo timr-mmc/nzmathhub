@@ -5,6 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Lesson 2: Product & Quotient Rules - NZ Math Hub</title>
     <link rel="stylesheet" href="../../styles.css">
+    <link rel="stylesheet" href="../../scroll-reveal.css">
+    <!-- KaTeX CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css" integrity="sha384-n8MVd4RsNIU0tAv4ct0nTaAbDJwPJzDEaqSD1odI+WdtXRGWt2kTvGFasHpSy3SV" crossorigin="anonymous">
     <style>
         .rule-box {
             background: linear-gradient(135deg, var(--primary-accent), var(--secondary-accent));
@@ -191,63 +194,119 @@
             <section class="content-section section-light">
                 <h2>Product Rule: Worked Examples</h2>
 
-                <div class="worked-example">
+                <div class="accordion-example">
                     <h3>Example 1: Basic Product</h3>
-                    <p><strong>Differentiate:</strong> $y = x^2(x + 1)$</p>
                     
-                    <div class="step">
-                        <span class="step-number">1</span>
-                        <strong>Identify u and v:</strong> $u = x^2$ and $v = x + 1$
+                    <div class="example-question">
+                        <strong>Differentiate:</strong> $y = x^2(x + 1)$
                     </div>
                     
-                    <div class="step">
-                        <span class="step-number">2</span>
-                        <strong>Find derivatives:</strong> $u' = 2x$ and $v' = 1$
+                    <div class="accordion-step">
+                        <div class="accordion-header" onclick="toggleAccordion(this)">
+                            <span class="step-label">Step 1: Identify u and v</span>
+                            <span class="accordion-toggle">▼</span>
+                        </div>
+                        <div class="accordion-content">
+                            <div class="step-math">$u = x^2$ and $v = x + 1$</div>
+                        </div>
                     </div>
                     
-                    <div class="step">
-                        <span class="step-number">3</span>
-                        <strong>Apply formula:</strong> $y' = uv' + vu'$
+                    <div class="accordion-step">
+                        <div class="accordion-header" onclick="toggleAccordion(this)">
+                            <span class="step-label">Step 2: Find derivatives</span>
+                            <span class="accordion-toggle">▼</span>
+                        </div>
+                        <div class="accordion-content">
+                            <div class="step-math">$u' = 2x$ and $v' = 1$</div>
+                        </div>
                     </div>
                     
-                    <div class="step">
-                        <span class="step-number">4</span>
-                        <strong>Substitute:</strong> $y' = x^2(1) + (x + 1)(2x)$
+                    <div class="accordion-step">
+                        <div class="accordion-header" onclick="toggleAccordion(this)">
+                            <span class="step-label">Step 3: Apply formula</span>
+                            <span class="accordion-toggle">▼</span>
+                        </div>
+                        <div class="accordion-content">
+                            <div class="step-math">$y' = uv' + vu'$</div>
+                        </div>
                     </div>
                     
-                    <div class="step">
-                        <span class="step-number">5</span>
-                        <strong>Simplify:</strong> $y' = x^2 + 2x^2 + 2x = 3x^2 + 2x$
+                    <div class="accordion-step">
+                        <div class="accordion-header" onclick="toggleAccordion(this)">
+                            <span class="step-label">Step 4: Substitute</span>
+                            <span class="accordion-toggle">▼</span>
+                        </div>
+                        <div class="accordion-content">
+                            <div class="step-math">$y' = x^2(1) + (x + 1)(2x)$</div>
+                        </div>
+                    </div>
+                    
+                    <div class="accordion-step">
+                        <div class="accordion-header" onclick="toggleAccordion(this)">
+                            <span class="step-label"><strong>✓ Answer: Simplify</strong></span>
+                            <span class="accordion-toggle">▼</span>
+                        </div>
+                        <div class="accordion-content">
+                            <div class="step-math">$y' = x^2 + 2x^2 + 2x = 3x^2 + 2x$</div>
+                        </div>
                     </div>
                 </div>
 
-                <div class="worked-example">
+                <div class="accordion-example">
                     <h3>Example 2: Product with Powers</h3>
-                    <p><strong>Differentiate:</strong> $y = (2x + 3)(x^3)$</p>
                     
-                    <div class="step">
-                        <span class="step-number">1</span>
-                        <strong>Identify:</strong> $u = 2x + 3$ and $v = x^3$
+                    <div class="example-question">
+                        <strong>Differentiate:</strong> $y = (2x + 3)(x^3)$
                     </div>
                     
-                    <div class="step">
-                        <span class="step-number">2</span>
-                        <strong>Derivatives:</strong> $u' = 2$ and $v' = 3x^2$
+                    <div class="accordion-step">
+                        <div class="accordion-header" onclick="toggleAccordion(this)">
+                            <span class="step-label">Step 1: Identify</span>
+                            <span class="accordion-toggle">▼</span>
+                        </div>
+                        <div class="accordion-content">
+                            <div class="step-math">$u = 2x + 3$ and $v = x^3$</div>
+                        </div>
                     </div>
                     
-                    <div class="step">
-                        <span class="step-number">3</span>
-                        <strong>Apply:</strong> $y' = (2x + 3)(3x^2) + (x^3)(2)$
+                    <div class="accordion-step">
+                        <div class="accordion-header" onclick="toggleAccordion(this)">
+                            <span class="step-label">Step 2: Derivatives</span>
+                            <span class="accordion-toggle">▼</span>
+                        </div>
+                        <div class="accordion-content">
+                            <div class="step-math">$u' = 2$ and $v' = 3x^2$</div>
+                        </div>
                     </div>
                     
-                    <div class="step">
-                        <span class="step-number">4</span>
-                        <strong>Expand:</strong> $y' = 6x^3 + 9x^2 + 2x^3$
+                    <div class="accordion-step">
+                        <div class="accordion-header" onclick="toggleAccordion(this)">
+                            <span class="step-label">Step 3: Apply</span>
+                            <span class="accordion-toggle">▼</span>
+                        </div>
+                        <div class="accordion-content">
+                            <div class="step-math">$y' = (2x + 3)(3x^2) + (x^3)(2)$</div>
+                        </div>
                     </div>
                     
-                    <div class="step">
-                        <span class="step-number">5</span>
-                        <strong>Simplify:</strong> $y' = 8x^3 + 9x^2$
+                    <div class="accordion-step">
+                        <div class="accordion-header" onclick="toggleAccordion(this)">
+                            <span class="step-label">Step 4: Expand</span>
+                            <span class="accordion-toggle">▼</span>
+                        </div>
+                        <div class="accordion-content">
+                            <div class="step-math">$y' = 6x^3 + 9x^2 + 2x^3$</div>
+                        </div>
+                    </div>
+                    
+                    <div class="accordion-step">
+                        <div class="accordion-header" onclick="toggleAccordion(this)">
+                            <span class="step-label"><strong>✓ Answer: Simplify</strong></span>
+                            <span class="accordion-toggle">▼</span>
+                        </div>
+                        <div class="accordion-content">
+                            <div class="step-math">$y' = 8x^3 + 9x^2$</div>
+                        </div>
                     </div>
                 </div>
             </section>
@@ -256,63 +315,119 @@
             <section class="content-section">
                 <h2>Quotient Rule: Worked Examples</h2>
 
-                <div class="worked-example">
+                <div class="accordion-example">
                     <h3>Example 3: Basic Quotient</h3>
-                    <p><strong>Differentiate:</strong> $y = \frac{x^2}{x + 1}$</p>
                     
-                    <div class="step">
-                        <span class="step-number">1</span>
-                        <strong>Identify:</strong> $u = x^2$ (top) and $v = x + 1$ (bottom)
+                    <div class="example-question">
+                        <strong>Differentiate:</strong> $y = \frac{x^2}{x + 1}$
                     </div>
                     
-                    <div class="step">
-                        <span class="step-number">2</span>
-                        <strong>Derivatives:</strong> $u' = 2x$ and $v' = 1$
+                    <div class="accordion-step">
+                        <div class="accordion-header" onclick="toggleAccordion(this)">
+                            <span class="step-label">Step 1: Identify</span>
+                            <span class="accordion-toggle">▼</span>
+                        </div>
+                        <div class="accordion-content">
+                            <div class="step-math">$u = x^2$ (top) and $v = x + 1$ (bottom)</div>
+                        </div>
                     </div>
                     
-                    <div class="step">
-                        <span class="step-number">3</span>
-                        <strong>Apply:</strong> $y' = \frac{vu' - uv'}{v^2}$
+                    <div class="accordion-step">
+                        <div class="accordion-header" onclick="toggleAccordion(this)">
+                            <span class="step-label">Step 2: Derivatives</span>
+                            <span class="accordion-toggle">▼</span>
+                        </div>
+                        <div class="accordion-content">
+                            <div class="step-math">$u' = 2x$ and $v' = 1$</div>
+                        </div>
                     </div>
                     
-                    <div class="step">
-                        <span class="step-number">4</span>
-                        <strong>Substitute:</strong> $y' = \frac{(x + 1)(2x) - (x^2)(1)}{(x + 1)^2}$
+                    <div class="accordion-step">
+                        <div class="accordion-header" onclick="toggleAccordion(this)">
+                            <span class="step-label">Step 3: Apply</span>
+                            <span class="accordion-toggle">▼</span>
+                        </div>
+                        <div class="accordion-content">
+                            <div class="step-math">$y' = \frac{vu' - uv'}{v^2}$</div>
+                        </div>
                     </div>
                     
-                    <div class="step">
-                        <span class="step-number">5</span>
-                        <strong>Simplify:</strong> $y' = \frac{2x^2 + 2x - x^2}{(x + 1)^2} = \frac{x^2 + 2x}{(x + 1)^2}$
+                    <div class="accordion-step">
+                        <div class="accordion-header" onclick="toggleAccordion(this)">
+                            <span class="step-label">Step 4: Substitute</span>
+                            <span class="accordion-toggle">▼</span>
+                        </div>
+                        <div class="accordion-content">
+                            <div class="step-math">$y' = \frac{(x + 1)(2x) - (x^2)(1)}{(x + 1)^2}$</div>
+                        </div>
+                    </div>
+                    
+                    <div class="accordion-step">
+                        <div class="accordion-header" onclick="toggleAccordion(this)">
+                            <span class="step-label"><strong>✓ Answer: Simplify</strong></span>
+                            <span class="accordion-toggle">▼</span>
+                        </div>
+                        <div class="accordion-content">
+                            <div class="step-math">$y' = \frac{2x^2 + 2x - x^2}{(x + 1)^2} = \frac{x^2 + 2x}{(x + 1)^2}$</div>
+                        </div>
                     </div>
                 </div>
 
-                <div class="worked-example">
+                <div class="accordion-example">
                     <h3>Example 4: More Complex Quotient</h3>
-                    <p><strong>Differentiate:</strong> $y = \frac{3x^2 - 1}{2x + 5}$</p>
                     
-                    <div class="step">
-                        <span class="step-number">1</span>
-                        <strong>Identify:</strong> $u = 3x^2 - 1$ and $v = 2x + 5$
+                    <div class="example-question">
+                        <strong>Differentiate:</strong> $y = \frac{3x^2 - 1}{2x + 5}$
                     </div>
                     
-                    <div class="step">
-                        <span class="step-number">2</span>
-                        <strong>Derivatives:</strong> $u' = 6x$ and $v' = 2$
+                    <div class="accordion-step">
+                        <div class="accordion-header" onclick="toggleAccordion(this)">
+                            <span class="step-label">Step 1: Identify</span>
+                            <span class="accordion-toggle">▼</span>
+                        </div>
+                        <div class="accordion-content">
+                            <div class="step-math">$u = 3x^2 - 1$ and $v = 2x + 5$</div>
+                        </div>
                     </div>
                     
-                    <div class="step">
-                        <span class="step-number">3</span>
-                        <strong>Apply:</strong> $y' = \frac{(2x + 5)(6x) - (3x^2 - 1)(2)}{(2x + 5)^2}$
+                    <div class="accordion-step">
+                        <div class="accordion-header" onclick="toggleAccordion(this)">
+                            <span class="step-label">Step 2: Derivatives</span>
+                            <span class="accordion-toggle">▼</span>
+                        </div>
+                        <div class="accordion-content">
+                            <div class="step-math">$u' = 6x$ and $v' = 2$</div>
+                        </div>
                     </div>
                     
-                    <div class="step">
-                        <span class="step-number">4</span>
-                        <strong>Expand:</strong> $y' = \frac{12x^2 + 30x - 6x^2 + 2}{(2x + 5)^2}$
+                    <div class="accordion-step">
+                        <div class="accordion-header" onclick="toggleAccordion(this)">
+                            <span class="step-label">Step 3: Apply</span>
+                            <span class="accordion-toggle">▼</span>
+                        </div>
+                        <div class="accordion-content">
+                            <div class="step-math">$y' = \frac{(2x + 5)(6x) - (3x^2 - 1)(2)}{(2x + 5)^2}$</div>
+                        </div>
                     </div>
                     
-                    <div class="step">
-                        <span class="step-number">5</span>
-                        <strong>Simplify:</strong> $y' = \frac{6x^2 + 30x + 2}{(2x + 5)^2}$
+                    <div class="accordion-step">
+                        <div class="accordion-header" onclick="toggleAccordion(this)">
+                            <span class="step-label">Step 4: Expand</span>
+                            <span class="accordion-toggle">▼</span>
+                        </div>
+                        <div class="accordion-content">
+                            <div class="step-math">$y' = \frac{12x^2 + 30x - 6x^2 + 2}{(2x + 5)^2}$</div>
+                        </div>
+                    </div>
+                    
+                    <div class="accordion-step">
+                        <div class="accordion-header" onclick="toggleAccordion(this)">
+                            <span class="step-label"><strong>✓ Answer: Simplify</strong></span>
+                            <span class="accordion-toggle">▼</span>
+                        </div>
+                        <div class="accordion-content">
+                            <div class="step-math">$y' = \frac{6x^2 + 30x + 2}{(2x + 5)^2}$</div>
+                        </div>
                     </div>
                 </div>
             </section>
@@ -354,7 +469,7 @@
                     <p><em>Notice: Only the <span class="highlight-uv">first function</span> changes</em></p>
                     
                     <div class="problem">
-                        <div class="problem-label">a) $y = <span class="highlight-uv">x</span>(x + 1)$</div>
+                        <div class="problem-label">a) $y = x(x + 1)$</div>
                         <button class="show-answer-btn" onclick="toggleAnswer(this)">Show Answer</button>
                         <div class="answer-reveal">
                             $u = x, u' = 1; v = x + 1, v' = 1$<br>
@@ -363,7 +478,7 @@
                     </div>
                     
                     <div class="problem">
-                        <div class="problem-label">b) $y = <span class="highlight-uv">x^2</span>(x + 1)$</div>
+                        <div class="problem-label">b) $y = x^2(x + 1)$</div>
                         <button class="show-answer-btn" onclick="toggleAnswer(this)">Show Answer</button>
                         <div class="answer-reveal">
                             $u = x^2, u' = 2x; v = x + 1, v' = 1$<br>
@@ -372,7 +487,7 @@
                     </div>
                     
                     <div class="problem">
-                        <div class="problem-label">c) $y = <span class="highlight-uv">x^3</span>(x + 1)$</div>
+                        <div class="problem-label">c) $y = x^3(x + 1)$</div>
                         <button class="show-answer-btn" onclick="toggleAnswer(this)">Show Answer</button>
                         <div class="answer-reveal">
                             $u = x^3, u' = 3x^2; v = x + 1, v' = 1$<br>
@@ -386,7 +501,7 @@
                     <p><em>Notice: Only the <span class="highlight-uv">second function</span> changes</em></p>
                     
                     <div class="problem">
-                        <div class="problem-label">a) $y = x^2(<span class="highlight-uv">x</span>)$</div>
+                        <div class="problem-label">a) $y = x^2(x)$</div>
                         <button class="show-answer-btn" onclick="toggleAnswer(this)">Show Answer</button>
                         <div class="answer-reveal">
                             $u = x^2, u' = 2x; v = x, v' = 1$<br>
@@ -395,7 +510,7 @@
                     </div>
                     
                     <div class="problem">
-                        <div class="problem-label">b) $y = x^2(<span class="highlight-uv">x + 1</span>)$</div>
+                        <div class="problem-label">b) $y = x^2(x + 1)$</div>
                         <button class="show-answer-btn" onclick="toggleAnswer(this)">Show Answer</button>
                         <div class="answer-reveal">
                             $u = x^2, u' = 2x; v = x + 1, v' = 1$<br>
@@ -404,7 +519,7 @@
                     </div>
                     
                     <div class="problem">
-                        <div class="problem-label">c) $y = x^2(<span class="highlight-uv">x^2 + 1</span>)$</div>
+                        <div class="problem-label">c) $y = x^2(x^2 + 1)$</div>
                         <button class="show-answer-btn" onclick="toggleAnswer(this)">Show Answer</button>
                         <div class="answer-reveal">
                             $u = x^2, u' = 2x; v = x^2 + 1, v' = 2x$<br>
@@ -420,7 +535,7 @@
                     <p><em>Notice: Only the <span class="highlight-uv">top</span> changes</em></p>
                     
                     <div class="problem">
-                        <div class="problem-label">a) $y = \frac{<span class="highlight-uv">x</span>}{x + 1}$</div>
+                        <div class="problem-label">a) $y = \frac{x}{x + 1}$</div>
                         <button class="show-answer-btn" onclick="toggleAnswer(this)">Show Answer</button>
                         <div class="answer-reveal">
                             $u = x, u' = 1; v = x + 1, v' = 1$<br>
@@ -429,7 +544,7 @@
                     </div>
                     
                     <div class="problem">
-                        <div class="problem-label">b) $y = \frac{<span class="highlight-uv">x^2</span>}{x + 1}$</div>
+                        <div class="problem-label">b) $y = \frac{x^2}{x + 1}$</div>
                         <button class="show-answer-btn" onclick="toggleAnswer(this)">Show Answer</button>
                         <div class="answer-reveal">
                             $u = x^2, u' = 2x; v = x + 1, v' = 1$<br>
@@ -438,7 +553,7 @@
                     </div>
                     
                     <div class="problem">
-                        <div class="problem-label">c) $y = \frac{<span class="highlight-uv">x^3</span>}{x + 1}$</div>
+                        <div class="problem-label">c) $y = \frac{x^3}{x + 1}$</div>
                         <button class="show-answer-btn" onclick="toggleAnswer(this)">Show Answer</button>
                         <div class="answer-reveal">
                             $u = x^3, u' = 3x^2; v = x + 1, v' = 1$<br>
@@ -452,7 +567,7 @@
                     <p><em>Notice: Only the <span class="highlight-uv">bottom</span> changes</em></p>
                     
                     <div class="problem">
-                        <div class="problem-label">a) $y = \frac{x^2}{<span class="highlight-uv">x</span>}$</div>
+                        <div class="problem-label">a) $y = \frac{x^2}{x}$</div>
                         <button class="show-answer-btn" onclick="toggleAnswer(this)">Show Answer</button>
                         <div class="answer-reveal">
                             $u = x^2, u' = 2x; v = x, v' = 1$<br>
@@ -461,7 +576,7 @@
                     </div>
                     
                     <div class="problem">
-                        <div class="problem-label">b) $y = \frac{x^2}{<span class="highlight-uv">x + 1</span>}$</div>
+                        <div class="problem-label">b) $y = \frac{x^2}{x + 1}$</div>
                         <button class="show-answer-btn" onclick="toggleAnswer(this)">Show Answer</button>
                         <div class="answer-reveal">
                             $u = x^2, u' = 2x; v = x + 1, v' = 1$<br>
@@ -470,7 +585,7 @@
                     </div>
                     
                     <div class="problem">
-                        <div class="problem-label">c) $y = \frac{x^2}{<span class="highlight-uv">x^2 + 1</span>}$</div>
+                        <div class="problem-label">c) $y = \frac{x^2}{x^2 + 1}$</div>
                         <button class="show-answer-btn" onclick="toggleAnswer(this)">Show Answer</button>
                         <div class="answer-reveal">
                             $u = x^2, u' = 2x; v = x^2 + 1, v' = 2x$<br>
@@ -507,17 +622,46 @@
         <p>&copy; 2026 NZ Math Hub. Supporting mathematics education in New Zealand.</p>
     </footer>
 
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+    <!-- KaTeX Scripts -->
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js" integrity="sha384-XjKyOOlGwcjNTAIQHIpgOno0Hl1YQqzUOEleOLALmuqehneUG+vnGctmUb0ZY0l8" crossorigin="anonymous"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js" integrity="sha384-+VBxd3r6XgURycqtZ117nYw44OOcIax56Z4dCRWbxyPt0Koah1uHoK0o4+/RRE05" crossorigin="anonymous"
+        onload="renderMathInElement(document.body, {delimiters: [{left: '$$', right: '$$', display: true}, {left: '$', right: '$', display: false}]});"></script>
     
     <script>
+        function toggleAccordion(header) {
+            const step = header.parentElement;
+            const content = header.nextElementSibling;
+            const isOpen = header.classList.contains('active');
+            
+            // Toggle this accordion
+            header.classList.toggle('active');
+            content.classList.toggle('open');
+            
+            // Mark as completed when opened
+            if (!isOpen) {
+                step.classList.add('completed');
+            }
+            
+            // Re-render math in opened content
+            if (content.classList.contains('open') && typeof renderMathInElement !== 'undefined') {
+                renderMathInElement(content, {
+                    delimiters: [
+                        {left: '$$', right: '$$', display: true},
+                        {left: '$', right: '$', display: false}
+                    ],
+                    throwOnError: false
+                });
+            }
+        }
+        
         function toggleAnswer(button) {
             const answerDiv = button.nextElementSibling;
             if (answerDiv.style.display === 'none' || answerDiv.style.display === '') {
                 answerDiv.style.display = 'block';
                 button.textContent = 'Hide Answer';
-                button.style.background = '#666';
-                if (typeof MathJax !== 'undefined') {
-                    MathJax.Hub.Queue(["Typeset", MathJax.Hub, answerDiv]);
+                button.style.background = '#000';
+                if (typeof renderMathInElement !== 'undefined') {
+                    renderMathInElement(answerDiv, {delimiters: [{left: '$$', right: '$$', display: true}, {left: '$', right: '$', display: false}]});
                 }
             } else {
                 answerDiv.style.display = 'none';

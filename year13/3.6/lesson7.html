@@ -5,6 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Lesson 7: Points of Inflection - NZ Math Hub</title>
     <link rel="stylesheet" href="../../styles.css">
+    <link rel="stylesheet" href="../../scroll-reveal.css">
+    <!-- KaTeX CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css" integrity="sha384-n8MVd4RsNIU0tAv4ct0nTaAbDJwPJzDEaqSD1odI+WdtXRGWt2kTvGFasHpSy3SV" crossorigin="anonymous">
     <style>
         .rule-box {
             background: linear-gradient(135deg, var(--primary-accent), var(--secondary-accent));
@@ -172,7 +175,7 @@
                 </div>
 
                 <div class="caution-box">
-                    <h4 style="color: #856404; margin-top: 0;">⚠️ Important Distinction</h4>
+                    <h4 style="color: #663300; margin-top: 0;">⚠️ Important Distinction</h4>
                     <p><strong>Not all points where $\frac{d^2y}{dx^2} = 0$ are inflection points!</strong></p>
                     <p style="margin-top: 10px;">You MUST verify that the second derivative <strong>changes sign</strong> on either side of the point.</p>
                 </div>
@@ -198,135 +201,238 @@
             <section class="content-section section-light">
                 <h2>Worked Examples</h2>
 
-                <div class="worked-example">
+                <div class="accordion-example">
                     <h3>Example 1: Basic Cubic (Horizontal Inflection)</h3>
-                    <p><strong>Find the point of inflection of $y = x^3$</strong></p>
                     
-                    <div class="step">
-                        <span class="step-number">1</span>
-                        <strong>First derivative:</strong> $\frac{dy}{dx} = 3x^2$
+                    <div class="example-question">
+                        <strong>Question:</strong> Find the point of inflection of $y = x^3$
                     </div>
                     
-                    <div class="step">
-                        <span class="step-number">2</span>
-                        <strong>Second derivative:</strong> $\frac{d^2y}{dx^2} = 6x$
+                    <div class="accordion-step">
+                        <div class="accordion-header" onclick="toggleAccordion(this)">
+                            <span class="step-label">Step 1: First derivative</span>
+                            <span class="accordion-toggle">▼</span>
+                        </div>
+                        <div class="accordion-content">
+                            <div class="step-math">$\frac{dy}{dx} = 3x^2$</div>
+                        </div>
                     </div>
                     
-                    <div class="step">
-                        <span class="step-number">3</span>
-                        <strong>Solve $\frac{d^2y}{dx^2} = 0$:</strong> $6x = 0$, so $x = 0$
+                    <div class="accordion-step">
+                        <div class="accordion-header" onclick="toggleAccordion(this)">
+                            <span class="step-label">Step 2: Second derivative</span>
+                            <span class="accordion-toggle">▼</span>
+                        </div>
+                        <div class="accordion-content">
+                            <div class="step-math">$\frac{d^2y}{dx^2} = 6x$</div>
+                        </div>
                     </div>
                     
-                    <div class="step">
-                        <span class="step-number">4</span>
-                        <strong>Test sign change:</strong><br>
-                        At $x = -0.1$: $\frac{d^2y}{dx^2} = 6(-0.1) = -0.6 < 0$ (concave down)<br>
-                        At $x = 0.1$: $\frac{d^2y}{dx^2} = 6(0.1) = 0.6 > 0$ (concave up)<br>
-                        Sign changes ✓
+                    <div class="accordion-step">
+                        <div class="accordion-header" onclick="toggleAccordion(this)">
+                            <span class="step-label">Step 3: Solve $\frac{d^2y}{dx^2} = 0$</span>
+                            <span class="accordion-toggle">▼</span>
+                        </div>
+                        <div class="accordion-content">
+                            <div class="step-math">$6x = 0$, so $x = 0$</div>
+                        </div>
                     </div>
                     
-                    <div class="step">
-                        <span class="step-number">5</span>
-                        <strong>Find $y$:</strong> $y = 0^3 = 0$<br>
-                        <strong>Answer:</strong> Point of inflection at $(0, 0)$
+                    <div class="accordion-step">
+                        <div class="accordion-header" onclick="toggleAccordion(this)">
+                            <span class="step-label">Step 4: Test sign change</span>
+                            <span class="accordion-toggle">▼</span>
+                        </div>
+                        <div class="accordion-content">
+                            <div class="step-explanation">At $x = -0.1$: $\frac{d^2y}{dx^2} = 6(-0.1) = -0.6 < 0$ (concave down)</div>
+                            <div class="step-explanation">At $x = 0.1$: $\frac{d^2y}{dx^2} = 6(0.1) = 0.6 > 0$ (concave up)</div>
+                            <div class="step-explanation">Sign changes ✓</div>
+                        </div>
+                    </div>
+                    
+                    <div class="accordion-step">
+                        <div class="accordion-header" onclick="toggleAccordion(this)">
+                            <span class="step-label"><strong>✓ Answer: Find $y$</strong></span>
+                            <span class="accordion-toggle">▼</span>
+                        </div>
+                        <div class="accordion-content">
+                            <div class="step-math">$y = 0^3 = 0$</div>
+                            <div class="step-explanation"><strong>Point of inflection at $(0, 0)$</strong></div>
+                        </div>
                     </div>
                 </div>
 
-                <div class="worked-example">
+                <div class="accordion-example">
                     <h3>Example 2: Cubic with Linear Term (Non-Horizontal)</h3>
-                    <p><strong>Find inflection points of $y = x^3 + 3x$</strong></p>
                     
-                    <div class="step">
-                        <span class="step-number">1</span>
-                        <strong>First derivative:</strong> $\frac{dy}{dx} = 3x^2 + 3$
+                    <div class="example-question">
+                        <strong>Question:</strong> Find inflection points of $y = x^3 + 3x$
                     </div>
                     
-                    <div class="step">
-                        <span class="step-number">2</span>
-                        <strong>Second derivative:</strong> $\frac{d^2y}{dx^2} = 6x$
+                    <div class="accordion-step">
+                        <div class="accordion-header" onclick="toggleAccordion(this)">
+                            <span class="step-label">Step 1: First derivative</span>
+                            <span class="accordion-toggle">▼</span>
+                        </div>
+                        <div class="accordion-content">
+                            <div class="step-math">$\frac{dy}{dx} = 3x^2 + 3$</div>
+                        </div>
                     </div>
                     
-                    <div class="step">
-                        <span class="step-number">3</span>
-                        <strong>Solve:</strong> $6x = 0$, so $x = 0$
+                    <div class="accordion-step">
+                        <div class="accordion-header" onclick="toggleAccordion(this)">
+                            <span class="step-label">Step 2: Second derivative</span>
+                            <span class="accordion-toggle">▼</span>
+                        </div>
+                        <div class="accordion-content">
+                            <div class="step-math">$\frac{d^2y}{dx^2} = 6x$</div>
+                        </div>
                     </div>
                     
-                    <div class="step">
-                        <span class="step-number">4</span>
-                        <strong>Verify sign change:</strong> Changes from negative to positive ✓
+                    <div class="accordion-step">
+                        <div class="accordion-header" onclick="toggleAccordion(this)">
+                            <span class="step-label">Step 3: Solve</span>
+                            <span class="accordion-toggle">▼</span>
+                        </div>
+                        <div class="accordion-content">
+                            <div class="step-math">$6x = 0$, so $x = 0$</div>
+                        </div>
                     </div>
                     
-                    <div class="step">
-                        <span class="step-number">5</span>
-                        <strong>Note:</strong> At $x = 0$, $\frac{dy}{dx} = 3 \neq 0$<br>
-                        This is a <strong>non-horizontal</strong> inflection point<br>
-                        Point of inflection at $(0, 0)$ with gradient 3
+                    <div class="accordion-step">
+                        <div class="accordion-header" onclick="toggleAccordion(this)">
+                            <span class="step-label">Step 4: Verify sign change</span>
+                            <span class="accordion-toggle">▼</span>
+                        </div>
+                        <div class="accordion-content">
+                            <div class="step-explanation">Changes from negative to positive ✓</div>
+                        </div>
+                    </div>
+                    
+                    <div class="accordion-step">
+                        <div class="accordion-header" onclick="toggleAccordion(this)">
+                            <span class="step-label"><strong>✓ Answer</strong></span>
+                            <span class="accordion-toggle">▼</span>
+                        </div>
+                        <div class="accordion-content">
+                            <div class="step-explanation">At $x = 0$, $\frac{dy}{dx} = 3 \neq 0$</div>
+                            <div class="step-explanation">This is a <strong>non-horizontal</strong> inflection point</div>
+                            <div class="step-explanation">Point of inflection at $(0, 0)$ with gradient 3</div>
+                        </div>
                     </div>
                 </div>
 
-                <div class="worked-example">
+                <div class="accordion-example">
                     <h3>Example 3: Not an Inflection Point!</h3>
-                    <p><strong>Find points of inflection of $y = x^4$</strong></p>
                     
-                    <div class="step">
-                        <span class="step-number">1</span>
-                        <strong>Derivatives:</strong> $\frac{dy}{dx} = 4x^3$, $\frac{d^2y}{dx^2} = 12x^2$
+                    <div class="example-question">
+                        <strong>Question:</strong> Find points of inflection of $y = x^4$
                     </div>
                     
-                    <div class="step">
-                        <span class="step-number">2</span>
-                        <strong>Solve $\frac{d^2y}{dx^2} = 0$:</strong> $12x^2 = 0$, so $x = 0$
+                    <div class="accordion-step">
+                        <div class="accordion-header" onclick="toggleAccordion(this)">
+                            <span class="step-label">Step 1: Derivatives</span>
+                            <span class="accordion-toggle">▼</span>
+                        </div>
+                        <div class="accordion-content">
+                            <div class="step-math">$\frac{dy}{dx} = 4x^3$, $\frac{d^2y}{dx^2} = 12x^2$</div>
+                        </div>
                     </div>
                     
-                    <div class="step">
-                        <span class="step-number">3</span>
-                        <strong>Test sign change:</strong><br>
-                        At $x = -0.1$: $\frac{d^2y}{dx^2} = 12(0.01) = 0.12 > 0$<br>
-                        At $x = 0.1$: $\frac{d^2y}{dx^2} = 12(0.01) = 0.12 > 0$<br>
-                        <strong>No sign change!</strong> ✗
+                    <div class="accordion-step">
+                        <div class="accordion-header" onclick="toggleAccordion(this)">
+                            <span class="step-label">Step 2: Solve $\frac{d^2y}{dx^2} = 0$</span>
+                            <span class="accordion-toggle">▼</span>
+                        </div>
+                        <div class="accordion-content">
+                            <div class="step-math">$12x^2 = 0$, so $x = 0$</div>
+                        </div>
                     </div>
                     
-                    <div class="step">
-                        <span class="step-number">4</span>
-                        <strong>Conclusion:</strong> <strong>NO</strong> point of inflection<br>
-                        $(0, 0)$ is actually a <strong>minimum</strong> point
+                    <div class="accordion-step">
+                        <div class="accordion-header" onclick="toggleAccordion(this)">
+                            <span class="step-label">Step 3: Test sign change</span>
+                            <span class="accordion-toggle">▼</span>
+                        </div>
+                        <div class="accordion-content">
+                            <div class="step-explanation">At $x = -0.1$: $\frac{d^2y}{dx^2} = 12(0.01) = 0.12 > 0$</div>
+                            <div class="step-explanation">At $x = 0.1$: $\frac{d^2y}{dx^2} = 12(0.01) = 0.12 > 0$</div>
+                            <div class="step-explanation"><strong>No sign change!</strong> ✗</div>
+                        </div>
+                    </div>
+                    
+                    <div class="accordion-step">
+                        <div class="accordion-header" onclick="toggleAccordion(this)">
+                            <span class="step-label"><strong>✓ Conclusion</strong></span>
+                            <span class="accordion-toggle">▼</span>
+                        </div>
+                        <div class="accordion-content">
+                            <div class="step-explanation"><strong>NO</strong> point of inflection</div>
+                            <div class="step-explanation">$(0, 0)$ is actually a <strong>minimum</strong> point</div>
+                        </div>
                     </div>
                 </div>
 
-                <div class="worked-example">
+                <div class="accordion-example">
                     <h3>Example 4: Multiple Inflection Points</h3>
-                    <p><strong>Find inflection points of $y = x^4 - 6x^2$</strong></p>
                     
-                    <div class="step">
-                        <span class="step-number">1</span>
-                        <strong>Derivatives:</strong><br>
-                        $\frac{dy}{dx} = 4x^3 - 12x$<br>
-                        $\frac{d^2y}{dx^2} = 12x^2 - 12$
+                    <div class="example-question">
+                        <strong>Question:</strong> Find inflection points of $y = x^4 - 6x^2$
                     </div>
                     
-                    <div class="step">
-                        <span class="step-number">2</span>
-                        <strong>Solve:</strong> $12x^2 - 12 = 0$<br>
-                        $x^2 = 1$, so $x = 1$ or $x = -1$
+                    <div class="accordion-step">
+                        <div class="accordion-header" onclick="toggleAccordion(this)">
+                            <span class="step-label">Step 1: Derivatives</span>
+                            <span class="accordion-toggle">▼</span>
+                        </div>
+                        <div class="accordion-content">
+                            <div class="step-math">$\frac{dy}{dx} = 4x^3 - 12x$</div>
+                            <div class="step-math">$\frac{d^2y}{dx^2} = 12x^2 - 12$</div>
+                        </div>
                     </div>
                     
-                    <div class="step">
-                        <span class="step-number">3</span>
-                        <strong>Test at $x = 1$:</strong><br>
-                        At $x = 0.5$: $\frac{d^2y}{dx^2} = 12(0.25) - 12 = -9 < 0$<br>
-                        At $x = 1.5$: $\frac{d^2y}{dx^2} = 12(2.25) - 12 = 15 > 0$<br>
-                        Sign changes ✓
+                    <div class="accordion-step">
+                        <div class="accordion-header" onclick="toggleAccordion(this)">
+                            <span class="step-label">Step 2: Solve</span>
+                            <span class="accordion-toggle">▼</span>
+                        </div>
+                        <div class="accordion-content">
+                            <div class="step-math">$12x^2 - 12 = 0$</div>
+                            <div class="step-math">$x^2 = 1$, so $x = 1$ or $x = -1$</div>
+                        </div>
                     </div>
                     
-                    <div class="step">
-                        <span class="step-number">4</span>
-                        <strong>Test at $x = -1$:</strong> Similarly changes sign ✓<br>
-                        $y = 1 - 6 = -5$ at both points
+                    <div class="accordion-step">
+                        <div class="accordion-header" onclick="toggleAccordion(this)">
+                            <span class="step-label">Step 3: Test at $x = 1$</span>
+                            <span class="accordion-toggle">▼</span>
+                        </div>
+                        <div class="accordion-content">
+                            <div class="step-explanation">At $x = 0.5$: $\frac{d^2y}{dx^2} = 12(0.25) - 12 = -9 < 0$</div>
+                            <div class="step-explanation">At $x = 1.5$: $\frac{d^2y}{dx^2} = 12(2.25) - 12 = 15 > 0$</div>
+                            <div class="step-explanation">Sign changes ✓</div>
+                        </div>
                     </div>
                     
-                    <div class="step">
-                        <span class="step-number">5</span>
-                        <strong>Answer:</strong> Inflection points at $(1, -5)$ and $(-1, -5)$
+                    <div class="accordion-step">
+                        <div class="accordion-header" onclick="toggleAccordion(this)">
+                            <span class="step-label">Step 4: Test at $x = -1$</span>
+                            <span class="accordion-toggle">▼</span>
+                        </div>
+                        <div class="accordion-content">
+                            <div class="step-explanation">Similarly changes sign ✓</div>
+                            <div class="step-math">$y = 1 - 6 = -5$ at both points</div>
+                        </div>
+                    </div>
+                    
+                    <div class="accordion-step">
+                        <div class="accordion-header" onclick="toggleAccordion(this)">
+                            <span class="step-label"><strong>✓ Answer</strong></span>
+                            <span class="accordion-toggle">▼</span>
+                        </div>
+                        <div class="accordion-content">
+                            <div class="step-explanation">Inflection points at $(1, -5)$ and $(-1, -5)$</div>
+                        </div>
                     </div>
                 </div>
             </section>
@@ -494,17 +600,46 @@
         <p>&copy; 2026 NZ Math Hub. Supporting mathematics education in New Zealand.</p>
     </footer>
 
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+    <!-- KaTeX Scripts -->
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js" integrity="sha384-XjKyOOlGwcjNTAIQHIpgOno0Hl1YQqzUOEleOLALmuqehneUG+vnGctmUb0ZY0l8" crossorigin="anonymous"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js" integrity="sha384-+VBxd3r6XgURycqtZ117nYw44OOcIax56Z4dCRWbxyPt0Koah1uHoK0o4+/RRE05" crossorigin="anonymous"
+        onload="renderMathInElement(document.body, {delimiters: [{left: '$$', right: '$$', display: true}, {left: '$', right: '$', display: false}]});"></script>
     
     <script>
+        function toggleAccordion(header) {
+            const step = header.parentElement;
+            const content = header.nextElementSibling;
+            const isOpen = header.classList.contains('active');
+            
+            // Toggle this accordion
+            header.classList.toggle('active');
+            content.classList.toggle('open');
+            
+            // Mark as completed when opened
+            if (!isOpen) {
+                step.classList.add('completed');
+            }
+            
+            // Re-render math in opened content
+            if (content.classList.contains('open') && typeof renderMathInElement !== 'undefined') {
+                renderMathInElement(content, {
+                    delimiters: [
+                        {left: '$$', right: '$$', display: true},
+                        {left: '$', right: '$', display: false}
+                    ],
+                    throwOnError: false
+                });
+            }
+        }
+        
         function toggleAnswer(button) {
             const answerDiv = button.nextElementSibling;
             if (answerDiv.style.display === 'none' || answerDiv.style.display === '') {
                 answerDiv.style.display = 'block';
                 button.textContent = 'Hide Answer';
-                button.style.background = '#666';
-                if (typeof MathJax !== 'undefined') {
-                    MathJax.Hub.Queue(["Typeset", MathJax.Hub, answerDiv]);
+                button.style.background = '#000';
+                if (typeof renderMathInElement !== 'undefined') {
+                    renderMathInElement(answerDiv, {delimiters: [{left: '$$', right: '$$', display: true}, {left: '$', right: '$', display: false}]});
                 }
             } else {
                 answerDiv.style.display = 'none';

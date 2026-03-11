@@ -4,7 +4,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Lesson 8: Related Rates - NZ Math Hub</title>
-    <link rel="stylesheet" href="../../styles.css">
+    <    <link rel="stylesheet" href="../../styles.css">
+    <link rel="stylesheet" href="../../scroll-reveal.css">
+    <!-- KaTeX CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css" integrity="sha384-n8MVd4RsNIU0tAv4ct0nTaAbDJwPJzDEaqSD1odI+WdtXRGWt2kTvGFasHpSy3SV" crossorigin="anonymous">
     <style>
         .rule-box {
             background: linear-gradient(135deg, var(--primary-accent), var(--secondary-accent));
@@ -178,133 +181,242 @@
             <section class="content-section section-light">
                 <h2>Worked Examples</h2>
 
-                <div class="worked-example">
+                <div class="accordion-example">
                     <h3>Example 1: Expanding Circle</h3>
-                    <p><strong>The radius of a circle increases at 2 cm/s. Find the rate of increase of the area when $r = 5$ cm.</strong></p>
                     
-                    <div class="step">
-                        <span class="step-number">1</span>
-                        <strong>Given information:</strong> $\frac{dr}{dt} = 2$ cm/s, $r = 5$ cm
+                    <div class="example-question">
+                        <strong>Question:</strong> The radius of a circle increases at 2 cm/s. Find the rate of increase of the area when $r = 5$ cm.
                     </div>
                     
-                    <div class="step">
-                        <span class="step-number">2</span>
-                        <strong>Relationship:</strong> $A = \pi r^2$
+                    <div class="accordion-step">
+                        <div class="accordion-header" onclick="toggleAccordion(this)">
+                            <span class="step-label">Step 1: Given information</span>
+                            <span class="accordion-toggle">▼</span>
+                        </div>
+                        <div class="accordion-content">
+                            <div class="step-math">$\frac{dr}{dt} = 2$ cm/s, $r = 5$ cm</div>
+                        </div>
                     </div>
                     
-                    <div class="step">
-                        <span class="step-number">3</span>
-                        <strong>Differentiate with respect to time:</strong><br>
-                        $\frac{dA}{dt} = \frac{dA}{dr} \times \frac{dr}{dt}$
+                    <div class="accordion-step">
+                        <div class="accordion-header" onclick="toggleAccordion(this)">
+                            <span class="step-label">Step 2: Relationship</span>
+                            <span class="accordion-toggle">▼</span>
+                        </div>
+                        <div class="accordion-content">
+                            <div class="step-math">$A = \pi r^2$</div>
+                        </div>
                     </div>
                     
-                    <div class="step">
-                        <span class="step-number">4</span>
-                        <strong>Find $\frac{dA}{dr}$:</strong> $\frac{dA}{dr} = 2\pi r$
+                    <div class="accordion-step">
+                        <div class="accordion-header" onclick="toggleAccordion(this)">
+                            <span class="step-label">Step 3: Differentiate with respect to time</span>
+                            <span class="accordion-toggle">▼</span>
+                        </div>
+                        <div class="accordion-content">
+                            <div class="step-math">$\frac{dA}{dt} = \frac{dA}{dr} \times \frac{dr}{dt}$</div>
+                        </div>
                     </div>
                     
-                    <div class="step">
-                        <span class="step-number">5</span>
-                        <strong>Substitute:</strong> $\frac{dA}{dt} = 2\pi r \times 2 = 4\pi r$<br>
-                        At $r = 5$: $\frac{dA}{dt} = 4\pi(5) = 20\pi$ cm²/s $\approx 62.8$ cm²/s
+                    <div class="accordion-step">
+                        <div class="accordion-header" onclick="toggleAccordion(this)">
+                            <span class="step-label">Step 4: Find $\frac{dA}{dr}$</span>
+                            <span class="accordion-toggle">▼</span>
+                        </div>
+                        <div class="accordion-content">
+                            <div class="step-math">$\frac{dA}{dr} = 2\pi r$</div>
+                        </div>
+                    </div>
+                    
+                    <div class="accordion-step">
+                        <div class="accordion-header" onclick="toggleAccordion(this)">
+                            <span class="step-label"><strong>✓ Answer: Substitute</strong></span>
+                            <span class="accordion-toggle">▼</span>
+                        </div>
+                        <div class="accordion-content">
+                            <div class="step-math">$\frac{dA}{dt} = 2\pi r \times 2 = 4\pi r$</div>
+                            <div class="step-explanation">At $r = 5$: $\frac{dA}{dt} = 4\pi(5) = 20\pi$ cm²/s $\approx 62.8$ cm²/s</div>
+                        </div>
                     </div>
                 </div>
 
-                <div class="worked-example">
+                <div class="accordion-example">
                     <h3>Example 2: Expanding Cube</h3>
-                    <p><strong>Each edge of a cube increases at 0.5 cm/s. Find the rate of increase of volume when edge length is 4 cm.</strong></p>
                     
-                    <div class="step">
-                        <span class="step-number">1</span>
-                        <strong>Given:</strong> $\frac{dx}{dt} = 0.5$ cm/s, $x = 4$ cm (edge length)
+                    <div class="example-question">
+                        <strong>Question:</strong> Each edge of a cube increases at 0.5 cm/s. Find the rate of increase of volume when edge length is 4 cm.
                     </div>
                     
-                    <div class="step">
-                        <span class="step-number">2</span>
-                        <strong>Relationship:</strong> $V = x^3$
+                    <div class="accordion-step">
+                        <div class="accordion-header" onclick="toggleAccordion(this)">
+                            <span class="step-label">Step 1: Given</span>
+                            <span class="accordion-toggle">▼</span>
+                        </div>
+                        <div class="accordion-content">
+                            <div class="step-math">$\frac{dx}{dt} = 0.5$ cm/s, $x = 4$ cm (edge length)</div>
+                        </div>
                     </div>
                     
-                    <div class="step">
-                        <span class="step-number">3</span>
-                        <strong>Chain rule:</strong> $\frac{dV}{dt} = \frac{dV}{dx} \times \frac{dx}{dt}$
+                    <div class="accordion-step">
+                        <div class="accordion-header" onclick="toggleAccordion(this)">
+                            <span class="step-label">Step 2: Relationship</span>
+                            <span class="accordion-toggle">▼</span>
+                        </div>
+                        <div class="accordion-content">
+                            <div class="step-math">$V = x^3$</div>
+                        </div>
                     </div>
                     
-                    <div class="step">
-                        <span class="step-number">4</span>
-                        <strong>Differentiate:</strong> $\frac{dV}{dx} = 3x^2$
+                    <div class="accordion-step">
+                        <div class="accordion-header" onclick="toggleAccordion(this)">
+                            <span class="step-label">Step 3: Chain rule</span>
+                            <span class="accordion-toggle">▼</span>
+                        </div>
+                        <div class="accordion-content">
+                            <div class="step-math">$\frac{dV}{dt} = \frac{dV}{dx} \times \frac{dx}{dt}$</div>
+                        </div>
                     </div>
                     
-                    <div class="step">
-                        <span class="step-number">5</span>
-                        <strong>Calculate:</strong> $\frac{dV}{dt} = 3x^2 \times 0.5 = 1.5x^2$<br>
-                        At $x = 4$: $\frac{dV}{dt} = 1.5(16) = 24$ cm³/s
+                    <div class="accordion-step">
+                        <div class="accordion-header" onclick="toggleAccordion(this)">
+                            <span class="step-label">Step 4: Differentiate</span>
+                            <span class="accordion-toggle">▼</span>
+                        </div>
+                        <div class="accordion-content">
+                            <div class="step-math">$\frac{dV}{dx} = 3x^2$</div>
+                        </div>
+                    </div>
+                    
+                    <div class="accordion-step">
+                        <div class="accordion-header" onclick="toggleAccordion(this)">
+                            <span class="step-label"><strong>✓ Answer: Calculate</strong></span>
+                            <span class="accordion-toggle">▼</span>
+                        </div>
+                        <div class="accordion-content">
+                            <div class="step-math">$\frac{dV}{dt} = 3x^2 \times 0.5 = 1.5x^2$</div>
+                            <div class="step-explanation">At $x = 4$: $\frac{dV}{dt} = 1.5(16) = 24$ cm³/s</div>
+                        </div>
                     </div>
                 </div>
 
-                <div class="worked-example">
+                <div class="accordion-example">
                     <h3>Example 3: Water Draining from Tank</h3>
-                    <p><strong>Water drains from a spherical tank. When radius of water surface is 3 m, it's decreasing at 0.1 m/s. Find rate of volume decrease. ($V = \frac{4}{3}\pi r^3$)</strong></p>
                     
-                    <div class="step">
-                        <span class="step-number">1</span>
-                        <strong>Given:</strong> $\frac{dr}{dt} = -0.1$ m/s (negative because decreasing), $r = 3$ m
+                    <div class="example-question">
+                        <strong>Question:</strong> Water drains from a spherical tank. When radius of water surface is 3 m, it's decreasing at 0.1 m/s. Find rate of volume decrease. ($V = \frac{4}{3}\pi r^3$)
                     </div>
                     
-                    <div class="step">
-                        <span class="step-number">2</span>
-                        <strong>Relationship:</strong> $V = \frac{4}{3}\pi r^3$
+                    <div class="accordion-step">
+                        <div class="accordion-header" onclick="toggleAccordion(this)">
+                            <span class="step-label">Step 1: Given</span>
+                            <span class="accordion-toggle">▼</span>
+                        </div>
+                        <div class="accordion-content">
+                            <div class="step-math">$\frac{dr}{dt} = -0.1$ m/s (negative because decreasing), $r = 3$ m</div>
+                        </div>
                     </div>
                     
-                    <div class="step">
-                        <span class="step-number">3</span>
-                        <strong>Differentiate:</strong> $\frac{dV}{dr} = \frac{4}{3}\pi \cdot 3r^2 = 4\pi r^2$
+                    <div class="accordion-step">
+                        <div class="accordion-header" onclick="toggleAccordion(this)">
+                            <span class="step-label">Step 2: Relationship</span>
+                            <span class="accordion-toggle">▼</span>
+                        </div>
+                        <div class="accordion-content">
+                            <div class="step-math">$V = \frac{4}{3}\pi r^3$</div>
+                        </div>
                     </div>
                     
-                    <div class="step">
-                        <span class="step-number">4</span>
-                        <strong>Apply chain rule:</strong> $\frac{dV}{dt} = 4\pi r^2 \times \frac{dr}{dt}$
+                    <div class="accordion-step">
+                        <div class="accordion-header" onclick="toggleAccordion(this)">
+                            <span class="step-label">Step 3: Differentiate</span>
+                            <span class="accordion-toggle">▼</span>
+                        </div>
+                        <div class="accordion-content">
+                            <div class="step-math">$\frac{dV}{dr} = \frac{4}{3}\pi \cdot 3r^2 = 4\pi r^2$</div>
+                        </div>
                     </div>
                     
-                    <div class="step">
-                        <span class="step-number">5</span>
-                        <strong>Calculate:</strong> $\frac{dV}{dt} = 4\pi(3)^2 \times (-0.1) = -3.6\pi$ m³/s<br>
-                        Volume decreasing at $3.6\pi \approx 11.3$ m³/s
+                    <div class="accordion-step">
+                        <div class="accordion-header" onclick="toggleAccordion(this)">
+                            <span class="step-label">Step 4: Apply chain rule</span>
+                            <span class="accordion-toggle">▼</span>
+                        </div>
+                        <div class="accordion-content">
+                            <div class="step-math">$\frac{dV}{dt} = 4\pi r^2 \times \frac{dr}{dt}$</div>
+                        </div>
+                    </div>
+                    
+                    <div class="accordion-step">
+                        <div class="accordion-header" onclick="toggleAccordion(this)">
+                            <span class="step-label"><strong>✓ Answer: Calculate</strong></span>
+                            <span class="accordion-toggle">▼</span>
+                        </div>
+                        <div class="accordion-content">
+                            <div class="step-math">$\frac{dV}{dt} = 4\pi(3)^2 \times (-0.1) = -3.6\pi$ m³/s</div>
+                            <div class="step-explanation">Volume decreasing at $3.6\pi \approx 11.3$ m³/s</div>
+                        </div>
                     </div>
                 </div>
 
-                <div class="worked-example">
+                <div class="accordion-example">
                     <h3>Example 4: Ladder Sliding Down Wall</h3>
-                    <p><strong>A 5 m ladder leans against a wall. The bottom slides away at 0.5 m/s. How fast is the top sliding down when the bottom is 3 m from the wall?</strong></p>
                     
-                    <div class="step">
-                        <span class="step-number">1</span>
-                        <strong>Variables:</strong> $x$ = distance from wall (bottom), $y$ = height up wall (top)br>
-                        Given: $\frac{dx}{dt} = 0.5$ m/s, $x = 3$ m, ladder length = 5 m
+                    <div class="example-question">
+                        <strong>Question:</strong> A 5 m ladder leans against a wall. The bottom slides away at 0.5 m/s. How fast is the top sliding down when the bottom is 3 m from the wall?
                     </div>
                     
-                    <div class="step">
-                        <span class="step-number">2</span>
-                        <strong>Relationship (Pythagoras):</strong> $x^2 + y^2 = 25$
+                    <div class="accordion-step">
+                        <div class="accordion-header" onclick="toggleAccordion(this)">
+                            <span class="step-label">Step 1: Variables</span>
+                            <span class="accordion-toggle">▼</span>
+                        </div>
+                        <div class="accordion-content">
+                            <div class="step-explanation">$x$ = distance from wall (bottom), $y$ = height up wall (top)</div>
+                            <div class="step-explanation">Given: $\frac{dx}{dt} = 0.5$ m/s, $x = 3$ m, ladder length = 5 m</div>
+                        </div>
                     </div>
                     
-                    <div class="step">
-                        <span class="step-number">3</span>
-                        <strong>Find $y$ when $x = 3$:</strong> $9 + y^2 = 25$, so $y = 4$ m
+                    <div class="accordion-step">
+                        <div class="accordion-header" onclick="toggleAccordion(this)">
+                            <span class="step-label">Step 2: Relationship (Pythagoras)</span>
+                            <span class="accordion-toggle">▼</span>
+                        </div>
+                        <div class="accordion-content">
+                            <div class="step-math">$x^2 + y^2 = 25$</div>
+                        </div>
                     </div>
                     
-                    <div class="step">
-                        <span class="step-number">4</span>
-                        <strong>Differentiate with respect to $t$:</strong><br>
-                        $2x\frac{dx}{dt} + 2y\frac{dy}{dt} = 0$
+                    <div class="accordion-step">
+                        <div class="accordion-header" onclick="toggleAccordion(this)">
+                            <span class="step-label">Step 3: Find $y$ when $x = 3$</span>
+                            <span class="accordion-toggle">▼</span>
+                        </div>
+                        <div class="accordion-content">
+                            <div class="step-math">$9 + y^2 = 25$, so $y = 4$ m</div>
+                        </div>
                     </div>
                     
-                    <div class="step">
-                        <span class="step-number">5</span>
-                        <strong>Solve for $\frac{dy}{dt}$:</strong><br>
-                        $2(3)(0.5) + 2(4)\frac{dy}{dt} = 0$<br>
-                        $3 + 8\frac{dy}{dt} = 0$<br>
-                        $\frac{dy}{dt} = -\frac{3}{8} = -0.375$ m/s<br>
-                        Top sliding down at 0.375 m/s
+                    <div class="accordion-step">
+                        <div class="accordion-header" onclick="toggleAccordion(this)">
+                            <span class="step-label">Step 4: Differentiate with respect to $t$</span>
+                            <span class="accordion-toggle">▼</span>
+                        </div>
+                        <div class="accordion-content">
+                            <div class="step-math">$2x\frac{dx}{dt} + 2y\frac{dy}{dt} = 0$</div>
+                        </div>
+                    </div>
+                    
+                    <div class="accordion-step">
+                        <div class="accordion-header" onclick="toggleAccordion(this)">
+                            <span class="step-label"><strong>✓ Answer: Solve for $\frac{dy}{dt}$</strong></span>
+                            <span class="accordion-toggle">▼</span>
+                        </div>
+                        <div class="accordion-content">
+                            <div class="step-math">$2(3)(0.5) + 2(4)\frac{dy}{dt} = 0$</div>
+                            <div class="step-math">$3 + 8\frac{dy}{dt} = 0$</div>
+                            <div class="step-math">$\frac{dy}{dt} = -\frac{3}{8} = -0.375$ m/s</div>
+                            <div class="step-explanation">Top sliding down at 0.375 m/s</div>
+                        </div>
                     </div>
                 </div>
             </section>
@@ -463,17 +575,46 @@
         <p>&copy; 2026 NZ Math Hub. Supporting mathematics education in New Zealand.</p>
     </footer>
 
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+    <!-- KaTeX Scripts -->
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js" integrity="sha384-XjKyOOlGwcjNTAIQHIpgOno0Hl1YQqzUOEleOLALmuqehneUG+vnGctmUb0ZY0l8" crossorigin="anonymous"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js" integrity="sha384-+VBxd3r6XgURycqtZ117nYw44OOcIax56Z4dCRWbxyPt0Koah1uHoK0o4+/RRE05" crossorigin="anonymous"
+        onload="renderMathInElement(document.body, {delimiters: [{left: '$$', right: '$$', display: true}, {left: '$', right: '$', display: false}]});"></script>
     
     <script>
+        function toggleAccordion(header) {
+            const step = header.parentElement;
+            const content = header.nextElementSibling;
+            const isOpen = header.classList.contains('active');
+            
+            // Toggle this accordion
+            header.classList.toggle('active');
+            content.classList.toggle('open');
+            
+            // Mark as completed when opened
+            if (!isOpen) {
+                step.classList.add('completed');
+            }
+            
+            // Re-render math in opened content
+            if (content.classList.contains('open') && typeof renderMathInElement !== 'undefined') {
+                renderMathInElement(content, {
+                    delimiters: [
+                        {left: '$$', right: '$$', display: true},
+                        {left: '$', right: '$', display: false}
+                    ],
+                    throwOnError: false
+                });
+            }
+        }
+        
         function toggleAnswer(button) {
             const answerDiv = button.nextElementSibling;
             if (answerDiv.style.display === 'none' || answerDiv.style.display === '') {
                 answerDiv.style.display = 'block';
                 button.textContent = 'Hide Answer';
-                button.style.background = '#666';
-                if (typeof MathJax !== 'undefined') {
-                    MathJax.Hub.Queue(["Typeset", MathJax.Hub, answerDiv]);
+                button.style.background = '#000';
+                if (typeof renderMathInElement !== 'undefined') {
+                    renderMathInElement(answerDiv, {delimiters: [{left: '$$', right: '$$', display: true}, {left: '$', right: '$', display: false}]});
                 }
             } else {
                 answerDiv.style.display = 'none';

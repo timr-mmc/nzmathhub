@@ -5,6 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Lesson 4: Combined Techniques - NZ Math Hub</title>
     <link rel="stylesheet" href="../../styles.css">
+    <link rel="stylesheet" href="../../scroll-reveal.css">
+    <!-- KaTeX CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css" integrity="sha384-n8MVd4RsNIU0tAv4ct0nTaAbDJwPJzDEaqSD1odI+WdtXRGWt2kTvGFasHpSy3SV" crossorigin="anonymous">
     <style>
         .rule-box {
             background: linear-gradient(135deg, var(--primary-accent), var(--secondary-accent));
@@ -199,106 +202,189 @@
             <section class="content-section section-light">
                 <h2>Worked Examples</h2>
 
-                <div class="worked-example">
+                <div class="accordion-example">
                     <h3>Example 1: Product Rule + Chain Rule</h3>
-                    <p><strong>Differentiate:</strong> $y = x^2(2x + 1)^3$</p>
                     <span class="strategy-tag">Product Rule</span>
                     <span class="strategy-tag">Chain Rule</span>
                     
-                    <div class="step">
-                        <span class="step-number">1</span>
-                        <strong>Identify structure:</strong> Product of $u = x^2$ and $v = (2x + 1)^3$
+                    <div class="example-question">
+                        <strong>Differentiate:</strong> $y = x^2(2x + 1)^3$
                     </div>
                     
-                    <div class="step">
-                        <span class="step-number">2</span>
-                        <strong>Find $u'$:</strong> $u' = 2x$ (simple power rule)
+                    <div class="accordion-step">
+                        <div class="accordion-header" onclick="toggleAccordion(this)">
+                            <span class="step-label">Step 1: Identify structure</span>
+                            <span class="accordion-toggle">▼</span>
+                        </div>
+                        <div class="accordion-content">
+                            <div class="step-explanation">Product of $u = x^2$ and $v = (2x + 1)^3$</div>
+                        </div>
                     </div>
                     
-                    <div class="step">
-                        <span class="step-number">3</span>
-                        <strong>Find $v'$:</strong> Need chain rule! Let $w = 2x + 1$<br>
-                        $v' = 3w^2 \times 2 = 6(2x + 1)^2$
+                    <div class="accordion-step">
+                        <div class="accordion-header" onclick="toggleAccordion(this)">
+                            <span class="step-label">Step 2: Find $u'$</span>
+                            <span class="accordion-toggle">▼</span>
+                        </div>
+                        <div class="accordion-content">
+                            <div class="step-math">$u' = 2x$ (simple power rule)</div>
+                        </div>
                     </div>
                     
-                    <div class="step">
-                        <span class="step-number">4</span>
-                        <strong>Apply product rule:</strong> $y' = uv' + vu'$<br>
-                        $y' = x^2 \cdot 6(2x + 1)^2 + (2x + 1)^3 \cdot 2x$
+                    <div class="accordion-step">
+                        <div class="accordion-header" onclick="toggleAccordion(this)">
+                            <span class="step-label">Step 3: Find $v'$ (chain rule needed!)</span>
+                            <span class="accordion-toggle">▼</span>
+                        </div>
+                        <div class="accordion-content">
+                            <div class="step-explanation">Let $w = 2x + 1$</div>
+                            <div class="step-math">$v' = 3w^2 \times 2 = 6(2x + 1)^2$</div>
+                        </div>
                     </div>
                     
-                    <div class="step">
-                        <span class="step-number">5</span>
-                        <strong>Factor:</strong> $y' = 2x(2x + 1)^2[3x + (2x + 1)]$<br>
-                        $y' = 2x(2x + 1)^2(5x + 1)$
+                    <div class="accordion-step">
+                        <div class="accordion-header" onclick="toggleAccordion(this)">
+                            <span class="step-label">Step 4: Apply product rule</span>
+                            <span class="accordion-toggle">▼</span>
+                        </div>
+                        <div class="accordion-content">
+                            <div class="step-math">$y' = uv' + vu'$</div>
+                            <div class="step-math">$y' = x^2 \cdot 6(2x + 1)^2 + (2x + 1)^3 \cdot 2x$</div>
+                        </div>
+                    </div>
+                    
+                    <div class="accordion-step">
+                        <div class="accordion-header" onclick="toggleAccordion(this)">
+                            <span class="step-label"><strong>✓ Answer: Factor</strong></span>
+                            <span class="accordion-toggle">▼</span>
+                        </div>
+                        <div class="accordion-content">
+                            <div class="step-math">$y' = 2x(2x + 1)^2[3x + (2x + 1)]$</div>
+                            <div class="step-math">$y' = 2x(2x + 1)^2(5x + 1)$</div>
+                        </div>
                     </div>
                 </div>
 
-                <div class="worked-example">
+                <div class="accordion-example">
                     <h3>Example 2: Quotient Rule + Chain Rule</h3>
-                    <p><strong>Differentiate:</strong> $y = \frac{(x^2 + 1)^2}{x}$</p>
                     <span class="strategy-tag">Quotient Rule</span>
                     <span class="strategy-tag">Chain Rule</span>
                     
-                    <div class="step">
-                        <span class="step-number">1</span>
-                        <strong>Identify:</strong> $u = (x^2 + 1)^2$ (top), $v = x$ (bottom)
+                    <div class="example-question">
+                        <strong>Differentiate:</strong> $y = \frac{(x^2 + 1)^2}{x}$
                     </div>
                     
-                    <div class="step">
-                        <span class="step-number">2</span>
-                        <strong>Find $u'$ (chain rule):</strong> $u' = 2(x^2 + 1) \times 2x = 4x(x^2 + 1)$
+                    <div class="accordion-step">
+                        <div class="accordion-header" onclick="toggleAccordion(this)">
+                            <span class="step-label">Step 1: Identify</span>
+                            <span class="accordion-toggle">▼</span>
+                        </div>
+                        <div class="accordion-content">
+                            <div class="step-math">$u = (x^2 + 1)^2$ (top), $v = x$ (bottom)</div>
+                        </div>
                     </div>
                     
-                    <div class="step">
-                        <span class="step-number">3</span>
-                        <strong>Find $v'$:</strong> $v' = 1$
+                    <div class="accordion-step">
+                        <div class="accordion-header" onclick="toggleAccordion(this)">
+                            <span class="step-label">Step 2: Find $u'$ (chain rule)</span>
+                            <span class="accordion-toggle">▼</span>
+                        </div>
+                        <div class="accordion-content">
+                            <div class="step-math">$u' = 2(x^2 + 1) \times 2x = 4x(x^2 + 1)$</div>
+                        </div>
                     </div>
                     
-                    <div class="step">
-                        <span class="step-number">4</span>
-                        <strong>Apply quotient rule:</strong> $y' = \frac{vu' - uv'}{v^2}$<br>
-                        $y' = \frac{x \cdot 4x(x^2 + 1) - (x^2 + 1)^2 \cdot 1}{x^2}$
+                    <div class="accordion-step">
+                        <div class="accordion-header" onclick="toggleAccordion(this)">
+                            <span class="step-label">Step 3: Find $v'$</span>
+                            <span class="accordion-toggle">▼</span>
+                        </div>
+                        <div class="accordion-content">
+                            <div class="step-math">$v' = 1$</div>
+                        </div>
                     </div>
                     
-                    <div class="step">
-                        <span class="step-number">5</span>
-                        <strong>Simplify:</strong> $y' = \frac{4x^2(x^2 + 1) - (x^2 + 1)^2}{x^2}$<br>
-                        $y' = \frac{(x^2 + 1)[4x^2 - (x^2 + 1)]}{x^2} = \frac{(x^2 + 1)(3x^2 - 1)}{x^2}$
+                    <div class="accordion-step">
+                        <div class="accordion-header" onclick="toggleAccordion(this)">
+                            <span class="step-label">Step 4: Apply quotient rule</span>
+                            <span class="accordion-toggle">▼</span>
+                        </div>
+                        <div class="accordion-content">
+                            <div class="step-math">$y' = \frac{vu' - uv'}{v^2}$</div>
+                            <div class="step-math">$y' = \frac{x \cdot 4x(x^2 + 1) - (x^2 + 1)^2 \cdot 1}{x^2}$</div>
+                        </div>
+                    </div>
+                    
+                    <div class="accordion-step">
+                        <div class="accordion-header" onclick="toggleAccordion(this)">
+                            <span class="step-label"><strong>✓ Answer: Simplify</strong></span>
+                            <span class="accordion-toggle">▼</span>
+                        </div>
+                        <div class="accordion-content">
+                            <div class="step-math">$y' = \frac{4x^2(x^2 + 1) - (x^2 + 1)^2}{x^2}$</div>
+                            <div class="step-math">$y' = \frac{(x^2 + 1)[4x^2 - (x^2 + 1)]}{x^2} = \frac{(x^2 + 1)(3x^2 - 1)}{x^2}$</div>
+                        </div>
                     </div>
                 </div>
 
-                <div class="worked-example">
+                <div class="accordion-example">
                     <h3>Example 3: Chain on Product</h3>
-                    <p><strong>Differentiate:</strong> $y = [x(x + 1)]^2$</p>
                     <span class="strategy-tag">Chain Rule</span>
                     <span class="strategy-tag">Product Rule</span>
                     
-                    <div class="step">
-                        <span class="step-number">1</span>
-                        <strong>Outer function:</strong> Something squared, so use chain rule first<br>
-                        Let $u = x(x + 1)$, so $y = u^2$
+                    <div class="example-question">
+                        <strong>Differentiate:</strong> $y = [x(x + 1)]^2$
                     </div>
                     
-                    <div class="step">
-                        <span class="step-number">2</span>
-                        <strong>Find $\frac{dy}{du}$:</strong> $\frac{dy}{du} = 2u$
+                    <div class="accordion-step">
+                        <div class="accordion-header" onclick="toggleAccordion(this)">
+                            <span class="step-label">Step 1: Identify outer function</span>
+                            <span class="accordion-toggle">▼</span>
+                        </div>
+                        <div class="accordion-content">
+                            <div class="step-explanation">Something squared, so use chain rule first</div>
+                            <div class="step-math">Let $u = x(x + 1)$, so $y = u^2$</div>
+                        </div>
                     </div>
                     
-                    <div class="step">
-                        <span class="step-number">3</span>
-                        <strong>Find $\frac{du}{dx}$ (product rule):</strong><br>
-                        $\frac{du}{dx} = x \cdot 1 + (x + 1) \cdot 1 = x + x + 1 = 2x + 1$
+                    <div class="accordion-step">
+                        <div class="accordion-header" onclick="toggleAccordion(this)">
+                            <span class="step-label">Step 2: Find $\frac{dy}{du}$</span>
+                            <span class="accordion-toggle">▼</span>
+                        </div>
+                        <div class="accordion-content">
+                            <div class="step-math">$\frac{dy}{du} = 2u$</div>
+                        </div>
                     </div>
                     
-                    <div class="step">
-                        <span class="step-number">4</span>
-                        <strong>Chain rule:</strong> $\frac{dy}{dx} = 2u \times (2x + 1) = 2[x(x + 1)](2x + 1)$
+                    <div class="accordion-step">
+                        <div class="accordion-header" onclick="toggleAccordion(this)">
+                            <span class="step-label">Step 3: Find $\frac{du}{dx}$ (product rule)</span>
+                            <span class="accordion-toggle">▼</span>
+                        </div>
+                        <div class="accordion-content">
+                            <div class="step-math">$\frac{du}{dx} = x \cdot 1 + (x + 1) \cdot 1 = x + x + 1 = 2x + 1$</div>
+                        </div>
                     </div>
                     
-                    <div class="step">
-                        <span class="step-number">5</span>
-                        <strong>Simplify:</strong> $\frac{dy}{dx} = 2x(x + 1)(2x + 1)$
+                    <div class="accordion-step">
+                        <div class="accordion-header" onclick="toggleAccordion(this)">
+                            <span class="step-label">Step 4: Chain rule</span>
+                            <span class="accordion-toggle">▼</span>
+                        </div>
+                        <div class="accordion-content">
+                            <div class="step-math">$\frac{dy}{dx} = 2u \times (2x + 1) = 2[x(x + 1)](2x + 1)$</div>
+                        </div>
+                    </div>
+                    
+                    <div class="accordion-step">
+                        <div class="accordion-header" onclick="toggleAccordion(this)">
+                            <span class="step-label"><strong>✓ Answer: Simplify</strong></span>
+                            <span class="accordion-toggle">▼</span>
+                        </div>
+                        <div class="accordion-content">
+                            <div class="step-math">$\frac{dy}{dx} = 2x(x + 1)(2x + 1)$</div>
+                        </div>
                     </div>
                 </div>
             </section>
@@ -469,17 +555,46 @@
         <p>&copy; 2026 NZ Math Hub. Supporting mathematics education in New Zealand.</p>
     </footer>
 
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+    <!-- KaTeX Scripts -->
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js" integrity="sha384-XjKyOOlGwcjNTAIQHIpgOno0Hl1YQqzUOEleOLALmuqehneUG+vnGctmUb0ZY0l8" crossorigin="anonymous"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js" integrity="sha384-+VBxd3r6XgURycqtZ117nYw44OOcIax56Z4dCRWbxyPt0Koah1uHoK0o4+/RRE05" crossorigin="anonymous"
+        onload="renderMathInElement(document.body, {delimiters: [{left: '$$', right: '$$', display: true}, {left: '$', right: '$', display: false}]});"></script>
     
     <script>
+        function toggleAccordion(header) {
+            const step = header.parentElement;
+            const content = header.nextElementSibling;
+            const isOpen = header.classList.contains('active');
+            
+            // Toggle this accordion
+            header.classList.toggle('active');
+            content.classList.toggle('open');
+            
+            // Mark as completed when opened
+            if (!isOpen) {
+                step.classList.add('completed');
+            }
+            
+            // Re-render math in opened content
+            if (content.classList.contains('open') && typeof renderMathInElement !== 'undefined') {
+                renderMathInElement(content, {
+                    delimiters: [
+                        {left: '$$', right: '$$', display: true},
+                        {left: '$', right: '$', display: false}
+                    ],
+                    throwOnError: false
+                });
+            }
+        }
+        
         function toggleAnswer(button) {
             const answerDiv = button.nextElementSibling;
             if (answerDiv.style.display === 'none' || answerDiv.style.display === '') {
                 answerDiv.style.display = 'block';
                 button.textContent = 'Hide Answer';
-                button.style.background = '#666';
-                if (typeof MathJax !== 'undefined') {
-                    MathJax.Hub.Queue(["Typeset", MathJax.Hub, answerDiv]);
+                button.style.background = '#000';
+                if (typeof renderMathInElement !== 'undefined') {
+                    renderMathInElement(answerDiv, {delimiters: [{left: '$$', right: '$$', display: true}, {left: '$', right: '$', display: false}]});
                 }
             } else {
                 answerDiv.style.display = 'none';

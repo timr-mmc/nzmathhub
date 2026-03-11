@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Lesson 10: Advanced Applications - NZ Math Hub</title>
     <link rel="stylesheet" href="../../styles.css">
+    <link rel="stylesheet" href="../../scroll-reveal.css">
     <style>
         .rule-box {
             background: linear-gradient(135deg, var(--primary-accent), var(--secondary-accent));
@@ -191,169 +192,295 @@
             <section class="content-section section-light">
                 <h2>Complex Worked Examples</h2>
 
-                <div class="worked-example">
+                <div class="accordion-example">
                     <h3>Example 1: Combining Product & Chain Rules with Tangents</h3>
-                    <p><strong>Find the equation of the tangent to $y = x^2(2x + 1)^3$ at $x = 1$</strong></p>
                     
-                    <div class="step">
-                        <span class="step-number">1</span>
-                        <strong>Find the point:</strong> $y = 1^2(3)^3 = 27$, so point is $(1, 27)$
+                    <div class="example-question">
+                        <strong>Question:</strong> Find the equation of the tangent to $y = x^2(2x + 1)^3$ at $x = 1$
                     </div>
                     
-                    <div class="step">
-                        <span class="step-number">2</span>
-                        <strong>Differentiate (product rule):</strong> $u = x^2, v = (2x + 1)^3$<br>
-                        $u' = 2x$<br>
-                        $v' = 3(2x + 1)^2 \times 2 = 6(2x + 1)^2$ (chain rule)
+                    <div class="accordion-step">
+                        <div class="accordion-header" onclick="toggleAccordion(this)">
+                            <span class="step-label">Step 1: Find the point</span>
+                            <span class="accordion-toggle">▼</span>
+                        </div>
+                        <div class="accordion-content">
+                            <div class="step-math">$y = 1^2(3)^3 = 27$, so point is $(1, 27)$</div>
+                        </div>
                     </div>
                     
-                    <div class="step">
-                        <span class="step-number">3</span>
-                        <strong>Apply product rule:</strong><br>
-                        $\frac{dy}{dx} = x^2 \cdot 6(2x + 1)^2 + (2x + 1)^3 \cdot 2x$<br>
-                        $= 2x(2x + 1)^2[3x + (2x + 1)]$<br>
-                        $= 2x(2x + 1)^2(5x + 1)$
+                    <div class="accordion-step">
+                        <div class="accordion-header" onclick="toggleAccordion(this)">
+                            <span class="step-label">Step 2: Differentiate (product rule)</span>
+                            <span class="accordion-toggle">▼</span>
+                        </div>
+                        <div class="accordion-content">
+                            <div class="step-math">$u = x^2, v = (2x + 1)^3$</div>
+                            <div class="step-math">$u' = 2x$</div>
+                            <div class="step-math">$v' = 3(2x + 1)^2 \times 2 = 6(2x + 1)^2$ (chain rule)</div>
+                        </div>
                     </div>
                     
-                    <div class="step">
-                        <span class="step-number">4</span>
-                        <strong>Evaluate at $x = 1$:</strong><br>
-                        $m = 2(1)(3)^2(6) = 108$
+                    <div class="accordion-step">
+                        <div class="accordion-header" onclick="toggleAccordion(this)">
+                            <span class="step-label">Step 3: Apply product rule</span>
+                            <span class="accordion-toggle">▼</span>
+                        </div>
+                        <div class="accordion-content">
+                            <div class="step-math">$\frac{dy}{dx} = x^2 \cdot 6(2x + 1)^2 + (2x + 1)^3 \cdot 2x$</div>
+                            <div class="step-math">$= 2x(2x + 1)^2[3x + (2x + 1)]$</div>
+                            <div class="step-math">$= 2x(2x + 1)^2(5x + 1)$</div>
+                        </div>
                     </div>
                     
-                    <div class="step">
-                        <span class="step-number">5</span>
-                        <strong>Tangent equation:</strong> $y - 27 = 108(x - 1)$<br>
-                        $y = 108x - 81$
+                    <div class="accordion-step">
+                        <div class="accordion-header" onclick="toggleAccordion(this)">
+                            <span class="step-label">Step 4: Evaluate at $x = 1$</span>
+                            <span class="accordion-toggle">▼</span>
+                        </div>
+                        <div class="accordion-content">
+                            <div class="step-math">$m = 2(1)(3)^2(6) = 108$</div>
+                        </div>
+                    </div>
+                    
+                    <div class="accordion-step">
+                        <div class="accordion-header" onclick="toggleAccordion(this)">
+                            <span class="step-label"><strong>✓ Tangent equation</strong></span>
+                            <span class="accordion-toggle">▼</span>
+                        </div>
+                        <div class="accordion-content">
+                            <div class="step-math">$y - 27 = 108(x - 1)$</div>
+                            <div class="step-math">$y = 108x - 81$</div>
+                        </div>
                     </div>
                 </div>
 
-                <div class="worked-example">
+                <div class="accordion-example">
                     <h3>Example 2: Optimisation with Multiple Constraints</h3>
-                    <p><strong>A cylindrical can must hold 500 cm³. The top and bottom cost $2/cm², the side costs $1/cm². Find dimensions to minimise cost.</strong></p>
                     
-                    <div class="step">
-                        <span class="step-number">1</span>
-                        <strong>Variables:</strong> Radius $r$, height $h$. Volume: $\pi r^2 h = 500$
+                    <div class="example-question">
+                        <strong>Question:</strong> A cylindrical can must hold 500 cm³. The top and bottom cost $2/cm², the side costs $1/cm². Find dimensions to minimise cost.
                     </div>
                     
-                    <div class="step">
-                        <span class="step-number">2</span>
-                        <strong>Cost function:</strong><br>
-                        Top + Bottom: $2(\pi r^2) \times 2 = 4\pi r^2$<br>
-                        Side: $(2\pi rh) \times 1 = 2\pi rh$<br>
-                        Total: $C = 4\pi r^2 + 2\pi rh$
+                    <div class="accordion-step">
+                        <div class="accordion-header" onclick="toggleAccordion(this)">
+                            <span class="step-label">Step 1: Variables</span>
+                            <span class="accordion-toggle">▼</span>
+                        </div>
+                        <div class="accordion-content">
+                            <div class="step-explanation">Radius $r$, height $h$. Volume: $\pi r^2 h = 500$</div>
+                        </div>
                     </div>
                     
-                    <div class="step">
-                        <span class="step-number">3</span>
-                        <strong>Eliminate h:</strong> $h = \frac{500}{\pi r^2}$<br>
-                        $C = 4\pi r^2 + 2\pi r \cdot \frac{500}{\pi r^2} = 4\pi r^2 + \frac{1000}{r}$
+                    <div class="accordion-step">
+                        <div class="accordion-header" onclick="toggleAccordion(this)">
+                            <span class="step-label">Step 2: Cost function</span>
+                            <span class="accordion-toggle">▼</span>
+                        </div>
+                        <div class="accordion-content">
+                            <div class="step-explanation">Top + Bottom: $2(\pi r^2) \times 2 = 4\pi r^2$</div>
+                            <div class="step-explanation">Side: $(2\pi rh) \times 1 = 2\pi rh$</div>
+                            <div class="step-explanation">Total: $C = 4\pi r^2 + 2\pi rh$</div>
+                        </div>
                     </div>
                     
-                    <div class="step">
-                        <span class="step-number">4</span>
-                        <strong>Differentiate:</strong> $\frac{dC}{dr} = 8\pi r - \frac{1000}{r^2}$
+                    <div class="accordion-step">
+                        <div class="accordion-header" onclick="toggleAccordion(this)">
+                            <span class="step-label">Step 3: Eliminate h</span>
+                            <span class="accordion-toggle">▼</span>
+                        </div>
+                        <div class="accordion-content">
+                            <div class="step-math">$h = \frac{500}{\pi r^2}$</div>
+                            <div class="step-math">$C = 4\pi r^2 + 2\pi r \cdot \frac{500}{\pi r^2} = 4\pi r^2 + \frac{1000}{r}$</div>
+                        </div>
                     </div>
                     
-                    <div class="step">
-                        <span class="step-number">5</span>
-                        <strong>Solve:</strong> $8\pi r - \frac{1000}{r^2} = 0$<br>
-                        $8\pi r^3 = 1000$<br>
-                        $r^3 = \frac{1000}{8\pi} = \frac{125}{\pi}$<br>
-                        $r = \sqrt[3]{\frac{125}{\pi}} \approx 3.41$ cm
+                    <div class="accordion-step">
+                        <div class="accordion-header" onclick="toggleAccordion(this)">
+                            <span class="step-label">Step 4: Differentiate</span>
+                            <span class="accordion-toggle">▼</span>
+                        </div>
+                        <div class="accordion-content">
+                            <div class="step-math">$\frac{dC}{dr} = 8\pi r - \frac{1000}{r^2}$</div>
+                        </div>
                     </div>
                     
-                    <div class="step">
-                        <span class="step-number">6</span>
-                        <strong>Find h:</strong> $h = \frac{500}{\pi(3.41)^2} \approx 13.7$ cm
+                    <div class="accordion-step">
+                        <div class="accordion-header" onclick="toggleAccordion(this)">
+                            <span class="step-label">Step 5: Solve</span>
+                            <span class="accordion-toggle">▼</span>
+                        </div>
+                        <div class="accordion-content">
+                            <div class="step-math">$8\pi r - \frac{1000}{r^2} = 0$</div>
+                            <div class="step-math">$8\pi r^3 = 1000$</div>
+                            <div class="step-math">$r^3 = \frac{1000}{8\pi} = \frac{125}{\pi}$</div>
+                            <div class="step-math">$r = \sqrt[3]{\frac{125}{\pi}} \approx 3.41$ cm</div>
+                        </div>
                     </div>
                     
-                    <div class="step">
-                        <span class="step-number">7</span>
-                        <strong>Verify minimum:</strong> $\frac{d^2C}{dr^2} = 8\pi + \frac{2000}{r^3} > 0$ ✓
+                    <div class="accordion-step">
+                        <div class="accordion-header" onclick="toggleAccordion(this)">
+                            <span class="step-label">Step 6: Find h</span>
+                            <span class="accordion-toggle">▼</span>
+                        </div>
+                        <div class="accordion-content">
+                            <div class="step-math">$h = \frac{500}{\pi(3.41)^2} \approx 13.7$ cm</div>
+                        </div>
+                    </div>
+                    
+                    <div class="accordion-step">
+                        <div class="accordion-header" onclick="toggleAccordion(this)">
+                            <span class="step-label"><strong>✓ Verify minimum</strong></span>
+                            <span class="accordion-toggle">▼</span>
+                        </div>
+                        <div class="accordion-content">
+                            <div class="step-math">$\frac{d^2C}{dr^2} = 8\pi + \frac{2000}{r^3} > 0$ ✓</div>
+                        </div>
                     </div>
                 </div>
 
-                <div class="worked-example">
+                <div class="accordion-example">
                     <h3>Example 3: Related Rates with Multiple Variables</h3>
-                    <p><strong>A cone-shaped tank (vertex down) has height 10 m and radius 4 m. Water flows in at 2 m³/min. How fast is the water level rising when depth is 6 m?</strong></p>
                     
-                    <div class="step">
-                        <span class="step-number">1</span>
-                        <strong>Given:</strong> $\frac{dV}{dt} = 2$ m³/min, find $\frac{dh}{dt}$ when $h = 6$ m
+                    <div class="example-question">
+                        <strong>Question:</strong> A cone-shaped tank (vertex down) has height 10 m and radius 4 m. Water flows in at 2 m³/min. How fast is the water level rising when depth is 6 m?
                     </div>
                     
-                    <div class="step">
-                        <span class="step-number">2</span>
-                        <strong>Volume formula:</strong> $V = \frac{1}{3}\pi r^2 h$
+                    <div class="accordion-step">
+                        <div class="accordion-header" onclick="toggleAccordion(this)">
+                            <span class="step-label">Step 1: Given</span>
+                            <span class="accordion-toggle">▼</span>
+                        </div>
+                        <div class="accordion-content">
+                            <div class="step-math">$\frac{dV}{dt} = 2$ m³/min, find $\frac{dh}{dt}$ when $h = 6$ m</div>
+                        </div>
                     </div>
                     
-                    <div class="step">
-                        <span class="step-number">3</span>
-                        <strong>Find relationship between r and h:</strong><br>
-                        By similar triangles: $\frac{r}{h} = \frac{4}{10}$, so $r = \frac{2h}{5}$
+                    <div class="accordion-step">
+                        <div class="accordion-header" onclick="toggleAccordion(this)">
+                            <span class="step-label">Step 2: Volume formula</span>
+                            <span class="accordion-toggle">▼</span>
+                        </div>
+                        <div class="accordion-content">
+                            <div class="step-math">$V = \frac{1}{3}\pi r^2 h$</div>
+                        </div>
                     </div>
                     
-                    <div class="step">
-                        <span class="step-number">4</span>
-                        <strong>Substitute:</strong> $V = \frac{1}{3}\pi(\frac{2h}{5})^2h = \frac{4\pi h^3}{75}$
+                    <div class="accordion-step">
+                        <div class="accordion-header" onclick="toggleAccordion(this)">
+                            <span class="step-label">Step 3: Find relationship between r and h</span>
+                            <span class="accordion-toggle">▼</span>
+                        </div>
+                        <div class="accordion-content">
+                            <div class="step-explanation">By similar triangles: $\frac{r}{h} = \frac{4}{10}$, so $r = \frac{2h}{5}$</div>
+                        </div>
                     </div>
                     
-                    <div class="step">
-                        <span class="step-number">5</span>
-                        <strong>Differentiate with respect to time:</strong><br>
-                        $\frac{dV}{dt} = \frac{4\pi}{75} \times 3h^2 \times \frac{dh}{dt} = \frac{4\pi h^2}{25} \times \frac{dh}{dt}$
+                    <div class="accordion-step">
+                        <div class="accordion-header" onclick="toggleAccordion(this)">
+                            <span class="step-label">Step 4: Substitute</span>
+                            <span class="accordion-toggle">▼</span>
+                        </div>
+                        <div class="accordion-content">
+                            <div class="step-math">$V = \frac{1}{3}\pi(\frac{2h}{5})^2h = \frac{4\pi h^3}{75}$</div>
+                        </div>
                     </div>
                     
-                    <div class="step">
-                        <span class="step-number">6</span>
-                        <strong>Solve for $\frac{dh}{dt}$:</strong> $2 = \frac{4\pi(36)}{25} \times \frac{dh}{dt}$<br>
-                        $\frac{dh}{dt} = \frac{50}{144\pi} = \frac{25}{72\pi} \approx 0.11$ m/min
+                    <div class="accordion-step">
+                        <div class="accordion-header" onclick="toggleAccordion(this)">
+                            <span class="step-label">Step 5: Differentiate with respect to time</span>
+                            <span class="accordion-toggle">▼</span>
+                        </div>
+                        <div class="accordion-content">
+                            <div class="step-math">$\frac{dV}{dt} = \frac{4\pi}{75} \times 3h^2 \times \frac{dh}{dt} = \frac{4\pi h^2}{25} \times \frac{dh}{dt}$</div>
+                        </div>
+                    </div>
+                    
+                    <div class="accordion-step">
+                        <div class="accordion-header" onclick="toggleAccordion(this)">
+                            <span class="step-label"><strong>✓ Solve for $\frac{dh}{dt}$</strong></span>
+                            <span class="accordion-toggle">▼</span>
+                        </div>
+                        <div class="accordion-content">
+                            <div class="step-math">$2 = \frac{4\pi(36)}{25} \times \frac{dh}{dt}$</div>
+                            <div class="step-math">$\frac{dh}{dt} = \frac{50}{144\pi} = \frac{25}{72\pi} \approx 0.11$ m/min</div>
+                        </div>
                     </div>
                 </div>
 
-                <div class="worked-example">
+                <div class="accordion-example">
                     <h3>Example 4: Maximum Area with Geometric Constraints</h3>
-                    <p><strong>A Norman window consists of a rectangle topped by a semicircle. The perimeter is 12 m. Find dimensions for maximum light (area).</strong></p>
                     
-                    <div class="step">
-                        <span class="step-number">1</span>
-                        <strong>Variables:</strong> Width $x$ (diameter of semicircle), height of rectangle $h$
+                    <div class="example-question">
+                        <strong>Question:</strong> A Norman window consists of a rectangle topped by a semicircle. The perimeter is 12 m. Find dimensions for maximum light (area).
                     </div>
                     
-                    <div class="step">
-                        <span class="step-number">2</span>
-                        <strong>Perimeter:</strong> $x + 2h + \pi(\frac{x}{2}) = 12$<br>
-                        $x + 2h + \frac{\pi x}{2} = 12$<br>
-                        $h = \frac{12 - x(1 + \frac{\pi}{2})}{2} = 6 - x(\frac{2 + \pi}{4})$
+                    <div class="accordion-step">
+                        <div class="accordion-header" onclick="toggleAccordion(this)">
+                            <span class="step-label">Step 1: Variables</span>
+                            <span class="accordion-toggle">▼</span>
+                        </div>
+                        <div class="accordion-content">
+                            <div class="step-explanation">Width $x$ (diameter of semicircle), height of rectangle $h$</div>
+                        </div>
                     </div>
                     
-                    <div class="step">
-                        <span class="step-number">3</span>
-                        <strong>Area:</strong> Rectangle + Semicircle<br>
-                        $A = xh + \frac{\pi}{2}(\frac{x}{2})^2 = xh + \frac{\pi x^2}{8}$
+                    <div class="accordion-step">
+                        <div class="accordion-header" onclick="toggleAccordion(this)">
+                            <span class="step-label">Step 2: Perimeter</span>
+                            <span class="accordion-toggle">▼</span>
+                        </div>
+                        <div class="accordion-content">
+                            <div class="step-math">$x + 2h + \pi(\frac{x}{2}) = 12$</div>
+                            <div class="step-math">$x + 2h + \frac{\pi x}{2} = 12$</div>
+                            <div class="step-math">$h = \frac{12 - x(1 + \frac{\pi}{2})}{2} = 6 - x(\frac{2 + \pi}{4})$</div>
+                        </div>
                     </div>
                     
-                    <div class="step">
-                        <span class="step-number">4</span>
-                        <strong>Substitute for h:</strong><br>
-                        $A = x[6 - x(\frac{2 + \pi}{4})] + \frac{\pi x^2}{8}$<br>
-                        $= 6x - \frac{x^2(2 + \pi)}{4} + \frac{\pi x^2}{8}$<br>
-                        $= 6x - \frac{2x^2}{4} - \frac{\pi x^2}{4} + \frac{\pi x^2}{8}$<br>
-                        $= 6x - \frac{x^2}{2} - \frac{\pi x^2}{8} = 6x - x^2(\frac{4 + \pi}{8})$
+                    <div class="accordion-step">
+                        <div class="accordion-header" onclick="toggleAccordion(this)">
+                            <span class="step-label">Step 3: Area</span>
+                            <span class="accordion-toggle">▼</span>
+                        </div>
+                        <div class="accordion-content">
+                            <div class="step-explanation">Rectangle + Semicircle</div>
+                            <div class="step-math">$A = xh + \frac{\pi}{2}(\frac{x}{2})^2 = xh + \frac{\pi x^2}{8}$</div>
+                        </div>
                     </div>
                     
-                    <div class="step">
-                        <span class="step-number">5</span>
-                        <strong>Differentiate:</strong> $\frac{dA}{dx} = 6 - x(\frac{4 + \pi}{4})$
+                    <div class="accordion-step">
+                        <div class="accordion-header" onclick="toggleAccordion(this)">
+                            <span class="step-label">Step 4: Substitute for h</span>
+                            <span class="accordion-toggle">▼</span>
+                        </div>
+                        <div class="accordion-content">
+                            <div class="step-math">$A = x[6 - x(\frac{2 + \pi}{4})] + \frac{\pi x^2}{8}$</div>
+                            <div class="step-math">$= 6x - \frac{x^2(2 + \pi)}{4} + \frac{\pi x^2}{8}$</div>
+                            <div class="step-math">$= 6x - \frac{2x^2}{4} - \frac{\pi x^2}{4} + \frac{\pi x^2}{8}$</div>
+                            <div class="step-math">$= 6x - \frac{x^2}{2} - \frac{\pi x^2}{8} = 6x - x^2(\frac{4 + \pi}{8})$</div>
+                        </div>
                     </div>
                     
-                    <div class="step">
-                        <span class="step-number">6</span>
-                        <strong>Solve:</strong> $6 = x(\frac{4 + \pi}{4})$<br>
-                        $x = \frac{24}{4 + \pi} \approx 3.36$ m<br>
-                        $h = 6 - 3.36(\frac{2 + \pi}{4}) \approx 1.68$ m
+                    <div class="accordion-step">
+                        <div class="accordion-header" onclick="toggleAccordion(this)">
+                            <span class="step-label">Step 5: Differentiate</span>
+                            <span class="accordion-toggle">▼</span>
+                        </div>
+                        <div class="accordion-content">
+                            <div class="step-math">$\frac{dA}{dx} = 6 - x(\frac{4 + \pi}{4})$</div>
+                        </div>
+                    </div>
+                    
+                    <div class="accordion-step">
+                        <div class="accordion-header" onclick="toggleAccordion(this)">
+                            <span class="step-label"><strong>✓ Solve</strong></span>
+                            <span class="accordion-toggle">▼</span>
+                        </div>
+                        <div class="accordion-content">
+                            <div class="step-math">$6 = x(\frac{4 + \pi}{4})$</div>
+                            <div class="step-math">$x = \frac{24}{4 + \pi} \approx 3.36$ m</div>
+                            <div class="step-math">$h = 6 - 3.36(\frac{2 + \pi}{4}) \approx 1.68$ m</div>
+                        </div>
                     </div>
                 </div>
             </section>
@@ -506,17 +633,46 @@
         <p>&copy; 2026 NZ Math Hub. Supporting mathematics education in New Zealand.</p>
     </footer>
 
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+    <!-- KaTeX Scripts -->
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js" integrity="sha384-XjKyOOlGwcjNTAIQHIpgOno0Hl1YQqzUOEleOLALmuqehneUG+vnGctmUb0ZY0l8" crossorigin="anonymous"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js" integrity="sha384-+VBxd3r6XgURycqtZ117nYw44OOcIax56Z4dCRWbxyPt0Koah1uHoK0o4+/RRE05" crossorigin="anonymous"
+        onload="renderMathInElement(document.body, {delimiters: [{left: '$$', right: '$$', display: true}, {left: '$', right: '$', display: false}]});"></script>
     
     <script>
+        function toggleAccordion(header) {
+            const step = header.parentElement;
+            const content = header.nextElementSibling;
+            const isOpen = header.classList.contains('active');
+            
+            // Toggle this accordion
+            header.classList.toggle('active');
+            content.classList.toggle('open');
+            
+            // Mark as completed when opened
+            if (!isOpen) {
+                step.classList.add('completed');
+            }
+            
+            // Re-render math in opened content
+            if (content.classList.contains('open') && typeof renderMathInElement !== 'undefined') {
+                renderMathInElement(content, {
+                    delimiters: [
+                        {left: '$$', right: '$$', display: true},
+                        {left: '$', right: '$', display: false}
+                    ],
+                    throwOnError: false
+                });
+            }
+        }
+        
         function toggleAnswer(button) {
             const answerDiv = button.nextElementSibling;
             if (answerDiv.style.display === 'none' || answerDiv.style.display === '') {
                 answerDiv.style.display = 'block';
                 button.textContent = 'Hide Answer';
-                button.style.background = '#666';
-                if (typeof MathJax !== 'undefined') {
-                    MathJax.Hub.Queue(["Typeset", MathJax.Hub, answerDiv]);
+                button.style.background = '#000';
+                if (typeof renderMathInElement !== 'undefined') {
+                    renderMathInElement(answerDiv, {delimiters: [{left: '$$', right: '$$', display: true}, {left: '$', right: '$', display: false}]});
                 }
             } else {
                 answerDiv.style.display = 'none';

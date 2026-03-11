@@ -5,6 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Lesson 3: Chain Rule - NZ Math Hub</title>
     <link rel="stylesheet" href="../../styles.css">
+    <link rel="stylesheet" href="../../scroll-reveal.css">
+    <!-- KaTeX CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css" integrity="sha384-n8MVd4RsNIU0tAv4ct0nTaAbDJwPJzDEaqSD1odI+WdtXRGWt2kTvGFasHpSy3SV" crossorigin="anonymous">
     <style>
         .rule-box {
             background: linear-gradient(135deg, var(--primary-accent), var(--secondary-accent));
@@ -183,123 +186,235 @@
             <section class="content-section section-light">
                 <h2>Worked Examples</h2>
 
-                <div class="worked-example">
+                <div class="accordion-example">
                     <h3>Example 1: Basic Chain Rule</h3>
-                    <p><strong>Differentiate:</strong> $y = (x + 1)^2$</p>
                     
-                    <div class="step">
-                        <span class="step-number">1</span>
-                        <strong>Set up:</strong> Let $u = x + 1$, so $y = u^2$
+                    <div class="example-question">
+                        <strong>Differentiate:</strong> $y = (x + 1)^2$
                     </div>
                     
-                    <div class="step">
-                        <span class="step-number">2</span>
-                        <strong>Find $\frac{dy}{du}$:</strong> $\frac{dy}{du} = 2u$
+                    <div class="accordion-step">
+                        <div class="accordion-header" onclick="toggleAccordion(this)">
+                            <span class="step-label">Step 1: Set up</span>
+                            <span class="accordion-toggle">▼</span>
+                        </div>
+                        <div class="accordion-content">
+                            <div class="step-explanation">Let $u = x + 1$, so $y = u^2$</div>
+                        </div>
                     </div>
                     
-                    <div class="step">
-                        <span class="step-number">3</span>
-                        <strong>Find $\frac{du}{dx}$:</strong> $\frac{du}{dx} = 1$
+                    <div class="accordion-step">
+                        <div class="accordion-header" onclick="toggleAccordion(this)">
+                            <span class="step-label">Step 2: Find $\frac{dy}{du}$</span>
+                            <span class="accordion-toggle">▼</span>
+                        </div>
+                        <div class="accordion-content">
+                            <div class="step-math">$\frac{dy}{du} = 2u$</div>
+                        </div>
                     </div>
                     
-                    <div class="step">
-                        <span class="step-number">4</span>
-                        <strong>Apply chain rule:</strong> $\frac{dy}{dx} = 2u \times 1 = 2u$
+                    <div class="accordion-step">
+                        <div class="accordion-header" onclick="toggleAccordion(this)">
+                            <span class="step-label">Step 3: Find $\frac{du}{dx}$</span>
+                            <span class="accordion-toggle">▼</span>
+                        </div>
+                        <div class="accordion-content">
+                            <div class="step-math">$\frac{du}{dx} = 1$</div>
+                        </div>
                     </div>
                     
-                    <div class="step">
-                        <span class="step-number">5</span>
-                        <strong>Substitute back:</strong> $\frac{dy}{dx} = 2(x + 1)$
+                    <div class="accordion-step">
+                        <div class="accordion-header" onclick="toggleAccordion(this)">
+                            <span class="step-label">Step 4: Apply chain rule</span>
+                            <span class="accordion-toggle">▼</span>
+                        </div>
+                        <div class="accordion-content">
+                            <div class="step-math">$\frac{dy}{dx} = 2u \times 1 = 2u$</div>
+                        </div>
+                    </div>
+                    
+                    <div class="accordion-step">
+                        <div class="accordion-header" onclick="toggleAccordion(this)">
+                            <span class="step-label"><strong>✓ Answer: Substitute back</strong></span>
+                            <span class="accordion-toggle">▼</span>
+                        </div>
+                        <div class="accordion-content">
+                            <div class="step-math">$\frac{dy}{dx} = 2(x + 1)$</div>
+                        </div>
                     </div>
                 </div>
 
-                <div class="worked-example">
+                <div class="accordion-example">
                     <h3>Example 2: Higher Power</h3>
-                    <p><strong>Differentiate:</strong> $y = (2x + 3)^4$</p>
                     
-                    <div class="step">
-                        <span class="step-number">1</span>
-                        <strong>Set up:</strong> Let $u = 2x + 3$, so $y = u^4$
+                    <div class="example-question">
+                        <strong>Differentiate:</strong> $y = (2x + 3)^4$
                     </div>
                     
-                    <div class="step">
-                        <span class="step-number">2</span>
-                        <strong>Find $\frac{dy}{du}$:</strong> $\frac{dy}{du} = 4u^3$
+                    <div class="accordion-step">
+                        <div class="accordion-header" onclick="toggleAccordion(this)">
+                            <span class="step-label">Step 1: Set up</span>
+                            <span class="accordion-toggle">▼</span>
+                        </div>
+                        <div class="accordion-content">
+                            <div class="step-explanation">Let $u = 2x + 3$, so $y = u^4$</div>
+                        </div>
                     </div>
                     
-                    <div class="step">
-                        <span class="step-number">3</span>
-                        <strong>Find $\frac{du}{dx}$:</strong> $\frac{du}{dx} = 2$
+                    <div class="accordion-step">
+                        <div class="accordion-header" onclick="toggleAccordion(this)">
+                            <span class="step-label">Step 2: Find $\frac{dy}{du}$</span>
+                            <span class="accordion-toggle">▼</span>
+                        </div>
+                        <div class="accordion-content">
+                            <div class="step-math">$\frac{dy}{du} = 4u^3$</div>
+                        </div>
                     </div>
                     
-                    <div class="step">
-                        <span class="step-number">4</span>
-                        <strong>Apply chain rule:</strong> $\frac{dy}{dx} = 4u^3 \times 2 = 8u^3$
+                    <div class="accordion-step">
+                        <div class="accordion-header" onclick="toggleAccordion(this)">
+                            <span class="step-label">Step 3: Find $\frac{du}{dx}$</span>
+                            <span class="accordion-toggle">▼</span>
+                        </div>
+                        <div class="accordion-content">
+                            <div class="step-math">$\frac{du}{dx} = 2$</div>
+                        </div>
                     </div>
                     
-                    <div class="step">
-                        <span class="step-number">5</span>
-                        <strong>Substitute back:</strong> $\frac{dy}{dx} = 8(2x + 3)^3$
+                    <div class="accordion-step">
+                        <div class="accordion-header" onclick="toggleAccordion(this)">
+                            <span class="step-label">Step 4: Apply chain rule</span>
+                            <span class="accordion-toggle">▼</span>
+                        </div>
+                        <div class="accordion-content">
+                            <div class="step-math">$\frac{dy}{dx} = 4u^3 \times 2 = 8u^3$</div>
+                        </div>
+                    </div>
+                    
+                    <div class="accordion-step">
+                        <div class="accordion-header" onclick="toggleAccordion(this)">
+                            <span class="step-label"><strong>✓ Answer: Substitute back</strong></span>
+                            <span class="accordion-toggle">▼</span>
+                        </div>
+                        <div class="accordion-content">
+                            <div class="step-math">$\frac{dy}{dx} = 8(2x + 3)^3$</div>
+                        </div>
                     </div>
                 </div>
 
-                <div class="worked-example">
+                <div class="accordion-example">
                     <h3>Example 3: Quadratic Inside</h3>
-                    <p><strong>Differentiate:</strong> $y = (x^2 + 1)^3$</p>
                     
-                    <div class="step">
-                        <span class="step-number">1</span>
-                        <strong>Set up:</strong> Let $u = x^2 + 1$, so $y = u^3$
+                    <div class="example-question">
+                        <strong>Differentiate:</strong> $y = (x^2 + 1)^3$
                     </div>
                     
-                    <div class="step">
-                        <span class="step-number">2</span>
-                        <strong>Find $\frac{dy}{du}$:</strong> $\frac{dy}{du} = 3u^2$
+                    <div class="accordion-step">
+                        <div class="accordion-header" onclick="toggleAccordion(this)">
+                            <span class="step-label">Step 1: Set up</span>
+                            <span class="accordion-toggle">▼</span>
+                        </div>
+                        <div class="accordion-content">
+                            <div class="step-explanation">Let $u = x^2 + 1$, so $y = u^3$</div>
+                        </div>
                     </div>
                     
-                    <div class="step">
-                        <span class="step-number">3</span>
-                        <strong>Find $\frac{du}{dx}$:</strong> $\frac{du}{dx} = 2x$
+                    <div class="accordion-step">
+                        <div class="accordion-header" onclick="toggleAccordion(this)">
+                            <span class="step-label">Step 2: Find $\frac{dy}{du}$</span>
+                            <span class="accordion-toggle">▼</span>
+                        </div>
+                        <div class="accordion-content">
+                            <div class="step-math">$\frac{dy}{du} = 3u^2$</div>
+                        </div>
                     </div>
                     
-                    <div class="step">
-                        <span class="step-number">4</span>
-                        <strong>Apply chain rule:</strong> $\frac{dy}{dx} = 3u^2 \times 2x = 6xu^2$
+                    <div class="accordion-step">
+                        <div class="accordion-header" onclick="toggleAccordion(this)">
+                            <span class="step-label">Step 3: Find $\frac{du}{dx}$</span>
+                            <span class="accordion-toggle">▼</span>
+                        </div>
+                        <div class="accordion-content">
+                            <div class="step-math">$\frac{du}{dx} = 2x$</div>
+                        </div>
                     </div>
                     
-                    <div class="step">
-                        <span class="step-number">5</span>
-                        <strong>Substitute back:</strong> $\frac{dy}{dx} = 6x(x^2 + 1)^2$
+                    <div class="accordion-step">
+                        <div class="accordion-header" onclick="toggleAccordion(this)">
+                            <span class="step-label">Step 4: Apply chain rule</span>
+                            <span class="accordion-toggle">▼</span>
+                        </div>
+                        <div class="accordion-content">
+                            <div class="step-math">$\frac{dy}{dx} = 3u^2 \times 2x = 6xu^2$</div>
+                        </div>
+                    </div>
+                    
+                    <div class="accordion-step">
+                        <div class="accordion-header" onclick="toggleAccordion(this)">
+                            <span class="step-label"><strong>✓ Answer: Substitute back</strong></span>
+                            <span class="accordion-toggle">▼</span>
+                        </div>
+                        <div class="accordion-content">
+                            <div class="step-math">$\frac{dy}{dx} = 6x(x^2 + 1)^2$</div>
+                        </div>
                     </div>
                 </div>
 
-                <div class="worked-example">
+                <div class="accordion-example">
                     <h3>Example 4: Negative Power</h3>
-                    <p><strong>Differentiate:</strong> $y = (3x - 1)^{-2}$</p>
                     
-                    <div class="step">
-                        <span class="step-number">1</span>
-                        <strong>Set up:</strong> Let $u = 3x - 1$, so $y = u^{-2}$
+                    <div class="example-question">
+                        <strong>Differentiate:</strong> $y = (3x - 1)^{-2}$
                     </div>
                     
-                    <div class="step">
-                        <span class="step-number">2</span>
-                        <strong>Find $\frac{dy}{du}$:</strong> $\frac{dy}{du} = -2u^{-3}$
+                    <div class="accordion-step">
+                        <div class="accordion-header" onclick="toggleAccordion(this)">
+                            <span class="step-label">Step 1: Set up</span>
+                            <span class="accordion-toggle">▼</span>
+                        </div>
+                        <div class="accordion-content">
+                            <div class="step-explanation">Let $u = 3x - 1$, so $y = u^{-2}$</div>
+                        </div>
                     </div>
                     
-                    <div class="step">
-                        <span class="step-number">3</span>
-                        <strong>Find $\frac{du}{dx}$:</strong> $\frac{du}{dx} = 3$
+                    <div class="accordion-step">
+                        <div class="accordion-header" onclick="toggleAccordion(this)">
+                            <span class="step-label">Step 2: Find $\frac{dy}{du}$</span>
+                            <span class="accordion-toggle">▼</span>
+                        </div>
+                        <div class="accordion-content">
+                            <div class="step-math">$\frac{dy}{du} = -2u^{-3}$</div>
+                        </div>
                     </div>
                     
-                    <div class="step">
-                        <span class="step-number">4</span>
-                        <strong>Apply chain rule:</strong> $\frac{dy}{dx} = -2u^{-3} \times 3 = -6u^{-3}$
+                    <div class="accordion-step">
+                        <div class="accordion-header" onclick="toggleAccordion(this)">
+                            <span class="step-label">Step 3: Find $\frac{du}{dx}$</span>
+                            <span class="accordion-toggle">▼</span>
+                        </div>
+                        <div class="accordion-content">
+                            <div class="step-math">$\frac{du}{dx} = 3$</div>
+                        </div>
                     </div>
                     
-                    <div class="step">
-                        <span class="step-number">5</span>
-                        <strong>Substitute back:</strong> $\frac{dy}{dx} = -6(3x - 1)^{-3} = \frac{-6}{(3x - 1)^3}$
+                    <div class="accordion-step">
+                        <div class="accordion-header" onclick="toggleAccordion(this)">
+                            <span class="step-label">Step 4: Apply chain rule</span>
+                            <span class="accordion-toggle">▼</span>
+                        </div>
+                        <div class="accordion-content">
+                            <div class="step-math">$\frac{dy}{dx} = -2u^{-3} \times 3 = -6u^{-3}$</div>
+                        </div>
+                    </div>
+                    
+                    <div class="accordion-step">
+                        <div class="accordion-header" onclick="toggleAccordion(this)">
+                            <span class="step-label"><strong>✓ Answer: Substitute back</strong></span>
+                            <span class="accordion-toggle">▼</span>
+                        </div>
+                        <div class="accordion-content">
+                            <div class="step-math">$\frac{dy}{dx} = -6(3x - 1)^{-3} = \frac{-6}{(3x - 1)^3}$</div>
+                        </div>
                     </div>
                 </div>
             </section>
@@ -313,7 +428,7 @@
                     <p><em>Notice: The <span class="highlight-inner">inner function</span> stays the same, only the <span class="highlight-outer">power</span> changes</em></p>
                     
                     <div class="problem">
-                        <div class="problem-label">a) $y = (x + 1)<span class="highlight-outer">^2</span>$</div>
+                        <div class="problem-label">a) $y = (x + 1)^{2}$</div>
                         <button class="show-answer-btn" onclick="toggleAnswer(this)">Show Answer</button>
                         <div class="answer-reveal">
                             $u = x + 1, \frac{du}{dx} = 1$<br>
@@ -323,7 +438,7 @@
                     </div>
                     
                     <div class="problem">
-                        <div class="problem-label">b) $y = (x + 1)<span class="highlight-outer">^3</span>$</div>
+                        <div class="problem-label">b) $y = (x + 1)^{3}$</div>
                         <button class="show-answer-btn" onclick="toggleAnswer(this)">Show Answer</button>
                         <div class="answer-reveal">
                             $u = x + 1, \frac{du}{dx} = 1$<br>
@@ -333,7 +448,7 @@
                     </div>
                     
                     <div class="problem">
-                        <div class="problem-label">c) $y = (x + 1)<span class="highlight-outer">^4</span>$</div>
+                        <div class="problem-label">c) $y = (x + 1)^{4}$</div>
                         <button class="show-answer-btn" onclick="toggleAnswer(this)">Show Answer</button>
                         <div class="answer-reveal">
                             $u = x + 1, \frac{du}{dx} = 1$<br>
@@ -343,7 +458,7 @@
                     </div>
 
                     <div class="problem">
-                        <div class="problem-label">d) $y = (x + 1)<span class="highlight-outer">^5</span>$</div>
+                        <div class="problem-label">d) $y = (x + 1)^{5}$</div>
                         <button class="show-answer-btn" onclick="toggleAnswer(this)">Show Answer</button>
                         <div class="answer-reveal">
                             $u = x + 1, \frac{du}{dx} = 1$<br>
@@ -358,7 +473,7 @@
                     <p><em>Notice: Only the <span class="highlight-inner">coefficient of x</span> changes</em></p>
                     
                     <div class="problem">
-                        <div class="problem-label">a) $y = (<span class="highlight-inner">x</span> + 1)^3$</div>
+                        <div class="problem-label">a) $y = (x + 1)^3$</div>
                         <button class="show-answer-btn" onclick="toggleAnswer(this)">Show Answer</button>
                         <div class="answer-reveal">
                             $u = x + 1, \frac{du}{dx} = 1$<br>
@@ -367,7 +482,7 @@
                     </div>
                     
                     <div class="problem">
-                        <div class="problem-label">b) $y = (<span class="highlight-inner">2x</span> + 1)^3$</div>
+                        <div class="problem-label">b) $y = (2x + 1)^3$</div>
                         <button class="show-answer-btn" onclick="toggleAnswer(this)">Show Answer</button>
                         <div class="answer-reveal">
                             $u = 2x + 1, \frac{du}{dx} = 2$<br>
@@ -376,7 +491,7 @@
                     </div>
                     
                     <div class="problem">
-                        <div class="problem-label">c) $y = (<span class="highlight-inner">3x</span> + 1)^3$</div>
+                        <div class="problem-label">c) $y = (3x + 1)^3$</div>
                         <button class="show-answer-btn" onclick="toggleAnswer(this)">Show Answer</button>
                         <div class="answer-reveal">
                             $u = 3x + 1, \frac{du}{dx} = 3$<br>
@@ -385,7 +500,7 @@
                     </div>
 
                     <div class="problem">
-                        <div class="problem-label">d) $y = (<span class="highlight-inner">4x</span> + 1)^3$</div>
+                        <div class="problem-label">d) $y = (4x + 1)^3$</div>
                         <button class="show-answer-btn" onclick="toggleAnswer(this)">Show Answer</button>
                         <div class="answer-reveal">
                             $u = 4x + 1, \frac{du}{dx} = 4$<br>
@@ -399,7 +514,7 @@
                     <p><em>Notice: The <span class="highlight-inner">power of x inside</span> changes</em></p>
                     
                     <div class="problem">
-                        <div class="problem-label">a) $y = (<span class="highlight-inner">x</span> + 1)^2$</div>
+                        <div class="problem-label">a) $y = (x + 1)^2$</div>
                         <button class="show-answer-btn" onclick="toggleAnswer(this)">Show Answer</button>
                         <div class="answer-reveal">
                             $u = x + 1, \frac{du}{dx} = 1$<br>
@@ -408,7 +523,7 @@
                     </div>
                     
                     <div class="problem">
-                        <div class="problem-label">b) $y = (<span class="highlight-inner">x^2</span> + 1)^2$</div>
+                        <div class="problem-label">b) $y = (x^2 + 1)^2$</div>
                         <button class="show-answer-btn" onclick="toggleAnswer(this)">Show Answer</button>
                         <div class="answer-reveal">
                             $u = x^2 + 1, \frac{du}{dx} = 2x$<br>
@@ -417,7 +532,7 @@
                     </div>
                     
                     <div class="problem">
-                        <div class="problem-label">c) $y = (<span class="highlight-inner">x^3</span> + 1)^2$</div>
+                        <div class="problem-label">c) $y = (x^3 + 1)^2$</div>
                         <button class="show-answer-btn" onclick="toggleAnswer(this)">Show Answer</button>
                         <div class="answer-reveal">
                             $u = x^3 + 1, \frac{du}{dx} = 3x^2$<br>
@@ -426,7 +541,7 @@
                     </div>
 
                     <div class="problem">
-                        <div class="problem-label">d) $y = (<span class="highlight-inner">x^4</span> + 1)^2$</div>
+                        <div class="problem-label">d) $y = (x^4 + 1)^2$</div>
                         <button class="show-answer-btn" onclick="toggleAnswer(this)">Show Answer</button>
                         <div class="answer-reveal">
                             $u = x^4 + 1, \frac{du}{dx} = 4x^3$<br>
@@ -504,17 +619,46 @@
         <p>&copy; 2026 NZ Math Hub. Supporting mathematics education in New Zealand.</p>
     </footer>
 
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+    <!-- KaTeX Scripts -->
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js" integrity="sha384-XjKyOOlGwcjNTAIQHIpgOno0Hl1YQqzUOEleOLALmuqehneUG+vnGctmUb0ZY0l8" crossorigin="anonymous"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js" integrity="sha384-+VBxd3r6XgURycqtZ117nYw44OOcIax56Z4dCRWbxyPt0Koah1uHoK0o4+/RRE05" crossorigin="anonymous"
+        onload="renderMathInElement(document.body, {delimiters: [{left: '$$', right: '$$', display: true}, {left: '$', right: '$', display: false}]});"></script>
     
     <script>
+        function toggleAccordion(header) {
+            const step = header.parentElement;
+            const content = header.nextElementSibling;
+            const isOpen = header.classList.contains('active');
+            
+            // Toggle this accordion
+            header.classList.toggle('active');
+            content.classList.toggle('open');
+            
+            // Mark as completed when opened
+            if (!isOpen) {
+                step.classList.add('completed');
+            }
+            
+            // Re-render math in opened content
+            if (content.classList.contains('open') && typeof renderMathInElement !== 'undefined') {
+                renderMathInElement(content, {
+                    delimiters: [
+                        {left: '$$', right: '$$', display: true},
+                        {left: '$', right: '$', display: false}
+                    ],
+                    throwOnError: false
+                });
+            }
+        }
+        
         function toggleAnswer(button) {
             const answerDiv = button.nextElementSibling;
             if (answerDiv.style.display === 'none' || answerDiv.style.display === '') {
                 answerDiv.style.display = 'block';
                 button.textContent = 'Hide Answer';
-                button.style.background = '#666';
-                if (typeof MathJax !== 'undefined') {
-                    MathJax.Hub.Queue(["Typeset", MathJax.Hub, answerDiv]);
+                button.style.background = '#000';
+                if (typeof renderMathInElement !== 'undefined') {
+                    renderMathInElement(answerDiv, {delimiters: [{left: '$$', right: '$$', display: true}, {left: '$', right: '$', display: false}]});
                 }
             } else {
                 answerDiv.style.display = 'none';
