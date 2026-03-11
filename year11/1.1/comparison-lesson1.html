@@ -1,0 +1,1313 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lesson 1: Writing Comparison Questions - NZ Math Hub</title>
+    <link rel="stylesheet" href="../../styles.css">
+    <style>
+        /* Interactive Slideshow Styles */
+        .slideshow-container {
+            background: var(--background-light);
+            border-radius: 10px;
+            margin-bottom: 40px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            overflow: hidden;
+            border: 2px solid var(--border-color);
+        }
+
+        .slideshow-header {
+            background: linear-gradient(135deg, var(--text-primary) 0%, var(--text-secondary) 100%);
+            color: white;
+            padding: 15px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .slideshow-header h3 {
+            font-size: 1.5em;
+            color: white;
+            margin: 0;
+        }
+
+        .slides-wrapper {
+            padding: 30px 40px;
+            height: 500px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .slide {
+            display: none;
+            animation: fadeIn 0.5s;
+        }
+
+        .slide.active {
+            display: block;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        .slide h4 {
+            color: var(--primary-accent);
+            font-size: 1.6em;
+            margin-bottom: 15px;
+            margin-top: 0;
+        }
+        
+        .slide p {
+            margin: 10px 0;
+            line-height: 1.5;
+        }
+        
+        .slide ul {
+            margin: 10px 0;
+            padding-left: 25px;
+        }
+        
+        .slide li {
+            margin: 6px 0;
+            line-height: 1.4;
+        }
+
+        .comparison-example {
+            background: linear-gradient(135deg, var(--primary-accent) 0%, var(--secondary-accent) 100%);
+            color: white;
+            padding: 15px 20px;
+            border-radius: 8px;
+            margin: 12px 0;
+            font-size: 1.15em;
+            text-align: center;
+            font-weight: 600;
+        }
+
+        .component-breakdown {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+            gap: 12px;
+            margin: 12px 0;
+        }
+
+        .component {
+            background: white;
+            border: 2px solid var(--primary-accent);
+            padding: 12px;
+            border-radius: 8px;
+            text-align: center;
+        }
+
+        .component-label {
+            color: var(--primary-accent);
+            font-weight: bold;
+            margin-bottom: 4px;
+            font-size: 0.95em;
+        }
+
+        .slide-controls {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 20px;
+            padding: 20px;
+            background: var(--background-medium);
+            border-top: 2px solid var(--border-color);
+        }
+
+        .slide-btn {
+            background: var(--primary-accent);
+            color: white;
+            border: none;
+            padding: 12px 24px;
+            border-radius: 25px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-size: 1em;
+        }
+
+        .slide-btn:hover {
+            background: var(--secondary-accent);
+            transform: translateY(-2px);
+        }
+
+        .slide-btn:disabled {
+            background: #ccc;
+            cursor: not-allowed;
+            transform: none;
+        }
+
+        .slide-counter {
+            font-size: 1.1em;
+            color: #666;
+            font-weight: bold;
+        }
+
+        /* Drag and Drop Activity Styles */
+        .drag-activity {
+            background: white;
+            border-radius: 10px;
+            padding: 25px;
+            margin: 20px 0;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            border: 2px solid var(--border-color);
+        }
+
+        .drag-activity h4 {
+            color: var(--primary-accent);
+            margin-bottom: 15px;
+        }
+
+        .data-table {
+            background: var(--background-light);
+            border-radius: 8px;
+            padding: 20px;
+            margin: 20px 0;
+            border: 1px solid var(--border-color);
+        }
+
+        .table-title {
+            font-weight: bold;
+            color: var(--primary-accent);
+            margin-bottom: 15px;
+            font-size: 1.1em;
+        }
+
+        .word-bank {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-bottom: 20px;
+        }
+
+        .draggable-word {
+            background: var(--primary-accent);
+            color: white;
+            padding: 10px 20px;
+            border-radius: 20px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            user-select: none;
+            border: 3px solid transparent;
+            font-weight: 500;
+        }
+
+        .draggable-word:hover {
+            background: var(--secondary-accent);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+        }
+
+        .draggable-word.selected {
+            border-color: var(--warning-color);
+            box-shadow: 0 0 15px rgba(237, 137, 54, 0.8);
+            background: var(--secondary-accent);
+            transform: scale(1.05);
+        }
+
+        .draggable-word.used {
+            background: #95a5a6;
+            cursor: not-allowed;
+            opacity: 0.5;
+        }
+
+        .draggable-word.used:hover {
+            transform: none;
+            background: #95a5a6;
+            box-shadow: none;
+        }
+
+        .question-builder {
+            background: white;
+            border: 3px dashed var(--primary-accent);
+            border-radius: 10px;
+            padding: 20px;
+            min-height: 100px;
+            margin: 20px 0;
+        }
+
+        .question-template {
+            font-size: 1.2em;
+            line-height: 2;
+        }
+
+        .drop-zone {
+            display: inline-block;
+            min-width: 150px;
+            padding: 8px 15px;
+            background: var(--background-medium);
+            border: 2px dashed var(--primary-accent);
+            border-radius: 8px;
+            margin: 0 5px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            vertical-align: middle;
+            font-weight: 500;
+        }
+
+        .drop-zone:hover {
+            background: var(--border-color);
+            border-width: 3px;
+            transform: scale(1.02);
+        }
+
+        .drop-zone.filled {
+            background: var(--primary-accent);
+            color: white;
+            border-style: solid;
+        }
+
+        .drop-zone.filled:hover {
+            background: var(--secondary-accent);
+        }
+
+        .graph-drop {
+            font-size: 1.1em;
+            line-height: 1.6;
+            min-height: 60px;
+        }
+
+        .graph-drop.filled {
+            background: var(--success-color);
+            border-color: var(--success-color);
+        }
+
+        .graph-drop:not(.filled) {
+            color: #999;
+            font-style: italic;
+        }
+
+        .check-btn {
+            background: var(--success-color);
+            color: white;
+            border: none;
+            padding: 12px 30px;
+            border-radius: 25px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-size: 1.1em;
+            margin-top: 15px;
+        }
+
+        .check-btn:hover {
+            background: #38a169;
+            transform: translateY(-2px);
+        }
+
+        .reset-btn {
+            background: #e74c3c;
+            color: white;
+            border: none;
+            padding: 10px 25px;
+            border-radius: 25px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-size: 1em;
+            margin-left: 10px;
+        }
+
+        .reset-btn:hover {
+            background: #c0392b;
+        }
+
+        .feedback {
+            margin-top: 20px;
+            padding: 15px;
+            border-radius: 8px;
+            display: none;
+        }
+
+        .feedback.success {
+            background: #d4edda;
+            border: 2px solid var(--success-color);
+            color: #155724;
+            display: block;
+        }
+
+        .feedback.error {
+            background: #f8d7da;
+            border: 2px solid #e74c3c;
+            color: #721c24;
+            display: block;
+        }
+
+        /* Written Question Activity */
+        .write-activity {
+            background: white;
+            border-radius: 10px;
+            padding: 25px;
+            margin: 20px 0;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            border: 2px solid var(--border-color);
+        }
+
+        .write-activity h4 {
+            color: var(--primary-accent);
+            margin-bottom: 15px;
+        }
+
+        .question-input {
+            width: 100%;
+            padding: 15px;
+            font-size: 1.1em;
+            border: 3px solid var(--primary-accent);
+            border-radius: 10px;
+            margin: 15px 0;
+            font-family: var(--font-main);
+        }
+
+        .question-input:focus {
+            outline: none;
+            border-color: var(--secondary-accent);
+            box-shadow: 0 0 10px rgba(102, 126, 234, 0.3);
+        }
+
+        .validation-result {
+            margin-top: 15px;
+            padding: 15px;
+            border-radius: 8px;
+            display: none;
+        }
+
+        .validation-result.show {
+            display: block;
+        }
+
+        .validation-item {
+            display: flex;
+            align-items: center;
+            margin: 10px 0;
+            font-size: 1em;
+        }
+
+        .validation-item::before {
+            content: "✓";
+            display: inline-block;
+            width: 30px;
+            height: 30px;
+            line-height: 30px;
+            text-align: center;
+            border-radius: 50%;
+            margin-right: 10px;
+            font-weight: bold;
+        }
+
+        .validation-item.valid::before {
+            background: var(--success-color);
+            color: white;
+        }
+
+        .validation-item.invalid::before {
+            content: "✗";
+            background: #e74c3c;
+            color: white;
+        }
+
+        .practice-box {
+            background: #ffebee;
+            border-left: 5px solid #e74c3c;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 5px;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .slides-wrapper {
+                padding: 20px;
+            }
+
+            .slide h4 {
+                font-size: 1.4em;
+            }
+
+            .component-breakdown {
+                grid-template-columns: 1fr;
+            }
+
+            .drop-zone {
+                min-width: 120px;
+                display: block;
+                margin: 10px 0;
+            }
+
+            .question-template {
+                font-size: 1em;
+            }
+
+            .draggable-word {
+                padding: 8px 15px;
+                font-size: 0.9em;
+            }
+        }
+    </style>
+</head>
+<body>
+    
+    <!-- Main Page Header -->
+    <header class="page-header">
+        <h1>Writing Comparison Questions</h1>
+        <p class="subtitle">Lesson 1 - Learn to Write Effective Statistical Comparison Questions</p>
+    </header>
+    
+    <!-- Breadcrumb Navigation -->
+    <nav class="breadcrumb">
+        <div class="breadcrumb-container">
+            <a href="../../index.html">Home</a>
+            <span>&gt;</span>
+            <a href="../../year11.html">Year 11</a>
+            <span>&gt;</span>
+            <a href="index.html">Standard 1.1</a>
+            <span>&gt;</span>
+            <a href="comparison-investigation.html">Comparison</a>
+            <span>&gt;</span>
+            <strong>Lesson 1</strong>
+        </div>
+    </nav>
+    
+    <!-- Sticky Navigation -->
+    <nav class="main-nav">
+        <div class="nav-container">
+            <ul class="nav-links">
+                <li><a href="index.html">Overview</a></li>
+                <li><a href="comparison-investigation.html">Comparison</a></li>
+                <li><a href="comparison-lesson1.html" class="active">Lesson 1</a></li>
+                <li><a href="comparison-lesson2.html">Lesson 2</a></li>
+                <li><a href="comparison-lesson3.html">Lesson 3</a></li>
+            </ul>
+            <div class="section-nav">
+                <a href="#introduction">Introduction</a>
+                <a href="#slideshow">Lesson</a>
+                <a href="#practice">Practice</a>
+                <a href="#tips">Tips</a>
+            </div>
+        </div>
+    </nav>
+    
+    <!-- Main Content -->
+    <main>
+        
+        <!-- Section 1: Introduction -->
+        <section id="introduction" class="content-section section-light">
+            <div class="section-container">
+                <div class="section-header">
+                    <span class="section-number">1</span>
+                    <h2>Writing Comparison Questions</h2>
+                    <a href="#introduction" class="anchor-link">#</a>
+                </div>
+                
+                <div class="info-callout">
+                    <strong>Learning Objectives:</strong> Learn to write statistical investigative questions that compare two groups within a population. Master the three key components: two groups, a numerical variable, and a clear direction.
+                </div>
+                
+                <h3>What You'll Learn</h3>
+                <ul>
+                    <li>Understanding what makes a good comparison question</li>
+                    <li>Identifying the three key components of comparison questions</li>
+                    <li>Using "tend to" to acknowledge variation in data</li>
+                    <li>Showing direction in your comparisons</li>
+                    <li>Avoiding common mistakes in question writing</li>
+                    <li>Practicing with interactive activities</li>
+                </ul>
+            </div>
+        </section>
+        
+        <!-- Section 2: Interactive Slideshow -->
+        <section id="slideshow" class="content-section section-medium">
+            <div class="section-container">
+                <div class="section-header">
+                    <span class="section-number">2</span>
+                    <h2>Interactive Lesson</h2>
+                    <a href="#slideshow" class="anchor-link">#</a>
+                </div>
+                
+                <div class="slideshow-container" id="slideshowContainer">
+                    <div class="slideshow-header">
+                        <h3>📚 Core Concepts</h3>
+                    </div>
+                    
+                    <div class="slides-wrapper">
+                        <!-- Slide 1 -->
+                        <div class="slide active">
+                            <h4>What is a Comparison Question?</h4>
+                            <p>A comparison question is a statistical investigative question that compares two different groups within a population.</p>
+                            
+                            <div class="comparison-example">
+                                "Do dogs tend to be heavier than cats for pets of New Zealanders?"
+                            </div>
+                            
+                            <p style="margin-top: 18px;"><strong>This type of question helps us:</strong></p>
+                            <ul>
+                                <li>Understand differences between groups</li>
+                                <li>Make informed decisions based on data</li>
+                            </ul>
+                        </div>
+
+                        <!-- Slide 2 -->
+                        <div class="slide">
+                            <h4>Bad Question vs Good Question</h4>
+                            <p>Let's see the difference!</p>
+                            
+                            <div id="badQuestionBox" style="background: #ffebee; padding: 15px; border-radius: 8px; border: 2px solid #e74c3c; transition: all 0.5s ease;">
+                                <p style="font-size: 1.2em; margin-bottom: 12px; font-weight: bold;">❌ Bad Question:</p>
+                                <div style="font-size: 1.1em; font-style: italic; margin: 12px 0;">"What pets do New Zealanders prefer?"</div>
+                                
+                                <div style="margin-top: 15px; padding: 12px; background: rgba(0,0,0,0.05); border-radius: 6px;">
+                                    <p><strong>Problems:</strong></p>
+                                    <ul style="margin: 8px 0 8px 20px;">
+                                        <li>No two groups being compared</li>
+                                        <li>"Prefer" is not numerical</li>
+                                    </ul>
+                                </div>
+                            </div>
+
+                            <div id="goodQuestionBox" style="background: #e6ffed; padding: 15px; border-radius: 8px; border: 2px solid #48bb78; transition: all 0.5s ease; display: none;">
+                                <p style="font-size: 1.2em; margin-bottom: 12px; font-weight: bold;">✅ Good Question:</p>
+                                <div style="font-size: 1.1em; font-style: italic; margin: 12px 0; font-weight: 600;">"Do dogs tend to be heavier than cats for pets of New Zealanders?"</div>
+                                
+                                <div style="margin-top: 15px; padding: 12px; background: rgba(0,0,0,0.05); border-radius: 6px;">
+                                    <p><strong>Why it's better:</strong></p>
+                                    <ul style="margin: 8px 0 8px 20px;">
+                                        <li>✓ Two groups: dogs vs cats</li>
+                                        <li>✓ Numerical: weight (kg)</li>
+                                    </ul>
+                                </div>
+                            </div>
+
+                            <div style="text-align: center; margin-top: 20px;">
+                                <button id="transformBtn" class="slide-btn" style="font-size: 1.05em; padding: 12px 25px;" onclick="transformQuestion()">
+                                    ✨ Transform to Good Question
+                                </button>
+                            </div>
+                        </div>
+
+                        <!-- Slide 3 -->
+                        <div class="slide">
+                            <h4>The Three Key Components</h4>
+                            <p>Every good comparison question needs these three parts:</p>
+                            
+                            <div class="component-breakdown">
+                                <div class="component">
+                                    <div class="component-label">1. Two Groups</div>
+                                    <div>Dogs vs Cats</div>
+                                </div>
+                                <div class="component">
+                                    <div class="component-label">2. Numerical Variable</div>
+                                    <div>Weight (in kg)</div>
+                                </div>
+                                <div class="component">
+                                    <div class="component-label">3. Population</div>
+                                    <div>Pets of New Zealanders</div>
+                                </div>
+                            </div>
+                            
+                            <p style="margin-top: 18px;"><strong>Remember:</strong> The variable must be numerical (something you can measure), not categorical!</p>
+                        </div>
+
+                        <!-- Slide 4 -->
+                        <div class="slide">
+                            <h4>More Examples of Good Comparison Questions</h4>
+                            
+                            <div class="comparison-example">
+                                "Do Year 9 students tend to spend more time on homework than Year 10 students at our school?"
+                            </div>
+                            
+                            <div class="component-breakdown">
+                                <div class="component">
+                                    <div class="component-label">Groups</div>
+                                    <div>Year 9 vs Year 10</div>
+                                </div>
+                                <div class="component">
+                                    <div class="component-label">Variable</div>
+                                    <div>Homework time (hours)</div>
+                                </div>
+                                <div class="component">
+                                    <div class="component-label">Population</div>
+                                    <div>Students at our school</div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Slide 5 -->
+                        <div class="slide">
+                            <h4>Another Example</h4>
+                            
+                            <div class="comparison-example">
+                                "Do female athletes tend to have higher resting heart rates than male athletes in New Zealand?"
+                            </div>
+                            
+                            <div class="component-breakdown">
+                                <div class="component">
+                                    <div class="component-label">Groups</div>
+                                    <div>Female vs Male athletes</div>
+                                </div>
+                                <div class="component">
+                                    <div class="component-label">Variable</div>
+                                    <div>Resting heart rate (bpm)</div>
+                                </div>
+                                <div class="component">
+                                    <div class="component-label">Population</div>
+                                    <div>Athletes in New Zealand</div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Slide 6 -->
+                        <div class="slide">
+                            <h4>Common Mistake #1</h4>
+                            <p><strong>Not Actually Comparing Two Groups</strong></p>
+                            
+                            <div style="background: #ffebee; padding: 15px; border-radius: 8px; border: 2px solid #e74c3c; margin: 12px 0;">
+                                <p style="margin: 0;"><strong>❌ Bad:</strong> "What is the favourite sport at our school?"</p>
+                            </div>
+                            
+                            <p><strong>Why is this bad?</strong></p>
+                            <p>This doesn't compare two groups - it's asking for a summary of everyone's preferences.</p>
+                            
+                            <div style="background: #e6ffed; padding: 15px; border-radius: 8px; border: 2px solid #48bb78; margin-top: 15px;">
+                                <p style="margin: 0;"><strong>✓ Better:</strong> "Do Year 11 students tend to spend more hours per week playing sports than Year 12 students at our school?"</p>
+                            </div>
+                        </div>
+
+                        <!-- Slide 7 -->
+                        <div class="slide">
+                            <h4>Common Mistake #2</h4>
+                            <p><strong>Using Non-Numerical Variables</strong></p>
+                            
+                            <div style="background: #ffebee; padding: 15px; border-radius: 8px; border: 2px solid #e74c3c; margin: 12px 0;">
+                                <p style="margin: 0;"><strong>❌ Bad:</strong> "Do boys like rugby more than girls at our school?"</p>
+                            </div>
+                            
+                            <p><strong>Why is this bad?</strong></p>
+                            <p>"Like" is categorical (yes/no), not numerical. We need something we can measure.</p>
+                            
+                            <div style="background: #e6ffed; padding: 15px; border-radius: 8px; border: 2px solid #48bb78; margin-top: 15px;">
+                                <p style="margin: 0;"><strong>✓ Better:</strong> "Do boys tend to spend more hours per week playing rugby than girls at our school?"</p>
+                            </div>
+                        </div>
+
+                        <!-- Slide 8 -->
+                        <div class="slide">
+                            <h4>The Question Formula</h4>
+                            <p>Use this template:</p>
+                            
+                            <div class="comparison-example">
+                                "Do [Group 1] tend to [verb] [more/less] [variable] than [Group 2] for [population]?"
+                            </div>
+                            
+                            <p style="margin-top: 18px;"><strong>Key phrases:</strong></p>
+                            <ul>
+                                <li>"tend to be..." → amounts, weights, heights</li>
+                                <li>"tend to have..." → counts, rates, scores</li>
+                                <li>"tend to spend..." → time or money</li>
+                            </ul>
+                        </div>
+
+                        <!-- Slide 9 -->
+                        <div class="slide">
+                            <h4>Why "Tend to"?</h4>
+                            <p>We use "tend to" because we're talking about <strong>general patterns</strong>, not every individual.</p>
+                            
+                            <div style="background: #e6ffed; padding: 15px; border-radius: 8px; border: 2px solid #48bb78; margin: 15px 0;">
+                                <p style="margin: 0;">Some cats might be heavier than some dogs, but <strong>on average</strong>, dogs tend to be heavier than cats.</p>
+                            </div>
+                            
+                            <p style="margin-top: 18px;"><strong>This acknowledges:</strong></p>
+                            <ul>
+                                <li>Variation exists within each group</li>
+                                <li>We're looking for overall trends</li>
+                            </ul>
+                        </div>
+
+                        <!-- Slide 10 -->
+                        <div class="slide">
+                            <h4>Direction Matters!</h4>
+                            <p>Your question must show a <strong>direction</strong> - which group will have higher/lower values.</p>
+                            
+                            <div class="comparison-example">
+                                "Do dogs tend to be <span style="background: rgba(255,255,255,0.3); padding: 4px 10px; border-radius: 5px;">HEAVIER</span> than cats?"
+                            </div>
+                            
+                            <p style="margin-top: 18px;"><strong>Why direction is important:</strong></p>
+                            <ul>
+                                <li>Shows you've thought about expectations</li>
+                                <li>Creates a testable prediction</li>
+                                <li>Required for NCEA assessments</li>
+                            </ul>
+                        </div>
+
+                        <!-- Slide 11 -->
+                        <div class="slide">
+                            <h4>From Question to Hypothesis</h4>
+                            <p>Turn your question into a hypothesis by making it a statement.</p>
+                            
+                            <div class="component-breakdown">
+                                <div class="component" style="grid-column: 1 / -1;">
+                                    <div class="component-label">Comparison Question</div>
+                                    <div style="font-size: 1.05em; margin-top: 8px;">"Do dogs tend to be heavier than cats for pets of New Zealanders?"</div>
+                                </div>
+                                <div style="grid-column: 1 / -1; text-align: center; font-size: 2em; color: var(--primary-accent);">⬇️</div>
+                                <div class="component" style="grid-column: 1 / -1;">
+                                    <div class="component-label">Hypothesis</div>
+                                    <div style="font-size: 1.05em; margin-top: 8px;">"Dogs tend to be heavier than cats for pets of New Zealanders."</div>
+                                </div>
+                            </div>
+                            
+                            <p style="margin-top: 15px;"><strong>Remember:</strong> Your hypothesis is your prediction based on research or knowledge.</p>
+                        </div>
+
+                        <!-- Slide 12 -->
+                        <div class="slide">
+                            <h4>Good Research Practices</h4>
+                            <p>Before finalizing your hypothesis, do background research:</p>
+                            
+                            <div style="background: #e6ffed; padding: 15px; border-radius: 8px; border: 2px solid #48bb78; margin: 12px 0;">
+                                <p style="margin: 0 0 10px 0;"><strong>✓ Do This:</strong></p>
+                                <ul style="margin: 0 0 0 20px;">
+                                    <li>Read multiple sources</li>
+                                    <li>Take notes in your own words</li>
+                                    <li>Track where information came from</li>
+                                    <li>Form your own predictions</li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <!-- Slide 13 -->
+                        <div class="slide">
+                            <h4>Avoiding Plagiarism</h4>
+                            <p><strong>You must avoid plagiarism!</strong> Here's what NOT to do:</p>
+                            
+                            <div style="background: #ffebee; padding: 15px; border-radius: 8px; border: 2px solid #e74c3c; margin: 12px 0;">
+                                <p style="margin: 0 0 10px 0;"><strong>❌ Don't Do This:</strong></p>
+                                <ul style="margin: 0 0 0 20px;">
+                                    <li>Copy text without quotation marks</li>
+                                    <li>Use someone else's hypothesis</li>
+                                    <li>Change a few words but keep structure</li>
+                                    <li>Forget to credit sources</li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <!-- Slide 14 -->
+                        <div class="slide">
+                            <h4>How to Reference Research</h4>
+                            <p>Acknowledge your sources properly:</p>
+                            
+                            <div style="background: #e6ffed; padding: 15px; border-radius: 8px; border: 2px solid #48bb78; margin: 12px 0;">
+                                <p style="margin: 0 0 8px 0;"><strong>Example:</strong></p>
+                                <p style="margin: 0; font-style: italic; font-size: 0.95em;">"Based on research from the NZ Veterinary Association (2025), I predict dogs tend to be heavier than cats for pets of New Zealanders."</p>
+                            </div>
+                            
+                            <p style="margin-top: 15px;"><strong>Include:</strong> Source name, year, and your interpretation.</p>
+                        </div>
+
+                        <!-- Slide 15 -->
+                        <div class="slide">
+                            <h4>Quick Recap: The 3 Components</h4>
+                            <p><strong>Every comparison question needs:</strong></p>
+                            
+                            <div class="component-breakdown">
+                                <div class="component">
+                                    <div class="component-label">1. Two Groups</div>
+                                    <div style="font-size: 0.9em;">Who are you comparing?</div>
+                                </div>
+                                <div class="component">
+                                    <div class="component-label">2. Numerical Variable</div>
+                                    <div style="font-size: 0.9em;">What can you measure?</div>
+                                </div>
+                                <div class="component">
+                                    <div class="component-label">3. Population</div>
+                                    <div style="font-size: 0.9em;">Who does this apply to?</div>
+                                </div>
+                            </div>
+                            
+                            <p style="margin-top: 18px; font-weight: bold; color: var(--primary-accent); text-align: center;">Ready to practice? Let's build some questions!</p>
+                        </div>
+                    </div>
+
+                    <div class="slide-controls">
+                        <button class="slide-btn" id="prevBtn" onclick="changeSlide(-1)">← Previous</button>
+                        <span class="slide-counter">
+                            <span id="currentSlide">1</span> / <span id="totalSlides">15</span>
+                        </span>
+                        <button class="slide-btn" id="nextBtn" onclick="changeSlide(1)">Next →</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 3: Build Your Questions Practice -->
+        <section id="practice" class="content-section section-light">
+            <div class="section-container">
+                <div class="section-header">
+                    <span class="section-number">3</span>
+                    <h2>🎯 Interactive Practice: Build Your Questions</h2>
+                    <a href="#practice" class="anchor-link">#</a>
+                </div>
+                
+                <div class="example-box" style="margin-bottom: 25px;">
+                    <p style="font-size: 1.1em; margin-bottom: 10px;"><strong>📱 How to use (works on all devices):</strong></p>
+                    <ol style="font-size: 1.05em; line-height: 1.8;">
+                        <li><strong>Step 1:</strong> Click/tap a word from the colored buttons to select it (it will glow orange)</li>
+                        <li><strong>Step 2:</strong> Click/tap a blank space (____________) to place your selected word there</li>
+                        <li><strong>Step 3:</strong> Repeat until all blanks are filled, then click "Check Answer"</li>
+                    </ol>
+                    <p style="font-size: 1.05em; margin-top: 15px; color: var(--primary-accent); font-weight: bold;">⚠️ Remember: Your question must show a DIRECTION (more/less, higher/lower, heavier/lighter)</p>
+                </div>
+
+                <!-- Activity 1 -->
+                <div class="drag-activity" id="activity1">
+                    <h4>Activity 1: Student Sleep Patterns</h4>
+                    
+                    <div class="data-table">
+                        <div class="table-title">Data Scenario:</div>
+                        <p>A researcher collected data about sleep patterns of students at Wellington High School. They recorded:</p>
+                        <ul>
+                            <li><strong>Student year level:</strong> Year 9, Year 10, Year 11, Year 12, Year 13</li>
+                            <li><strong>Hours of sleep per night:</strong> measured in hours (numerical)</li>
+                            <li><strong>Bedtime:</strong> measured in 24-hour time (numerical)</li>
+                            <li><strong>Device used before bed:</strong> Phone, Tablet, Laptop, None (categorical)</li>
+                        </ul>
+                    </div>
+
+                    <div class="word-bank" id="wordBank1">
+                        <div class="draggable-word" data-word="Year 9 students">Year 9 students</div>
+                        <div class="draggable-word" data-word="Year 13 students">Year 13 students</div>
+                        <div class="draggable-word" data-word="hours of sleep per night">hours of sleep per night</div>
+                        <div class="draggable-word" data-word="bedtime">bedtime</div>
+                        <div class="draggable-word" data-word="students at Wellington High School">students at Wellington High School</div>
+                        <div class="draggable-word" data-word="device type">device type</div>
+                    </div>
+
+                    <div class="question-builder">
+                        <div class="question-template">
+                            Do <span class="drop-zone" data-activity="1" data-type="group1" data-zone="1">_____________</span> 
+                            tend to have more 
+                            <span class="drop-zone" data-activity="1" data-type="variable" data-zone="2">_____________</span> 
+                            than 
+                            <span class="drop-zone" data-activity="1" data-type="group2" data-zone="3">_____________</span> 
+                            for 
+                            <span class="drop-zone" data-activity="1" data-type="population" data-zone="4">_____________</span>?
+                        </div>
+                    </div>
+
+                    <button class="check-btn" onclick="checkDragActivity(1)">Check Answer</button>
+                    <button class="reset-btn" onclick="resetDragActivity(1)">Reset</button>
+                    
+                    <div class="feedback" id="feedback1"></div>
+                </div>
+
+                <!-- Activity 2 -->
+                <div class="drag-activity" id="activity2">
+                    <h4>Activity 2: Smartphone Usage</h4>
+                    
+                    <div class="data-table">
+                        <div class="table-title">Data Scenario:</div>
+                        <p>A tech company surveyed New Zealand smartphone users. They recorded:</p>
+                        <ul>
+                            <li><strong>Age group:</strong> Teenagers (13-19), Young Adults (20-35), Adults (36-55), Seniors (56+)</li>
+                            <li><strong>Daily screen time:</strong> measured in minutes (numerical)</li>
+                            <li><strong>Number of apps installed:</strong> counted (numerical)</li>
+                            <li><strong>Preferred phone brand:</strong> Apple, Samsung, Other (categorical)</li>
+                        </ul>
+                    </div>
+
+                    <div class="word-bank" id="wordBank2">
+                        <div class="draggable-word" data-word="Teenagers">Teenagers</div>
+                        <div class="draggable-word" data-word="Seniors">Seniors</div>
+                        <div class="draggable-word" data-word="daily screen time">daily screen time</div>
+                        <div class="draggable-word" data-word="number of apps">number of apps</div>
+                        <div class="draggable-word" data-word="New Zealand smartphone users">New Zealand smartphone users</div>
+                        <div class="draggable-word" data-word="phone brand">phone brand</div>
+                    </div>
+
+                    <div class="question-builder">
+                        <div class="question-template">
+                            Do <span class="drop-zone" data-activity="2" data-type="group1" data-zone="1">_____________</span> 
+                            tend to have higher 
+                            <span class="drop-zone" data-activity="2" data-type="variable" data-zone="2">_____________</span> 
+                            than 
+                            <span class="drop-zone" data-activity="2" data-type="group2" data-zone="3">_____________</span> 
+                            for 
+                            <span class="drop-zone" data-activity="2" data-type="population" data-zone="4">_____________</span>?
+                        </div>
+                    </div>
+
+                    <button class="check-btn" onclick="checkDragActivity(2)">Check Answer</button>
+                    <button class="reset-btn" onclick="resetDragActivity(2)">Reset</button>
+                    
+                    <div class="feedback" id="feedback2"></div>
+                </div>
+
+                <!-- Activity 3 -->
+                <div class="drag-activity" id="activity3">
+                    <h4>Activity 3: Sports Performance</h4>
+                    
+                    <div class="data-table">
+                        <div class="table-title">Data Scenario:</div>
+                        <p>A sports scientist measured the performance of athletes at a New Zealand training camp. They recorded:</p>
+                        <ul>
+                            <li><strong>Sport type:</strong> Rugby players, Netball players, Swimmers, Runners</li>
+                            <li><strong>Training hours per week:</strong> measured in hours (numerical)</li>
+                            <li><strong>Resting heart rate:</strong> measured in beats per minute (numerical)</li>
+                            <li><strong>Diet type:</strong> Vegetarian, Vegan, Omnivore (categorical)</li>
+                        </ul>
+                    </div>
+
+                    <div class="word-bank" id="wordBank3">
+                        <div class="draggable-word" data-word="Rugby players">Rugby players</div>
+                        <div class="draggable-word" data-word="Swimmers">Swimmers</div>
+                        <div class="draggable-word" data-word="training hours per week">training hours per week</div>
+                        <div class="draggable-word" data-word="resting heart rate">resting heart rate</div>
+                        <div class="draggable-word" data-word="athletes at New Zealand training camps">athletes at New Zealand training camps</div>
+                        <div class="draggable-word" data-word="diet type">diet type</div>
+                    </div>
+
+                    <div class="question-builder">
+                        <div class="question-template">
+                            Do <span class="drop-zone" data-activity="3" data-type="group1" data-zone="1">_____________</span> 
+                            tend to spend more 
+                            <span class="drop-zone" data-activity="3" data-type="variable" data-zone="2">_____________</span> 
+                            than 
+                            <span class="drop-zone" data-activity="3" data-type="group2" data-zone="3">_____________</span> 
+                            for 
+                            <span class="drop-zone" data-activity="3" data-type="population" data-zone="4">_____________</span>?
+                        </div>
+                    </div>
+
+                    <button class="check-btn" onclick="checkDragActivity(3)">Check Answer</button>
+                    <button class="reset-btn" onclick="resetDragActivity(3)">Reset</button>
+                    
+                    <div class="feedback" id="feedback3"></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 4: Tips and Navigation -->
+        <section id="tips" class="content-section section-medium">
+            <div class="section-container">
+                <div class="section-header">
+                    <span class="section-number">4</span>
+                    <h2>💡 Tips for Success</h2>
+                    <a href="#tips" class="anchor-link">#</a>
+                </div>
+                
+                <div class="example-box">
+                    <ul>
+                        <li>Always use "tend to" to acknowledge variation in data</li>
+                        <li><strong>Show direction:</strong> Your question must predict which group is higher/lower</li>
+                        <li>Make sure your variable is numerical (can be measured or counted)</li>
+                        <li>Clearly identify two distinct groups to compare</li>
+                        <li>Define your population specifically (not just "people")</li>
+                        <li>Use direction words: more/less, higher/lower, greater/smaller, heavier/lighter</li>
+                        <li>Do background research to support your hypothesis, but write it in your own words</li>
+                        <li>Always acknowledge sources if you use research to form your prediction</li>
+                    </ul>
+                </div>
+                
+                <div class="text-center mt-lg">
+                    <a href="comparison-investigation.html" class="btn">← Back to Overview</a>
+                    <a href="comparison-lesson2.html" class="btn btn-secondary">Next Lesson →</a>
+                </div>
+            </div>
+        </section>
+        
+    </main>
+    
+    <!-- Footer -->
+    <footer class="page-footer">
+        <p>&copy; 2026 NZ Math Hub. Supporting mathematics education in New Zealand.</p>
+    </footer>
+    
+    <!-- Smooth Scroll + Interactive Functionality Script -->
+    <script>
+        // Smooth scroll for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Slideshow functionality
+        let currentSlideIndex = 1;
+        let totalSlides = 15;
+
+        // Transform bad question to good question
+        function transformQuestion() {
+            const badBox = document.getElementById('badQuestionBox');
+            const goodBox = document.getElementById('goodQuestionBox');
+            const btn = document.getElementById('transformBtn');
+            
+            badBox.style.opacity = '0';
+            badBox.style.transform = 'scale(0.95)';
+            
+            setTimeout(() => {
+                badBox.style.display = 'none';
+                goodBox.style.display = 'block';
+                
+                setTimeout(() => {
+                    goodBox.style.opacity = '1';
+                    goodBox.style.transform = 'scale(1)';
+                }, 50);
+                
+                btn.textContent = '🔄 Show Bad Question Again';
+                btn.onclick = resetQuestion;
+            }, 500);
+        }
+
+        function resetQuestion() {
+            const badBox = document.getElementById('badQuestionBox');
+            const goodBox = document.getElementById('goodQuestionBox');
+            const btn = document.getElementById('transformBtn');
+            
+            goodBox.style.opacity = '0';
+            goodBox.style.transform = 'scale(0.95)';
+            
+            setTimeout(() => {
+                goodBox.style.display = 'none';
+                badBox.style.display = 'block';
+                
+                setTimeout(() => {
+                    badBox.style.opacity = '1';
+                    badBox.style.transform = 'scale(1)';
+                }, 50);
+                
+                btn.textContent = '✨ Transform to Good Question';
+                btn.onclick = transformQuestion;
+            }, 500);
+        }
+
+        function changeSlide(direction) {
+            const slides = document.querySelectorAll('.slide');
+            slides[currentSlideIndex - 1].classList.remove('active');
+            
+            currentSlideIndex += direction;
+            
+            if (currentSlideIndex > totalSlides) {
+                currentSlideIndex = totalSlides;
+            }
+            if (currentSlideIndex < 1) {
+                currentSlideIndex = 1;
+            }
+            
+            slides[currentSlideIndex - 1].classList.add('active');
+            document.getElementById('currentSlide').textContent = currentSlideIndex;
+            
+            document.getElementById('prevBtn').disabled = (currentSlideIndex === 1);
+            document.getElementById('nextBtn').disabled = (currentSlideIndex === totalSlides);
+        }
+
+        // Initialize first slide
+        document.getElementById('prevBtn').disabled = true;
+
+        // Drag and Drop Activity Logic
+        const activityState = {
+            1: { group1: null, group2: null, variable: null, population: null, zones: {} },
+            2: { group1: null, group2: null, variable: null, population: null, zones: {} },
+            3: { group1: null, group2: null, variable: null, population: null, zones: {} }
+        };
+
+        let selectedWord = null;
+        let selectedActivity = null;
+
+        // Touch-friendly word selection
+        document.addEventListener('DOMContentLoaded', function() {
+            setupWordBanks();
+        });
+
+        function setupWordBanks() {
+            for (let activityNum = 1; activityNum <= 3; activityNum++) {
+                const wordBank = document.getElementById(`wordBank${activityNum}`);
+                if (!wordBank) continue;
+                
+                const words = wordBank.querySelectorAll('.draggable-word');
+                
+                words.forEach(word => {
+                    word.addEventListener('click', function(e) {
+                        e.preventDefault();
+                        e.stopPropagation();
+                        
+                        if (this.classList.contains('used')) return;
+                        
+                        document.querySelectorAll('.draggable-word').forEach(w => {
+                            w.classList.remove('selected');
+                        });
+                        
+                        this.classList.add('selected');
+                        selectedWord = this;
+                        selectedActivity = activityNum;
+                    });
+                    
+                    word.addEventListener('touchstart', function(e) {
+                        this.click();
+                    });
+                });
+
+                const dropZones = document.querySelectorAll(`.drop-zone[data-activity="${activityNum}"]`);
+                
+                dropZones.forEach(zone => {
+                    zone.addEventListener('click', function(e) {
+                        e.preventDefault();
+                        e.stopPropagation();
+                        
+                        const activity = parseInt(this.dataset.activity);
+                        const type = this.dataset.type;
+                        const zoneNum = this.dataset.zone;
+                        
+                        if (!selectedWord || selectedActivity !== activity) {
+                            this.style.backgroundColor = '#ffcccc';
+                            setTimeout(() => {
+                                if (!this.classList.contains('filled')) {
+                                    this.style.backgroundColor = '';
+                                }
+                            }, 300);
+                            return;
+                        }
+                        
+                        if (this.classList.contains('filled')) {
+                            const previousWord = activityState[activity].zones[zoneNum];
+                            if (previousWord) {
+                                const wordElements = document.querySelectorAll(`#wordBank${activity} .draggable-word`);
+                                wordElements.forEach(w => {
+                                    if (w.dataset.word === previousWord) {
+                                        w.classList.remove('used');
+                                    }
+                                });
+                            }
+                            activityState[activity][type] = null;
+                        }
+                        
+                        const wordText = selectedWord.dataset.word;
+                        this.textContent = wordText;
+                        this.classList.add('filled');
+                        
+                        selectedWord.classList.remove('selected');
+                        selectedWord.classList.add('used');
+                        
+                        activityState[activity][type] = wordText;
+                        activityState[activity].zones[zoneNum] = wordText;
+                        
+                        selectedWord = null;
+                        selectedActivity = null;
+                    });
+                    
+                    zone.addEventListener('touchstart', function(e) {
+                        this.click();
+                    });
+                });
+            }
+        }
+
+        function checkDragActivity(activityNum) {
+            const state = activityState[activityNum];
+            const feedback = document.getElementById(`feedback${activityNum}`);
+            
+            if (!state.group1 || !state.group2 || !state.variable || !state.population) {
+                feedback.className = 'feedback error';
+                feedback.textContent = '❌ Please fill in all blanks before checking your answer.';
+                return;
+            }
+
+            const validAnswers = {
+                1: {
+                    validVariables: ['hours of sleep per night', 'bedtime'],
+                    invalidVariables: ['device type'],
+                    validGroups: ['Year 9 students', 'Year 13 students'],
+                    validPopulation: 'students at Wellington High School'
+                },
+                2: {
+                    validVariables: ['daily screen time', 'number of apps'],
+                    invalidVariables: ['phone brand'],
+                    validGroups: ['Teenagers', 'Seniors'],
+                    validPopulation: 'New Zealand smartphone users'
+                },
+                3: {
+                    validVariables: ['training hours per week', 'resting heart rate'],
+                    invalidVariables: ['diet type'],
+                    validGroups: ['Rugby players', 'Swimmers'],
+                    validPopulation: 'athletes at New Zealand training camps'
+                }
+            };
+
+            const valid = validAnswers[activityNum];
+            let errors = [];
+
+            if (valid.invalidVariables.includes(state.variable)) {
+                errors.push(`"${state.variable}" is categorical, not numerical. Choose a variable that can be measured or counted.`);
+            } else if (!valid.validVariables.includes(state.variable)) {
+                errors.push('The variable should be numerical (something you can measure or count).');
+            }
+
+            if (!valid.validGroups.includes(state.group1) || !valid.validGroups.includes(state.group2)) {
+                errors.push('Make sure you\'ve selected valid groups from the data scenario.');
+            } else if (state.group1 === state.group2) {
+                errors.push('You need to compare two DIFFERENT groups!');
+            }
+
+            if (state.population !== valid.validPopulation) {
+                errors.push('Make sure you\'ve correctly identified the population from the data scenario.');
+            }
+
+            if (errors.length === 0) {
+                feedback.className = 'feedback success';
+                feedback.innerHTML = `✅ <strong>Excellent!</strong> Your comparison question has all the right components:<br>
+                    • Two different groups: ${state.group1} vs ${state.group2}<br>
+                    • A numerical variable: ${state.variable}<br>
+                    • A defined population: ${state.population}`;
+            } else {
+                feedback.className = 'feedback error';
+                feedback.innerHTML = '❌ <strong>Not quite right. Here\'s what to fix:</strong><br>' + 
+                    errors.map(e => `• ${e}`).join('<br>');
+            }
+        }
+
+        function resetDragActivity(activityNum) {
+            activityState[activityNum] = { 
+                group1: null, 
+                group2: null, 
+                variable: null, 
+                population: null,
+                zones: {}
+            };
+            
+            const dropZones = document.querySelectorAll(`.drop-zone[data-activity="${activityNum}"]`);
+            dropZones.forEach(zone => {
+                zone.textContent = '_____________';
+                zone.classList.remove('filled');
+                zone.style.backgroundColor = '';
+            });
+            
+            const words = document.querySelectorAll(`#wordBank${activityNum} .draggable-word`);
+            words.forEach(word => {
+                word.classList.remove('used', 'selected');
+            });
+            
+            selectedWord = null;
+            selectedActivity = null;
+            
+            const feedback = document.getElementById(`feedback${activityNum}`);
+            feedback.className = 'feedback';
+            feedback.textContent = '';
+        }
+
+        // Keyboard navigation for slideshow
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'ArrowLeft') {
+                changeSlide(-1);
+            } else if (e.key === 'ArrowRight') {
+                changeSlide(1);
+            }
+        });
+    </script>
+    
+</body>
+</html>

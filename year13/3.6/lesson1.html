@@ -1,0 +1,646 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lesson 1: Power Rule - NZ Math Hub</title>
+    <link rel="stylesheet" href="../../styles.css">
+    <link rel="stylesheet" href="../../dark-mode.css">
+    <link rel="stylesheet" href="../../print.css">
+    <link rel="stylesheet" href="../../scroll-reveal.css">
+    <!-- KaTeX CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css" integrity="sha384-n8MVd4RsNIU0tAv4ct0nTaAbDJwPJzDEaqSD1odI+WdtXRGWt2kTvGFasHpSy3SV" crossorigin="anonymous">
+    <style>
+        .example-box {
+            background: #f8f9fa;
+            border-left: 4px solid var(--primary-accent);
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 5px;
+        }
+
+        .worked-example {
+            background: white;
+            border: 2px solid var(--border-color);
+            padding: 20px;
+            margin: 15px 0;
+            border-radius: 8px;
+        }
+
+        .step {
+            margin: 10px 0;
+            padding-left: 20px;
+        }
+
+        .step-number {
+            display: inline-block;
+            background: var(--primary-accent);
+            color: white;
+            width: 25px;
+            height: 25px;
+            border-radius: 50%;
+            text-align: center;
+            line-height: 25px;
+            margin-right: 10px;
+            font-weight: bold;
+        }
+
+        .practice-section {
+            background: #fff9e6;
+            padding: 25px;
+            border-radius: 10px;
+            margin: 25px 0;
+        }
+
+        .problem-set {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+            margin: 20px 0;
+        }
+
+        .problem {
+            background: white;
+            padding: 15px;
+            border-radius: 5px;
+            border: 1px solid #ddd;
+        }
+
+        .problem-label {
+            color: var(--primary-accent);
+            font-weight: bold;
+            margin-bottom: 8px;
+        }
+
+        .highlight-change {
+            background: #ffffcc;
+            padding: 2px 6px;
+            border-radius: 3px;
+            font-weight: bold;
+        }
+
+        .rule-box {
+            background: linear-gradient(135deg, var(--primary-accent), var(--secondary-accent));
+            color: white;
+            padding: 25px;
+            border-radius: 10px;
+            margin: 25px 0;
+            font-size: 1.1em;
+        }
+
+        .answer-reveal {
+            background: #e6ffe6;
+            padding: 10px 15px;
+            margin-top: 10px;
+            border-radius: 5px;
+            display: none;
+        }
+
+        .show-answer-btn {
+            background: var(--secondary-accent);
+            color: white;
+            border: none;
+            padding: 8px 15px;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-top: 10px;
+        }
+
+        .show-answer-btn:hover {
+            background: var(--primary-accent);
+        }
+
+        .navigation-buttons {
+            display: flex;
+            justify-content: space-between;
+            margin: 30px 0;
+            padding: 20px 0;
+            border-top: 2px solid var(--border-color);
+        }
+
+        .nav-btn {
+            padding: 12px 25px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: all 0.3s ease;
+        }
+
+        .nav-btn-primary {
+            background: var(--primary-accent);
+            color: white;
+        }
+
+        .nav-btn-secondary {
+            background: var(--background-light);
+            color: var(--text-primary);
+            border: 2px solid var(--border-color);
+        }
+
+        .nav-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="page-header">
+        <div class="header-content">
+            <h1>📐 NZ Math Hub</h1>
+            <p>Lesson 1: The Power Rule</p>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <div class="section-container">
+            <!-- Breadcrumb -->
+            <nav class="breadcrumb">
+                <a href="../../index.html">Home</a> → 
+                <a href="../../year13.html">Year 13</a> → 
+                <a href="index.html">3.6 Differentiation</a> → 
+                <span>Lesson 1</span>
+            </nav>
+
+            <!-- Introduction -->
+            <section class="content-section">
+                <h2>The Power Rule: Foundation of Differentiation</h2>
+                <p>The power rule is the most fundamental differentiation technique. Master this, and you'll be able to differentiate any polynomial function quickly and accurately.</p>
+
+                <!-- The Rule -->
+                <div class="rule-box">
+                    <h3 style="color: white; margin-top: 0;">The Power Rule</h3>
+                    <p style="margin: 15px 0;">If $f(x) = x^n$, then:</p>
+                    <p style="font-size: 1.3em; text-align: center; margin: 20px 0;">
+                        $$f'(x) = nx^{n-1}$$
+                    </p>
+                    <p style="margin-top: 15px;">In words: "Multiply by the power, then reduce the power by 1"</p>
+                </div>
+            </section>
+
+            <!-- Worked Examples -->
+            <section class="content-section section-light">
+                <h2>Worked Examples</h2>
+                <p>Let's see how the power rule works with clear, step-by-step examples.</p>
+
+                <!-- Example 1 -->
+                <div class="accordion-example">
+                    <h3>Example 1: Basic Power</h3>
+                    
+                    <div class="example-question">
+                        <strong>Differentiate:</strong> $f(x) = x^5$
+                    </div>
+                    
+                    <div class="accordion-step">
+                        <div class="accordion-header" onclick="toggleAccordion(this)">
+                            <span class="step-label">Step 1: Identify the power</span>
+                            <span class="accordion-toggle">▼</span>
+                        </div>
+                        <div class="accordion-content">
+                            <div class="step-math">$n = 5$</div>
+                        </div>
+                    </div>
+                    
+                    <div class="accordion-step">
+                        <div class="accordion-header" onclick="toggleAccordion(this)">
+                            <span class="step-label">Step 2: Multiply by the power</span>
+                            <span class="accordion-toggle">▼</span>
+                        </div>
+                        <div class="accordion-content">
+                            <div class="step-math">$5 \times x^?$</div>
+                        </div>
+                    </div>
+                    
+                    <div class="accordion-step">
+                        <div class="accordion-header" onclick="toggleAccordion(this)">
+                            <span class="step-label">Step 3: Reduce the power by 1</span>
+                            <span class="accordion-toggle">▼</span>
+                        </div>
+                        <div class="accordion-content">
+                            <div class="step-math">$5 - 1 = 4$</div>
+                        </div>
+                    </div>
+                    
+                    <div class="accordion-step">
+                        <div class="accordion-header" onclick="toggleAccordion(this)">
+                            <span class="step-label"><strong>✓ Answer</strong></span>
+                            <span class="accordion-toggle">▼</span>
+                        </div>
+                        <div class="accordion-content">
+                            <div class="step-math">$f'(x) = 5x^4$</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Example 2 -->
+                <div class="accordion-example">
+                    <h3>Example 2: With Coefficient</h3>
+                    
+                    <div class="example-question">
+                        <strong>Differentiate:</strong> $f(x) = 3x^4$
+                    </div>
+                    
+                    <div class="accordion-step">
+                        <div class="accordion-header" onclick="toggleAccordion(this)">
+                            <span class="step-label">Step 1: Note the coefficient</span>
+                            <span class="accordion-toggle">▼</span>
+                        </div>
+                        <div class="accordion-content">
+                            <div class="step-explanation">The 3 stays with us</div>
+                        </div>
+                    </div>
+                    
+                    <div class="accordion-step">
+                        <div class="accordion-header" onclick="toggleAccordion(this)">
+                            <span class="step-label">Step 2: Apply power rule</span>
+                            <span class="accordion-toggle">▼</span>
+                        </div>
+                        <div class="accordion-content">
+                            <div class="step-math">$3 \times 4x^{4-1}$</div>
+                        </div>
+                    </div>
+                    
+                    <div class="accordion-step">
+                        <div class="accordion-header" onclick="toggleAccordion(this)">
+                            <span class="step-label">Step 3: Simplify</span>
+                            <span class="accordion-toggle">▼</span>
+                        </div>
+                        <div class="accordion-content">
+                            <div class="step-math">$3 \times 4 = 12$</div>
+                        </div>
+                    </div>
+                    
+                    <div class="accordion-step">
+                        <div class="accordion-header" onclick="toggleAccordion(this)">
+                            <span class="step-label"><strong>✓ Answer</strong></span>
+                            <span class="accordion-toggle">▼</span>
+                        </div>
+                        <div class="accordion-content">
+                            <div class="step-math">$f'(x) = 12x^3$</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Example 3 -->
+                <div class="accordion-example">
+                    <h3>Example 3: Negative Power</h3>
+                    
+                    <div class="example-question">
+                        <strong>Differentiate:</strong> $f(x) = x^{-2}$
+                    </div>
+                    
+                    <div class="accordion-step">
+                        <div class="accordion-header" onclick="toggleAccordion(this)">
+                            <span class="step-label">Step 1: The power is negative</span>
+                            <span class="accordion-toggle">▼</span>
+                        </div>
+                        <div class="accordion-content">
+                            <div class="step-math">$n = -2$</div>
+                        </div>
+                    </div>
+                    
+                    <div class="accordion-step">
+                        <div class="accordion-header" onclick="toggleAccordion(this)">
+                            <span class="step-label">Step 2: Multiply by the power</span>
+                            <span class="accordion-toggle">▼</span>
+                        </div>
+                        <div class="accordion-content">
+                            <div class="step-math">$-2 \times x^?$</div>
+                        </div>
+                    </div>
+                    
+                    <div class="accordion-step">
+                        <div class="accordion-header" onclick="toggleAccordion(this)">
+                            <span class="step-label">Step 3: Reduce power by 1</span>
+                            <span class="accordion-toggle">▼</span>
+                        </div>
+                        <div class="accordion-content">
+                            <div class="step-math">$-2 - 1 = -3$</div>
+                        </div>
+                    </div>
+                    
+                    <div class="accordion-step">
+                        <div class="accordion-header" onclick="toggleAccordion(this)">
+                            <span class="step-label"><strong>✓ Answer</strong></span>
+                            <span class="accordion-toggle">▼</span>
+                        </div>
+                        <div class="accordion-content">
+                            <div class="step-math">$f'(x) = -2x^{-3}$</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Example 4 -->
+                <div class="accordion-example">
+                    <h3>Example 4: Fractional Power</h3>
+                    
+                    <div class="example-question">
+                        <strong>Differentiate:</strong> $f(x) = x^{1/2}$ (which is $\sqrt{x}$)
+                    </div>
+                    
+                    <div class="accordion-step">
+                        <div class="accordion-header" onclick="toggleAccordion(this)">
+                            <span class="step-label">Step 1: The power is a fraction</span>
+                            <span class="accordion-toggle">▼</span>
+                        </div>
+                        <div class="accordion-content">
+                            <div class="step-math">$n = \frac{1}{2}$</div>
+                        </div>
+                    </div>
+                    
+                    <div class="accordion-step">
+                        <div class="accordion-header" onclick="toggleAccordion(this)">
+                            <span class="step-label">Step 2: Multiply by the power</span>
+                            <span class="accordion-toggle">▼</span>
+                        </div>
+                        <div class="accordion-content">
+                            <div class="step-math">$\frac{1}{2} \times x^?$</div>
+                        </div>
+                    </div>
+                    
+                    <div class="accordion-step">
+                        <div class="accordion-header" onclick="toggleAccordion(this)">
+                            <span class="step-label">Step 3: Reduce power by 1</span>
+                            <span class="accordion-toggle">▼</span>
+                        </div>
+                        <div class="accordion-content">
+                            <div class="step-math">$\frac{1}{2} - 1 = -\frac{1}{2}$</div>
+                        </div>
+                    </div>
+                    
+                    <div class="accordion-step">
+                        <div class="accordion-header" onclick="toggleAccordion(this)">
+                            <span class="step-label"><strong>✓ Answer</strong></span>
+                            <span class="accordion-toggle">▼</span>
+                        </div>
+                        <div class="accordion-content">
+                            <div class="step-math">$f'(x) = \frac{1}{2}x^{-1/2}$ or $\frac{1}{2\sqrt{x}}$</div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Minimal Change Practice -->
+            <section class="content-section">
+                <h2>Practice: Minimal Change Problems</h2>
+                <p>These problems change <strong>one thing at a time</strong> to help you spot the pattern and build confidence.</p>
+
+                <!-- Set 1: Changing the power only -->
+                <div class="practice-section">
+                    <h3>Set 1: Same form, different powers</h3>
+                    <p><em>Notice: Only the <span class="highlight-change">power</span> changes</em></p>
+                    
+                    <div class="problem-set">
+                        <div class="problem">
+                            <div class="problem-label">a) Differentiate: $x^3$</div>
+                            <button class="show-answer-btn" onclick="toggleAnswer(this, '3x^2')">Show Answer</button>
+                            <div class="answer-reveal">$f'(x) = 3x^2$</div>
+                        </div>
+                        
+                        <div class="problem">
+                            <div class="problem-label">b) Differentiate: $x^{4}$</div>
+                            <button class="show-answer-btn" onclick="toggleAnswer(this, '4x^3')">Show Answer</button>
+                            <div class="answer-reveal">$f'(x) = 4x^3$</div>
+                        </div>
+                        
+                        <div class="problem">
+                            <div class="problem-label">c) Differentiate: $x^{6}$</div>
+                            <button class="show-answer-btn" onclick="toggleAnswer(this, '6x^5')">Show Answer</button>
+                            <div class="answer-reveal">$f'(x) = 6x^5$</div>
+                        </div>
+                        
+                        <div class="problem">
+                            <div class="problem-label">d) Differentiate: $x^{7}$</div>
+                            <button class="show-answer-btn" onclick="toggleAnswer(this, '7x^6')">Show Answer</button>
+                            <div class="answer-reveal">$f'(x) = 7x^6$</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Set 2: Adding coefficients -->
+                <div class="practice-section">
+                    <h3>Set 2: Adding coefficients</h3>
+                    <p><em>Notice: Now we add a <span class="highlight-change">coefficient</span> in front</em></p>
+                    
+                    <div class="problem-set">
+                        <div class="problem">
+                            <div class="problem-label">a) Differentiate: $2x^3$</div>
+                            <button class="show-answer-btn" onclick="toggleAnswer(this, '6x^2')">Show Answer</button>
+                            <div class="answer-reveal">$f'(x) = 6x^2$</div>
+                        </div>
+                        
+                        <div class="problem">
+                            <div class="problem-label">b) Differentiate: $5x^3$</div>
+                            <button class="show-answer-btn" onclick="toggleAnswer(this, '15x^2')">Show Answer</button>
+                            <div class="answer-reveal">$f'(x) = 15x^2$</div>
+                        </div>
+                        
+                        <div class="problem">
+                            <div class="problem-label">c) Differentiate: $4x^5$</div>
+                            <button class="show-answer-btn" onclick="toggleAnswer(this, '20x^4')">Show Answer</button>
+                            <div class="answer-reveal">$f'(x) = 20x^4$</div>
+                        </div>
+                        
+                        <div class="problem">
+                            <div class="problem-label">d) Differentiate: $7x^4$</div>
+                            <button class="show-answer-btn" onclick="toggleAnswer(this, '28x^3')">Show Answer</button>
+                            <div class="answer-reveal">$f'(x) = 28x^3$</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Set 3: Negative powers -->
+                <div class="practice-section">
+                    <h3>Set 3: Negative powers</h3>
+                    <p><em>Notice: The power is now <span class="highlight-change">negative</span></em></p>
+                    
+                    <div class="problem-set">
+                        <div class="problem">
+                            <div class="problem-label">a) Differentiate: $x^{-1}$</div>
+                            <button class="show-answer-btn" onclick="toggleAnswer(this, '-x^{-2}')">Show Answer</button>
+                            <div class="answer-reveal">$f'(x) = -x^{-2}$</div>
+                        </div>
+                        
+                        <div class="problem">
+                            <div class="problem-label">b) Differentiate: $x^{-3}$</div>
+                            <button class="show-answer-btn" onclick="toggleAnswer(this, '-3x^{-4}')">Show Answer</button>
+                            <div class="answer-reveal">$f'(x) = -3x^{-4}$</div>
+                        </div>
+                        
+                        <div class="problem">
+                            <div class="problem-label">c) Differentiate: $2x^{-2}$</div>
+                            <button class="show-answer-btn" onclick="toggleAnswer(this, '-4x^{-3}')">Show Answer</button>
+                            <div class="answer-reveal">$f'(x) = -4x^{-3}$</div>
+                        </div>
+                        
+                        <div class="problem">
+                            <div class="problem-label">d) Differentiate: $5x^{-4}$</div>
+                            <button class="show-answer-btn" onclick="toggleAnswer(this, '-20x^{-5}')">Show Answer</button>
+                            <div class="answer-reveal">$f'(x) = -20x^{-5}$</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Set 4: Fractional powers -->
+                <div class="practice-section">
+                    <h3>Set 4: Fractional powers</h3>
+                    <p><em>Notice: The power is now a <span class="highlight-change">fraction</span></em></p>
+                    
+                    <div class="problem-set">
+                        <div class="problem">
+                            <div class="problem-label">a) Differentiate: $x^{1/2}$</div>
+                            <button class="show-answer-btn" onclick="toggleAnswer(this, 'half-x')">Show Answer</button>
+                            <div class="answer-reveal">$f'(x) = \frac{1}{2}x^{-1/2}$</div>
+                        </div>
+                        
+                        <div class="problem">
+                            <div class="problem-label">b) Differentiate: $x^{1/3}$</div>
+                            <button class="show-answer-btn" onclick="toggleAnswer(this, 'third-x')">Show Answer</button>
+                            <div class="answer-reveal">$f'(x) = \frac{1}{3}x^{-2/3}$</div>
+                        </div>
+                        
+                        <div class="problem">
+                            <div class="problem-label">c) Differentiate: $x^{3/2}$</div>
+                            <button class="show-answer-btn" onclick="toggleAnswer(this, 'three-half-x')">Show Answer</button>
+                            <div class="answer-reveal">$f'(x) = \frac{3}{2}x^{1/2}$</div>
+                        </div>
+                        
+                        <div class="problem">
+                            <div class="problem-label">d) Differentiate: $2x^{3/4}$</div>
+                            <button class="show-answer-btn" onclick="toggleAnswer(this, 'two-three-fourth')">Show Answer</button>
+                            <div class="answer-reveal">$f'(x) = \frac{3}{2}x^{-1/4}$</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Set 5: Polynomials -->
+                <div class="practice-section">
+                    <h3>Set 5: Multiple terms (Polynomials)</h3>
+                    <p><em>Notice: Differentiate <span class="highlight-change">each term separately</span></em></p>
+                    
+                    <div class="problem-set" style="grid-template-columns: 1fr;">
+                        <div class="problem">
+                            <div class="problem-label">a) Differentiate: $x^3 + x^2$</div>
+                            <button class="show-answer-btn" onclick="toggleAnswer(this, 'poly1')">Show Answer</button>
+                            <div class="answer-reveal">$f'(x) = 3x^2 + 2x$</div>
+                        </div>
+                        
+                        <div class="problem">
+                            <div class="problem-label">b) Differentiate: $2x^4 - 3x^2$</div>
+                            <button class="show-answer-btn" onclick="toggleAnswer(this, 'poly2')">Show Answer</button>
+                            <div class="answer-reveal">$f'(x) = 8x^3 - 6x$</div>
+                        </div>
+                        
+                        <div class="problem">
+                            <div class="problem-label">c) Differentiate: $5x^3 + 4x^2 - 2x + 7$</div>
+                            <button class="show-answer-btn" onclick="toggleAnswer(this, 'poly3')">Show Answer</button>
+                            <div class="answer-reveal">$f'(x) = 15x^2 + 8x - 2$ (Note: constant 7 becomes 0)</div>
+                        </div>
+                        
+                        <div class="problem">
+                            <div class="problem-label">d) Differentiate: $x^5 - 3x^3 + 2x - 8$</div>
+                            <button class="show-answer-btn" onclick="toggleAnswer(this, 'poly4')">Show Answer</button>
+                            <div class="answer-reveal">$f'(x) = 5x^4 - 9x^2 + 2$</div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Key Points Summary -->
+            <section class="content-section section-light">
+                <h2>Key Points to Remember</h2>
+                <div class="example-box">
+                    <ul style="line-height: 2;">
+                        <li>✓ Power rule: Multiply by the power, then reduce the power by 1</li>
+                        <li>✓ The derivative of a constant is 0</li>
+                        <li>✓ The derivative of $x$ is 1 (think: $x^1$ becomes $1 \cdot x^0 = 1$)</li>
+                        <li>✓ Coefficients stay with the term and get multiplied</li>
+                        <li>✓ Negative and fractional powers follow the same rule</li>
+                        <li>✓ Differentiate each term of a polynomial separately</li>
+                    </ul>
+                </div>
+            </section>
+
+            <!-- Navigation -->
+            <div class="navigation-buttons">
+                <a href="index.html" class="nav-btn nav-btn-secondary">← Back to Overview</a>
+                <a href="lesson2.html" class="nav-btn nav-btn-primary">Next: Product & Quotient Rules →</a>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="page-footer">
+        <p>&copy; 2026 NZ Math Hub. Supporting mathematics education in New Zealand.</p>
+    </footer>
+
+    <!-- Dark Mode Toggle -->
+    <button class="dark-mode-toggle" onclick="toggleDarkMode()" title="Toggle Dark Mode (Ctrl+D)"></button>
+
+    <!-- Print Button -->
+    <button class="print-button no-print" onclick="window.print()" title="Print Worksheet">Print Worksheet</button>
+
+    <!-- KaTeX Scripts -->
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js" integrity="sha384-XjKyOOlGwcjNTAIQHIpgOno0Hl1YQqzUOEleOLALmuqehneUG+vnGctmUb0ZY0l8" crossorigin="anonymous"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js" integrity="sha384-+VBxd3r6XgURycqtZ117nYw44OOcIax56Z4dCRWbxyPt0Koah1uHoK0o4+/RRE05" crossorigin="anonymous"
+        onload="renderMathInElement(document.body, {delimiters: [{left: '$$', right: '$$', display: true}, {left: '$', right: '$', display: false}]});"></script>
+    <script defer src="../../interactive.js"></script>
+    
+    <script>
+        function toggleAccordion(header) {
+            const step = header.parentElement;
+            const content = header.nextElementSibling;
+            const isOpen = header.classList.contains('active');
+            
+            // Toggle this accordion
+            header.classList.toggle('active');
+            content.classList.toggle('open');
+            
+            // Mark as completed when opened
+            if (!isOpen) {
+                step.classList.add('completed');
+            }
+            
+            // Re-render math in opened content
+            if (content.classList.contains('open') && typeof renderMathInElement !== 'undefined') {
+                renderMathInElement(content, {
+                    delimiters: [
+                        {left: '$$', right: '$$', display: true},
+                        {left: '$', right: '$', display: false}
+                    ],
+                    throwOnError: false
+                });
+            }
+        }
+        
+        function toggleAnswer(button, answerId) {
+            const answerDiv = button.nextElementSibling;
+            if (answerDiv.style.display === 'none' || answerDiv.style.display === '') {
+                answerDiv.style.display = 'block';
+                button.textContent = 'Hide Answer';
+                button.style.background = '#000';
+                // Trigger KaTeX to render the newly shown content
+                if (typeof renderMathInElement !== 'undefined') {
+                    renderMathInElement(answerDiv, {delimiters: [{left: '$$', right: '$$', display: true}, {left: '$', right: '$', display: false}]});
+                }
+            } else {
+                answerDiv.style.display = 'none';
+                button.textContent = 'Show Answer';
+                button.style.background = '';
+            }
+        }
+
+        // Dark mode toggle
+        function toggleDarkMode() {
+            document.body.classList.toggle('dark-mode');
+            localStorage.setItem('darkMode', document.body.classList.contains('dark-mode'));
+        }
+
+        // Remember dark mode preference
+        if (localStorage.getItem('darkMode') === 'true') {
+            document.body.classList.add('dark-mode');
+        }
+    </script>
+</body>
+</html>

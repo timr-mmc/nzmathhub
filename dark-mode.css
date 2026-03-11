@@ -1,0 +1,262 @@
+/* ===================================
+   Dark Mode Stylesheet
+   Toggle with Ctrl+D or button
+   =================================== */
+
+/* Dark mode active when body has 'dark-mode' class */
+body.dark-mode {
+    --text-primary: #e0e0e0;
+    --text-secondary: #b0b0b0;
+    --background-primary: #1a1a1a;
+    --background-secondary: #2d2d2d;
+    --background-tertiary: #3a3a3a;
+    --primary-accent: #00b3b3;
+    --border-color: #444;
+    --shadow: rgba(0,0,0,0.5);
+    
+    background-color: var(--background-primary);
+    color: var(--text-primary);
+}
+
+body.dark-mode .page-header {
+    background: linear-gradient(135deg, #004d4d 0%, #003333 100%);
+    border-bottom-color: var(--border-color);
+}
+
+body.dark-mode .breadcrumb {
+    background: var(--background-secondary);
+    border-bottom-color: var(--border-color);
+}
+
+body.dark-mode .breadcrumb a {
+    color: var(--primary-accent);
+}
+
+body.dark-mode .breadcrumb a:hover {
+    color: #00cccc;
+}
+
+body.dark-mode .main-nav {
+    background: var(--background-secondary);
+    border-bottom-color: var(--border-color);
+}
+
+body.dark-mode .nav-link {
+    color: var(--text-primary);
+    border-color: var(--border-color);
+}
+
+body.dark-mode .nav-link:hover,
+body.dark-mode .nav-link.active {
+    background: var(--primary-accent);
+    color: #000;
+}
+
+body.dark-mode .content-section {
+    background: var(--background-secondary);
+    border-color: var(--border-color);
+}
+
+body.dark-mode .section-title {
+    color: var(--text-primary);
+    border-bottom-color: var(--primary-accent);
+}
+
+body.dark-mode .practice-problem {
+    background: var(--background-tertiary);
+    border-color: var(--border-color);
+}
+
+body.dark-mode .answer-section {
+    background: var(--background-primary);
+    border-color: var(--border-color);
+}
+
+body.dark-mode .show-answer-btn {
+    background: var(--background-tertiary);
+    color: var(--primary-accent);
+    border-color: var(--border-color);
+}
+
+body.dark-mode .show-answer-btn:hover {
+    background: var(--primary-accent);
+    color: #000;
+}
+
+body.dark-mode .example-box,
+body.dark-mode .note-box,
+body.dark-mode .definition-box {
+    background: var(--background-tertiary);
+    border-color: var(--primary-accent);
+}
+
+body.dark-mode .highlight-change {
+    background-color: rgba(0, 179, 179, 0.3);
+    color: #00ffff;
+}
+
+body.dark-mode .navigation-buttons a {
+    background: var(--background-tertiary);
+    color: var(--text-primary);
+    border-color: var(--border-color);
+}
+
+body.dark-mode .nav-btn-primary {
+    background: var(--primary-accent);
+    color: #000;
+}
+
+body.dark-mode .nav-btn-primary:hover {
+    background: #00cccc;
+}
+
+body.dark-mode .navigation-buttons a:hover {
+    background: var(--background-primary);
+    border-color: var(--primary-accent);
+}
+
+body.dark-mode footer {
+    background: var(--background-secondary);
+    border-top-color: var(--border-color);
+    color: var(--text-secondary);
+}
+
+/* Interactive Components in Dark Mode */
+body.dark-mode .drag-drop-container,
+body.dark-mode .quiz-container {
+    background: var(--background-secondary);
+    border-color: var(--border-color);
+}
+
+body.dark-mode .draggable-item,
+body.dark-mode .drop-area,
+body.dark-mode .quiz-option {
+    background: var(--background-tertiary);
+    border-color: var(--border-color);
+    color: var(--text-primary);
+}
+
+body.dark-mode .draggable-item:hover,
+body.dark-mode .quiz-option:hover:not(:disabled) {
+    border-color: var(--primary-accent);
+    background: var(--background-primary);
+}
+
+body.dark-mode .option-letter {
+    background: var(--background-secondary);
+    border-color: var(--border-color);
+}
+
+body.dark-mode .graph-container {
+    background: var(--background-tertiary);
+}
+
+body.dark-mode .graph-canvas {
+    border-color: var(--border-color);
+    background: var(--background-secondary);
+}
+
+/* Dark Mode Toggle Button */
+.dark-mode-toggle {
+    position: fixed;
+    bottom: 20px;
+    left: 20px;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background: var(--primary-accent, #006666);
+    border: 3px solid white;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+    color: white;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+    transition: all 0.3s ease;
+    z-index: 9998;
+}
+
+.dark-mode-toggle:hover {
+    transform: scale(1.1);
+    box-shadow: 0 6px 16px rgba(0,0,0,0.4);
+}
+
+body.dark-mode .dark-mode-toggle {
+    background: #ffb700;
+    border-color: var(--background-primary);
+}
+
+.dark-mode-toggle::before {
+    content: '☀️';
+}
+
+body.dark-mode .dark-mode-toggle::before {
+    content: '🌙';
+}
+
+/* Adjust KaTeX in dark mode */
+body.dark-mode .katex {
+    color: var(--text-primary);
+}
+
+body.dark-mode .katex .mord,
+body.dark-mode .katex .mbin,
+body.dark-mode .katex .mrel,
+body.dark-mode .katex .mop,
+body.dark-mode .katex .mopen,
+body.dark-mode .katex .mclose,
+body.dark-mode .katex .mpunct {
+    color: var(--text-primary);
+}
+
+/* Tables in dark mode */
+body.dark-mode table {
+    border-color: var(--border-color);
+}
+
+body.dark-mode th {
+    background: var(--background-tertiary);
+    color: var(--text-primary);
+    border-color: var(--border-color);
+}
+
+body.dark-mode td {
+    background: var(--background-secondary);
+    border-color: var(--border-color);
+}
+
+body.dark-mode tr:hover td {
+    background: var(--background-primary);
+}
+
+/* Code blocks in dark mode */
+body.dark-mode code {
+    background: var(--background-tertiary);
+    color: #00ffff;
+    border-color: var(--border-color);
+}
+
+/* Links in dark mode */
+body.dark-mode a {
+    color: var(--primary-accent);
+}
+
+body.dark-mode a:hover {
+    color: #00cccc;
+}
+
+/* Smooth transitions for theme switching */
+body,
+.page-header,
+.breadcrumb,
+.main-nav,
+.content-section,
+.practice-problem,
+.answer-section,
+.example-box,
+.note-box,
+.navigation-buttons a,
+footer {
+    transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+}

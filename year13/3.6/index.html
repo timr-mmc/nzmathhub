@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>3.6 Differentiation - NZ Math Hub</title>
+    <link rel="stylesheet" href="../../styles.css">
+    <style>
+        .lesson-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            margin: 30px 0;
+        }
+
+        .lesson-card {
+            background: white;
+            border: 2px solid var(--border-color);
+            border-radius: 10px;
+            padding: 25px;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .lesson-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+            border-color: var(--primary-accent);
+        }
+
+        .lesson-number {
+            display: inline-block;
+            background: var(--primary-accent);
+            color: white;
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-weight: bold;
+            margin-bottom: 15px;
+        }
+
+        .lesson-title {
+            font-size: 1.3em;
+            color: var(--text-primary);
+            margin: 10px 0;
+            font-weight: 600;
+        }
+
+        .lesson-description {
+            color: var(--text-secondary);
+            line-height: 1.6;
+            margin: 10px 0;
+        }
+
+        .lesson-topics {
+            margin-top: 15px;
+            padding-top: 15px;
+            border-top: 1px solid var(--border-color);
+        }
+
+        .lesson-topics ul {
+            margin: 10px 0;
+            padding-left: 20px;
+        }
+
+        .lesson-topics li {
+            color: var(--text-secondary);
+            margin: 5px 0;
+        }
+
+        .overview-section {
+            background: linear-gradient(135deg, var(--primary-accent) 0%, var(--secondary-accent) 100%);
+            color: white;
+            padding: 40px;
+            border-radius: 15px;
+            margin-bottom: 30px;
+        }
+
+        .overview-section h2 {
+            color: white;
+            margin-top: 0;
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="page-header">
+        <div class="header-content">
+            <h1>📐 NZ Math Hub</h1>
+            <p>Year 13 Mathematics - NCEA Level 3</p>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <div class="section-container">
+            <!-- Breadcrumb -->
+            <nav class="breadcrumb">
+                <a href="../../index.html">Home</a> → 
+                <a href="../../year13.html">Year 13</a> → 
+                <span>3.6 Differentiation</span>
+            </nav>
+
+            <!-- Overview Section -->
+            <div class="overview-section">
+                <h2>3.6 Differentiation</h2>
+                <p style="font-size: 1.1em; line-height: 1.8;">
+                    Master the techniques of differentiation and apply them to solve real-world problems. 
+                    This comprehensive section covers everything from basic rules to advanced applications 
+                    including optimisation and related rates of change.
+                </p>
+                <p style="margin-top: 15px; font-size: 1.05em;">
+                    📚 <strong>10 Interactive Lessons</strong> | ⏱️ <strong>Progressive Difficulty</strong> | 
+                    🎯 <strong>Exam-Focused Practice</strong>
+                </p>
+            </div>
+
+            <!-- Learning Pathway -->
+            <div class="content-section">
+                <h2>Learning Pathway</h2>
+                <p>Follow the lessons in order for the best learning experience. Each lesson builds on previous concepts.</p>
+
+                <div class="lesson-grid">
+                    <!-- Lesson 1 -->
+                    <div class="lesson-card" onclick="window.location.href='lesson1.html'">
+                        <span class="lesson-number">Lesson 1</span>
+                        <h3 class="lesson-title">Basic Differentiation: The Power Rule</h3>
+                        <p class="lesson-description">
+                            Start with the fundamental rule of differentiation. Learn to differentiate 
+                            polynomials with confidence using minimal change problems.
+                        </p>
+                        <div class="lesson-topics">
+                            <strong>Topics:</strong>
+                            <ul>
+                                <li>Power rule for positive powers</li>
+                                <li>Differentiating constants</li>
+                                <li>Negative and fractional powers</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <!-- Lesson 2 -->
+                    <div class="lesson-card" onclick="window.location.href='lesson2.html'">
+                        <span class="lesson-number">Lesson 2</span>
+                        <h3 class="lesson-title">Product & Quotient Rules</h3>
+                        <p class="lesson-description">
+                            Learn when and how to apply the product and quotient rules for more complex functions.
+                        </p>
+                        <div class="lesson-topics">
+                            <strong>Topics:</strong>
+                            <ul>
+                                <li>Product rule: (uv)' = u'v + uv'</li>
+                                <li>Quotient rule: (u/v)' = (u'v - uv')/v²</li>
+                                <li>When to use each rule</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <!-- Lesson 3 -->
+                    <div class="lesson-card" onclick="window.location.href='lesson3.html'">
+                        <span class="lesson-number">Lesson 3</span>
+                        <h3 class="lesson-title">The Chain Rule</h3>
+                        <p class="lesson-description">
+                            Master composite functions with the chain rule. Essential for more advanced calculus.
+                        </p>
+                        <div class="lesson-topics">
+                            <strong>Topics:</strong>
+                            <ul>
+                                <li>Chain rule: dy/dx = dy/du × du/dx</li>
+                                <li>Identifying composite functions</li>
+                                <li>Multiple compositions</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <!-- Lesson 4 -->
+                    <div class="lesson-card" onclick="window.location.href='lesson4.html'">
+                        <span class="lesson-number">Lesson 4</span>
+                        <h3 class="lesson-title">Mixed Techniques Practice</h3>
+                        <p class="lesson-description">
+                            Combine all differentiation rules. Learn to identify which technique to use for any function.
+                        </p>
+                        <div class="lesson-topics">
+                            <strong>Topics:</strong>
+                            <ul>
+                                <li>Deciding which rule to apply</li>
+                                <li>Combining multiple rules</li>
+                                <li>Simplifying derivatives</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <!-- Lesson 5 -->
+                    <div class="lesson-card" onclick="window.location.href='lesson5.html'">
+                        <span class="lesson-number">Lesson 5</span>
+                        <h3 class="lesson-title">Tangents & Normals</h3>
+                        <p class="lesson-description">
+                            Apply derivatives to find equations of tangent lines and normal lines to curves.
+                        </p>
+                        <div class="lesson-topics">
+                            <strong>Topics:</strong>
+                            <ul>
+                                <li>Finding gradients at specific points</li>
+                                <li>Equation of tangent: y - y₁ = m(x - x₁)</li>
+                                <li>Perpendicular gradients for normals</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <!-- Lesson 6 -->
+                    <div class="lesson-card" onclick="window.location.href='lesson6.html'">
+                        <span class="lesson-number">Lesson 6</span>
+                        <h3 class="lesson-title">Stationary Points</h3>
+                        <p class="lesson-description">
+                            Find and classify maximum and minimum points using first and second derivatives.
+                        </p>
+                        <div class="lesson-topics">
+                            <strong>Topics:</strong>
+                            <ul>
+                                <li>Finding stationary points (f'(x) = 0)</li>
+                                <li>First derivative test</li>
+                                <li>Second derivative test</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <!-- Lesson 7 -->
+                    <div class="lesson-card" onclick="window.location.href='lesson7.html'">
+                        <span class="lesson-number">Lesson 7</span>
+                        <h3 class="lesson-title">Points of Inflection</h3>
+                        <p class="lesson-description">
+                            Understand concavity and find points where the curve changes from concave up to concave down.
+                        </p>
+                        <div class="lesson-topics">
+                            <strong>Topics:</strong>
+                            <ul>
+                                <li>Second derivative and concavity</li>
+                                <li>Finding inflection points (f''(x) = 0)</li>
+                                <li>Interpreting curve behavior</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <!-- Lesson 8 -->
+                    <div class="lesson-card" onclick="window.location.href='lesson8.html'">
+                        <span class="lesson-number">Lesson 8</span>
+                        <h3 class="lesson-title">Related Rates of Change</h3>
+                        <p class="lesson-description">
+                            Solve problems where multiple quantities change with respect to time.
+                        </p>
+                        <div class="lesson-topics">
+                            <strong>Topics:</strong>
+                            <ul>
+                                <li>Implicit differentiation with time</li>
+                                <li>Connected rates: dV/dt, dh/dt</li>
+                                <li>Real-world applications</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <!-- Lesson 9 -->
+                    <div class="lesson-card" onclick="window.location.href='lesson9.html'">
+                        <span class="lesson-number">Lesson 9</span>
+                        <h3 class="lesson-title">Optimisation Problems</h3>
+                        <p class="lesson-description">
+                            Use calculus to find maximum and minimum values in real-world contexts.
+                        </p>
+                        <div class="lesson-topics">
+                            <strong>Topics:</strong>
+                            <ul>
+                                <li>Setting up optimisation problems</li>
+                                <li>Constraint equations</li>
+                                <li>Practical applications: areas, volumes, costs</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <!-- Lesson 10 -->
+                    <div class="lesson-card" onclick="window.location.href='lesson10.html'">
+                        <span class="lesson-number">Lesson 10</span>
+                        <h3 class="lesson-title">Advanced Applications</h3>
+                        <p class="lesson-description">
+                            Tackle complex problems combining multiple techniques. Prepare for NCEA assessments.
+                        </p>
+                        <div class="lesson-topics">
+                            <strong>Topics:</strong>
+                            <ul>
+                                <li>Complex optimisation scenarios</li>
+                                <li>Advanced related rates</li>
+                                <li>Exam-style questions</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Study Tips -->
+            <div class="content-section section-light">
+                <h2>Study Tips for Success</h2>
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; margin-top: 20px;">
+                    <div style="background: white; padding: 20px; border-radius: 10px; border-left: 4px solid var(--primary-accent);">
+                        <h4 style="color: var(--primary-accent); margin-top: 0;">📝 Practice Regularly</h4>
+                        <p>Master each technique with minimal change problems before moving to the next lesson.</p>
+                    </div>
+                    <div style="background: white; padding: 20px; border-radius: 10px; border-left: 4px solid var(--secondary-accent);">
+                        <h4 style="color: var(--secondary-accent); margin-top: 0;">🔄 Review Often</h4>
+                        <p>Revisit earlier lessons using spaced repetition for better long-term retention.</p>
+                    </div>
+                    <div style="background: white; padding: 20px; border-radius: 10px; border-left: 4px solid var(--success-color);">
+                        <h4 style="color: var(--success-color); margin-top: 0;">✍️ Show Your Working</h4>
+                        <p>Always write out each step clearly. This helps identify errors and builds good exam habits.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="page-footer">
+        <p>&copy; 2026 NZ Math Hub. Supporting mathematics education in New Zealand.</p>
+    </footer>
+</body>
+</html>

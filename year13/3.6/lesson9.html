@@ -1,0 +1,655 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lesson 9: Optimisation - NZ Math Hub</title>
+    <link rel="stylesheet" href="../../styles.css">
+    <link rel="stylesheet" href="../../scroll-reveal.css">
+    <!-- KaTeX CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css" integrity="sha384-n8MVd4RsNIU0tAv4ct0nTaAbDJwPJzDEaqSD1odI+WdtXRGWt2kTvGFasHpSy3SV" crossorigin="anonymous">
+    <style>
+        .rule-box {
+            background: linear-gradient(135deg, var(--primary-accent), var(--secondary-accent));
+            color: white;
+            padding: 25px;
+            border-radius: 10px;
+            margin: 25px 0;
+        }
+
+        .worked-example {
+            background: white;
+            border: 2px solid var(--border-color);
+            padding: 20px;
+            margin: 15px 0;
+            border-radius: 8px;
+        }
+
+        .step {
+            margin: 12px 0;
+            padding-left: 20px;
+        }
+
+        .step-number {
+            display: inline-block;
+            background: var(--primary-accent);
+            color: white;
+            width: 25px;
+            height: 25px;
+            border-radius: 50%;
+            text-align: center;
+            line-height: 25px;
+            margin-right: 10px;
+            font-weight: bold;
+        }
+
+        .practice-section {
+            background: #fff9e6;
+            padding: 25px;
+            border-radius: 10px;
+            margin: 25px 0;
+        }
+
+        .problem {
+            background: white;
+            padding: 15px;
+            border-radius: 5px;
+            border: 1px solid #ddd;
+            margin: 15px 0;
+        }
+
+        .problem-label {
+            color: var(--primary-accent);
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
+        .answer-reveal {
+            background: #e6ffe6;
+            padding: 15px;
+            margin-top: 10px;
+            border-radius: 5px;
+            display: none;
+        }
+
+        .show-answer-btn {
+            background: var(--secondary-accent);
+            color: white;
+            border: none;
+            padding: 8px 15px;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-top: 10px;
+        }
+
+        .show-answer-btn:hover {
+            background: var(--primary-accent);
+        }
+
+        .strategy-box {
+            background: #e8f5e9;
+            padding: 20px;
+            border-radius: 10px;
+            margin: 20px 0;
+            border-left: 4px solid #4caf50;
+        }
+
+        .navigation-buttons {
+            display: flex;
+            justify-content: space-between;
+            margin: 30px 0;
+            padding: 20px 0;
+            border-top: 2px solid var(--border-color);
+        }
+
+        .nav-btn {
+            padding: 12px 25px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: all 0.3s ease;
+        }
+
+        .nav-btn-primary {
+            background: var(--primary-accent);
+            color: white;
+        }
+
+        .nav-btn-secondary {
+            background: var(--background-light);
+            color: var(--text-primary);
+            border: 2px solid var(--border-color);
+        }
+
+        .nav-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+        }
+    </style>
+</head>
+<body>
+    <header class="page-header">
+        <div class="header-content">
+            <h1>📐 NZ Math Hub</h1>
+            <p>Lesson 9: Optimisation Problems</p>
+        </div>
+    </header>
+
+    <main class="main-content">
+        <div class="section-container">
+            <nav class="breadcrumb">
+                <a href="../../index.html">Home</a> → 
+                <a href="../../year13.html">Year 13</a> → 
+                <a href="index.html">3.6 Differentiation</a> → 
+                <span>Lesson 9</span>
+            </nav>
+
+            <!-- Introduction -->
+            <section class="content-section">
+                <h2>Finding Maximum and Minimum Values</h2>
+                <p>Optimisation uses differentiation to find the best solution - the maximum profit, minimum cost, largest area, etc. These are practical applications of stationary points.</p>
+
+                <!-- The Method -->
+                <div class="rule-box">
+                    <h3 style="color: white; margin-top: 0;">Optimisation Strategy</h3>
+                    <ol style="line-height: 2; font-size: 1.1em;">
+                        <li><strong>Identify what to optimise:</strong> What are you maximising/minimising?</li>
+                        <li><strong>Define variables:</strong> Choose appropriate letters</li>
+                        <li><strong>Write formula:</strong> Express quantity in terms of one variable</li>
+                        <li><strong>Use constraints:</strong> Use given information to eliminate extra variables</li>
+                        <li><strong>Differentiate and solve:</strong> Find stationary points</li>
+                        <li><strong>Verify it's a max/min:</strong> Use second derivative test</li>
+                        <li><strong>Answer the question:</strong> State optimal value clearly</li>
+                    </ol>
+                </div>
+
+                <div class="strategy-box">
+                    <h4 style="margin-top: 0;">Common Optimisation Types</h4>
+                    <ul style="line-height: 2;">
+                        <li><strong>Area/Perimeter:</strong> Maximise area with fixed perimeter (or vice versa)</li>
+                        <li><strong>Volume/Surface Area:</strong> Maximise volume with fixed surface area</li>
+                        <li><strong>Cost:</strong> Minimise costs given constraints</li>
+                        <li><strong>Distance:</strong> Find closest point or shortest path</li>
+                    </ul>
+                </div>
+            </section>
+
+            <!-- Worked Examples -->
+            <section class="content-section section-light">
+                <h2>Worked Examples</h2>
+
+                <div class="accordion-example">
+                    <h3>Example 1: Maximum Area with Fixed Perimeter</h3>
+                    
+                    <div class="example-question">
+                        <strong>Question:</strong> A rectangle has perimeter 40 m. Find dimensions that give maximum area.
+                    </div>
+                    
+                    <div class="accordion-step">
+                        <div class="accordion-header" onclick="toggleAccordion(this)">
+                            <span class="step-label">Step 1: Variables</span>
+                            <span class="accordion-toggle">▼</span>
+                        </div>
+                        <div class="accordion-content">
+                            <div class="step-explanation">Let length = $x$, width = $y$. Maximise Area = $A = xy$</div>
+                        </div>
+                    </div>
+                    
+                    <div class="accordion-step">
+                        <div class="accordion-header" onclick="toggleAccordion(this)">
+                            <span class="step-label">Step 2: Constraint</span>
+                            <span class="accordion-toggle">▼</span>
+                        </div>
+                        <div class="accordion-content">
+                            <div class="step-explanation">Perimeter: $2x + 2y = 40$, so $y = 20 - x$</div>
+                        </div>
+                    </div>
+                    
+                    <div class="accordion-step">
+                        <div class="accordion-header" onclick="toggleAccordion(this)">
+                            <span class="step-label">Step 3: Express A in terms of x</span>
+                            <span class="accordion-toggle">▼</span>
+                        </div>
+                        <div class="accordion-content">
+                            <div class="step-math">$A = x(20 - x) = 20x - x^2$</div>
+                        </div>
+                    </div>
+                    
+                    <div class="accordion-step">
+                        <div class="accordion-header" onclick="toggleAccordion(this)">
+                            <span class="step-label">Step 4: Differentiate</span>
+                            <span class="accordion-toggle">▼</span>
+                        </div>
+                        <div class="accordion-content">
+                            <div class="step-math">$\frac{dA}{dx} = 20 - 2x$</div>
+                        </div>
+                    </div>
+                    
+                    <div class="accordion-step">
+                        <div class="accordion-header" onclick="toggleAccordion(this)">
+                            <span class="step-label">Step 5: Find stationary point</span>
+                            <span class="accordion-toggle">▼</span>
+                        </div>
+                        <div class="accordion-content">
+                            <div class="step-math">$20 - 2x = 0$, so $x = 10$ m</div>
+                        </div>
+                    </div>
+                    
+                    <div class="accordion-step">
+                        <div class="accordion-header" onclick="toggleAccordion(this)">
+                            <span class="step-label">Step 6: Verify maximum</span>
+                            <span class="accordion-toggle">▼</span>
+                        </div>
+                        <div class="accordion-content">
+                            <div class="step-math">$\frac{d^2A}{dx^2} = -2 < 0$ → maximum ✓</div>
+                        </div>
+                    </div>
+                    
+                    <div class="accordion-step">
+                        <div class="accordion-header" onclick="toggleAccordion(this)">
+                            <span class="step-label"><strong>✓ Answer</strong></span>
+                            <span class="accordion-toggle">▼</span>
+                        </div>
+                        <div class="accordion-content">
+                            <div class="step-explanation">$x = 10$ m, $y = 10$ m. Square gives maximum area of 100 m²</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="accordion-example">
+                    <h3>Example 2: Minimum Cost Fence</h3>
+                    
+                    <div class="example-question">
+                        <strong>Question:</strong> A rectangular field of area 1800 m² is to be fenced. Fencing costs $20/m for three sides and $40/m for the fourth side. Find dimensions for minimum cost.
+                    </div>
+                    
+                    <div class="accordion-step">
+                        <div class="accordion-header" onclick="toggleAccordion(this)">
+                            <span class="step-label">Step 1: Variables</span>
+                            <span class="accordion-toggle">▼</span>
+                        </div>
+                        <div class="accordion-content">
+                            <div class="step-explanation">Length $x$, width $y$. Area: $xy = 1800$</div>
+                        </div>
+                    </div>
+                    
+                    <div class="accordion-step">
+                        <div class="accordion-header" onclick="toggleAccordion(this)">
+                            <span class="step-label">Step 2: Cost function</span>
+                            <span class="accordion-toggle">▼</span>
+                        </div>
+                        <div class="accordion-content">
+                            <div class="step-math">$C = 40x + 20x + 20y + 20y = 60x + 40y$</div>
+                        </div>
+                    </div>
+                    
+                    <div class="accordion-step">
+                        <div class="accordion-header" onclick="toggleAccordion(this)">
+                            <span class="step-label">Step 3: Eliminate y</span>
+                            <span class="accordion-toggle">▼</span>
+                        </div>
+                        <div class="accordion-content">
+                            <div class="step-math">$y = \frac{1800}{x}$, so $C = 60x + 40(\frac{1800}{x}) = 60x + \frac{72000}{x}$</div>
+                        </div>
+                    </div>
+                    
+                    <div class="accordion-step">
+                        <div class="accordion-header" onclick="toggleAccordion(this)">
+                            <span class="step-label">Step 4: Differentiate</span>
+                            <span class="accordion-toggle">▼</span>
+                        </div>
+                        <div class="accordion-content">
+                            <div class="step-math">$\frac{dC}{dx} = 60 - \frac{72000}{x^2}$</div>
+                        </div>
+                    </div>
+                    
+                    <div class="accordion-step">
+                        <div class="accordion-header" onclick="toggleAccordion(this)">
+                            <span class="step-label">Step 5: Solve</span>
+                            <span class="accordion-toggle">▼</span>
+                        </div>
+                        <div class="accordion-content">
+                            <div class="step-math">$60 - \frac{72000}{x^2} = 0$</div>
+                            <div class="step-math">$60x^2 = 72000$</div>
+                            <div class="step-math">$x^2 = 1200$, so $x = 20\sqrt{3} \approx 34.6$ m</div>
+                        </div>
+                    </div>
+                    
+                    <div class="accordion-step">
+                        <div class="accordion-header" onclick="toggleAccordion(this)">
+                            <span class="step-label">Step 6: Find y</span>
+                            <span class="accordion-toggle">▼</span>
+                        </div>
+                        <div class="accordion-content">
+                            <div class="step-math">$y = \frac{1800}{20\sqrt{3}} = 30\sqrt{3} \approx 52$ m</div>
+                        </div>
+                    </div>
+                    
+                    <div class="accordion-step">
+                        <div class="accordion-header" onclick="toggleAccordion(this)">
+                            <span class="step-label"><strong>✓ Verify</strong></span>
+                            <span class="accordion-toggle">▼</span>
+                        </div>
+                        <div class="accordion-content">
+                            <div class="step-math">$\frac{d^2C}{dx^2} = \frac{144000}{x^3} > 0$ → minimum ✓</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="accordion-example">
+                    <h3>Example 3: Maximum Volume Box</h3>
+                    
+                    <div class="example-question">
+                        <strong>Question:</strong> A box with square base and open top must have volume 32 m³. Find dimensions that minimise surface area.
+                    </div>
+                    
+                    <div class="accordion-step">
+                        <div class="accordion-header" onclick="toggleAccordion(this)">
+                            <span class="step-label">Step 1: Variables</span>
+                            <span class="accordion-toggle">▼</span>
+                        </div>
+                        <div class="accordion-content">
+                            <div class="step-explanation">Base side $x$, height $h$. Volume: $V = x^2h = 32$</div>
+                        </div>
+                    </div>
+                    
+                    <div class="accordion-step">
+                        <div class="accordion-header" onclick="toggleAccordion(this)">
+                            <span class="step-label">Step 2: Surface area</span>
+                            <span class="accordion-toggle">▼</span>
+                        </div>
+                        <div class="accordion-content">
+                            <div class="step-explanation">Base + 4 sides = $x^2 + 4xh$</div>
+                        </div>
+                    </div>
+                    
+                    <div class="accordion-step">
+                        <div class="accordion-header" onclick="toggleAccordion(this)">
+                            <span class="step-label">Step 3: Eliminate h</span>
+                            <span class="accordion-toggle">▼</span>
+                        </div>
+                        <div class="accordion-content">
+                            <div class="step-math">$h = \frac{32}{x^2}$, so $S = x^2 + 4x(\frac{32}{x^2}) = x^2 + \frac{128}{x}$</div>
+                        </div>
+                    </div>
+                    
+                    <div class="accordion-step">
+                        <div class="accordion-header" onclick="toggleAccordion(this)">
+                            <span class="step-label">Step 4: Differentiate</span>
+                            <span class="accordion-toggle">▼</span>
+                        </div>
+                        <div class="accordion-content">
+                            <div class="step-math">$\frac{dS}{dx} = 2x - \frac{128}{x^2}$</div>
+                        </div>
+                    </div>
+                    
+                    <div class="accordion-step">
+                        <div class="accordion-header" onclick="toggleAccordion(this)">
+                            <span class="step-label">Step 5: Solve</span>
+                            <span class="accordion-toggle">▼</span>
+                        </div>
+                        <div class="accordion-content">
+                            <div class="step-math">$2x - \frac{128}{x^2} = 0$</div>
+                            <div class="step-math">$2x^3 = 128$</div>
+                            <div class="step-math">$x^3 = 64$, so $x = 4$ m</div>
+                        </div>
+                    </div>
+                    
+                    <div class="accordion-step">
+                        <div class="accordion-header" onclick="toggleAccordion(this)">
+                            <span class="step-label">Step 6: Find h</span>
+                            <span class="accordion-toggle">▼</span>
+                        </div>
+                        <div class="accordion-content">
+                            <div class="step-math">$h = \frac{32}{16} = 2$ m</div>
+                        </div>
+                    </div>
+                    
+                    <div class="accordion-step">
+                        <div class="accordion-header" onclick="toggleAccordion(this)">
+                            <span class="step-label"><strong>✓ Answer</strong></span>
+                            <span class="accordion-toggle">▼</span>
+                        </div>
+                        <div class="accordion-content">
+                            <div class="step-explanation">Base 4 m × 4 m, height 2 m minimises surface area</div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Minimal Change Practice -->
+            <section class="content-section">
+                <h2>Practice: Minimal Change</h2>
+                
+                <div class="practice-section">
+                    <h3>Set 1: Rectangle - varying perimeter</h3>
+                    <p><em>Maximise area with different fixed perimeters</em></p>
+                    
+                    <div class="problem">
+                        <div class="problem-label">a) Rectangle with perimeter 20 m. Find dimensions for maximum area.</div>
+                        <button class="show-answer-btn" onclick="toggleAnswer(this)">Show Answer</button>
+                        <div class="answer-reveal">
+                            $2x + 2y = 20$, so $y = 10 - x$<br>
+                            $A = x(10 - x) = 10x - x^2$<br>
+                            $\frac{dA}{dx} = 10 - 2x = 0 \Rightarrow x = 5$<br>
+                            Maximum area when $x = y = 5$ m (square)
+                        </div>
+                    </div>
+                    
+                    <div class="problem">
+                        <div class="problem-label">b) Rectangle with perimeter 60 m. Find dimensions for maximum area.</div>
+                        <button class="show-answer-btn" onclick="toggleAnswer(this)">Show Answer</button>
+                        <div class="answer-reveal">
+                            $y = 30 - x$<br>
+                            $A = x(30 - x) = 30x - x^2$<br>
+                            $\frac{dA}{dx} = 30 - 2x = 0 \Rightarrow x = 15$<br>
+                            Maximum area when $x = y = 15$ m
+                        </div>
+                    </div>
+                    
+                    <div class="problem">
+                        <div class="problem-label">c) Rectangle with perimeter 100 m. Find dimensions for maximum area.</div>
+                        <button class="show-answer-btn" onclick="toggleAnswer(this)">Show Answer</button>
+                        <div class="answer-reveal">
+                            $y = 50 - x$<br>
+                            $A = x(50 - x) = 50x - x^2$<br>
+                            $\frac{dA}{dx} = 50 - 2x = 0 \Rightarrow x = 25$<br>
+                            Maximum area when $x = y = 25$ m
+                        </div>
+                    </div>
+                </div>
+
+                <div class="practice-section">
+                    <h3>Set 2: Rectangle - varying area</h3>
+                    <p><em>Minimise perimeter with different fixed areas</em></p>
+                    
+                    <div class="problem">
+                        <div class="problem-label">a) Rectangle with area 100 m². Find dimensions for minimum perimeter.</div>
+                        <button class="show-answer-btn" onclick="toggleAnswer(this)">Show Answer</button>
+                        <div class="answer-reveal">
+                            $xy = 100$, so $y = \frac{100}{x}$<br>
+                            $P = 2x + 2y = 2x + \frac{200}{x}$<br>
+                            $\frac{dP}{dx} = 2 - \frac{200}{x^2} = 0 \Rightarrow x^2 = 100$, $x = 10$<br>
+                            Minimum perimeter when $x = y = 10$ m
+                        </div>
+                    </div>
+                    
+                    <div class="problem">
+                        <div class="problem-label">b) Rectangle with area 400 m². Find dimensions for minimum perimeter.</div>
+                        <button class="show-answer-btn" onclick="toggleAnswer(this)">Show Answer</button>
+                        <div class="answer-reveal">
+                            $P = 2x + \frac{800}{x}$<br>
+                            $\frac{dP}{dx} = 2 - \frac{800}{x^2} = 0 \Rightarrow x = 20$<br>
+                            Minimum when $x = y = 20$ m
+                        </div>
+                    </div>
+                    
+                    <div class="problem">
+                        <div class="problem-label">c) Rectangle with area 900 m². Find dimensions for minimum perimeter.</div>
+                        <button class="show-answer-btn" onclick="toggleAnswer(this)">Show Answer</button>
+                        <div class="answer-reveal">
+                            $P = 2x + \frac{1800}{x}$<br>
+                            $\frac{dP}{dx} = 2 - \frac{1800}{x^2} = 0 \Rightarrow x = 30$<br>
+                            Minimum when $x = y = 30$ m
+                        </div>
+                    </div>
+                </div>
+
+                <div class="practice-section">
+                    <h3>Set 3: Box problems - varying volume</h3>
+                    <p><em>Open-top box with square base, minimise surface area</em></p>
+                    
+                    <div class="problem">
+                        <div class="problem-label">a) Volume 64 m³. Find dimensions to minimise surface area.</div>
+                        <button class="show-answer-btn" onclick="toggleAnswer(this)">Show Answer</button>
+                        <div class="answer-reveal">
+                            $x^2h = 64$, so $h = \frac{64}{x^2}$<br>
+                            $S = x^2 + 4xh = x^2 + \frac{256}{x}$<br>
+                            $\frac{dS}{dx} = 2x - \frac{256}{x^2} = 0 \Rightarrow x^3 = 128$, $x = 4\sqrt[3]{2} \approx 5.04$ m<br>
+                            $h = \frac{64}{x^2} \approx 2.52$ m
+                        </div>
+                    </div>
+                    
+                    <div class="problem">
+                        <div class="problem-label">b) Volume 125 m³. Find dimensions to minimise surface area.</div>
+                        <button class="show-answer-btn" onclick="toggleAnswer(this)">Show Answer</button>
+                        <div class="answer-reveal">
+                            $S = x^2 + \frac{500}{x}$<br>
+                            $\frac{dS}{dx} = 2x - \frac{500}{x^2} = 0 \Rightarrow x^3 = 250$, $x = \sqrt[3]{250} \approx 6.3$ m<br>
+                            $h = \frac{125}{x^2} \approx 3.15$ m
+                        </div>
+                    </div>
+                </div>
+
+                <div class="practice-section">
+                    <h3>Set 4: Mixed problems</h3>
+                    
+                    <div class="problem">
+                        <div class="problem-label">a) Sum of two positive numbers is 20. Maximise their product.</div>
+                        <button class="show-answer-btn" onclick="toggleAnswer(this)">Show Answer</button>
+                        <div class="answer-reveal">
+                            Let numbers be $x$ and $20 - x$<br>
+                            Product: $P = x(20 - x) = 20x - x^2$<br>
+                            $\frac{dP}{dx} = 20 - 2x = 0 \Rightarrow x = 10$<br>
+                            Maximum product when both numbers are 10
+                        </div>
+                    </div>
+                    
+                    <div class="problem">
+                        <div class="problem-label">b) A wire 120 cm long is cut into two pieces. One forms a square, the other a circle. Where to cut to minimise total area?</div>
+                        <button class="show-answer-btn" onclick="toggleAnswer(this)">Show Answer</button>
+                        <div class="answer-reveal">
+                            Let $x$ = length for square, $120 - x$ for circle<br>
+                            Square side: $\frac{x}{4}$, area: $\frac{x^2}{16}$<br>
+                            Circle: $2\pi r = 120 - x$, so $r = \frac{120 - x}{2\pi}$, area: $\frac{(120-x)^2}{4\pi}$<br>
+                            Total: $A = \frac{x^2}{16} + \frac{(120-x)^2}{4\pi}$<br>
+                            $\frac{dA}{dx} = \frac{x}{8} - \frac{120-x}{2\pi} = 0$<br>
+                            $x \approx 52.7$ cm for square
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Key Points -->
+            <section class="content-section section-light">
+                <h2>Key Points to Remember</h2>
+                <div style="background: #f8f9fa; border-left: 4px solid var(--primary-accent); padding: 20px; border-radius: 5px;">
+                    <ul style="line-height: 2;">
+                        <li>✓ <strong>Identify what to optimise</strong> and what constraints exist</li>
+                        <li>✓ <strong>Express in one variable</strong> using constraints to eliminate others</li>
+                        <li>✓ Differentiate and find stationary points</li>
+                        <li>✓ <strong>Always verify</strong> using second derivative test</li>
+                        <li>✓ Check answer makes practical sense (positive dimensions, etc.)</li>
+                        <li>✓ For many problems, <strong>square beats rectangle</strong> (equal dimensions optimal)</li>
+                    </ul>
+                </div>
+            </section>
+
+            <!-- Navigation -->
+            <div class="navigation-buttons">
+                <a href="lesson8.html" class="nav-btn nav-btn-secondary">← Previous: Related Rates</a>
+                <a href="lesson10.html" class="nav-btn nav-btn-primary">Next: Advanced Applications →</a>
+            </div>
+        </div>
+    </main>
+
+    <footer class="page-footer">
+        <p>&copy; 2026 NZ Math Hub. Supporting mathematics education in New Zealand.</p>
+    </footer>
+
+    <!-- KaTeX Scripts -->
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js" integrity="sha384-XjKyOOlGwcjNTAIQHIpgOno0Hl1YQqzUOEleOLALmuqehneUG+vnGctmUb0ZY0l8" crossorigin="anonymous"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js" integrity="sha384-+VBxd3r6XgURycqtZ117nYw44OOcIax56Z4dCRWbxyPt0Koah1uHoK0o4+/RRE05" crossorigin="anonymous"
+        onload="renderMathInElement(document.body, {delimiters: [{left: '$$', right: '$$', display: true}, {left: '$', right: '$', display: false}]});"></script>
+    
+    <script>
+        function toggleAccordion(header) {
+            const step = header.parentElement;
+            const content = header.nextElementSibling;
+            const isOpen = header.classList.contains('active');
+            
+            // Toggle this accordion
+            header.classList.toggle('active');
+            content.classList.toggle('open');
+            
+            // Mark as completed when opened
+            if (!isOpen) {
+                step.classList.add('completed');
+            }
+            
+            // Re-render math in opened content
+            if (content.classList.contains('open') && typeof renderMathInElement !== 'undefined') {
+                renderMathInElement(content, {
+                    delimiters: [
+                        {left: '$$', right: '$$', display: true},
+                        {left: '$', right: '$', display: false}
+                    ],
+                    throwOnError: false
+                });
+            }
+        }
+        
+        function toggleAccordion(header) {
+            const step = header.parentElement;
+            const content = header.nextElementSibling;
+            const isOpen = header.classList.contains('active');
+            
+            // Toggle this accordion
+            header.classList.toggle('active');
+            content.classList.toggle('open');
+            
+            // Mark as completed when opened
+            if (!isOpen) {
+                step.classList.add('completed');
+            }
+            
+            // Re-render math in opened content
+            if (content.classList.contains('open') && typeof renderMathInElement !== 'undefined') {
+                renderMathInElement(content, {
+                    delimiters: [
+                        {left: '$$', right: '$$', display: true},
+                        {left: '$', right: '$', display: false}
+                    ],
+                    throwOnError: false
+                });
+            }
+        }
+        
+        function toggleAnswer(button) {
+            const answerDiv = button.nextElementSibling;
+            if (answerDiv.style.display === 'none' || answerDiv.style.display === '') {
+                answerDiv.style.display = 'block';
+                button.textContent = 'Hide Answer';
+                button.style.background = '#000';
+                if (typeof renderMathInElement !== 'undefined') {
+                    renderMathInElement(answerDiv, {delimiters: [{left: '$$', right: '$$', display: true}, {left: '$', right: '$', display: false}]});
+                }
+            } else {
+                answerDiv.style.display = 'none';
+                button.textContent = 'Show Answer';
+                button.style.background = '';
+            }
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,391 @@
+/* ===================================
+   Scroll-Triggered Step Reveal
+   Progressive disclosure of example steps
+   =================================== */
+
+.scroll-example {
+    margin: 3rem 0;
+    padding: 2rem;
+    background: #f8f9fa;
+    border-left: 4px solid var(--primary-accent, #006666);
+    border-radius: 8px;
+}
+
+.scroll-example h4 {
+    margin-top: 0;
+    color: var(--text-primary, #000);
+}
+
+.example-question {
+    font-size: 1.1rem;
+    margin-bottom: 2rem;
+    padding: 1rem;
+    background: white;
+    border-radius: 6px;
+    border: 2px solid #e0e0e0;
+}
+
+.example-question strong {
+    display: block;
+    margin-bottom: 0.5rem;
+    color: var(--primary-accent, #006666);
+}
+
+/* Step container - each step revealed on scroll */
+.example-step {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.6s ease, transform 0.6s ease;
+    margin: 2rem 0;
+    padding: 1.5rem;
+    background: white;
+    border-radius: 6px;
+    border-left: 4px solid #ddd;
+    min-height: 60px;
+}
+
+/* Step is visible when in view */
+.example-step.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Step label */
+.step-label {
+    display: inline-block;
+    font-weight: 700;
+    color: var(--primary-accent, #006666);
+    margin-bottom: 0.75rem;
+    font-size: 1.05rem;
+}
+
+/* Mathematical content within steps */
+.step-math {
+    font-size: 1.1rem;
+    line-height: 2;
+    margin: 0.5rem 0;
+    padding-left: 1rem;
+}
+
+.step-explanation {
+    color: var(--text-secondary, #1a1a1a);
+    font-style: italic;
+    margin-top: 0.5rem;
+    font-size: 0.95rem;
+}
+
+/* Final answer highlight */
+.example-step.final-answer {
+    background: #e6f7f7;
+    border-left-color: var(--primary-accent, #006666);
+    border-left-width: 6px;
+}
+
+.final-answer .step-label {
+    font-size: 1.2rem;
+}
+
+.final-answer .step-math {
+    font-size: 1.2rem;
+    font-weight: 600;
+}
+
+/* Scroll progress indicator */
+.scroll-progress {
+    position: sticky;
+    top: 80px;
+    width: 4px;
+    height: 0;
+    background: var(--primary-accent, #006666);
+    margin-left: -2rem;
+    margin-right: 1rem;
+    float: left;
+    transition: height 0.3s ease;
+    border-radius: 2px;
+    z-index: 10;
+}
+
+/* Spacing between steps for scroll sensitivity */
+.example-step + .example-step {
+    margin-top: 3rem;
+}
+
+/* Smooth scrolling for better experience */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Ensure example is centered on first view */
+.scroll-example-container {
+    scroll-margin-top: 20vh;
+}
+
+/* Mobile responsiveness */
+@media (max-width: 768px) {
+    .scroll-example {
+        padding: 1.5rem;
+    }
+    
+    .example-step {
+        padding: 1rem;
+        margin: 1.5rem 0;
+    }
+    
+    .step-math {
+        font-size: 1rem;
+    }
+}
+
+/* Dark mode support */
+body.dark-mode .scroll-example {
+    background: var(--background-tertiary, #3a3a3a);
+}
+
+body.dark-mode .example-question,
+body.dark-mode .example-step {
+    background: var(--background-secondary, #2d2d2d);
+    border-color: var(--border-color, #444);
+}
+
+body.dark-mode .example-step.final-answer {
+    background: rgba(0, 179, 179, 0.2);
+}
+
+/* Print: show all steps */
+@media print {
+    .example-step {
+        opacity: 1 !important;
+        transform: none !important;
+        page-break-inside: avoid;
+    }
+    
+    .scroll-progress {
+        display: none;
+    }
+}
+
+/* ===================================
+   ACCORDION METHOD
+   Click to expand/collapse steps
+   =================================== */
+
+.accordion-example {
+    margin: 3rem 0;
+    padding: 2rem;
+    background: #fff9e6;
+    border-left: 4px solid #cc8800;
+    border-radius: 8px;
+}
+
+.accordion-example h4 {
+    margin-top: 0;
+    color: var(--text-primary, #000);
+}
+
+.accordion-step {
+    margin: 1rem 0;
+    border: 2px solid #e0e0e0;
+    border-radius: 6px;
+    background: white;
+    overflow: hidden;
+}
+
+.accordion-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 1.5rem;
+    background: #f8f9fa;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    user-select: none;
+}
+
+.accordion-header:hover {
+    background: #e9ecef;
+}
+
+.accordion-header.active {
+    background: #fff3cd;
+    border-bottom: 2px solid #cc8800;
+}
+
+.accordion-toggle {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #cc8800;
+    transition: transform 0.3s ease;
+}
+
+.accordion-header.active .accordion-toggle {
+    transform: rotate(180deg);
+}
+
+.accordion-content {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.4s ease;
+    padding: 0 1.5rem;
+}
+
+.accordion-content.open {
+    max-height: 1000px;
+    padding: 1.5rem;
+}
+
+.accordion-step.completed .accordion-header {
+    background: #d4edda;
+    border-left: 4px solid #28a745;
+}
+
+/* ===================================
+   SHOW-NEXT-STEP METHOD
+   Progressive reveal with button
+   =================================== */
+
+.sequential-example {
+    margin: 3rem 0;
+    padding: 2rem;
+    background: #e6f7ff;
+    border-left: 4px solid #0066cc;
+    border-radius: 8px;
+}
+
+.sequential-example h4 {
+    margin-top: 0;
+    color: var(--text-primary, #000);
+}
+
+.sequential-step {
+    opacity: 0;
+    max-height: 0;
+    overflow: hidden;
+    transform: translateY(-10px);
+    transition: all 0.5s ease;
+    margin: 0;
+}
+
+.sequential-step.revealed {
+    opacity: 1;
+    max-height: 500px;
+    transform: translateY(0);
+    margin: 1.5rem 0;
+    padding: 1.5rem;
+    background: white;
+    border-radius: 6px;
+    border-left: 4px solid #0066cc;
+}
+
+.show-next-btn {
+    display: inline-block;
+    padding: 0.75rem 2rem;
+    background: #0066cc;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    margin: 1rem 0;
+}
+
+.show-next-btn:hover {
+    background: #0052a3;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0,102,204,0.3);
+}
+
+.show-next-btn:disabled {
+    background: #ccc;
+    cursor: not-allowed;
+    transform: none;
+}
+
+.progress-indicator {
+    margin: 1rem 0;
+    padding: 0.75rem;
+    background: white;
+    border-radius: 6px;
+    text-align: center;
+    font-weight: 600;
+    color: #0066cc;
+}
+
+/* ===================================
+   METHOD LABELS
+   =================================== */
+
+.method-label {
+    display: inline-block;
+    padding: 0.5rem 1rem;
+    margin-bottom: 1rem;
+    border-radius: 20px;
+    font-weight: 700;
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.method-label.scroll {
+    background: linear-gradient(135deg, #006666, #004d4d);
+    color: white;
+}
+
+.method-label.accordion {
+    background: linear-gradient(135deg, #cc8800, #996600);
+    color: white;
+}
+
+.method-label.sequential {
+    background: linear-gradient(135deg, #0066cc, #0052a3);
+    color: white;
+}
+
+/* Dark mode support for new methods */
+body.dark-mode .accordion-example {
+    background: rgba(204, 136, 0, 0.2);
+}
+
+body.dark-mode .sequential-example {
+    background: rgba(0, 102, 204, 0.2);
+}
+
+body.dark-mode .accordion-step,
+body.dark-mode .sequential-step.revealed {
+    background: var(--background-secondary, #2d2d2d);
+    border-color: var(--border-color, #444);
+}
+
+body.dark-mode .accordion-header {
+    background: var(--background-tertiary, #3a3a3a);
+    color: var(--text-primary, #e0e0e0);
+}
+
+body.dark-mode .accordion-header:hover {
+    background: var(--background-primary, #1a1a1a);
+}
+
+/* Print view */
+@media print {
+    .accordion-content {
+        max-height: none !important;
+        padding: 1rem !important;
+    }
+    
+    .sequential-step {
+        opacity: 1 !important;
+        max-height: none !important;
+        transform: none !important;
+    }
+    
+    .show-next-btn,
+    .progress-indicator {
+        display: none !important;
+    }
+    
+    .method-label {
+        background: #f0f0f0 !important;
+        color: #000 !important;
+    }
+}

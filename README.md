@@ -22,11 +22,26 @@ The website consists of:
 ## Features
 
 - Clean, modern design with intuitive navigation
+- **Accordion Worked Examples**: Interactive step-by-step problem solving (default method)
 - Responsive layout that works on desktop, tablet, and mobile devices
 - Clear visual distinction between junior and senior year levels
 - Organized by mathematics strands for Years 9-10
 - Organized by NCEA achievement standards for Years 11-13
+- **Dark Mode**: WCAG AAA compliant theme with persistent preference
+- **Print Worksheets**: Optimized A4 formatting with answer control
+- **Interactive Components**: Drag-drop matching, quizzes, and graphing tools
+- **Keyboard Shortcuts**: Efficient navigation and feature access
 - Easy to extend with additional content and resources
+
+### Worked Examples Format
+
+All worked examples throughout the site use an **accordion format** that allows students to:
+- Work through solutions at their own pace
+- Click to reveal each step progressively
+- Jump to any step for quick reference
+- Review steps in any order
+
+See [FEATURES-GUIDE.md](FEATURES-GUIDE.md) for complete implementation details.
 
 ## Usage
 

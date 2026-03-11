@@ -7,84 +7,90 @@
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <header>
-        <div class="container">
-            <h1>Year 12 Mathematics</h1>
-            <p class="tagline">NCEA Level 2 Standards</p>
-        </div>
+    
+    <!-- Main Page Header - Scrolls away -->
+    <header class="page-header">
+        <h1>Year 12 Mathematics</h1>
+        <p class="subtitle">NCEA Level 2</p>
     </header>
-
-    <main class="container">
-        <a href="index.html" class="nav-back">← Back to Year Levels</a>
+    
+    <!-- Breadcrumb Navigation -->
+    <nav class="breadcrumb">
+        <div class="breadcrumb-container">
+            <a href="index.html">Home</a>
+            <span>&gt;</span>
+            <strong>Year 12</strong>
+        </div>
+    </nav>
+    
+    <!-- Sticky Navigation Bar - Stays visible -->
+    <nav class="main-nav">
+        <div class="nav-container">
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="year9.html">Year 9</a></li>
+                <li><a href="year10.html">Year 10</a></li>
+                <li><a href="year11.html">Year 11</a></li>
+                <li><a href="year12.html" class="active">Year 12</a></li>
+                <li><a href="year13.html">Year 13</a></li>
+            </ul>
+            
+            <!-- Quick section navigation -->
+            <div class="section-nav">
+                <a href="#status">Status</a>
+            </div>
+        </div>
+    </nav>
+    
+    <!-- Main Content Area -->
+    <main>
         
-        <section class="intro">
-            <h2>NCEA Level 2 Mathematics Standards</h2>
-            <p>Explore the achievement standards for NCEA Level 2 Mathematics.</p>
-        </section>
-
-        <section class="standards-section">
-            <div class="standards-grid">
-                <div class="standard-card">
-                    <span class="standard-code">AS91256</span>
-                    <h3>Coordinate Geometry</h3>
-                    <p>Apply coordinate geometry methods in solving problems (3 credits).</p>
+        <!-- Section 1: Under Construction -->
+        <section id="status" class="content-section section-light">
+            <div class="section-container">
+                <div class="section-header">
+                    <span class="section-number">🚧</span>
+                    <h2>Under Construction</h2>
+                    <a href="#status" class="anchor-link" title="Link to this section">#</a>
                 </div>
-
-                <div class="standard-card">
-                    <span class="standard-code">AS91257</span>
-                    <h3>Graphical Methods</h3>
-                    <p>Apply graphical methods in solving problems (4 credits).</p>
+                
+                <p>This page is currently under construction. Content for Year 12 NCEA Level 2 Mathematics will be available soon.</p>
+                
+                <div class="info-callout">
+                    <strong>📘 Coming Soon:</strong> Year 12 NCEA Level 2 mathematics resources covering achievement standards and course content will be added in the near future.
                 </div>
-
-                <div class="standard-card">
-                    <span class="standard-code">AS91258</span>
-                    <h3>Algebra</h3>
-                    <p>Apply algebraic methods in solving problems (4 credits).</p>
-                </div>
-
-                <div class="standard-card">
-                    <span class="standard-code">AS91259</span>
-                    <h3>Networks</h3>
-                    <p>Apply network methods in solving problems (3 credits).</p>
-                </div>
-
-                <div class="standard-card">
-                    <span class="standard-code">AS91260</span>
-                    <h3>Trigonometry</h3>
-                    <p>Apply trigonometric relationships in solving problems (3 credits).</p>
-                </div>
-
-                <div class="standard-card">
-                    <span class="standard-code">AS91261</span>
-                    <h3>Calculus</h3>
-                    <p>Apply algebraic methods to solve calculus problems (4 credits).</p>
-                </div>
-
-                <div class="standard-card">
-                    <span class="standard-code">AS91262</span>
-                    <h3>Probability</h3>
-                    <p>Apply probability concepts in solving problems (4 credits).</p>
-                </div>
-
-                <div class="standard-card">
-                    <span class="standard-code">AS91263</span>
-                    <h3>Inference</h3>
-                    <p>Use statistical methods to make an inference (4 credits).</p>
-                </div>
-
-                <div class="standard-card">
-                    <span class="standard-code">AS91264</span>
-                    <h3>Statistical Investigation</h3>
-                    <p>Use statistical methods to investigate bivariate data (3 credits).</p>
+                
+                <div class="text-center mt-lg">
+                    <a href="index.html" class="btn">Return to Home</a>
+                    <a href="year11.html" class="btn btn-secondary">View Year 11</a>
+                    <a href="year13.html" class="btn btn-secondary">View Year 13</a>
                 </div>
             </div>
         </section>
+        
     </main>
-
-    <footer>
-        <div class="container">
-            <p>&copy; 2026 NZ Math Hub. Supporting mathematics education in New Zealand.</p>
-        </div>
+    
+    <!-- Footer -->
+    <footer class="page-footer">
+        <p>&copy; 2026 NZ Math Hub. Supporting mathematics education in New Zealand.</p>
     </footer>
+    
+    <!-- Optional: Add smooth scroll behavior enhancement -->
+    <script>
+        // This script ensures smooth scrolling works on all browsers
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+    </script>
+    
 </body>
 </html>

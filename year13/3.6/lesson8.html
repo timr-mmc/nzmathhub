@@ -1,0 +1,627 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lesson 8: Related Rates - NZ Math Hub</title>
+    <    <link rel="stylesheet" href="../../styles.css">
+    <link rel="stylesheet" href="../../scroll-reveal.css">
+    <!-- KaTeX CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css" integrity="sha384-n8MVd4RsNIU0tAv4ct0nTaAbDJwPJzDEaqSD1odI+WdtXRGWt2kTvGFasHpSy3SV" crossorigin="anonymous">
+    <style>
+        .rule-box {
+            background: linear-gradient(135deg, var(--primary-accent), var(--secondary-accent));
+            color: white;
+            padding: 25px;
+            border-radius: 10px;
+            margin: 25px 0;
+        }
+
+        .worked-example {
+            background: white;
+            border: 2px solid var(--border-color);
+            padding: 20px;
+            margin: 15px 0;
+            border-radius: 8px;
+        }
+
+        .step {
+            margin: 12px 0;
+            padding-left: 20px;
+        }
+
+        .step-number {
+            display: inline-block;
+            background: var(--primary-accent);
+            color: white;
+            width: 25px;
+            height: 25px;
+            border-radius: 50%;
+            text-align: center;
+            line-height: 25px;
+            margin-right: 10px;
+            font-weight: bold;
+        }
+
+        .practice-section {
+            background: #fff9e6;
+            padding: 25px;
+            border-radius: 10px;
+            margin: 25px 0;
+        }
+
+        .problem {
+            background: white;
+            padding: 15px;
+            border-radius: 5px;
+            border: 1px solid #ddd;
+            margin: 15px 0;
+        }
+
+        .problem-label {
+            color: var(--primary-accent);
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
+        .answer-reveal {
+            background: #e6ffe6;
+            padding: 15px;
+            margin-top: 10px;
+            border-radius: 5px;
+            display: none;
+        }
+
+        .show-answer-btn {
+            background: var(--secondary-accent);
+            color: white;
+            border: none;
+            padding: 8px 15px;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-top: 10px;
+        }
+
+        .show-answer-btn:hover {
+            background: var(--primary-accent);
+        }
+
+        .chain-visual {
+            background: #e3f2fd;
+            padding: 20px;
+            border-radius: 10px;
+            margin: 20px 0;
+            border: 2px solid #2196f3;
+        }
+
+        .navigation-buttons {
+            display: flex;
+            justify-content: space-between;
+            margin: 30px 0;
+            padding: 20px 0;
+            border-top: 2px solid var(--border-color);
+        }
+
+        .nav-btn {
+            padding: 12px 25px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: all 0.3s ease;
+        }
+
+        .nav-btn-primary {
+            background: var(--primary-accent);
+            color: white;
+        }
+
+        .nav-btn-secondary {
+            background: var(--background-light);
+            color: var(--text-primary);
+            border: 2px solid var(--border-color);
+        }
+
+        .nav-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+        }
+    </style>
+</head>
+<body>
+    <header class="page-header">
+        <div class="header-content">
+            <h1>📐 NZ Math Hub</h1>
+            <p>Lesson 8: Related Rates of Change</p>
+        </div>
+    </header>
+
+    <main class="main-content">
+        <div class="section-container">
+            <nav class="breadcrumb">
+                <a href="../../index.html">Home</a> → 
+                <a href="../../year13.html">Year 13</a> → 
+                <a href="index.html">3.6 Differentiation</a> → 
+                <span>Lesson 8</span>
+            </nav>
+
+            <!-- Introduction -->
+            <section class="content-section">
+                <h2>Connecting Rates of Change</h2>
+                <p>Related rates problems involve finding how one quantity changes with respect to time, when we know how another related quantity changes with respect to time.</p>
+
+                <!-- The Rule -->
+                <div class="rule-box">
+                    <h3 style="color: white; margin-top: 0;">Chain Rule for Related Rates</h3>
+                    <p style="font-size: 1.2em; margin: 20px 0;">
+                        If $y$ depends on $x$, and $x$ depends on $t$ (time), then:
+                    </p>
+                    <p style="font-size: 1.3em; text-align: center; margin: 20px 0;">
+                        $$\frac{dy}{dt} = \frac{dy}{dx} \times \frac{dx}{dt}$$
+                    </p>
+                    <ol style="line-height: 2; margin-top: 20px;">
+                        <li><strong>Identify variables:</strong> What changes with time?</li>
+                        <li><strong>Find the relationship:</strong> Connect variables with an equation</li>
+                        <li><strong>Differentiate:</strong> Apply chain rule</li>
+                        <li><strong>Substitute values:</strong> Use given information</li>
+                    </ol>
+                </div>
+
+                <div class="chain-visual">
+                    <h4 style="margin-top: 0;">Understanding the Chain</h4>
+                    <p style="text-align: center; font-size: 1.1em; margin: 15px 0;">
+                        <strong>Rate of change of $y$ with time</strong> = 
+                        <strong>Rate of change of $y$ with $x$</strong> × 
+                        <strong>Rate of change of $x$ with time</strong>
+                    </p>
+                    <p style="margin-top: 15px;"><em>Think: "How fast is $y$ changing?" depends on "How fast is $x$ changing?" and "How sensitive is $y$ to changes in $x$?"</em></p>
+                </div>
+            </section>
+
+            <!-- Worked Examples -->
+            <section class="content-section section-light">
+                <h2>Worked Examples</h2>
+
+                <div class="accordion-example">
+                    <h3>Example 1: Expanding Circle</h3>
+                    
+                    <div class="example-question">
+                        <strong>Question:</strong> The radius of a circle increases at 2 cm/s. Find the rate of increase of the area when $r = 5$ cm.
+                    </div>
+                    
+                    <div class="accordion-step">
+                        <div class="accordion-header" onclick="toggleAccordion(this)">
+                            <span class="step-label">Step 1: Given information</span>
+                            <span class="accordion-toggle">▼</span>
+                        </div>
+                        <div class="accordion-content">
+                            <div class="step-math">$\frac{dr}{dt} = 2$ cm/s, $r = 5$ cm</div>
+                        </div>
+                    </div>
+                    
+                    <div class="accordion-step">
+                        <div class="accordion-header" onclick="toggleAccordion(this)">
+                            <span class="step-label">Step 2: Relationship</span>
+                            <span class="accordion-toggle">▼</span>
+                        </div>
+                        <div class="accordion-content">
+                            <div class="step-math">$A = \pi r^2$</div>
+                        </div>
+                    </div>
+                    
+                    <div class="accordion-step">
+                        <div class="accordion-header" onclick="toggleAccordion(this)">
+                            <span class="step-label">Step 3: Differentiate with respect to time</span>
+                            <span class="accordion-toggle">▼</span>
+                        </div>
+                        <div class="accordion-content">
+                            <div class="step-math">$\frac{dA}{dt} = \frac{dA}{dr} \times \frac{dr}{dt}$</div>
+                        </div>
+                    </div>
+                    
+                    <div class="accordion-step">
+                        <div class="accordion-header" onclick="toggleAccordion(this)">
+                            <span class="step-label">Step 4: Find $\frac{dA}{dr}$</span>
+                            <span class="accordion-toggle">▼</span>
+                        </div>
+                        <div class="accordion-content">
+                            <div class="step-math">$\frac{dA}{dr} = 2\pi r$</div>
+                        </div>
+                    </div>
+                    
+                    <div class="accordion-step">
+                        <div class="accordion-header" onclick="toggleAccordion(this)">
+                            <span class="step-label"><strong>✓ Answer: Substitute</strong></span>
+                            <span class="accordion-toggle">▼</span>
+                        </div>
+                        <div class="accordion-content">
+                            <div class="step-math">$\frac{dA}{dt} = 2\pi r \times 2 = 4\pi r$</div>
+                            <div class="step-explanation">At $r = 5$: $\frac{dA}{dt} = 4\pi(5) = 20\pi$ cm²/s $\approx 62.8$ cm²/s</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="accordion-example">
+                    <h3>Example 2: Expanding Cube</h3>
+                    
+                    <div class="example-question">
+                        <strong>Question:</strong> Each edge of a cube increases at 0.5 cm/s. Find the rate of increase of volume when edge length is 4 cm.
+                    </div>
+                    
+                    <div class="accordion-step">
+                        <div class="accordion-header" onclick="toggleAccordion(this)">
+                            <span class="step-label">Step 1: Given</span>
+                            <span class="accordion-toggle">▼</span>
+                        </div>
+                        <div class="accordion-content">
+                            <div class="step-math">$\frac{dx}{dt} = 0.5$ cm/s, $x = 4$ cm (edge length)</div>
+                        </div>
+                    </div>
+                    
+                    <div class="accordion-step">
+                        <div class="accordion-header" onclick="toggleAccordion(this)">
+                            <span class="step-label">Step 2: Relationship</span>
+                            <span class="accordion-toggle">▼</span>
+                        </div>
+                        <div class="accordion-content">
+                            <div class="step-math">$V = x^3$</div>
+                        </div>
+                    </div>
+                    
+                    <div class="accordion-step">
+                        <div class="accordion-header" onclick="toggleAccordion(this)">
+                            <span class="step-label">Step 3: Chain rule</span>
+                            <span class="accordion-toggle">▼</span>
+                        </div>
+                        <div class="accordion-content">
+                            <div class="step-math">$\frac{dV}{dt} = \frac{dV}{dx} \times \frac{dx}{dt}$</div>
+                        </div>
+                    </div>
+                    
+                    <div class="accordion-step">
+                        <div class="accordion-header" onclick="toggleAccordion(this)">
+                            <span class="step-label">Step 4: Differentiate</span>
+                            <span class="accordion-toggle">▼</span>
+                        </div>
+                        <div class="accordion-content">
+                            <div class="step-math">$\frac{dV}{dx} = 3x^2$</div>
+                        </div>
+                    </div>
+                    
+                    <div class="accordion-step">
+                        <div class="accordion-header" onclick="toggleAccordion(this)">
+                            <span class="step-label"><strong>✓ Answer: Calculate</strong></span>
+                            <span class="accordion-toggle">▼</span>
+                        </div>
+                        <div class="accordion-content">
+                            <div class="step-math">$\frac{dV}{dt} = 3x^2 \times 0.5 = 1.5x^2$</div>
+                            <div class="step-explanation">At $x = 4$: $\frac{dV}{dt} = 1.5(16) = 24$ cm³/s</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="accordion-example">
+                    <h3>Example 3: Water Draining from Tank</h3>
+                    
+                    <div class="example-question">
+                        <strong>Question:</strong> Water drains from a spherical tank. When radius of water surface is 3 m, it's decreasing at 0.1 m/s. Find rate of volume decrease. ($V = \frac{4}{3}\pi r^3$)
+                    </div>
+                    
+                    <div class="accordion-step">
+                        <div class="accordion-header" onclick="toggleAccordion(this)">
+                            <span class="step-label">Step 1: Given</span>
+                            <span class="accordion-toggle">▼</span>
+                        </div>
+                        <div class="accordion-content">
+                            <div class="step-math">$\frac{dr}{dt} = -0.1$ m/s (negative because decreasing), $r = 3$ m</div>
+                        </div>
+                    </div>
+                    
+                    <div class="accordion-step">
+                        <div class="accordion-header" onclick="toggleAccordion(this)">
+                            <span class="step-label">Step 2: Relationship</span>
+                            <span class="accordion-toggle">▼</span>
+                        </div>
+                        <div class="accordion-content">
+                            <div class="step-math">$V = \frac{4}{3}\pi r^3$</div>
+                        </div>
+                    </div>
+                    
+                    <div class="accordion-step">
+                        <div class="accordion-header" onclick="toggleAccordion(this)">
+                            <span class="step-label">Step 3: Differentiate</span>
+                            <span class="accordion-toggle">▼</span>
+                        </div>
+                        <div class="accordion-content">
+                            <div class="step-math">$\frac{dV}{dr} = \frac{4}{3}\pi \cdot 3r^2 = 4\pi r^2$</div>
+                        </div>
+                    </div>
+                    
+                    <div class="accordion-step">
+                        <div class="accordion-header" onclick="toggleAccordion(this)">
+                            <span class="step-label">Step 4: Apply chain rule</span>
+                            <span class="accordion-toggle">▼</span>
+                        </div>
+                        <div class="accordion-content">
+                            <div class="step-math">$\frac{dV}{dt} = 4\pi r^2 \times \frac{dr}{dt}$</div>
+                        </div>
+                    </div>
+                    
+                    <div class="accordion-step">
+                        <div class="accordion-header" onclick="toggleAccordion(this)">
+                            <span class="step-label"><strong>✓ Answer: Calculate</strong></span>
+                            <span class="accordion-toggle">▼</span>
+                        </div>
+                        <div class="accordion-content">
+                            <div class="step-math">$\frac{dV}{dt} = 4\pi(3)^2 \times (-0.1) = -3.6\pi$ m³/s</div>
+                            <div class="step-explanation">Volume decreasing at $3.6\pi \approx 11.3$ m³/s</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="accordion-example">
+                    <h3>Example 4: Ladder Sliding Down Wall</h3>
+                    
+                    <div class="example-question">
+                        <strong>Question:</strong> A 5 m ladder leans against a wall. The bottom slides away at 0.5 m/s. How fast is the top sliding down when the bottom is 3 m from the wall?
+                    </div>
+                    
+                    <div class="accordion-step">
+                        <div class="accordion-header" onclick="toggleAccordion(this)">
+                            <span class="step-label">Step 1: Variables</span>
+                            <span class="accordion-toggle">▼</span>
+                        </div>
+                        <div class="accordion-content">
+                            <div class="step-explanation">$x$ = distance from wall (bottom), $y$ = height up wall (top)</div>
+                            <div class="step-explanation">Given: $\frac{dx}{dt} = 0.5$ m/s, $x = 3$ m, ladder length = 5 m</div>
+                        </div>
+                    </div>
+                    
+                    <div class="accordion-step">
+                        <div class="accordion-header" onclick="toggleAccordion(this)">
+                            <span class="step-label">Step 2: Relationship (Pythagoras)</span>
+                            <span class="accordion-toggle">▼</span>
+                        </div>
+                        <div class="accordion-content">
+                            <div class="step-math">$x^2 + y^2 = 25$</div>
+                        </div>
+                    </div>
+                    
+                    <div class="accordion-step">
+                        <div class="accordion-header" onclick="toggleAccordion(this)">
+                            <span class="step-label">Step 3: Find $y$ when $x = 3$</span>
+                            <span class="accordion-toggle">▼</span>
+                        </div>
+                        <div class="accordion-content">
+                            <div class="step-math">$9 + y^2 = 25$, so $y = 4$ m</div>
+                        </div>
+                    </div>
+                    
+                    <div class="accordion-step">
+                        <div class="accordion-header" onclick="toggleAccordion(this)">
+                            <span class="step-label">Step 4: Differentiate with respect to $t$</span>
+                            <span class="accordion-toggle">▼</span>
+                        </div>
+                        <div class="accordion-content">
+                            <div class="step-math">$2x\frac{dx}{dt} + 2y\frac{dy}{dt} = 0$</div>
+                        </div>
+                    </div>
+                    
+                    <div class="accordion-step">
+                        <div class="accordion-header" onclick="toggleAccordion(this)">
+                            <span class="step-label"><strong>✓ Answer: Solve for $\frac{dy}{dt}$</strong></span>
+                            <span class="accordion-toggle">▼</span>
+                        </div>
+                        <div class="accordion-content">
+                            <div class="step-math">$2(3)(0.5) + 2(4)\frac{dy}{dt} = 0$</div>
+                            <div class="step-math">$3 + 8\frac{dy}{dt} = 0$</div>
+                            <div class="step-math">$\frac{dy}{dt} = -\frac{3}{8} = -0.375$ m/s</div>
+                            <div class="step-explanation">Top sliding down at 0.375 m/s</div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Minimal Change Practice -->
+            <section class="content-section">
+                <h2>Practice: Minimal Change</h2>
+                
+                <div class="practice-section">
+                    <h3>Set 1: Circle - varying the rate</h3>
+                    <p><em>Radius increases at different rates, find $\frac{dA}{dt}$ when $r = 10$ cm</em></p>
+                    
+                    <div class="problem">
+                        <div class="problem-label">a) $\frac{dr}{dt} = 1$ cm/s, $r = 10$ cm. Find $\frac{dA}{dt}$</div>
+                        <button class="show-answer-btn" onclick="toggleAnswer(this)">Show Answer</button>
+                        <div class="answer-reveal">
+                            $A = \pi r^2$, so $\frac{dA}{dr} = 2\pi r$<br>
+                            $\frac{dA}{dt} = 2\pi r \times \frac{dr}{dt} = 2\pi(10)(1) = 20\pi$ cm²/s
+                        </div>
+                    </div>
+                    
+                    <div class="problem">
+                        <div class="problem-label">b) $\frac{dr}{dt} = 2$ cm/s, $r = 10$ cm. Find $\frac{dA}{dt}$</div>
+                        <button class="show-answer-btn" onclick="toggleAnswer(this)">Show Answer</button>
+                        <div class="answer-reveal">
+                            $\frac{dA}{dt} = 2\pi r \times \frac{dr}{dt} = 2\pi(10)(2) = 40\pi$ cm²/s
+                        </div>
+                    </div>
+                    
+                    <div class="problem">
+                        <div class="problem-label">c) $\frac{dr}{dt} = 3$ cm/s, $r = 10$ cm. Find $\frac{dA}{dt}$</div>
+                        <button class="show-answer-btn" onclick="toggleAnswer(this)">Show Answer</button>
+                        <div class="answer-reveal">
+                            $\frac{dA}{dt} = 2\pi r \times \frac{dr}{dt} = 2\pi(10)(3) = 60\pi$ cm²/s
+                        </div>
+                    </div>
+                </div>
+
+                <div class="practice-section">
+                    <h3>Set 2: Circle - varying the radius</h3>
+                    <p><em>Radius increases at 2 cm/s, find $\frac{dA}{dt}$ at different radii</em></p>
+                    
+                    <div class="problem">
+                        <div class="problem-label">a) $\frac{dr}{dt} = 2$ cm/s, $r = 5$ cm. Find $\frac{dA}{dt}$</div>
+                        <button class="show-answer-btn" onclick="toggleAnswer(this)">Show Answer</button>
+                        <div class="answer-reveal">
+                            $\frac{dA}{dt} = 2\pi r \times 2 = 4\pi(5) = 20\pi$ cm²/s
+                        </div>
+                    </div>
+                    
+                    <div class="problem">
+                        <div class="problem-label">b) $\frac{dr}{dt} = 2$ cm/s, $r = 10$ cm. Find $\frac{dA}{dt}$</div>
+                        <button class="show-answer-btn" onclick="toggleAnswer(this)">Show Answer</button>
+                        <div class="answer-reveal">
+                            $\frac{dA}{dt} = 4\pi(10) = 40\pi$ cm²/s
+                        </div>
+                    </div>
+                    
+                    <div class="problem">
+                        <div class="problem-label">c) $\frac{dr}{dt} = 2$ cm/s, $r = 15$ cm. Find $\frac{dA}{dt}$</div>
+                        <button class="show-answer-btn" onclick="toggleAnswer(this)">Show Answer</button>
+                        <div class="answer-reveal">
+                            $\frac{dA}{dt} = 4\pi(15) = 60\pi$ cm²/s
+                        </div>
+                    </div>
+                </div>
+
+                <div class="practice-section">
+                    <h3>Set 3: Cube - varying dimensions</h3>
+                    <p><em>Edge increases at 1 cm/s, find $\frac{dV}{dt}$ at different sizes</em></p>
+                    
+                    <div class="problem">
+                        <div class="problem-label">a) $\frac{dx}{dt} = 1$ cm/s, $x = 2$ cm. Find $\frac{dV}{dt}$</div>
+                        <button class="show-answer-btn" onclick="toggleAnswer(this)">Show Answer</button>
+                        <div class="answer-reveal">
+                            $V = x^3$, so $\frac{dV}{dx} = 3x^2$<br>
+                            $\frac{dV}{dt} = 3x^2 \times 1 = 3(2)^2 = 12$ cm³/s
+                        </div>
+                    </div>
+                    
+                    <div class="problem">
+                        <div class="problem-label">b) $\frac{dx}{dt} = 1$ cm/s, $x = 3$ cm. Find $\frac{dV}{dt}$</div>
+                        <button class="show-answer-btn" onclick="toggleAnswer(this)">Show Answer</button>
+                        <div class="answer-reveal">
+                            $\frac{dV}{dt} = 3(3)^2 = 27$ cm³/s
+                        </div>
+                    </div>
+                    
+                    <div class="problem">
+                        <div class="problem-label">c) $\frac{dx}{dt} = 1$ cm/s, $x = 5$ cm. Find $\frac{dV}{dt}$</div>
+                        <button class="show-answer-btn" onclick="toggleAnswer(this)">Show Answer</button>
+                        <div class="answer-reveal">
+                            $\frac{dV}{dt} = 3(5)^2 = 75$ cm³/s
+                        </div>
+                    </div>
+                </div>
+
+                <div class="practice-section">
+                    <h3>Set 4: Application problems</h3>
+                    
+                    <div class="problem">
+                        <div class="problem-label">a) A square's side increases at 3 cm/s. Find rate of area increase when side is 4 cm.</div>
+                        <button class="show-answer-btn" onclick="toggleAnswer(this)">Show Answer</button>
+                        <div class="answer-reveal">
+                            $A = x^2$, so $\frac{dA}{dx} = 2x$<br>
+                            $\frac{dA}{dt} = 2x \times 3 = 2(4)(3) = 24$ cm²/s
+                        </div>
+                    </div>
+                    
+                    <div class="problem">
+                        <div class="problem-label">b) Surface area of sphere: $S = 4\pi r^2$. Find $\frac{dS}{dt}$ when $r = 6$ cm and $\frac{dr}{dt} = 0.5$ cm/s.</div>
+                        <button class="show-answer-btn" onclick="toggleAnswer(this)">Show Answer</button>
+                        <div class="answer-reveal">
+                            $\frac{dS}{dr} = 8\pi r$<br>
+                            $\frac{dS}{dt} = 8\pi r \times 0.5 = 4\pi(6) = 24\pi$ cm²/s
+                        </div>
+                    </div>
+                    
+                    <div class="problem">
+                        <div class="problem-label">c) A 10 m ladder against wall. Bottom slides at 0.4 m/s. Find $\frac{dy}{dt}$ when $x = 6$ m.</div>
+                        <button class="show-answer-btn" onclick="toggleAnswer(this)">Show Answer</button>
+                        <div class="answer-reveal">
+                            $x^2 + y^2 = 100$. When $x = 6$: $y = 8$<br>
+                            $2x\frac{dx}{dt} + 2y\frac{dy}{dt} = 0$<br>
+                            $2(6)(0.4) + 2(8)\frac{dy}{dt} = 0$<br>
+                            $\frac{dy}{dt} = -\frac{4.8}{16} = -0.3$ m/s
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Key Points -->
+            <section class="content-section section-light">
+                <h2>Key Points to Remember</h2>
+                <div style="background: #f8f9fa; border-left: 4px solid var(--primary-accent); padding: 20px; border-radius: 5px;">
+                    <ul style="line-height: 2;">
+                        <li>✓ <strong>Chain rule is key:</strong> $\frac{dy}{dt} = \frac{dy}{dx} \times \frac{dx}{dt}$</li>
+                        <li>✓ Identify what's changing and what you need to find</li>
+                        <li>✓ Find the relationship between variables (formula)</li>
+                        <li>✓ Differentiate with respect to time using chain rule</li>
+                        <li>✓ Watch for <strong>negative rates</strong> (decreasing quantities)</li>
+                        <li>✓ Units matter: check your answer makes sense</li>
+                    </ul>
+                </div>
+            </section>
+
+            <!-- Navigation -->
+            <div class="navigation-buttons">
+                <a href="lesson7.html" class="nav-btn nav-btn-secondary">← Previous: Points of Inflection</a>
+                <a href="lesson9.html" class="nav-btn nav-btn-primary">Next: Optimisation →</a>
+            </div>
+        </div>
+    </main>
+
+    <footer class="page-footer">
+        <p>&copy; 2026 NZ Math Hub. Supporting mathematics education in New Zealand.</p>
+    </footer>
+
+    <!-- KaTeX Scripts -->
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js" integrity="sha384-XjKyOOlGwcjNTAIQHIpgOno0Hl1YQqzUOEleOLALmuqehneUG+vnGctmUb0ZY0l8" crossorigin="anonymous"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js" integrity="sha384-+VBxd3r6XgURycqtZ117nYw44OOcIax56Z4dCRWbxyPt0Koah1uHoK0o4+/RRE05" crossorigin="anonymous"
+        onload="renderMathInElement(document.body, {delimiters: [{left: '$$', right: '$$', display: true}, {left: '$', right: '$', display: false}]});"></script>
+    
+    <script>
+        function toggleAccordion(header) {
+            const step = header.parentElement;
+            const content = header.nextElementSibling;
+            const isOpen = header.classList.contains('active');
+            
+            // Toggle this accordion
+            header.classList.toggle('active');
+            content.classList.toggle('open');
+            
+            // Mark as completed when opened
+            if (!isOpen) {
+                step.classList.add('completed');
+            }
+            
+            // Re-render math in opened content
+            if (content.classList.contains('open') && typeof renderMathInElement !== 'undefined') {
+                renderMathInElement(content, {
+                    delimiters: [
+                        {left: '$$', right: '$$', display: true},
+                        {left: '$', right: '$', display: false}
+                    ],
+                    throwOnError: false
+                });
+            }
+        }
+        
+        function toggleAnswer(button) {
+            const answerDiv = button.nextElementSibling;
+            if (answerDiv.style.display === 'none' || answerDiv.style.display === '') {
+                answerDiv.style.display = 'block';
+                button.textContent = 'Hide Answer';
+                button.style.background = '#000';
+                if (typeof renderMathInElement !== 'undefined') {
+                    renderMathInElement(answerDiv, {delimiters: [{left: '$$', right: '$$', display: true}, {left: '$', right: '$', display: false}]});
+                }
+            } else {
+                answerDiv.style.display = 'none';
+                button.textContent = 'Show Answer';
+                button.style.background = '';
+            }
+        }
+    </script>
+</body>
+</html>
